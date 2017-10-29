@@ -2,9 +2,9 @@
 /*
 	File: fn_robStore.sqf
 	Author: DomT602 (domt602@gmail.com)
-	Description: Custom robbery, get paid periodically, params come from NPC init line
+	Description: Robs a store, variables can be customized via the NPC init line
 	NPC init line: this addAction["Rob Store",life_fnc_robStore,[totalAttempts,totalTime,totalFunds,'store name']];
-    To-do: Add to functions.hpp, add to NPC's, define rob_store_cops in config_master (5.0 onwards), before that just replace (LIFE_SETTINGS(getNumber,"rob_store_cops")) with minimum cops you want
+    To-do: Place file in core/actions, add to functions.hpp, add to NPC's, define rob_store_cops in config_master (5.0 onwards), before that just replace (LIFE_SETTINGS(getNumber,"rob_store_cops")) with minimum cops you want
 */
 params [
 	["_target",objNull,[objNull]],
@@ -14,13 +14,13 @@ params [
 ];
 
 _arguments params [
-    ["_attempts",10,[0]]
+    ["_attempts",10,[0]],
 	["_totalTime",50,[0]],
 	["_totalCash",500,[0]],
 	["_name","",[""]]
 ];
 
-if ((west countSide playableUnits) < (LIFE_SETTINGS(getNumber,"rob_store_cops"))) exitWith {hint "Not enough cops on";};
+if ((west countSide playableUnits) < (LIFE_SETTINGS(getNumber,"rob_store_cops"))) exitWith {hint "Not enough cops on"};
 if (currentWeapon player isEqualTo "" || {currentWeapon player isEqualTo "Binocular"} || {currentWeapon player isEqualTo "Rangefinder"} || {!isNull objectParent player}) exitWith {};
 
 private _time = round(_totalTime / _attempts);
