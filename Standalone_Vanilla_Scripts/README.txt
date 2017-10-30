@@ -2,3 +2,6 @@ Scripts in here will be vanilla ArmA and standalone, meaning they can work on th
 
 fn_robStore is a robbery script which works by paying you out smaller amounts as the robbery continues, instead of a lump sum at the end.
 The total attempts (ticks of being paid), total money, total time and the name of the store are defined via the NPC init line.
+
+fn_tearGas is a script allowing you to use yellow smoke grenades as teargas, causing a blurred effect, as well as a camera shake effect and volume changes.
+You can customise it by changing the values for each of the effects, check BIwiki for more info.
