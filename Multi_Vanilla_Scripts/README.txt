@@ -1,0 +1,2 @@
+Scripts in here will be vanilla ArmA, however multiple files and more work will be needed to make them work.
+Each folder will have all scripts needed to make the system work, and a readme file with instructions on how to get it working, and a brief description of the system as a whole.
