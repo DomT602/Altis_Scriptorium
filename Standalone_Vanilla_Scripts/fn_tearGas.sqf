@@ -2,7 +2,7 @@
 	File: fn_tearGas.sqf
 	Author: DomT602 (domt602@gmail.com)
 	Description: Uses a yellow smoke grenade as teargas, if your wearing a mask, you are not affected by it, this can be customised by chaning ppeffect values, and camera shake values
-    To-do: Place file where you want (default core/cop)
+    To-do: Place file where you want (default core/cop), add to functions.hpp
     Add this to fn_onFired.sqf:
     if (_ammoType isEqualTo "SmokeShellYellow") then {
         [_projectile] remoteExec ["MRP_fnc_teargas",-2];
