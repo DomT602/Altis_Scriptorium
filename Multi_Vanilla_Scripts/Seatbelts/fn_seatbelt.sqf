@@ -1,6 +1,6 @@
 /*
 	File: fn_seatbelt.sqf
-	Author: Dom (domt602@gmail.com)
+	Author: DomT602 (domt602@gmail.com)
 	Description: Simple script to switch seatbelt state
 */
 //playSound "seatbelt"; need to find a sound

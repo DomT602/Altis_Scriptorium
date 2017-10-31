@@ -1,6 +1,6 @@
 /*
 	File: fn_onGetOutMan.sqf
-	Author: Dom (domt602@gmail.com)
+	Author: DomT602 (domt602@gmail.com)
 	Description: Fires when a unit hops out a car, handles seatbelt functionality
 */
 params [
