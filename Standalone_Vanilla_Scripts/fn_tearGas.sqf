@@ -5,7 +5,7 @@
     To-do: Place file where you want (default core/cop), add to functions.hpp
     Add this to fn_onFired.sqf:
     if (_ammoType isEqualTo "SmokeShellYellow") then {
-        [_projectile] remoteExec ["MRP_fnc_teargas",-2];
+        [_projectile] remoteExec ["life_fnc_teargas",-2];
     };
     Add this to CfgRemoteExec
     F(life_fnc_tearGas,CLIENT)

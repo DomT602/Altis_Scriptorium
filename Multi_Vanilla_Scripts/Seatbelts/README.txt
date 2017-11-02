@@ -5,7 +5,7 @@ Setup:
 Download files from github
 Put fn_onGetOutMan.sqf and fn_seatbelt.sqf into the desired folder (default core/functions)
 Add fn_onGetOutMan.sqf and fn_seatbelt.sqf onto functions.hpp
-In fn_setupEVH.sqf: player addEventHandler ["GetOutMan",{_this spawn life_fnc_onGetOutMan}];
+In fn_setupEVH.sqf add: player addEventHandler ["GetOutMan",{_this spawn life_fnc_onGetOutMan}];
 In configuration.sqf add life_seatbelt = false;
 Find a sound for the seatbelt (optional)
 Decide whether you want seatbelts to be a keybind, or a scroll wheel action:
