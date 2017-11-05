@@ -31,16 +31,14 @@ _target removeAction _ID;
 
 for "_i" from 0 to 1 step (_attempts - 1) do {
     uiSleep _time;
-    if (!alive player) exitWith {
-    	_target addAction["Rob Store",life_fnc_robStore,[_attempts,_totalTime,_totalCash,_name]];
-    };
+    if (!alive player) exitWith {};
     if (player distance _target >= 10 || {!isNull objectParent player} || {currentWeapon player isEqualTo ""} || {currentWeapon player isEqualTo "Binocular"} || {currentWeapon player isEqualTo "Rangefinder"}) exitWith {
         hint "Robbery stopped.";
         uiSleep _time;
-        _target addAction["Rob Store",life_fnc_robStore,[_attempts,_totalTime,_totalCash,_name]];
     };
     hint format["You stole %1.",_cash];
     CASH = CASH + _cash;
 };
 
 [0] call SOCK_fnc_updatePartial;
+_target addAction["Rob Store",life_fnc_robStore,[_attempts,_totalTime,_totalCash,_name]];
