@@ -1,6 +1,6 @@
 /*
     File: fn_checkMap.sqf
-    Author: DomT602
+    Author: DomT602 (domt602@gmail.com)
     Description: Checks if the map is being opened or closed, then puts markers of tracked people.
 */
 

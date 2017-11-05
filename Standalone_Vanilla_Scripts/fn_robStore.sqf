@@ -3,7 +3,8 @@
 	File: fn_robStore.sqf
 	Author: DomT602 (domt602@gmail.com)
 	Description: Robs a store, variables can be customized via the NPC init line
-	NPC init line: this addAction["Rob Store",life_fnc_robStore,[totalAttempts,totalTime,totalFunds,'store name']];
+	NPC init line format: this addAction["Rob Store",life_fnc_robStore,[totalAttempts,totalTime,totalFunds,"store name"]];
+				e.g: this addAction["Rob Store",life_fnc_robStore,[10,50,15000,"Kavala General Store"]];
     To-do: Place file in core/actions, add to functions.hpp, add to NPC's, define rob_store_cops in config_master (5.0 onwards), before that just replace (LIFE_SETTINGS(getNumber,"rob_store_cops")) with minimum cops you want
 */
 params [
@@ -33,7 +34,7 @@ for "_i" from 0 to 1 step (_attempts - 1) do {
     if (!alive player) exitWith {
     	_target addAction["Rob Store",life_fnc_robStore,[_attempts,_totalTime,_totalCash,_name]];
     };
-    if (player distance _target >= 10 || {!isNull objectParent player} || {currentWeapon player isEqualTo ""} || {currentWeapon player isEqualTo "Binocular"} || {currentWeapon player isEqualTo "Rangefinder"}) exitwith {
+    if (player distance _target >= 10 || {!isNull objectParent player} || {currentWeapon player isEqualTo ""} || {currentWeapon player isEqualTo "Binocular"} || {currentWeapon player isEqualTo "Rangefinder"}) exitWith {
         hint "Robbery stopped.";
         uiSleep _time;
         _target addAction["Rob Store",life_fnc_robStore,[_attempts,_totalTime,_totalCash,_name]];
