@@ -38,7 +38,7 @@ for "_i" from 0 to (_attempts - 1) step 1 do {
     };
     hint format["You stole %1.",_cash];
     CASH = CASH + _cash;
-    if (_i isEqualTo (_attempts - 1) exitWith {uiSleep (_time * 5)};
+    if (_i isEqualTo (_attempts - 1)) exitWith {uiSleep (_time * 5)};
 };
 
 [0] call SOCK_fnc_updatePartial;
