@@ -29,7 +29,7 @@ private _cash = round(_totalCash / _attempts);
 [1,format["Robbery in progress at %1.",_name]] remoteExecCall ["life_fnc_broadcast",west];
 _target removeAction _ID;
 
-for "_i" from 0 to 1 step (_attempts - 1) do {
+for "_i" from 0 to (_attempts - 1) step 1 do {
     uiSleep _time;
     if (!alive player) exitWith {};
     if (player distance _target >= 10 || {!isNull objectParent player} || {currentWeapon player isEqualTo ""} || {currentWeapon player isEqualTo "Binocular"} || {currentWeapon player isEqualTo "Rangefinder"}) exitWith {
@@ -38,6 +38,7 @@ for "_i" from 0 to 1 step (_attempts - 1) do {
     };
     hint format["You stole %1.",_cash];
     CASH = CASH + _cash;
+    if (_i isEqualTo (_attempts - 1) exitWith {uiSleep (_time * 5)};
 };
 
 [0] call SOCK_fnc_updatePartial;
