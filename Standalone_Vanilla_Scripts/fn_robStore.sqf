@@ -10,9 +10,10 @@
 params [
 	["_target",objNull,[objNull]],
 	["_caller",objNull,[objNull]],
-	["_ID",0,[0]],
+	["_ID",-1,[0]],
 	["_arguments",[10,50,500,""],[[]]]
 ];
+if (isNull _target || {isNull _caller} || {_ID isEqualTo -1}) exitWith {};
 
 _arguments params [
     ["_attempts",10,[0]],
