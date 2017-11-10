@@ -3,6 +3,9 @@
 	File: fn_playerTags.sqf
 	Author: DomT602 (domt602@gmail.com)
 	Description: Displays the name of the player, and then the name of the gang, or rank in a faction, aswell as a corresponding icon
+	To-do: Place files in desired location, default (core/functions), add to functions.hpp, add following to core/init.sqf:
+		["DT_playerTags","onEachFrame","life_fnc_playerTags"] call BIS_fnc_addStackedEventHandler;
+	Populate donator colours fully, change cop/medic icons, ranks and colours if needed
 */
 
 private _units = nearestObjects[(visiblePositionASL player),["Man"],10];
@@ -47,25 +50,6 @@ private _masks = LIFE_SETTINGS(getArray,"clothing_masks");
 				case 5: {[1,1,1,1]};
 				default {[1,1,1,1]};
 			};
-
-			/*private _uid = getPlayerUID _x;
-			private _name = "";
-			private _DBid = _x getVariable ["DBid",-1];
-
-			{
-			    _x params [
-			    	["_sUID","",[""]],
-			    	["_sName","",[""]]
-			    ];
-
-			    if (_sUID isEqualTo _uid) exitWith {_name = _sName};
-			} forEach (profileNamespace getVariable "DT_Names");
-
-			_name = if !(_name isEqualto "") then {
-			    format["%1 - %2",_DBid,_name];
-			} else {
-			    format["%1 - Unknown",_DBid];
-			};*/
 
 			drawIcon3D [_picture, _pColour, [_xPos,_yPos,2.1], 1.5, 1.5, 0, _text, 1, 0.04, "PuristaBold", "center"];
 			drawIcon3D ["", _sColour, [_xPos,_yPos,2], 0, 0, 0, (name _x), 1, 0.04, "PuristaBold", "center"];
