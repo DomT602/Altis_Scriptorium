@@ -6,6 +6,7 @@
 	To-do: Place files in desired location, default (core/functions), add to functions.hpp, add following to core/init.sqf:
 		["DT_playerTags","onEachFrame","life_fnc_playerTags"] call BIS_fnc_addStackedEventHandler;
 	Populate donator colours fully, change cop/medic icons, ranks and colours if needed
+	WORK IN PROGRESS
 */
 
 private _units = nearestObjects[(visiblePositionASL player),["Man"],10];
@@ -13,7 +14,7 @@ _units = _units - [player]; //remove this if you want to see your own player tag
 private _masks = LIFE_SETTINGS(getArray,"clothing_masks");
 
 {
-	if (isPlayer _x && {!(lineIntersects[eyePos player,eyePos _x,player,_x])}) then {
+	if (isPlayer _x && {alive _x} && {!(lineIntersects[eyePos player,eyePos _x,player,_x])}) then {
 		if !((headgear _x) in _masks || (goggles _x) in _masks || (uniform _x) in _masks) then {
 			private _data = switch (side _x) do {
 				case west: {
@@ -40,7 +41,7 @@ private _masks = LIFE_SETTINGS(getArray,"clothing_masks");
 				};
 			};
 			_data params [["_picture","",[""]],["_text","",[""]],["_pColour",[0,0,1,1],[[]]]];
-			(getPosASL _x) params ["_xPos","_yPos"];
+			(visiblePositionASL _x) params ["_xPos","_yPos"];
 
 			private _sColour = switch (_x getVariable ["donorlevel",0]) do {
 				case 1: {[0.8,0.5,0.2,1]};
@@ -51,8 +52,8 @@ private _masks = LIFE_SETTINGS(getArray,"clothing_masks");
 				default {[1,1,1,1]};
 			};
 
-			drawIcon3D [_picture, _pColour, [_xPos,_yPos,2.1], 1.5, 1.5, 0, _text, 1, 0.04, "PuristaBold", "center"];
-			drawIcon3D ["", _sColour, [_xPos,_yPos,2], 0, 0, 0, (name _x), 1, 0.04, "PuristaBold", "center"];
+			drawIcon3D [_picture, _pColour, [_xPos,_yPos,((_x modelToWorld (_x selectionPosition "head")) select 2) + .5], 1.5, 1.5, 0, _text, 1, 0.04, "PuristaBold", "center"];
+			drawIcon3D ["", _sColour, [_xPos,_yPos,((_x modelToWorld (_x selectionPosition "head")) select 2) + .4], 0, 0, 0, (name _x), 1, 0.04, "PuristaBold", "center"];
 		};
 	};
 } forEach _units;
