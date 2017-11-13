@@ -47,13 +47,14 @@ private _masks = LIFE_SETTINGS(getArray,"clothing_masks");
 				case 1: {[0.8,0.5,0.2,1]};
 				case 2: {[0.8,0.8,0.8,1]};
 				case 3: {[1,0.84,0,1]};
-				case 4: {[1,1,1,1,]};
+				case 4: {[1,1,1,1]};
 				case 5: {[1,1,1,1]};
 				default {[1,1,1,1]};
 			};
 
-			drawIcon3D [_picture, _pColour, [_xPos,_yPos,((_x modelToWorld (_x selectionPosition "head")) select 2) + .5], 1.5, 1.5, 0, _text, 1, 0.04, "PuristaBold", "center"];
-			drawIcon3D ["", _sColour, [_xPos,_yPos,((_x modelToWorld (_x selectionPosition "head")) select 2) + .4], 0, 0, 0, (name _x), 1, 0.04, "PuristaBold", "center"];
+			drawIcon3D [_picture, _pColour, [_xPos,_yPos,((_x modelToWorld (_x selectionPosition "head")) select 2) + .6], 1.5, 1.5, 0, _text, 1, 0.04, "PuristaBold", "center"];
+			drawIcon3D ["", _sColour, [_xPos,_yPos,((_x modelToWorld (_x selectionPosition "head")) select 2) + .4], 0, 0, 0, name _x, 1, 0.04, "PuristaBold", "center"];
 		};
 	};
-} forEach _units;
+	false
+} count _units;
