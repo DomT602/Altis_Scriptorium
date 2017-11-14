@@ -15,11 +15,11 @@ params [
 ];
 
 private _colourCode = call {
-	if (_colour isEqualTo "green") exitWith {"#FF99C578"}; //success
-	if (_colour isEqualTo "orange") exitWith {"#FFFF6A00"}; //error
-	if (_colour isEqualTo "red") exitWith {"#FFD30000"}; //failure
-	if (_colour isEqualTo "blue") exitWith {"#00AEFF"}; //general information
-	if (_colour isEqualTo "grey") exitWith {"#FF808080"}; //anything else
+	if (_colour isEqualTo "green") exitWith {"#1ea83c"};
+	if (_colour isEqualTo "orange") exitWith {"#d1780c"};
+	if (_colour isEqualTo "red") exitWith {"#d11414"};
+	if (_colour isEqualTo "blue") exitWith {"#1e2adb"};
+	if (_colour isEqualTo "grey") exitWith {"#696a7a"}; //add new colours below
 };
 
 _message = format["<t size='1' color='%1'>%2",_colourCode,_message];
