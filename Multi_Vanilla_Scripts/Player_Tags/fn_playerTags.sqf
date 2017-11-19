@@ -25,7 +25,6 @@ private _masks = LIFE_SETTINGS(getArray,"clothing_masks");
 
 private _index = -1;
 {
-    private "_name";
     _idc = _ui displayCtrl (iconID + _forEachIndex);
     if (alive _x && {isPlayer _x}) then {
     	(visiblePositionASL _x) params ["_xPos","_yPos"];
@@ -49,7 +48,7 @@ private _index = -1;
 	                    if(_savedUID isEqualTo _uid) exitWith {_savedName = _savedName};
 	                } forEach _saved;
 
-                    _name = if !(_savedName isEqualTo "") then {
+                    private _name = if !(_savedName isEqualTo "") then {
                         format["%1 - %2",_uid,_savedName];
                     } else {
                         format["%1",_uid];

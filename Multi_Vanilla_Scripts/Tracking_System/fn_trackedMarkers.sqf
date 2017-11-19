@@ -12,10 +12,9 @@ private _markers = [];
 		_marker setMarkerColorLocal "ColorBlue";
 		_marker setMarkerTypeLocal "Mil_dot";
 		_marker setMarkerTextLocal format["GPS Tracker - %1",name _x];
-		_markers pushBack [_marker,_x];
+		_markers pushBack [_marker,_x]
 	};
-	true
-} count playableUnits;
+} forEach playableUnits;
 
 {  
 	if (_x getVariable ["tracked",false]) then {	 
@@ -23,10 +22,9 @@ private _markers = [];
 		_marker setMarkerColorLocal "ColorBlue";
 		_marker setMarkerTypeLocal "Mil_dot";
 		_marker setMarkerTextLocal format["GPS Tracker - %1",(typeOf _x)];
-		_markers pushBack [_marker,_x];	
+		_markers pushBack [_marker,_x]
 	};
-	true
-} count (allMissionObjects "Car" + allMissionObjects "Air" + allMissionObjects "Ship");
+} forEach (allMissionObjects "Car" + allMissionObjects "Air" + allMissionObjects "Ship");
 
 while {visibleMap} do {
     {
@@ -37,8 +35,7 @@ while {visibleMap} do {
         if (!isNil "_trackedObj" && {!isNull _trackedObj}) then {
             _mark setMarkerPosLocal (visiblePosition _trackedObj)
         };
-        true
-    } count _markers;
+    } forEach _markers;
     uiSleep 0.02
 };
 
@@ -47,5 +44,4 @@ while {visibleMap} do {
         ["_marker","",[""]]
     ];
     deleteMarkerLocal _marker;
-    true
-} count _markers;
+} forEach _markers;
