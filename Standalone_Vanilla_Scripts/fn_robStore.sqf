@@ -27,6 +27,7 @@ if (currentWeapon player isEqualTo "" || {currentWeapon player isEqualTo "Binocu
 
 private _time = round(_totalTime / _attempts);
 private _cash = round(_totalCash / _attempts);
+hint "Robbery begun, stay near the cashier to recieve your money";
 [1,format["Robbery in progress at %1.",_name]] remoteExecCall ["life_fnc_broadcast",west];
 _target removeAction _ID;
 
@@ -37,6 +38,7 @@ for "_i" from 0 to (_attempts - 1) step 1 do {
         hint "Robbery stopped.";
         uiSleep _time;
     };
+    _cash = _cash + round(random(_cash / 25));
     hint format["You stole %1.",_cash];
     CASH = CASH + _cash;
     if (_i isEqualTo (_attempts - 1)) exitWith {uiSleep (_time * 5)};

@@ -1,7 +1,6 @@
 This folder contains the scripts needed for the full player tags system. This allows you to put meet and name new players, set their names to remember them. It also displays their UID for purposes of rule breaks etc.
 This can be changed to use database ID instead of player UID, however I will only do this if people are interested, as it requires a bit more work in various other files.
 
-Tutorial coming soonish
 Setup:
 Download files from github
 Put DT_nameMenu into the dialog folder, and add it to the masterhandler.h(pp)
