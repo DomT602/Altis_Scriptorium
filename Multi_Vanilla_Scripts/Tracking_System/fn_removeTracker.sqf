@@ -10,6 +10,6 @@ params [
 ];
 if (isNull _thing) exitWith {};
 
-if (_thing getVariable ["tracked"false]) then {
+if (_thing getVariable ["tracked",false]) then {
 	_thing setVariable ["tracked",nil,false];
 };
