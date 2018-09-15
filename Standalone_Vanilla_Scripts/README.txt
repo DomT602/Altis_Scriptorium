@@ -7,3 +7,5 @@ fn_tearGas is a script allowing you to use yellow smoke grenades as teargas, cau
 You can customise it by changing the values for each of the effects, check BIwiki for more info.
 
 fn_vehicleGPS is a script allowing players to track vehicles, you can make it so they need an extra GPS (Vanilla A3 item) to be able to do this.
+
+fn_stripSearch is a script which drops all players items into an existing groundWeaponHolder, or a new one if none is found.

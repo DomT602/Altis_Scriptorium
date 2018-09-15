@@ -1,6 +1,6 @@
 /*
 	File: fn_treeHandleDamage.sqf
-	Author: DomT602
+	Author: DomT602 (domt602@gmail.com)
 	Description: Handles when a tree gets hit
 */
 

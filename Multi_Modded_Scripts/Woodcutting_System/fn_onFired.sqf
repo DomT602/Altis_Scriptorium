@@ -1,6 +1,6 @@
 /*
 	File: fn_onFired.sqf
-	Author: DomT602
+	Author: DomT602 (domt602@gmail.com)
 	Description: Handles a fired 'weapon'
 */
 params [
