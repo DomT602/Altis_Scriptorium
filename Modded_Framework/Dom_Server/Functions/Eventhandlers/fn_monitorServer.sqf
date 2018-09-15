@@ -1,0 +1,84 @@
+/*
+	File: fn_monitorServer.sqf
+	Author: Dom
+	Description: Monitors the uptime of the server, and does certain events during this time (set password in server.cfg)
+*/
+//[round(random 4)] remoteExec ["BIS_fnc_earthquake",-2]; do this randomly and set fire to some buildings etc
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 900;
+["This server restarts every 6 hours."] remoteExecCall ["systemChat",-2];
+["Server restarting in 5 hours."] remoteExecCall ["systemChat",-2];
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 900;
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 900;
+["This server restarts every 6 hours."] remoteExecCall ["systemChat",-2];
+["Server restarting in 4 hours."] remoteExecCall ["systemChat",-2];
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 900;
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 900;
+["This server restarts every 6 hours."] remoteExecCall ["systemChat",-2];
+["Server restarting in 3 hours."] remoteExecCall ["systemChat",-2];
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+if (round(random 10) > 6) then {
+	[2 + (floor random 2)] remoteExec ["BIS_fnc_earthquake",-2];
+};
+uiSleep 900;
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 900;
+["This server restarts every 6 hours."] remoteExecCall ["systemChat",-2];
+["Server restarting in 2 hours."] remoteExecCall ["systemChat",-2];
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 900;
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 900;
+["This server restarts every 6 hours."] remoteExecCall ["systemChat",-2];
+["Server restarting in 1 hour."] remoteExecCall ["systemChat",-2];
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 900;
+["This server restarts every 6 hours."] remoteExecCall ["systemChat",-2];
+["Server restarting in 30 minutes."] remoteExecCall ["systemChat",-2];
+["Server restarting in 30 minutes."] remoteExecCall ["systemChat",-2];
+[] spawn server_fnc_moveDrugDealer;
+uiSleep 900;
+["Server restarting in 15 minutes."] remoteExecCall ["systemChat",-2];
+["Server restarting in 15 minutes."] remoteExecCall ["systemChat",-2];
+[] spawn server_fnc_moveBlackMarketDealer;
+uiSleep 300;
+["Server restarting in 10 minutes."] remoteExecCall ["systemChat",-2];
+["Server restarting in 10 minutes."] remoteExecCall ["systemChat",-2];
+uiSleep 150;
+["Server restarting in 5 minutes, sync and log off to ensure your data is saved."] remoteExecCall ["systemChat",-2];
+["Server restarting in 5 minutes, sync and log off to ensure your data is saved."] remoteExecCall ["systemChat",-2];
+"password" serverCommand "#lock";
+uiSleep 120;
+remoteExecCall ["DT_fnc_saveStatsFull",-2];
+["Server restarting in 1 minute."] remoteExecCall ["systemChat",-2];
+["Server restarting in 1 minute."] remoteExecCall ["systemChat",-2];
+uiSleep 30;
+"password" serverCommand "#restartServer";

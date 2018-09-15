@@ -1,0 +1,19 @@
+class Vehicles {
+    file = "\Dom_Code\Vehicles";
+    class destroyVehicle {};
+    class garageChange {};
+    class getVehicle {};
+    class giveKey {};
+    class initGarage {};
+    class lockSwitch {};
+    class openGarage {};
+    class pushVehicle {};
+    class radar {};
+    class recieveKey {};
+    class repairVehicle {};
+    class setPlate {};
+    class setTexture {};
+    class storeVehicle {};
+    class switchLightbar {};
+    class switchSirens {};
+};

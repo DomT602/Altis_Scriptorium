@@ -1,0 +1,16 @@
+publicVariable "DT_fnc_destroyVehicle";
+publicVariable "DT_fnc_garageChange";
+publicVariable "DT_fnc_getVehicle";
+publicVariable "DT_fnc_giveKey";
+publicVariable "DT_fnc_initGarage";
+publicVariable "DT_fnc_lockSwitch";
+publicVariable "DT_fnc_openGarage";
+publicVariable "DT_fnc_pushVehicle";
+publicVariable "DT_fnc_radar";
+publicVariable "DT_fnc_recieveKey";
+publicVariable "DT_fnc_repairVehicle";
+publicVariable "DT_fnc_setPlate";
+publicVariable "DT_fnc_setTexture";
+publicVariable "DT_fnc_storeVehicle";
+publicVariable "DT_fnc_switchLightbar";
+publicVariable "DT_fnc_switchSirens";

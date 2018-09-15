@@ -1,0 +1,33 @@
+/*
+* I NEED FINISHING
+*    type:
+*       craftingText = "Text in listbox";
+*		productClass = "Classname of Product";
+*		requiredMaterials[] = {"item",count}
+*		location = ""; (leave as "" if no location)
+*		cost = 0; (leave as 0 if no cost)
+*/
+class Crafting {
+	class Basic {
+		class Toolkit {
+			productClass = "ToolKit";
+			requiredMaterials[] = {
+				{"ToolKit",2}
+			};
+			location = "";
+			cost = 0;
+		};
+		/*class Iron {
+			productClass = "iron_ingot";
+			requiredMaterials[] = {
+				{"Item_1",2},
+				{"Item_2",1}
+			};
+			location = "";
+			cost = 0;
+		};*/
+	};
+	class Advanced {
+
+	};
+};

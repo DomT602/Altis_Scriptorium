@@ -1,0 +1,23 @@
+class Shops {
+    file = "\Dom_Code\Shops";
+    class buyClothing {};
+    class buyLicense {};
+    class buyPlayerShop {};
+    class closeShop {};
+    class fetchDetails {};
+    class filterClothing {};
+    class initATM {};
+    class initClothingShop {};
+    class initPlayerShop {};
+    class initItemShop {};
+    class initVehicleShop {};
+    class itemShopBuySell {};
+    class itemShopLBchange {};
+    class managePlayerShop {};
+    class playerShopLBchange {};
+    class previewClothing {};
+    class refreshInventory {};
+    class useATM {};
+    class vehicleShopBuy {};
+    class vehicleShopLBChange {};
+};

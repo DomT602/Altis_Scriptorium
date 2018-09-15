@@ -1,0 +1,27 @@
+/*
+	File: fn_giveMoney.sqf
+	Author: Dom
+	Description: Gives selected player money
+*/
+params [
+	["_unit",objNull,[objNull]]
+];
+
+if (isNull _unit || isNil "_unit") exitWith {};
+
+private _amount = (findDisplay 1012) displayCtrl 1501;
+_amount = ctrlText _amount;
+_amount = parseNumber _amount;
+if (_amount < 1) exitWith {["Invalid number.","red"] call DT_fnc_notify};
+
+if (_amount < (client_cash + 1)) then {
+	closeDialog 0;
+	private _name = ["someone",_unit] call DT_fnc_findName;
+
+	[_amount,player] remoteExecCall ["DT_fnc_recieveMoney",_unit];
+	client_cash = client_cash - _amount;
+	[format["You gave %1 $%2.",_name,str(_amount)],"green"] call DT_fnc_notify;	
+	[0] call DT_fnc_saveStatsPartial;
+} else {
+	["You do not have enough money on you.","orange"] call DT_fnc_notify;
+};

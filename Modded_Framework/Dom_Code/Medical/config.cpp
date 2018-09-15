@@ -1,0 +1,26 @@
+class Medical {
+    file = "\Dom_Code\Medical";
+    class applyRespirator {};
+    class bandageOther {};
+    class bandageSelf {};
+    class bloodBag {};
+    class deathKeyHandler {};
+    class defibTarget {};
+    class detox {};
+    class handleDamage {};
+    class healthHandler {};
+    class medicalMenuOther {};
+    class medicalMenuSelf {};
+    class morphineOther {};
+    class morphineSelf {};
+    class onMorphine {};
+    class onPlayerKilled {};
+    class onRespirator {};
+    class recieveBlood {};
+    class recordMedical {};
+    class respawn {};
+    class revived {};
+    class switchStretcher {};
+    class treatOther {};
+    class treatSelf {};
+};

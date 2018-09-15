@@ -1,0 +1,37 @@
+author 				= "Dom";
+loadScreen	 		= "";
+briefingName 		= "Life";
+onLoadName 			= "Life";
+onLoadMissionTime	= 0;
+overviewPicture 	= "";
+OnLoadMission 		= "A roleplay mission by";
+overviewText 		= "A roleplay mission by";
+overviewTextLocked 	= "A roleplay mission by";
+
+enableDebugConsole = 2; //change to 1 or 0 later
+joinUnassigned = 1;
+skipLobby = 1;
+disabledAi = 1;
+saving = 0;
+
+forceRotorLibSimulation = 1;
+showHUD = 0;
+disableChannels[] = {{0,true,true},{1,false,true},{2,true,true},{3,true,true},{4,true,true},{5,true,true},{6,true,true}};
+
+respawn = 3;
+respawnDelay = 0;
+corpseManagerMode = 2;
+corpseLimit = 0;
+corpseRemovalMinTime = 2;
+wreckManagerMode = 1;
+wreckLimit = 5;
+wreckRemovalMinTime = 10;
+
+//#include "CfgRemoteExec.hpp"
+#include "Configs\Config_Buildings.hpp"
+#include "Configs\Config_Crafting.hpp"
+#include "Configs\Config_Interactions.hpp"
+#include "Configs\Config_Licenses.hpp"
+#include "Configs\Config_Shops.hpp"
+#include "Configs\Config_Skills.hpp"
+#include "Configs\Config_Textures.hpp"
