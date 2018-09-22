@@ -9,19 +9,16 @@ params [
 	["_unit",objNull,[objNull]]
 ];
 
-if(isNull _unit) exitWith {};
-_uid = getPlayerUID _unit;
-if(_uid isEqualTo "") exitWith {};
-_name = CONTROL(59000,1400);
+if (isNull _unit) exitWith {};
+private _uid = getPlayerUID _unit;
 
+private _name = CONTROL(59000,1400);
 _name = ctrlText _name;
 
-_len = [_name] call KRON_StrLen;
-if(_len > 35) exitWith {hint "Name is too long."};
+if(count _name > 35) exitWith {hint "Name is too long."};
 
-_insertArr = [_uid,_name];
+private _insertArr = [_uid,_name];
 
-_array = profileNamespace getVariable "DT_Names";
 private _i = -1;
 {
 	_x params [
@@ -30,7 +27,7 @@ private _i = -1;
 	if (_oldUID isEqualTo _uid) exitWith {
 		_i = _forEachIndex;
 	};
-} forEach _array;
+} forEach (profileNamespace getVariable "DT_Names");
 
 if (_i isEqualTo -1) then {
 	_array pushBack _insertArr;
