@@ -10,7 +10,7 @@ params [
 	["_unit",objNull,[objNull]]
 ];
 
-if (isNull _unit || {isNil "_unit"} || {!isPlayer _unit}) exitWith {};
+if (isNull _unit || {!isPlayer _unit}) exitWith {};
 
 if (isNil {profileNamespace getVariable "DT_Names"}) then {
 	profileNamespace setVariable ["DT_Names",[]];
