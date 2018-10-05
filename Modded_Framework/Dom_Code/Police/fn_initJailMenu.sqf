@@ -7,7 +7,7 @@ params [
 	["_unit",objNull,[objNull]]
 ];
 
-if !([_unit] call DT_fnc_checkPlayer) exitWith {["Invalid target.","red"] call DT_fnc_notify};
+if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 
 private _display = findDisplay 1010;
 private _nameBox = _display displayCtrl 1000;

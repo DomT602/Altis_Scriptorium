@@ -13,6 +13,7 @@ if (client_surrendered) then {
 		while {client_surrendered} do {
 			player playMove "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";
 			 if (player getVariable ["dead",false] || !(isNull objectParent player)) exitWith {client_surrendered = false};
+			 uiSleep 0.1;
 		};
 		if !(player getVariable ["dead",false] && isNull objectParent player) then {
 			player playMoveNow "AmovPercMstpSsurWnonDnon_AmovPercMstpSnonWnonDnon";

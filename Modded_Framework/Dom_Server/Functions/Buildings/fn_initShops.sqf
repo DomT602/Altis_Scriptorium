@@ -8,11 +8,10 @@ private _shops = ["initShops",2] call MySQL_fnc_DBasync;
 
 {
 	_x params [
-		"_company",
-		"_pos",
-		"_items"
+		["_company","",[""]],
+		["_pos",[],[[]]],
+		["_items",[],[[]]]
 	];
-	private _pos = parseSimpleArray format ["%1",_pos];
 	private _building = nearestObject [_pos,"House"];
 	
 	_building setVariable ["shop_company",_company,true];

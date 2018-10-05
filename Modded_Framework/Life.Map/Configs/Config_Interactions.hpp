@@ -158,7 +158,7 @@ class Interactions {
 
 		class nameMenu {
 			title = "Name Menu";
-			action = "[cursorObject] call DT_fnc_nameMenu";
+			action = "closeDialog 0; createDialog 'DT_SetPlayerTag'";
 			check = "isPlayer cursorObject";
 		};
 

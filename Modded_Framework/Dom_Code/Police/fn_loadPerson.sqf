@@ -7,7 +7,7 @@ params [
 	["_unit",objNull,[objNull]]
 ];
 
-if !([_unit] call DT_fnc_checkPlayer) exitWith {["Invalid target.","red"] call DT_fnc_notify};
+if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 nearestObjects[getPosATL player,["Car","Ship","Submarine","Air"],10,false] params [["_vehicle",objNull,[objNull]]];
 if (isNull _vehicle) exitWith {["There is no suitable vehicle nearby.","orange"] call DT_fnc_notify};
 

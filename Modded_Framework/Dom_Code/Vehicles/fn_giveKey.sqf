@@ -16,7 +16,6 @@ private _selected = client_keys select _ID;
 private _keyHolders = _selected getVariable ["key_holders",[]];
 if !((name _unit) in _keyHolders) then {
 	_keyHolders pushBack (name _unit);
-	_selected setVariable ["key_holders",_keyHolders,true]
 };
 
 private _name = ["someone",_unit] call DT_fnc_findName;

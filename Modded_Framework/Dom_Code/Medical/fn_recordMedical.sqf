@@ -19,4 +19,3 @@ if (_hour >= 0 && _hour <= 9) then {
 _text = format["%1:%2 - %3",_hour,_minute,_text];
 private _curRecords = _unit getVariable ["medRecords",[]];
 _curRecords pushBack _text;
-_unit setVariable ["medRecords",_curRecords,true];

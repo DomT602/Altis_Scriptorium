@@ -6,7 +6,7 @@
 params [
     ["_target",objNull,[objNull]]
 ];
-if !([_unit] call DT_fnc_checkPlayer) exitWith {["Invalid target.","red"] call DT_fnc_notify};
+if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 if !("D_Defibrillator_i" in (magazines player)) exitWith {["You don't have a defibrillator.","orange"] call DT_fnc_notify};
 
 if (_target getVariable ["Reviving",objNull] isEqualTo player) exitWith {};

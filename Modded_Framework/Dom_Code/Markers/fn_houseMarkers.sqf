@@ -6,7 +6,6 @@
 
 {
     _x params ["_position"];
-    _position = parseSimpleArray format ["%1",_position];
     private _house = nearestObject [_position, "House"];
     private _houseName = getText(configFile >> "CfgVehicles" >> (typeOf _house) >> "displayName");
 

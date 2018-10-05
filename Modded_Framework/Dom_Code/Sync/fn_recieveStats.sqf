@@ -85,8 +85,8 @@ if !(_companyData isEqualTo []) then {
 if !(_houses isEqualTo []) then {
 	client_houses = _houses;
 	{
-		_x params ["_loc"];
-		private _house = nearestObject [(parseSimpleArray format ["%1",_loc]),"House"];
+		_x params ["_pos"];
+		private _house = nearestObject [_pos,"House"];
 		client_keys pushBack _house
 	} forEach client_houses;
 	call DT_fnc_houseMarkers

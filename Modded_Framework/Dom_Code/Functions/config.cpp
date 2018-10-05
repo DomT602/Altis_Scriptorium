@@ -22,7 +22,6 @@ class Functions {
     class handleScroll {};
     class holster {};
     class loadGear {};
-    class nameMenu {};
     class notify {};
     class onFired {};
     class onGetOutMan {};

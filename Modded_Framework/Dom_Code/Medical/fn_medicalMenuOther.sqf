@@ -6,7 +6,7 @@
 params [
 	["_unit",objNull,[objNull]]
 ];
-if !([_unit] call DT_fnc_checkPlayer) exitWith {["Invalid target.","red"] call DT_fnc_notify};
+if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 MB_Interaction_Target = _unit;
 closeDialog 0;
 createDialog "MedicalMenu";

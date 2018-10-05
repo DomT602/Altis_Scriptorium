@@ -7,7 +7,7 @@ params [
 	["_unit",objNull,[objNull]]
 ];
 
-if !([_unit] call DT_fnc_checkPlayer) exitWith {["Invalid target.","red"] call DT_fnc_notify};
+if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 if !(_unit getVariable ["restrained",false]) exitWith {["Person must be restrained."] call DT_fnc_notify};
 
 createDialog "DT_arrestMenu";

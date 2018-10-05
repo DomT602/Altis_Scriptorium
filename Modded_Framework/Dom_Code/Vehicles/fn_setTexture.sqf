@@ -17,7 +17,6 @@ if (!isClass (missionConfigFile >> "Textures" >> "Vehicle" >> _className)) exitW
 };
 
 private _textures = (getArray(missionConfigFile >> "Textures" >> "Vehicle" >> _className >> "textures")) select _index param [1,[]];
-if (_textures isEqualTo []) exitWith {};
 
 {
     _vehicle setObjectTextureGlobal [_forEachIndex,_x];

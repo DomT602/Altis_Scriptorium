@@ -47,4 +47,3 @@ switch _faction do {
 	case "medic": {player setVehiclePosition [(getMarkerPos "LakesideEMS_Spawn"),[],0,"CAN_COLLIDE"]};
 };
 call DT_fnc_saveStatsFull;
-player setVariable ["medRecords",[],true];

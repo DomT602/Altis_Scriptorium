@@ -12,7 +12,9 @@ params [
 private _seconds = 0;
 private _minutes = 0;
 private _hours = 0;
-(player getVariable ["jail_details",[]]) params ["","_reason","","_cell"];
+private _variable = (player getVariable ["jail_details",[]]);
+_variable params ["","_reason","","_cell"];
+
 for "_i" from _time to 0 step -1 do {
 	if (jail_changedTime) exitWith {
 		jail_changedTime = false;
@@ -49,6 +51,6 @@ for "_i" from _time to 0 step -1 do {
 	if ((_i mod 600) isEqualTo 0) then {[4] call DT_fnc_saveStatsPartial};
 	
 	hint format["%1-%2-%3",_hours,_minutes,_seconds];
-	player setVariable ["jail_details",[1,_reason,_i,_cell],true];
+	_variable set [2,_i];
 	uiSleep 1;
 };

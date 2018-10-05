@@ -8,10 +8,9 @@ params [
     ["_index",0,[0]]
 ];
 
-(call compile format ["%1",(_control lbData _index)]) params ["_className","_colour","_plate"];
+(parseSimpleArray format ["%1",(_control lbData _index)]) params ["_className","_colour","_plate"];
 
-private _colour = (getArray(missionConfigFile >> "Textures" >> "Vehicle" >> _className >> "textures")) select _colour param [0];
-
+((getArray(missionConfigFile >> "Textures" >> "Vehicle" >> _className >> "textures")) select _colour) params ["_colour"];
 private _infoBox = (findDisplay 1011) displayCtrl 1100;
 
 _infoBox ctrlSetStructuredText parseText format [
