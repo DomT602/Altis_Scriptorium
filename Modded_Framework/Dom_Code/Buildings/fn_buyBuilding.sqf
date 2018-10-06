@@ -61,7 +61,7 @@ if (_action) then {
     _building setVariable ["house_key_holders",[],true];
 
     client_vehicles pushBack _building;
-    client_houses pushBack [str(getPosATL _building),[]];
+    client_houses pushBack (getPosATL _building);
     private _marker = createMarkerLocal [format ["house_%1",round(random 99999)],getPosATL _building];
     _marker setMarkerTextLocal (getText(configFile >> "CfgVehicles" >> (typeOf _house) >> "displayName"));
     _marker setMarkerColorLocal "ColorBlue";

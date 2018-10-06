@@ -59,8 +59,7 @@ private _return = [];
 	_x params [
 		["_pos",[],[[]]]
 	];
-	private _house = nearestObject [_pos, "House"];
-	_return pushBack [_pos];
+	_return pushBack _pos;
 } forEach _houses;
 
 missionNamespace setVariable [format ["houses_%1",_uid],_return];

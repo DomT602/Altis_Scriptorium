@@ -19,35 +19,29 @@ if (_container getVariable ["inUse",false]) exitWith {
 };
 
 private _return = call {
-    if (isNull _x) then {false breakOut "main"};
+	if (isNull _x) then {false breakOut "main"};
 
-    private _containerType = typeOf _x;
+	private _containerType = typeOf _x;
 
-    if ((getNumber(configFile >> "CfgVehicles" >> (typeOf _container) >> "isBackpack")) isEqualTo 1) exitWith {
+	if ((getNumber(configFile >> "CfgVehicles" >> (typeOf _container) >> "isBackpack")) isEqualTo 1) exitWith {
 		["You cannot open this backpack.","red"] call DT_fnc_notify;
 		true;
 	};
 
-    if (_containerType in _furnitureList) exitWith {
-        private _house = nearestObject [player, "House"];
+	if (_containerType in _furnitureList) exitWith {
+		private _house = nearestObject [player, "House"];
 		if !(_house in client_keys) && (_house getVariable ["locked",true]) exitWith {
 			["This furniture is locked.","red"] call DT_fnc_notify;
 			true;
 		};
-    };
+	};
 
-    if (_container isKindOf "LandVehicle" || _container isKindOf "Ship" || _container isKindOf "Air") exitWith {
+	if (_container isKindOf "LandVehicle" || _container isKindOf "Ship" || _container isKindOf "Air") exitWith {
 		if (!(_container in client_keys) && {locked _container isEqualTo 2}) exitWith {
 			["This vehicle is locked.","red"] call DT_fnc_notify;
 			true;
 		};
 	};
-
-    //Allow alive players who've been knocked out to be looted, just not the dead ones
-    if (_x isKindOf "Man" && {!alive _x}) exitWith {
-        hint localize "STR_NOTF_NoLootingPerson";
-        true breakOut "main";
-    };
 } forEach [_container, _secContainer];
 
 if !(_return) then {

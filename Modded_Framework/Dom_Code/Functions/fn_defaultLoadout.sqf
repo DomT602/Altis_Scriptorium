@@ -4,9 +4,7 @@
     Description: Loads default gear for selected faction.
 */
 
-params [
-    ["_faction","civ",[""]]
-];
+private _faction = player getVariable ["faction","civ"];
 
 removeAllWeapons player;
 removeUniform player;
@@ -27,7 +25,7 @@ if !(hmd player isEqualTo "") then {
 player linkItem "ItemMap";
 player linkItem "ItemCompass";
 player linkItem "ItemWatch";
-player linkItem "PS_Phone";
+player linkItem "D_Phone";
 
 if (_faction isEqualTo "civ") exitWith {
     private _clothing = ["D_FeelsBadManShorts"];

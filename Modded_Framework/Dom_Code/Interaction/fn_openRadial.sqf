@@ -105,7 +105,7 @@ private _idd = 1001;
 [
 	{
 		params ["_oldState"];
-		isNull (findDisplay 1000) || !(_oldState isEqualTo (vehicle player)) || player getVariable ["restrained",false] || player getVariable ["tied",false]
+		isNull (findDisplay 1000) || !(_oldState isEqualTo (vehicle player)) || player getVariable ["restrained",false] || player getVariable ["tied",false] || (!(isNull MB_Interaction_Target) && player distance MB_Interaction_Target > 10)
 	},
 	{
 		if !(isNull (findDisplay 1000)) exitWith {closeDialog 0};

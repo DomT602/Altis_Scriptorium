@@ -25,8 +25,7 @@ switch _mode do {
 	};
 	
 	case 2: {
-		call DT_fnc_saveGear; //getUnitLoadout player;
-		_packet pushBack client_gear;
+		_packet pushBack (getUnitLoadout player);
 	};
 	
 	case 3: {

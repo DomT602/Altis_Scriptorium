@@ -21,7 +21,6 @@ class Functions {
     class handleMouse {};
     class handleScroll {};
     class holster {};
-    class loadGear {};
     class notify {};
     class onFired {};
     class onGetOutMan {};
@@ -32,7 +31,6 @@ class Functions {
     class pickupMoney {};
     class playerTags {};
     class progressBar {};
-    class saveGear {};
     class seatbelt {};
     class setName {};
     class setupHUD {};

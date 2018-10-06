@@ -16,8 +16,11 @@ if (_department isEqualTo "") then {
 	player setVariable ["department",_department,true];
 };
 
-client_gear = _gear; //player setUnitLoadout [_gear,false];
-call DT_fnc_loadGear;
+if (_gear isEqualTo []) then {
+	call DT_fnc_defaultLoadout;
+} else {
+	player setUnitLoadout [_gear,false];
+};
 
 switch _faction do {
 	case "cop": {

@@ -2,7 +2,6 @@
 client_cash = 0;
 client_bank = 0;
 client_paycheck = 0;
-client_gear = [];
 client_survivalStage = 0;
 client_position = [];
 client_keys = [];

@@ -47,8 +47,11 @@ if (_arrested isEqualTo 1) then {
 	player setVariable ["jail_details",[_arrested,_reason,_time,_cell],true];
 };
 
-client_gear = _gear; //player setUnitLoadout [_gear,false];
-call DT_fnc_loadGear;
+if (_gear isEqualTo []) then {
+	call DT_fnc_defaultLoadout;
+} else {
+	player setUnitLoadout [_gear,false];
+};
 
 _stats params ["_hunger","_thirst","_battery","_blood","_head","_torso","_arms","_legs"];
 player setVariable ["hunger",_hunger,true];
@@ -85,8 +88,7 @@ if !(_companyData isEqualTo []) then {
 if !(_houses isEqualTo []) then {
 	client_houses = _houses;
 	{
-		_x params ["_pos"];
-		private _house = nearestObject [_pos,"House"];
+		private _house = nearestObject [_x,"House"];
 		client_keys pushBack _house
 	} forEach client_houses;
 	call DT_fnc_houseMarkers

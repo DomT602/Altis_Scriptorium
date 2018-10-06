@@ -14,8 +14,7 @@ private _array = [];
 } forEach ("true" configClasses (missionConfigFile >> "Licenses"));
 _packet pushBack _array;
 
-call DT_fnc_saveGear; //getUnitLoadout player;
-_packet pushBack client_gear;
+_packet pushBack (getUnitLoadout player);
 
 _packet pushBack ([player getVariable ["hunger",100],player getVariable ["thirst",100],phone_battery,player getVariable ["blood",5000],player getVariable ["head",0],player getVariable ["torso",0],player getVariable ["arms",0],player getVariable ["legs",0]]);
 
