@@ -1,4 +1,3 @@
-#include "\Dom_Code\script_macros.hpp"
 /*
     File: fn_buyBuilding.sqf
     Author: Dom
@@ -22,8 +21,8 @@ if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> (typeOf _building))) 
     ] call BIS_fnc_guiMessage;
 
     if (_action) then {
-        if (BANK < _price) exitWith {hint "You don't have enough money."};
-        BANK = BANK - _price;
+        if (client_bank < _price) exitWith {hint "You don't have enough money."};
+        client_bank = client_bank - _price;
         [0] call DT_fnc_saveStatsPartial;
 
         [getPlayerUID player,_building,2,(player getVariable "company")] remoteExecCall ["DT_fnc_insertBuilding",2];
@@ -49,8 +48,8 @@ private _action = [
 ] call BIS_fnc_guiMessage;
 
 if (_action) then {
-    if (BANK < _price) exitWith {hint "You don't have enough money."};
-    BANK = BANK - _price;
+    if (client_bank < _price) exitWith {hint "You don't have enough money."};
+    client_bank = client_bank - _price;
     [0] call DT_fnc_saveStatsPartial;
 
     [getPlayerUID player,_building,_type] remoteExecCall ["DT_fnc_insertBuilding",2];

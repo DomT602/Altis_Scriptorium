@@ -1,4 +1,3 @@
-#include "\Dom_Code\script_macros.hpp"
 /*
     File: fn_saveStatsPartial.sqf
 	Author: Dom
@@ -13,8 +12,8 @@ private _array = [];
 
 switch _mode do {
 	case 0: {
-		_packet pushBack CASH;
-		_packet pushBack BANK;
+		_packet pushBack client_cash;
+		_packet pushBack client_bank;
 	};
 	
 	case 1: {
@@ -37,17 +36,14 @@ switch _mode do {
 		_packet pushBack _details;
 	};
 	
-	case 5: { //keys
-
-	};
-	case 6: {
+	case 5: {
 		_packet pushBack ([player getVariable ["hunger",100],player getVariable ["thirst",100],phone_battery,player getVariable ["blood",5000],player getVariable ["head",0],player getVariable ["torso",0],player getVariable ["arms",0],player getVariable ["legs",0]]);
     };
-    case 7: {
+    case 6: {
     	_packet pushBack phone_settings;
     	_packet pushBack phone_contacts;
 	};
-	case 8: {
+	case 7: {
 		_packet pushBack ([exp_woodcutting,exp_mining,exp_farming,exp_fishing,exp_hunting]);
 	};
 };

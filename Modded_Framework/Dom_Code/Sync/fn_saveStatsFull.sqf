@@ -1,11 +1,10 @@
-#include "\Dom_Code\script_macros.hpp"
 /*
     File: fn_saveStatsFull.sqf
 	Author: Dom
 	Description: Sends a packet to the server with all player info to save to DB.
 */
 
-private _packet = [getPlayerUID player,profileName,player getVariable ["faction","civ"],CASH,BANK];
+private _packet = [getPlayerUID player,profileName,player getVariable ["faction","civ"],client_cash,client_bank];
 
 private _array = [];
 {

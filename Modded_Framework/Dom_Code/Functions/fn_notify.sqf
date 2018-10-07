@@ -1,4 +1,3 @@
-#include "\Dom_Code\script_macros.hpp"
 /*
 	File: fn_notify.sqf
 	Author: DomT602 (domt602@gmail.com)

@@ -1,4 +1,3 @@
-#include "\Dom_Code\script_macros.hpp"
 /*
 	File: fn_createCompany.sqf
 	Author: Dom
@@ -24,7 +23,7 @@ if (_badChar) exitWith {hint "Bad character entered."};
 } forEach _descByte;
 if (_badChar) exitWith {hint "Bad character entered."};
 
-if (CASH < 1000) exitWith {hint "You need $1000 to make a Company"};
+if (client_cash < 1000) exitWith {hint "You need $1000 to make a Company"};
 
 [getPlayerUID player,name player,_name,_description] remoteExecCall ["DB_fnc_insertCompany",2];
 

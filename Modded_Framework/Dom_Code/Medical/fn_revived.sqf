@@ -1,4 +1,3 @@
-#include "\Dom_Code\script_macros.hpp"
 /*
 	File: fn_revived.sqf
 	Author: Dom
@@ -12,10 +11,10 @@ closeDialog 0;
 death_camera cameraEffect ["TERMINATE","BACK"];
 camDestroy death_camera;
 
-if (BANK > _reviveCost) then {
-    BANK = BANK - _reviveCost;
+if (client_bank > _reviveCost) then {
+    client_bank = client_bank - _reviveCost;
 } else {
-    BANK = 0;
+    client_bank = 0;
 };
 
 player playMoveNow "AmovPpneMstpSnonWnonDnon";

@@ -1,4 +1,3 @@
-#include "\Dom_Code\script_macros.hpp"
 /*
 	File: fn_itemShopLBChange.sqf
 	Author: Dom
@@ -22,8 +21,8 @@ switch _mode do {
 		private _primaryInfo = (_display displayCtrl 6100);
 		private _price = _control lbValue _index;
 		private _item = _control lbData _index;
-		if (_price > CASH) then {
-			_primaryInfo ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#ff0000'>$%1</t><br/>You lack: <t color='#8cff9b'>$%2</t></t>",str(_price),str(_price - CASH)];
+		if (_price > client_cash) then {
+			_primaryInfo ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#ff0000'>$%1</t><br/>You lack: <t color='#8cff9b'>$%2</t></t>",str(_price),str(_price - client_cash)];
 		} else {
 			_primaryInfo ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#8cff9b'>$%1</t></t>",str(_price)];
 		};
@@ -64,8 +63,8 @@ switch _mode do {
 		private _secondaryInfo = (_display displayCtrl 6101);
 		private _price = _control lbValue _index;
 		private _item = _control lbData _index;
-		if (_price > CASH) then {
-			_secondaryInfo ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#ff0000'>$%1</t><br/>You lack: <t color='#8cff9b'>$%2</t></t>",str(_price),str(_price - CASH)];
+		if (_price > client_cash) then {
+			_secondaryInfo ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#ff0000'>$%1</t><br/>You lack: <t color='#8cff9b'>$%2</t></t>",str(_price),str(_price - client_cash)];
 		} else {
 			_secondaryInfo ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#8cff9b'>$%1</t></t>",str(_price)];
 		};

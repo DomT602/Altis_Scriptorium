@@ -1,4 +1,3 @@
-#include "\Dom_Code\script_macros.hpp"
 /*
     File: fn_itemShopLBChange.sqf
     Author: Dom
@@ -18,8 +17,8 @@ if (_index isEqualTo -1) exitWith {["Nothing selected.","orange"] call DT_fnc_no
 private _info = ((findDisplay -1) displayCtrl -1);
 private _price = _control lbValue _index;
 
-if (_price > CASH) then {
-    _info ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#ff0000'>$%1</t><br/>You lack: <t color='#8cff9b'>$%2</t></t>",str(_price),str(_price - CASH)];
+if (_price > client_cash) then {
+    _info ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#ff0000'>$%1</t><br/>You lack: <t color='#8cff9b'>$%2</t></t>",str(_price),str(_price - client_cash)];
 } else {
     _info ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#8cff9b'>$%1</t></t>",str(_price)];
 };

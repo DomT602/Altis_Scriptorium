@@ -1,4 +1,3 @@
-#include "\Dom_Code\script_macros.hpp"
 /*
 	File: fn_withdrawCompanyCash.sqf
 	Author: Dom
@@ -10,6 +9,6 @@ private _value = parseNumber(ctrlText -1);
 if (_value > 999999 || {_value <= 0}) exitWith {["Invalid number.","red"] call DT_fnc_notify};
 if (_value > _companyFunds) exitWith {["You don't have that much money on you.","red"] call DT_fnc_notify};
 
-CASH = CASH + _value;
+client_cash = client_cash + _value;
 
 [company_ID,1,_value] call DT_fnc_updateCompany;

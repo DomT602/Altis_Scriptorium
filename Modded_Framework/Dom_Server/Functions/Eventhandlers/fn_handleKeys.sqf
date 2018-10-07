@@ -5,29 +5,12 @@
 */
 params [
     ["_uid","",[""]],
-    ["_input",objNull,[objNull,[]]],
-    ["_mode",0,[0]]
+    ["_input",objNull,[objNull,[]]]
 ];
 
-if (_uid isEqualTo "") exitWith {};
+if (_uid isEqualTo "" || isNull _input || _input isKindOf "House") exitWith {};
 
-switch _mode do {
-    case 0: { //houses
-        private _arr = [];
-        {
-            if (!isNull _x && {!(_x isKindOf "House")}) then {
-                _arr pushBack _x;
-            };
-        } forEach _input;
-        _arr = _arr - [objNull];
-        missionNamespace setVariable [format["keys_%1",_uid],_arr];
-    };
-
-    case 1: { //vehicles
-        if (isNull _input || _input isKindOf "House") exitWith {};
-        _arr = missionNamespace getVariable [format["keys_%1",_uid],[]];
-        _arr pushBack _input;
-        _arr = _arr - [objNull];
-        missionNamespace setVariable [format["keys_%1",_uid],_arr];
-    };
-};
+private _array = missionNamespace getVariable [format["keys_%1",_uid],[]];
+_array pushBack _input;
+_array = _array - [objNull];
+missionNamespace setVariable [format["keys_%1",_uid],_array];

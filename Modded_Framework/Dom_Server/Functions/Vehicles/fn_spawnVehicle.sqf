@@ -35,7 +35,7 @@ diag_log "vehicle made";
 		_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
 		_vehicle allowDamage true;
 
-		[_pid,_vehicle,1] call server_fnc_handleKeys;
+		[_pid,_vehicle] call server_fnc_handleKeys;
 		[_vehicle] remoteExecCall ["DT_fnc_recieveKey",_unit];
 		_vehicle lock 2;
 
