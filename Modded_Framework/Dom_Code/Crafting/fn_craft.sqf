@@ -10,7 +10,7 @@ private _index = lbCurSel _control;
 if (_index isEqualTo -1) exitWith {["You haven't selected an item to craft.","orange"] call DT_fnc_notify};
 if (lbCurSel 1502 isEqualTo -1) exitWith {["You haven't selected a quantity to craft.","orange"] call DT_fnc_notify};
 
-(call compile format ["%1",(_control lbData _index)]) params ["_class","_requiredMaterials","_cost"];
+(parseSimpleArray format["%1",(_control lbData _index)]) params ["_class","_requiredMaterials","_cost"];
 private _amount = (lbCurSel (_display displayCtrl 1502)) + 1;
 
 {
@@ -23,8 +23,8 @@ private _amount = (lbCurSel (_display displayCtrl 1502)) + 1;
 client_cash = client_cash - (_cost * _amount);
 
 closeDialog 0;
-//do some progress bar or something
-["Crafting",_amount,"AinvPknlMstpSnonWnonDnon_medic_1","!(player getVariable ['dead',false])",
+
+["Crafting",_amount,"AinvPknlMstpSnonWnonDnon_medic_1","true",
 {
 	params [
 		["_class","",[""]],

@@ -15,7 +15,7 @@ private _furnitureList = [];
 
 if (_container getVariable ["inUse",false]) exitWith {
 	["Only one person can be in the inventory at a time.","red"] call DT_fnc_notify;
-	true;
+	true breakOut "main";
 };
 
 private _return = call {
@@ -25,21 +25,21 @@ private _return = call {
 
 	if ((getNumber(configFile >> "CfgVehicles" >> (typeOf _container) >> "isBackpack")) isEqualTo 1) exitWith {
 		["You cannot open this backpack.","red"] call DT_fnc_notify;
-		true;
+		true breakOut "main";
 	};
 
 	if (_containerType in _furnitureList) exitWith {
 		private _house = nearestObject [player, "House"];
 		if !(_house in client_keys) && (_house getVariable ["locked",true]) exitWith {
 			["This furniture is locked.","red"] call DT_fnc_notify;
-			true;
+			true breakOut "main";
 		};
 	};
 
 	if (_container isKindOf "LandVehicle" || _container isKindOf "Ship" || _container isKindOf "Air") exitWith {
 		if (!(_container in client_keys) && {locked _container isEqualTo 2}) exitWith {
 			["This vehicle is locked.","red"] call DT_fnc_notify;
-			true;
+			true breakOut "main";
 		};
 	};
 } forEach [_container, _secContainer];

@@ -62,5 +62,4 @@ private _part = call {
 
 [_part,_damage,_instigator] call DT_fnc_healthHandler;
 
-_damage = 0;
-_damage;
+0;

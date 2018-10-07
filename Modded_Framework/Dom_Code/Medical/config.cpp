@@ -9,6 +9,7 @@ class Medical {
     class detox {};
     class handleDamage {};
     class healthHandler {};
+    class medicalLoop {};
     class medicalMenuOther {};
     class medicalMenuSelf {};
     class morphineOther {};

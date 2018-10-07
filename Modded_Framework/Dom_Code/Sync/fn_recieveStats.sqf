@@ -35,12 +35,10 @@ player setVariable ["medic_rank",_mediclevel,true];
 player setVariable ["doj_rank",_dojlevel,true];
 player setVariable ["donor_level",_donorlevel,true];
 
-if !(_licenses isEqualTo []) then {
-	{
-		_x params ["_name","_bool"];
-		missionNamespace setVariable [_name,_bool];
-	} forEach _licenses;
-};
+{
+	_x params ["_name","_bool"];
+	missionNamespace setVariable [_name,_bool];
+} forEach _licenses;
 
 _jailDetails params ["_arrested","_reason","_time","_cell"];
 if (_arrested isEqualTo 1) then {
@@ -69,11 +67,12 @@ player setVariable ["phoneNumber",_phoneNumber,true];
 phone_contacts = _phoneContacts;
 phone_settings = _phoneSettings;
 //phone_settings params ["_mode","_background","_ringTone"];
-_skills params ["_woodcutting","_mining","_farming","_fishing"];
+_skills params ["_woodcutting","_mining","_farming","_fishing","_hunting"];
 exp_woodcutting = _woodcutting;
 exp_mining = _mining;
 exp_farming = _farming;
 exp_fishing = _fishing;
+exp_hunting = _hunting;
 
 if !(_companyData isEqualTo []) then {
 	_companyData params ["_id","_name","_rank","_salary"]; //salary not put in yet
@@ -85,15 +84,13 @@ if !(_companyData isEqualTo []) then {
 	player setVariable ["company_rank",-1,true];
 };
 
+client_houses = _houses;
 if !(_houses isEqualTo []) then {
-	client_houses = _houses;
 	{
 		private _house = nearestObject [_x,"House"];
 		client_keys pushBack _house
 	} forEach client_houses;
 	call DT_fnc_houseMarkers
-} else {
-	client_houses = [];
 };
 
 {
@@ -122,7 +119,7 @@ cutText ["","PLAIN",1];
 
 call DT_fnc_exploitBlocker;
 //call DT_fnc_TFARcheck;
-[] execFSM "\Dom_Client\Code\MedicalLoop.fsm";
+call DT_fnc_medicalLoop;
 call DT_fnc_survivalLoop;	
 call DT_fnc_setupHUD;
 
@@ -136,8 +133,7 @@ if (_arrested isEqualTo 1) then {
 		if (client_houses isEqualTo []) then {
 			player setVehiclePosition [(getMarkerPos "Lakeside_Spawn"),[],0,"CAN_COLLIDE"];
 		} else {
-			private _location = selectRandom client_houses;
-			private _spawnHouse = nearestObject [(parseSimpleArray format ["%1",_location]),"House"];
+			private _spawnHouse = nearestObject [(selectRandom client_houses),"House"];
 			_spawnHouse = _spawnHouse buildingPos 0;
 			player setVehiclePosition [_spawnHouse,[],0,"CAN_COLLIDE"];
 		};

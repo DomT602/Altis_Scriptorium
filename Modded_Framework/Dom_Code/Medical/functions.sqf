@@ -7,6 +7,7 @@ publicVariable "DT_fnc_defibTarget";
 publicVariable "DT_fnc_detox";
 publicVariable "DT_fnc_handleDamage";
 publicVariable "DT_fnc_healthHandler";
+publicVariable "DT_fnc_medicalLoop";
 publicVariable "DT_fnc_medicalMenuOther";
 publicVariable "DT_fnc_medicalMenuSelf";
 publicVariable "DT_fnc_morphineOther";

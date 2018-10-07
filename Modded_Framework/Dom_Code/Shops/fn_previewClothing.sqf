@@ -11,7 +11,8 @@ params [
 private _price = _control lbValue _index;
 private _item = _control lbData _index;
 private _filter = uiNamespace getVariable ["Shop_Filter",0];
-client_purchase set [_filter,[_item,_price]];
+private _purchase = uiNamespace getVariable ["Shop_Purchase",[]];
+_purchase set [_filter,[_item,_price]];
 
 switch _filter do {
     case 0: {removeUniform client_preview; client_preview addUniform _item};
@@ -31,7 +32,7 @@ private _totalPrice = 0;
     if !(_price isEqualTo -1) then {
         _totalPrice = _totalPrice + _price;
     };
-} forEach client_purchase;
+} forEach _purchase;
 
 if (_totalPrice > client_cash) then {
     _totalText ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#ff0000'>$%1 </t>You lack: <t color='#8cff9b'>$%2</t></t>",str(_totalPrice),str(_totalPrice - client_cash)];

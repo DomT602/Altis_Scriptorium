@@ -35,7 +35,7 @@ for "_i" from 0 to _totalTime step 1 do {
 	uiSleep 1;
 	if (player getVariable ["dead",false]) exitWith {};
     if (player distance _target >= 10 || {!isNull objectParent player} || {currentWeapon player isEqualTo ""} || {currentWeapon player isEqualTo "Binocular"} || {currentWeapon player isEqualTo "Rangefinder"}) exitWith {
-        ["Robbery stopped","red"] call DT_fnc_notify;
+        ["Robbery stopped.","red"] call DT_fnc_notify;
     };
     if ((_i mod _attempts) isEqualTo 0) then {
     	_cash = _cash + round(random(_cash / 25));

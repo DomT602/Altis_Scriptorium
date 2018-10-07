@@ -4,7 +4,7 @@
 	Description: Repairs the closest object
 */
 
-(nearestTerrainObjects [player,[],4]) params ["_closestObject"];
+(nearestTerrainObjects [player,[],4]) params [["_closestObject",objNull,[objNull]]];
 if (isNull _closestObject) exitWith {};
 if (getDammage _closestObject isEqualTo 0) exitWith {["This does not need repairing."] call DT_fnc_notify};
 MB_Interaction_Target = _closestObject;

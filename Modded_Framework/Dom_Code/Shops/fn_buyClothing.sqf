@@ -3,7 +3,7 @@
 	Author: Dom
 	Description: Buys selected clothing
 */
-
+private _purchase = uiNamespace getVariable ["Shop_Purchase",[]];
 closeDialog 0;
 private _totalPrice = 0;
 {
@@ -45,7 +45,7 @@ private _totalPrice = 0;
 			};
 		};
 	};
-} forEach client_purchase;
+} forEach _purchase;
 
 client_cash = client_cash - _totalPrice;
 [0] call DT_fnc_saveStatsPartial;

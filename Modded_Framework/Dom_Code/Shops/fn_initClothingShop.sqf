@@ -33,6 +33,7 @@ if !(_headgear isEqualTo "") then {client_preview addHeadgear _headgear};
 if !(createDialog "DT_clothingShop") exitWith {deleteVehicle client_preview};
 uiNamespace setVariable ["Shop_Type",_shop];
 uiNamespace setVariable ["Shop_Filter",0];
+uiNamespace setVariable ["Shop_Purchase",[["",-1],["",-1],["",-1],["",-1],["",-1]]];
 
 client_target = createAgent ["Logic",position client_preview,[],0,"none"];
 client_target attachTo [client_preview,client_cameraSettings select 3,""];

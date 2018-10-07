@@ -12,7 +12,6 @@ client_intoxicated = false;
 client_carrying = objNull;
 client_clicking = false;
 client_clicks = 0;
-client_purchase = [["",-1],["",-1],["",-1],["",-1],["",-1]];
 client_mouseButtons = [[],[]];
 client_cameraSettings = [5,0,0,[0,0,0.85]];
 client_blockActions = false;
@@ -46,16 +45,9 @@ furniture_yPos = 1;
 
 active_seed = "";
 
-exp_woodcutting = 0;
-exp_mining = 0;
-exp_farming = 0;
-exp_fishing = 0;
-exp_hunting = 0;
-
 old_speed = 0;
 
 player setVariable ["dead",false,true];
-player setVariable ["pain",0,false];
 player setVariable ["bleeding",0,true];
 player setVariable ["morphine",false,true];
 player setVariable ["medRecords",[],true];

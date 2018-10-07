@@ -3,13 +3,13 @@
     Author: Dom
     Description: Takes data from menu and sends request to server to update targets rank/department
 */
-if ((lbCurSel 9202) isEqualTo -1) exitWith {["You need to select a department.","orange"] call DT_fnc_notify};
-if ((lbCurSel 9201) isEqualTo -1) exitWith {["You need to select a rank.","orange"] call DT_fnc_notify};
 
 private _department = lbCurSel 9202;
 private _rank = lbCurSel 9201;
-_rank = _rank + 1;
+if (_department isEqualTo -1) exitWith {["You need to select a department.","orange"] call DT_fnc_notify};
+if (_rank isEqualTo -1) exitWith {["You need to select a rank.","orange"] call DT_fnc_notify};
 
+_rank = _rank + 1;
 private _faction = player getVariable ["faction",""];
 closeDialog 0;
 

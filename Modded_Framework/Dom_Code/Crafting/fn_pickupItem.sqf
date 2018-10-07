@@ -21,7 +21,7 @@ if (_object in ['log','coal']) then { //crafting stuff
 } else {
 	private _hostCone = nearestObjects[getPosATL _object,["RoadCone_L_F"],5];
 	{
-		if !(isNil {_x getVariable ["components",[]]}) exitWith {
+		if !((_x getVariable ["components",[]]) isEqualTo []) exitWith {
 			_hostCone = _x;
 		};
 	} forEach _hostCone;

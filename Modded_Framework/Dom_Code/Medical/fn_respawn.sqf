@@ -16,7 +16,6 @@ player setVariable ["tf_unable_to_use_radio",false];
 player setVariable ["head",0,true];
 player SetVariable ["torso",0,true];
 player setVariable ["legs",0,true];
-player setVariable ["pain",0,true];
 player setVariable ["arms",0,true];
 player setVariable ["bleeding",0,true];
 player setVariable ["blood",5000,true];
@@ -39,9 +38,8 @@ if (_arrested isEqualTo 1) exitWith {
     call DT_fnc_saveStatsFull;
 };
 
-private _faction = player getVariable ["faction","civ"];
-[_faction] call DT_fnc_defaultLoadout;
-switch _faction do {
+call DT_fnc_defaultLoadout;
+switch (player getVariable ["faction","civ"]) do {
 	case "civ": {player setVehiclePosition [(getMarkerPos "Lakeside_Spawn"),[],0,"CAN_COLLIDE"]};
 	case "cop": {player setVehiclePosition [(getMarkerPos "LakesidePD_Spawn"),[],0,"CAN_COLLIDE"]};
 	case "medic": {player setVehiclePosition [(getMarkerPos "LakesideEMS_Spawn"),[],0,"CAN_COLLIDE"]};

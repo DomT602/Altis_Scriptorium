@@ -14,7 +14,3 @@ deleteVehicle client_preview;
 deleteVehicle client_target;
 client_mouseButtons = [[],[]];
 client_cameraSettings = [5,0,0,[0,0,0.85]];
-
-if (_type isEqualTo "Clothing") then {
-	client_purchase = [["",-1],["",-1],["",-1],["",-1],["",-1]];
-};
