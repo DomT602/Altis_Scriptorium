@@ -82,7 +82,7 @@ class Buildings {
     class Shops {
         class example {
             price = 1;
-            maxUniqueItems = 30;
+            maxItems = 30;
         };
     };
 };

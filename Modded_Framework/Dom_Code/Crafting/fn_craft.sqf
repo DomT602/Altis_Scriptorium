@@ -43,7 +43,7 @@ closeDialog 0;
 	[(switch _state do {
 		case 1: {"Crafting cancelled."};
 		case 2: {"You are dead."};
-		case 3: {"Craftin failed."};
+		case 3: {"Crafting failed."};
 	}),"orange"] call DT_fnc_notify;
 },
 [_class,_amount]] call DT_fnc_progressBar;

@@ -210,6 +210,12 @@ class Interactions {
 			check = "(cursorObject isKindOf 'House_F') && (nearestObject [player,'House'] in client_keys)";
 		};
 
+		class switchLock {
+			title = "Lock switch";
+			action = "[(nearestObject [player,'House'])] call DT_fnc_switchLockHouse";
+			check = "(cursorObject isKindOf 'House_F') && (nearestObject [player,'House'] in client_keys)";
+		};
+
 		class placeItem {
 			title = "Place";
 			action = "call DT_fnc_placeItem";

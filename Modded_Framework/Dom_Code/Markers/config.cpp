@@ -1,6 +1,5 @@
 class Markers {
     file = "\Dom_Code\Markers";
-    class houseMarkers {};
     class medicMarkers {};
     class playerGPS {};
     class policeMarkers {};

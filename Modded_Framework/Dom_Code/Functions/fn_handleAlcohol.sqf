@@ -14,7 +14,7 @@ player setVariable ["intoxication",(player getVariable ["intoxication",0]) + _va
 if !(client_intoxicated) then {
 	client_intoxicated = true;
 	"dynamicBlur" ppEffectEnable true;
-	private _escHandler = (findDisplay 46) displayAddEventHandler ["KeyDown","if ((_this select 1) isEqualTo 1) then {true}"];
+	private _escHandler = (findDisplay 46) displayAddEventHandler ["KeyDown","if ((_this select 1) isEqualTo 1) exitWith {true}"];
 
 	[
 		{
@@ -65,7 +65,7 @@ if !(client_intoxicated) then {
 				["You are completely sober.","green"] call DT_fnc_notify;
 				[_this select 1] call CBA_fnc_removePerFrameHandler;
 			};
-			player setVariable ["intoxication",_intoxication - 0.02,true];
+			player setVariable ["intoxication",(_intoxication - 0.02) max 0,true];
 		},
 		30
 	] call CBA_fnc_addPerFrameHandler;

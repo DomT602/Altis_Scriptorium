@@ -1,4 +1,3 @@
-publicVariable "DT_fnc_houseMarkers";
 publicVariable "DT_fnc_medicMarkers";
 publicVariable "DT_fnc_playerGPS";
 publicVariable "DT_fnc_policeMarkers";

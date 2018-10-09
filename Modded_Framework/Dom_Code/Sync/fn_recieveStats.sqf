@@ -88,9 +88,12 @@ client_houses = _houses;
 if !(_houses isEqualTo []) then {
 	{
 		private _house = nearestObject [_x,"House"];
-		client_keys pushBack _house
+		client_keys pushBack _house;
+		private _marker = createMarkerLocal [format ["house_%1",round(random 99999)],_x];
+		_marker setMarkerTextLocal (getText(configFile >> "CfgVehicles" >> (typeOf _house) >> "displayName"));
+		_marker setMarkerColorLocal "ColorBlue";
+		_marker setMarkerTypeLocal "loc_Lighthouse";
 	} forEach client_houses;
-	call DT_fnc_houseMarkers
 };
 
 {

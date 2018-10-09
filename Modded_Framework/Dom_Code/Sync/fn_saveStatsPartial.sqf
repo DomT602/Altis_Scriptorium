@@ -44,7 +44,7 @@ switch _mode do {
     	_packet pushBack phone_contacts;
 	};
 	case 7: {
-		_packet pushBack ([exp_woodcutting,exp_mining,exp_farming,exp_fishing,exp_hunting]);
+		_packet pushBack [exp_woodcutting,exp_mining,exp_farming,exp_fishing,exp_hunting];
 	};
 };
 

@@ -17,3 +17,8 @@ switch _type do {
 	case 1: {[format["insertBuilding:%1:%2:%3",_uid,_pos,_type],1] call MySQL_fnc_DBasync};
 	case 2: {[format["insertShop:%1:%2",_company,_pos],1] call MySQL_fnc_DBasync};
 };
+
+if !(_type isEqualTo 2) then {
+    ([format["insertedBuilding:%1:%2",_pos,_uid],1] call MySQL_fnc_DBasync) params ["_id"];
+    _building setVariable ["id",_id,true];
+};
