@@ -35,3 +35,14 @@ wreckRemovalMinTime = 10;
 #include "Configs\Config_Shops.hpp"
 #include "Configs\Config_Skills.hpp"
 #include "Configs\Config_Textures.hpp"
+
+class CfgDebriefing {
+	class YouSuck {
+		title = "You suck";
+		subtitle = "Tried to cheat";
+		description = "Failed";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = {0.6,0.1,0.2,1};
+	};
+};

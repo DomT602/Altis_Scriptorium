@@ -12,6 +12,12 @@ phone_backgrounds = [//background name, path
 ];
 publicVariable "phone_backgrounds";
 
+mod_list = [];
+{
+	mod_list pushBack (configName _x);
+} forEach ("true" configClasses (configFile >> "CfgPatches"));
+publicVariable "mod_list";
+
 addMissionEventHandler ["HandleDisconnect",{_this call server_fnc_onClientDisconnect; false}];
 
 ["resetPositions",1] call MySQL_fnc_DBasync;

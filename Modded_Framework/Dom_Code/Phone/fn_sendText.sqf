@@ -10,7 +10,7 @@ private _myNumber = player getVariable ["phoneNumber",""];
 
 if (_message isEqualTo "") exitWith {["You didn't enter a message.","orange"] call DT_fnc_notify};
 if (_targetNumber isEqualTo "") exitWith {["You didn't enter a number.","orange"] call DT_fnc_notify};
-//_message = toString((toArray _message) apply {[_x, 110] select (_x isEqualTo 38)}); removes & which bugs the message
+_message = ((_message splitString "&") joinString "and");
 
 if (_targetNumber isEqualTo "911") then {
 	private _units = [];

@@ -17,8 +17,7 @@ private _colourCode = call {
 	if (_colour isEqualTo "grey") exitWith {"#696a7a"}; //add new colours below
 };
 
-_message = toString((toArray _message) apply {[_x, 110] select (_x isEqualTo 38)});
-_message = format["<t size='1.3' color='%1'>%2",_colourCode,_message];
+_message = format["<t size='1.3' color='%1'>%2",_colourCode,((_message splitString "&") joinString "and")];
 
 for "_i" from 15 to 1 step -1 do {
 	DT_notif_array set [_i,DT_notif_array select (_i - 1)];
