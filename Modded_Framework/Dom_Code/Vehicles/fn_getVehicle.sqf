@@ -14,7 +14,7 @@ if (_spawn isEqualTo "") exitWith {["All spawnpoints blocked.","orange"] call DT
 private _id = lbValue[1500,(lbCurSel 1500)];
 
 if (uiNamespace getVariable ["Impound_Lot",false]) then {
-	client_cash = client_cash - 100;
+	client_bank = (client_bank - 100) max 0;
 	["You paid $100 to get the vehicle out the impound lot.","green"] call DT_fnc_notify;
 };
 

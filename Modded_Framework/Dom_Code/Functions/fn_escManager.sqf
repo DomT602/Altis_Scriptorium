@@ -23,22 +23,19 @@ _fieldManual ctrlEnable false;
 if ((player getVariable ["restrained",false]) || {player getVariable ["tied",false]}) exitWith {}; //stop aborting
 
 [] spawn {
-	private _thread = [] spawn {
-		disableSerialization;
-		private _abortButton = (findDisplay 49) displayCtrl 104;
-		private _timer = time + 5;
+	disableSerialization;
+	private _abortButton = (findDisplay 49) displayCtrl 104;
+	private _timer = time + 5;
 
-		waitUntil {
-			_abortButton ctrlSetText format["Abort in %1",[(_timer - time),"SS.MS"] call BIS_fnc_secondsToString];
-			_abortButton ctrlCommit 0;
-			round(_timer - time) <= 0 || isNull (findDisplay 49)
-		};
-
-		_abortButton ctrlSetText localize "STR_DISP_INT_ABORT";
+	waitUntil {
+		_abortButton ctrlSetText format["Abort in %1",[(_timer - time),"SS.MS"] call BIS_fnc_secondsToString];
 		_abortButton ctrlCommit 0;
+		round(_timer - time) <= 0 || isNull (findDisplay 49)
 	};
-	waitUntil {scriptDone _thread || isNull (findDisplay 49)};
-	((findDisplay 49) displayCtrl 104) ctrlEnable true;
+
+	_abortButton ctrlSetText localize "STR_DISP_INT_ABORT";
+	_abortButton ctrlCommit 0;
+	_abortButton ctrlEnable true;
 };
 
 [

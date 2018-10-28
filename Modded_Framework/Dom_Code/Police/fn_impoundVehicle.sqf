@@ -18,7 +18,7 @@ if (isNull _vehicle) exitWith {};
 		client_bank = client_bank + 500;
 		["You recieved $500 for impounding the vehicle.","green"] call DT_fnc_notify;
 	};
-	[_vehicle,true] remoteExecCall ["DT_fnc_storeVehicle",2];
+	[_vehicle,true] remoteExecCall ["DB_fnc_storeVehicle",2];
 },
 {
 	params [
