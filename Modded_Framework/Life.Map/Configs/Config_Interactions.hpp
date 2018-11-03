@@ -132,10 +132,16 @@ class Interactions {
 	};
 
 	class shared {
+		class carRepair {
+			title = "Repair Menu";
+			action = "[cursorObject] call DT_fnc_repairMenu";
+			check = "(cursorObject isKindOf 'Car') && (isNull objectParent player) && (player distance cursorObject < 4)";
+		};
+
 		class vehicleRepair {
 			title = "Repair";
 			action = "[cursorObject] call DT_fnc_repairVehicle";
-			check = "(cursorObject isKindOf 'Car' || cursorObject isKindOf 'Air' || cursorObject isKindOf 'Ship') && (isNull objectParent player) && (player distance cursorObject < 4)";
+			check = "(cursorObject isKindOf 'Air' || cursorObject isKindOf 'Ship') && (isNull objectParent player) && (player distance cursorObject < 4)";
 		};
 
 		class vehiclePush {

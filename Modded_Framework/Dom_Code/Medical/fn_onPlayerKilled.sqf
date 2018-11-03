@@ -19,7 +19,6 @@ if  !((vehicle _unit) isEqualTo _unit) then {
 client_blockActions = true;
 
 _unit setVariable ["dead",true,true];
-_unit setVariable ["restrained",false,true];
 _unit setVariable ["tf_unable_to_use_radio",true];
 _unit setVariable ["tf_voiceVolume",0,true];
 

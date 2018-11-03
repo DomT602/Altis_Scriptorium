@@ -8,6 +8,8 @@ publicVariable "DT_fnc_openGarage";
 publicVariable "DT_fnc_pushVehicle";
 publicVariable "DT_fnc_radar";
 publicVariable "DT_fnc_recieveKey";
+publicVariable "DT_fnc_repairMenu";
+publicVariable "DT_fnc_repairPart";
 publicVariable "DT_fnc_repairVehicle";
 publicVariable "DT_fnc_setPlate";
 publicVariable "DT_fnc_setTexture";

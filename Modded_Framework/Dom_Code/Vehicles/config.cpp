@@ -10,6 +10,8 @@ class Vehicles {
     class pushVehicle {};
     class radar {};
     class recieveKey {};
+    class repairMenu {};
+    class repairPart {};
     class repairVehicle {};
     class setPlate {};
     class setTexture {};

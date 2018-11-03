@@ -10,57 +10,46 @@ params [
 ];
 
 if (_part isEqualTo "head" || _part isEqualTo "all") then {
-	_headDamage = player getVariable ["head",0];
-	_headDamage = _headDamage + _damage;
-	if (_headDamage > 1) then {
-		_headDamage = 1
-	};
+	private _headDamage = player getVariable ["head",0];
+	if (_headDamage isEqualTo 1) exitWith {};
+	_headDamage = (_headDamage + _damage) min 1;
 	player setVariable ["head",_headDamage,true];
 };
 
 if (_part isEqualTo "torso" || _part isEqualTo "all") then {
-	_torsoDamage = player getVariable ["torso",0];
-	_torsoDamage = _torsoDamage + _damage;
-	if (_torsoDamage > 1) then {
-		_torsoDamage = 1
-	};
+	private _torsoDamage = player getVariable ["torso",0];
+	if (_torsoDamage isEqualTo 1) exitWith {};
+	_torsoDamage = (_torsoDamage + _damage) min 1;
 	player setVariable ["torso",_torsoDamage,true];
 };
 
 if (_part isEqualTo "arms" || _part isEqualTo "all") then {
-	_armsDamage = player getVariable ["arms",0];
-	_armsDamage = _armsDamage + _damage;
-	if (_armsDamage > 1) then {
-		_armsDamage = 1
-	};
+	private _armsDamage = player getVariable ["arms",0];
+	if (_armsDamage isEqualTo 1) exitWith {};
+	_armsDamage = (_armsDamage + _damage) min 1;
 	player setVariable ["arms",_armsDamage,true];
 };
 
 if (_part isEqualTo "legs" || _part isEqualTo "all") then {
-	_legsDamage = player getVariable ["legs",0];
-	_legsDamage = _legsDamage + _damage;
-	if (_legsDamage > 1) then {
-		_legsDamage = 1
-	};
+	private _legsDamage = player getVariable ["legs",0];
+	if (_legsDamage isEqualTo 1) exitWith {};
+	_legsDamage = (_legsDamage + _damage) min 1;
 	player setVariable ["legs",_legsDamage,true];
 };
 
 if (player getVariable ["dead",false]) exitWith {};
 
-_bleeding = player getVariable ["bleeding",0];
+private _bleeding = player getVariable ["bleeding",0];
 if ((round(random 5)) isEqualTo 5) then { //20% chance of bleeding effect
-	_bleeding = _bleeding + 1;
-	if (_bleeding > 5) then {
-		_bleeding = 5
-	};
+	_bleeding = (_bleeding + 1) min 5;
 };
 player setVariable ["bleeding",_bleeding,true];
 
-_blood = player getVariable ["blood",5000];
-_damage = round(_damage * 600);
+private _blood = player getVariable ["blood",5000];
+private _damage = round(_damage * 600);
 _blood = _blood - _damage;
 systemChat format["Blood damage: %1 and new blood level: %2",_damage,_blood];
-if(_blood < 1) then {
+if (_blood < 1) then {
 	[player,_source] call DT_fnc_onPlayerKilled;
 	player setVariable ["blood",0,true];
 } else {

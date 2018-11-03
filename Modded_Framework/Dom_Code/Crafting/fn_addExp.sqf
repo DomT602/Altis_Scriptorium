@@ -30,7 +30,7 @@ switch _type do {
 	case "mining": {
 		exp_mining = exp_mining + _amount;
 		if (exp_mining > _nextLevelExp) then {
-			player setVariable [_formatted,_nextLevel,true];
+			player setVariable [_formatted,_nextLevel,2]; //only server needs to know
 			[format["You reached level %1 in %2.",_nextLevel,_type],"green"] call DT_fnc_notify;
 			if (_nextLevel isEqualTo 50) then {
 				["Congratulations, you have reached the max level in mining.","green"] call DT_fnc_notify;

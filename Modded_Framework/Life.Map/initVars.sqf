@@ -39,7 +39,6 @@ DT_notif_count = 0;
 jail_changedTime = false;
 
 furniture_vehicle = objNull;
-furniture_item_class = "";
 furniture_xPos = 0;
 furniture_yPos = 1;
 

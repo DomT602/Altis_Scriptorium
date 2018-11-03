@@ -146,7 +146,7 @@ if (_arrested isEqualTo 1) then {
 {
 	(switch _forEachIndex do {
 		case 0: {["level_woodcutting",false]};
-		case 1: {["level_mining",true]};
+		case 1: {["level_mining",2]};
 		case 2: {["level_farming",false]};
 		case 3: {["level_fishing",false]};
 		case 4: {["level_hunting",false]};

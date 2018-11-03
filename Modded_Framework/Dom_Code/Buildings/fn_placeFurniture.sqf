@@ -14,7 +14,6 @@ if (count(player getVariable ["furniture",[]]) >= (getNumber(missionConfigFile >
 private _className = switch _furniture do { //this gets the vehicle/classname
 	case "Wardrobe": {"Furn_Ward_i"};
 };
-furniture_item_class = _furniture;
 
 private _piece = _className createVehicle [0,0,0];
 _piece enableSimulation false;
@@ -42,7 +41,6 @@ furnitureKeyHandler = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 			detach furniture_vehicle;
 			[getPlayerUID player,furniture_vehicle] remoteExecCall ["DB_fnc_insertFurniture",2];
 			furniture_vehicle = objNull;
-			furniture_item_class = "";
 			furniture_xPos = 0;
 			furniture_yPos = 1;
 			(findDisplay 46) displayRemoveEventHandler ["KeyDown",furnitureKeyHandler];
@@ -83,13 +81,13 @@ furnitureKeyHandler = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 
 		case 76: { //NUM_5 to cancel
 			detach furniture_vehicle;
+			private _className = typeOf furniture_vehicle;
 			deleteVehicle furniture_vehicle;
 			furniture_vehicle = objNull;
 			furniture_xPos = 0;
 			furniture_yPos = 1;
 			(findDisplay 46) displayRemoveEventHandler ["KeyDown",furnitureKeyHandler];
-			player addItem furniture_item_class;
-			furniture_item_class = "";
+			player addItem _className;
 			_handled = true;
 		};
 	};
