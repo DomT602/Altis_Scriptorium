@@ -108,7 +108,7 @@ player addEventHandler ["InventoryOpened", {_this call DT_fnc_onInventoryOpened}
 player addEventHandler ["HandleRating", {0}];
 player addEventHandler ["HandleScore", {false}];
 player addEventHandler ["GetOutMan",{_this spawn DT_fnc_onGetOutMan}];
-player addEventHandler ["Put",{[2] call DT_fnc_saveStatsPartial}]
+player addEventHandler ["Put",{[2] call DT_fnc_saveStatsPartial}];
 addMissionEventHandler ["Map", {_this call DT_fnc_checkMap}];
 addMissionEventHandler ["Draw3D",{call DT_fnc_playerTags}];
 

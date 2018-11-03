@@ -12,4 +12,4 @@ if (_selected isEqualTo -1) exitWith {};
 phone_contacts deleteAt _selected;
 _contacts deleteAt _selected;
 
-[7] call DT_fnc_saveStatsPartial;
+[5] call DT_fnc_saveStatsPartial;

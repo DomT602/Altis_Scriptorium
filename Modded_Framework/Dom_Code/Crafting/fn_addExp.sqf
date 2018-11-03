@@ -69,4 +69,4 @@ switch _type do {
 		};
 	};
 };
-
+[6] call DT_fnc_saveStatsPartial;

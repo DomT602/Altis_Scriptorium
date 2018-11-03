@@ -7,7 +7,7 @@ class CfgPatches
 		requiredVersion=0.1;
 		requiredaddons[]=
 		{
-			""
+			"Dom_Client"
 		};
 	};
 };

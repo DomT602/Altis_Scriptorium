@@ -19,4 +19,4 @@ if (_name isEqualTo "" || {count _name > 50}) exitWith {["Invalid name.","orange
 phone_contacts set [_selected,[_number,_name]];
 call DT_fnc_initContacts;
 
-[7] call DT_fnc_saveStatsPartial;
+[5] call DT_fnc_saveStatsPartial;

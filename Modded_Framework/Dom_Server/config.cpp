@@ -30,6 +30,7 @@ class CfgFunctions {
             class removeFurniture {};
             class updateAlarmState {};
             class updateFurnitureInventory {};
+            class updateShop {};
         };
         class Companies {
             file = "\Dom_Server\Functions\Companies";

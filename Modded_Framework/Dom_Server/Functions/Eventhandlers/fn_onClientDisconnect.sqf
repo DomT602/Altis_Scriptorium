@@ -12,6 +12,9 @@ if (isNull _unit) exitWith {};
 
 private _position = getPosATL _unit;
 private _alive = if (_unit getVariable ["dead",false]) then {0} else {1};
+if (_alive isEqualTo 0) then {
+	[_unit,"Combat Logged",true] call server_fnc_logAction;
+};
 
 deleteVehicle _unit;
 

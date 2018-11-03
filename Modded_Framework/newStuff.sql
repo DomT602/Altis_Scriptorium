@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `players` (
 	`jail_details` text NOT NULL DEFAULT '[0,"",0,""]',
 	`donorlevel` enum('0','1','2','3','4','5') NOT NULL DEFAULT '0',
 	`alive` tinyint(1) NOT NULL DEFAULT '0',
-	`position` varchar(64) NOT NULL DEFAULT '[]',
+	`position` varchar(64) NOT NULL DEFAULT '[0,0,0]',
 	`phone_number` varchar(12) NOT NULL,
 	`phone_settings` varchar(150) NOT NULL DEFAULT '[1,"",""]', /*[sound mode,background_path,ringtone_sound]*/
 	`phone_contacts` varchar(150) NOT NULL DEFAULT '[]', /*[number,name]*/
@@ -77,6 +77,7 @@ CREATE TABLE IF NOT EXISTS `shops` (
 	`company_name` varchar(48) DEFAULT NULL,
 	`pos` varchar(64) DEFAULT NULL,
 	`items` varchar(3000) NOT NULL DEFAULT '[]', /*[[item,price]]*/
+	`funds` int(100) NOT NULL DEFAULT '0',
 	`transaction_log` text NOT NULL DEFAULT '[]',
 	PRIMARY KEY (`id`,`company_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

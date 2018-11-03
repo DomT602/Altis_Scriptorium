@@ -1,10 +1,8 @@
 /*
     File: fn_buyPlayerShop.sqf
     Author: Dom
-    Description: Handles buying from a player owned shop
+    Description: Handles managing a player owned shop
 */
-disableSerialization;
-
 params [
     ["_state",0,[0]]
 ];
@@ -29,7 +27,7 @@ switch _state do {
         _items deleteAt _selected;
         MB_Interaction_Target setVariable ["shop_inventory",_items,true];
         player addItem _item;
-        [3] call DT_fnc_saveStatsPartial;
+        [2] call DT_fnc_saveStatsPartial;
     };
     case 2: {
         private _selected = lbCurSel -1;
@@ -39,6 +37,7 @@ switch _state do {
         player removeItem _item;
         _items pushBack ([_item,_price]);
         MB_Interaction_Target setVariable ["shop_inventory",_items,true];
-        [3] call DT_fnc_saveStatsPartial;
+        [2] call DT_fnc_saveStatsPartial;
     };
 };
+//[MB_Interaction_Target] remoteExecCall ["DB_fnc_updateShop",2];

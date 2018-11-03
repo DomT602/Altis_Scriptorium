@@ -17,4 +17,4 @@ if (_name isEqualTo "" || {count _name > 50}) exitWith {["Invalid name.","orange
 phone_contacts pushBack [_number,_name];
 _contacts lbAdd (format["%1 (%2)",_name,_number]);
 
-[7] call DT_fnc_saveStatsPartial;
+[5] call DT_fnc_saveStatsPartial;

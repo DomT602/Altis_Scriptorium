@@ -7,7 +7,7 @@ params [
 	["_time",300,[0]]
 ];
 
-[4] call DT_fnc_saveStatsPartial;
+[3] call DT_fnc_saveStatsPartial;
 
 private _seconds = 0;
 private _minutes = 0;
@@ -24,14 +24,14 @@ for "_i" from _time to 0 step -1 do {
 	if (player distance (getMarkerPos "Jail") > 50) exitwith {
 		player setVariable ["jail_details",[0,"",0,""],true];
 		["You escaped from the jail.","red"] call DT_fnc_notify;
-		[4] call DT_fnc_saveStatsPartial
+		[3] call DT_fnc_saveStatsPartial
 	};
 	if (_i isEqualTo 0) exitWith {
 		player setVariable ["jail_details",[0,"",0,""],true];
 		["You were released from the jail.","green"] call DT_fnc_notify;
 		player setPosATL (getMarkerPos "jail_release");
 		player forceAddUniform "Released_Uniform";
-		[4] call DT_fnc_saveStatsPartial
+		[3] call DT_fnc_saveStatsPartial
 	};
 
 	if (_i > 60) then {
@@ -48,7 +48,7 @@ for "_i" from _time to 0 step -1 do {
 		_seconds = _i mod 60; //remainder seconds
 	};
 
-	if ((_i mod 600) isEqualTo 0) then {[4] call DT_fnc_saveStatsPartial};
+	if ((_i mod 600) isEqualTo 0) then {[3] call DT_fnc_saveStatsPartial};
 	
 	hint format["%1-%2-%3",_hours,_minutes,_seconds];
 	_variable set [2,_i];

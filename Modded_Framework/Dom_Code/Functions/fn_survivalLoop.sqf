@@ -12,6 +12,7 @@
 			if (client_survivalStage isEqualTo 4) then {
 				["hunger"] call DT_fnc_survivalEffects;
 				["paycheck"] call DT_fnc_survivalEffects;
+				[4] call DT_fnc_saveStatsPartial;
 				client_survivalStage = 0;
 			};
 		};

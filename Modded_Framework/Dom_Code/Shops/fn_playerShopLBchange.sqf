@@ -4,13 +4,9 @@
     Description: Called on the LB change
 */
 params [
-    ["_evhStuff",[],[[]]]
-];
-_evhStuff params [
     ["_control",controlNull,[controlNull]],
     ["_index",-1,[0]]
 ];
-if (_mode isEqualTo -1 || {isNull _control}) exitWith {closeDialog 0};
 
 if (_index isEqualTo -1) exitWith {["Nothing selected.","orange"] call DT_fnc_notify};
 

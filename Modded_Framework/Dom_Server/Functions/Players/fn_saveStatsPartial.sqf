@@ -24,31 +24,28 @@ switch _mode do {
 	};
 
 	case 2: {
+		_data = getUnitLoadout remoteExecutedOwner;
 		switch _side do {
-			case "cop": {[format["updateCopGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync;};
-			case "civ": {[format["updateMedicGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync;};
-			case "medic": {[format["updateCivGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync;};
+			case "cop": {[format["updateCopGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
+			case "civ": {[format["updateMedicGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
+			case "medic": {[format["updateCivGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
 		};
 	};
 
 	case 3: {
-		_data = if (count _data isEqualTo 3) then {_data} else {[0,0,0]};
-		[format["updatePosition:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync;
-	};
-
-	case 4: {
+		_data = remoteExecutedOwner getVariable ["jail_details",[]];
 		[format["updateJail:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync;
 	};
 
-	case 5: {
+	case 4: {
 		[format["updateStats:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync;
 	};
 
-	case 6: {
+	case 5: {
 		[format["updatePhone:%1:%2:%3",_data,_aditData,_uid],1] call MySQL_fnc_DBasync;
 	};
 
-	case 7: {
+	case 6: {
 		[format["updateSkills:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync;
 	};
 };

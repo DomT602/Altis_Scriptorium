@@ -7,7 +7,7 @@ params [
 	["_building",objNull,[objNull]]
 ];
 if (isNull _building) exitWith {};
-if (_building getVariable ["owner",""] isEqualTo "") exitWith {["Nobody owns this house."] call DT_fnc_notify};
+if (_building getVariable ["id",-1] isEqualTo -1) exitWith {["Nobody owns this building.","orange"] call DT_fnc_notify};
 if !("D_BoltCutter_i" in (magazines player)) exitWith {["You need boltcutters to do this.","orange"] call DT_fnc_notify};
 
 private _doors = getNumber(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "numberOfDoors");

@@ -7,6 +7,8 @@ params [
 	["_building",objNull,[objNull]]
 ];
 if (isNull _building) exitWith {};
+if !(_building getVariable ["id",-1] isEqualTo -1) exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
+
 closeDialog 0;
 if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> (typeOf _building))) exitWith {
 	if !(_building getVariable ["shop_company",""] isEqualTo "") exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
@@ -35,8 +37,6 @@ if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> (typeOf _building))) 
 		_building setVariable ["shop_inUse",false,true];
 	};
 };
-
-if (_building getVariable ["owner",""] isEqualTo "") exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
 
 if !(isClass (missionConfigFile >> "Buildings" >> "Houses" >> (typeOf _building))) exitWith {["This building is not buyable.","red"] call DT_fnc_notify};
 private _config = missionConfigFile >> "Buildings" >> "Houses" >> typeOf _building;

@@ -118,5 +118,4 @@ if (client_cash > 0) then {
 };
 
 [0] call DT_fnc_saveStatsPartial;
-[6] call DT_fnc_saveStatsPartial;
-[3] call DT_fnc_saveStatsPartial;
+[2] call DT_fnc_saveStatsPartial;
