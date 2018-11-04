@@ -5,7 +5,7 @@
 */
 private _block = "";
 for "_i" from 0 to 14 do {
-	(DT_notif_array select _i) params [["_text","",[""]]];
+	(DT_notifArray select _i) params [["_text","",[""]]];
 	if !(_text isEqualTo "") then {
 		_block = _block + _text + "<br />";
 	};

@@ -21,17 +21,21 @@ if (_targetNumber isEqualTo "911") then {
 	} forEach playableUnits;
 	[_message,_myNumber,date,true,player] remoteExecCall ["DT_fnc_recieveText",_units];
 } else {
-	private _toText = objNull;
-	{
-		_selNumber = _x getVariable ["phoneNumber",""];
-		if (_selNumber isEqualTo _targetNumber) exitWith {
-			_toText = _x
-		};
-	} forEach playableUnits;
-	if !(isNull _toText) then {
-		[_message,_myNumber,date,false,player] remoteExecCall ["DT_fnc_recieveText",_toText];
+	if (_targetNumber isEqualTo "all") then {
+		[_message,_myNumber,date,true,player] remoteExecCall ["DT_fnc_recieveText",-2];
 	} else {
-		_message = format["Sorry, the number: %1 is not avaliable, try again later!",_targetNumber];
-		[_message,_myNumber,date,false,player] remoteExecCall ["DT_fnc_recieveText",player];
+		private _toText = objNull;
+		{
+			private _selNumber = _x getVariable ["phoneNumber",""];
+			if (_selNumber isEqualTo _targetNumber) exitWith {
+				_toText = _x
+			};
+		} forEach playableUnits;
+		if !(isNull _toText) then {
+			[_message,_myNumber,date,false,player] remoteExecCall ["DT_fnc_recieveText",_toText];
+		} else {
+			_message = format["Sorry, the number: %1 is not avaliable, try again later!",_targetNumber];
+			[_message,_myNumber,date,false,player] remoteExecCall ["DT_fnc_recieveText",player];
+		};
 	};
 };

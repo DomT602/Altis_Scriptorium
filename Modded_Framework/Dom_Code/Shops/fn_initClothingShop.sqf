@@ -7,7 +7,7 @@ params [
 	["_shop","",[""]]
 ];
 if (_shop isEqualTo "") exitWith {};
-if (!isClass(missionConfigFile >> "Shops" >> "Clothing" >> _shop)) exitWith {};
+if !(isClass(missionConfigFile >> "Shops" >> "Clothing" >> _shop)) exitWith {};
 private _conditions = getText(missionConfigFile >> "Shops" >> "Clothing" >> _shop >> "conditions");
 if !([_conditions] call DT_fnc_conditionChecker) exitWith {["You cannot use this shop.","orange"] call DT_fnc_notify};
 
@@ -31,11 +31,9 @@ if !(_goggles isEqualTo "") then {client_preview addGoggles _goggles};
 if !(_headgear isEqualTo "") then {client_preview addHeadgear _headgear};
 
 if !(createDialog "DT_clothingShop") exitWith {deleteVehicle client_preview};
-uiNamespace setVariable ["Shop_Type",_shop];
-uiNamespace setVariable ["Shop_Filter",0];
 uiNamespace setVariable ["Shop_Purchase",[["",-1],["",-1],["",-1],["",-1],["",-1]]];
 
-client_target = createAgent ["Logic",position client_preview,[],0,"none"];
+client_target = createAgent ["Logic",position client_preview,[],0,"NONE"];
 client_target attachTo [client_preview,client_cameraSettings select 3,""];
 
 client_camera = "CAMERA" camCreate position client_preview;
@@ -49,13 +47,31 @@ showcinemaBorder false;
 ["Clothing",[controlNull,0,0]] call DT_fnc_handleMouse;
 preview_handle = addMissionEventHandler ["draw3D",{call DT_fnc_updateCamera}];
 
-private _list = ((findDisplay 1013) displayCtrl 1500);
-lbClear _list;
-private _filter = ((findDisplay 1013) displayCtrl 2100);
-lbClear _filter;
-_filter lbAdd "Clothing";
-_filter lbAdd "Vests";
-_filter lbAdd "Backpacks";
-_filter lbAdd "Facewear";
-_filter lbAdd "Headgear";
-_filter lbSetCurSel 0;
+private _tree = ((findDisplay 1013) displayCtrl 1500);
+_tree tvAdd [[],"Uniforms"];
+_tree tvAdd [[],"Vests"];
+_tree tvAdd [[],"Backpacks"];
+_tree tvAdd [[],"Goggles"];
+_tree tvAdd [[],"Headgear"];
+
+private _uniforms = getArray(missionConfigFile >> "Shops" >> "Clothing" >> _shop >> "uniforms");
+private _vests = getArray(missionConfigFile >> "Shops" >> "Clothing" >> _shop >> "vests");
+private _backpacks = getArray(missionConfigFile >> "Shops" >> "Clothing" >> _shop >> "backpacks");
+private _goggles = getArray(missionConfigFile >> "Shops" >> "Clothing" >> _shop >> "goggles");
+private _headgear = getArray(missionConfigFile >> "Shops" >> "Clothing" >> _shop >> "headgear");
+
+{
+	private _index = _forEachIndex;
+	private _itemArray = _x;
+	{
+		_x params ["_className","_buyPrice","_conditions"];
+		if ([_conditions] call DT_fnc_conditionChecker) then {
+			([_className] call DT_fnc_fetchDetails) params ["_name","_picture"];
+			_list tvAdd [[_index],_name];
+			private _count = _tree tvCount [_index];
+			_list tvSetData[[_count],_className];
+			_list tvSetPicture[[_count],_picture];
+			_list tvSetValue[[_count],_buyPrice];
+		};
+	} forEach _itemArray;
+} forEach [_uniforms,_vests,_backpacks,_goggles,_headgear];

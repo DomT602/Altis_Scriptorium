@@ -25,7 +25,7 @@ switch _state do {
         if !(player canAdd _item) exitWith {["You don't have enough room to remove this item.","orange"] call DT_fnc_notify};
         lbDelete [-1,_selected];
         _items deleteAt _selected;
-        MB_Interaction_Target setVariable ["shop_inventory",_items,true];
+        //MB_Interaction_Target setVariable ["shop_inventory",_items,true];
         player addItem _item;
         [2] call DT_fnc_saveStatsPartial;
     };
@@ -36,7 +36,7 @@ switch _state do {
         if !(_price > 0) exitWith {};
         player removeItem _item;
         _items pushBack ([_item,_price]);
-        MB_Interaction_Target setVariable ["shop_inventory",_items,true];
+        //MB_Interaction_Target setVariable ["shop_inventory",_items,true];
         [2] call DT_fnc_saveStatsPartial;
     };
 };

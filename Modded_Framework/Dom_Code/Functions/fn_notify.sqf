@@ -20,13 +20,13 @@ private _colourCode = call {
 _message = format["<t size='1.3' color='%1'>%2",_colourCode,((_message splitString "&") joinString "and")];
 
 for "_i" from 15 to 1 step -1 do {
-	DT_notif_array set [_i,DT_notif_array select (_i - 1)];
+	DT_notifArray set [_i,DT_notifArray select (_i - 1)];
 };
 
-DT_notif_count = DT_notif_count + 1;
-private _id = DT_notif_count;
+DT_notifCount = DT_notifCount + 1;
+private _id = DT_notifCount;
 
-DT_notif_array set [0,[_message,_id]];
+DT_notifArray set [0,[_message,_id]];
 
 call DT_fnc_showNotifs;
 
@@ -42,10 +42,10 @@ call DT_fnc_showNotifs;
 				["_oldID",-1,[0]]
 			];
 			if (_oldID isEqualTo _id) exitWith {
-				DT_notif_array set [_forEachIndex,["",-1]];
+				DT_notifArray set [_forEachIndex,["",-1]];
 				call DT_fnc_showNotifs;
 			};
-		} forEach DT_notif_array;
+		} forEach DT_notifArray;
 	},
 	_id,
 	_time

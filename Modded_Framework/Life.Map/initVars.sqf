@@ -33,8 +33,8 @@ phone_denyedCall = false;
 phone_callAttempts = 0;
 player setVariable ["callTotal",0,true];
 
-DT_notif_array = [];
-DT_notif_count = 0;
+DT_notifArray = [];
+DT_notifCount = 0;
 
 jail_changedTime = false;
 

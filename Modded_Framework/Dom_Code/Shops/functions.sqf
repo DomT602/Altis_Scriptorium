@@ -3,7 +3,6 @@ publicVariable "DT_fnc_buyLicense";
 publicVariable "DT_fnc_buyPlayerShop";
 publicVariable "DT_fnc_closeShop";
 publicVariable "DT_fnc_fetchDetails";
-publicVariable "DT_fnc_filterClothing";
 publicVariable "DT_fnc_initATM";
 publicVariable "DT_fnc_initClothingShop";
 publicVariable "DT_fnc_initPlayerShop";

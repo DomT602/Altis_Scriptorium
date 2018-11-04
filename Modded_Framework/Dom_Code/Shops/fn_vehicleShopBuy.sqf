@@ -23,36 +23,4 @@ client_cash = client_cash - _price;
 [0] call DT_fnc_saveStatsPartial;
 [format["You bought %1 for $%2.",getText(configFile >> "CfgVehicles" >> _className >> "displayName"),str(_price)],"green"] call DT_fnc_notify;
 
-private _vehicle = createVehicle [_className, (getMarkerPos _spawnPoint), [], 0, "NONE"];
-[
-	{
-		!isNull (_this select 0)
-	},
-	{
-		params [
-			["_vehicle",objNull,[objNull]],
-			["_spawnPoint","",[""]],
-			["_colourIndex",-1,[0]]
-		];
-		_vehicle allowDamage false;
-		_vehicle setPos (getMarkerPos _spawnPoint);
-		_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
-		_vehicle setDir (markerDir _spawnPoint);
-
-		_vehicle lock 2;
-
-		[_vehicle,_colourIndex] call DT_fnc_setTexture;
-		clearWeaponCargoGlobal _vehicle;
-		clearMagazineCargoGlobal _vehicle;
-		clearItemCargoGlobal _vehicle;
-		clearBackpackCargoGlobal _vehicle;
-		_vehicle setVariable ["key_holders",[profileName],true];
-
-		_vehicle allowDamage true;
-
-		client_keys pushBack _vehicle;
-		[getPlayerUID player,_vehicle] remoteExecCall ["server_fnc_handleKeys",2];
-		[getPlayerUID player,_vehicle,player getVariable ["faction","civ"],_colourIndex] remoteExecCall ["DB_fnc_insertVehicle",2];
-	},
-	[_vehicle,_spawnPoint,_colourIndex]
-] call CBA_fnc_waitUntilAndExecute;
+[_className,_spawnPoint,getPlayerUID player,player getVariable ["faction","civ"],_colourIndex] remoteExecCall ["DB_fnc_insertVehicle",2];

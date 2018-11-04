@@ -188,21 +188,6 @@ class PS_RscLine: PS_RscText {
     colorText[] = {1, 1, 1, 1.0};
 };
 
-class PS_RscTree {
-    style = 2;
-    font = "PuristaLight";
-    sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
-    expandedTexture = "A3\ui_f\data\gui\Rsccommon\Rsctree\expandedTexture_ca.paa";
-    hiddenTexture = "A3\ui_f\data\gui\Rsccommon\Rsctree\hiddenTexture_ca.paa";
-    rowHeight = 0.0439091;
-    color[] = {1, 1, 1, 1};
-    colorSelect[] = {0.7, 0.7, 0.7, 1};
-    colorBackground[] = {0, 0, 0, 0};
-    colorSelectBackground[] = {0, 0, 0, 0.5};
-    colorBorder[] = {0, 0, 0, 0};
-    borderSize = 0;
-};
-
 class PS_RscTitle: PS_RscText {
     style = 0;
     sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
@@ -636,6 +621,58 @@ class PS_RscListBox
         color[] = {1,1,1,1};
         autoScrollEnabled = 1;
     };
+};
+
+class PS_RscTree
+{
+    idc = -1;
+    type = 12;
+    style = 2;
+    blinkingPeriod = 0;
+    w = 0.275;
+    h = 0.04;
+    colorBackground[] = {0,0,0,0.2};
+    sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+
+    picture = "";
+    colorPicture[] = {1,1,1,1};
+    colorPictureSelected[] = {1,1,1,1};
+    colorPictureDisabled[] = {1,1,1,1};
+    colorPictureRight[] = {1,1,1,1};
+    colorPictureRightSelected[] = {1,1,1,1};
+    colorPictureRightDisabled[] = {1,1,1,1};
+    colorPictureLeft[] = {1,1,1,1};
+    colorPictureLeftSelected[] = {1,1,1,1};
+    colorPictureLeftDisabled[] = {1,1,1,1};
+
+    font = "PuristaLight";
+    rowHeight = 0.04;
+    color[] = {1, 1, 1, 1};
+    colorSelect[] = {0.7, 0.7, 0.7, 1};
+    colorSelectBackground[] = {0, 0, 0, 0.5};
+    colorBorder[] = {0, 0, 0, 0};
+    borderSize = 0;
+
+    colorMarked[] = {1,0.5,0,0.5};
+    colorMarkedSelected[] = {1,0.5,0,1}; 
+
+    colorText[] = {1,1,1,1};
+    colorSelectText[] = {1,1,1,1}; 
+    colorMarkedText[] = {1,1,1,1}; 
+
+    tooltip = "";
+    tooltipColorShade[] = {0,0,0,1};
+    tooltipColorText[] = {1,1,1,1};
+    tooltipColorBox[] = {1,1,1,1};
+
+    multiselectEnabled = 1; 
+    expandOnDoubleclick = 1; 
+    hiddenTexture = "\A3\ui_f\data\gui\rsccommon\rsctree\hiddenTexture_ca.paa";
+    expandedTexture = "\A3\ui_f\data\gui\rsccommon\rsctree\expandedTexture_ca.paa";
+    maxHistoryDelay = 1;
+    colorDisabled[] = {0,0,0,0}; 
+    colorArrow[] = {0,0,0,0};
+    class ScrollBar: PS_RscScrollBar{};
 };
 
 class PS_RscEdit {
@@ -2253,23 +2290,14 @@ class DT_clothingShop {
     };
 
     class controls {
-        class DT_listbox: PS_RscListbox
+        class DT_tree: PS_RscTree
         {
             idc = 1500;
-            onLBSelChanged="_this call DT_fnc_previewClothing";
+            onTreeSelChanged = "_this call DT_fnc_previewClothing";
             x = 0.005 * safezoneW + safezoneX;
             y = 0.082 * safezoneH + safezoneY;
             w = 0.170156 * safezoneW;
             h = 0.715 * safezoneH;
-        };
-        class DT_filterChange: PS_RscCombo
-        {
-            idc = 2100;
-            onLBSelChanged="_this call DT_fnc_filterClothing";
-            x = 0.04625 * safezoneW + safezoneX;
-            y = 0.841 * safezoneH + safezoneY;
-            w = 0.128906 * safezoneW;
-            h = 0.022 * safezoneH;
         };
         class DT_itemPrice: PS_RscStructuredText
         {
@@ -2294,7 +2322,7 @@ class DT_clothingShop {
             onButtonClick="call DT_fnc_buyClothing";
             x = 0.005 * safezoneW + safezoneX;
             y = 0.841 * safezoneH + safezoneY;
-            w = 0.04125 * safezoneW;
+            w = 0.170156 * safezoneW;
             h = 0.022 * safezoneH;
         };
     };

@@ -5,7 +5,6 @@ class Shops {
     class buyPlayerShop {};
     class closeShop {};
     class fetchDetails {};
-    class filterClothing {};
     class initATM {};
     class initClothingShop {};
     class initPlayerShop {};
