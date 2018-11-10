@@ -21,7 +21,7 @@ params [
 if !(_item in (items player)) exitWith {["You don't have the required item.","orange"] call DT_fnc_notify};
 closeDialog 0;
 
-["Repairing",10,"Acts_carFixingWheel","isNull objectParent player && player distance MB_Interaction_Target < 5",
+["Repairing",10,"Acts_carFixingWheel","isNull objectParent player && !([MB_Interaction_Target,5] call DT_fnc_checkVehicle)",
 {
 	params [
 		["_item","",[""]],

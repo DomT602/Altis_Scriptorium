@@ -8,9 +8,9 @@ params [
 	["_vehicle",objNull,[objNull]]
 ];
 
-if (isNull _vehicle) exitWith {};
+if !([_vehicle,5] call DT_fnc_checkVehicle) exitWith {};
 
-["Impounding",5,"","isNull objectParent player && player distance MB_Interaction_Target < 5",
+["Impounding",5,"","isNull objectParent player && !([MB_Interaction_Target,5] call DT_fnc_checkVehicle)",
 {
 	if (MB_Interaction_Target in client_keys) then {
 		["You impounded your own vehicle.","green"] call DT_fnc_notify;

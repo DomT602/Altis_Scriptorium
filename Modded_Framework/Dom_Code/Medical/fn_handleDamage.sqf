@@ -42,11 +42,11 @@ if (vehicle _unit isKindOf "Car" && {isNull _source || _source isEqualTo _unit})
 		_damage = _damage / 2;
 	} else {
 		if (((speed vehicle _unit) > 90) && {!(_unit getVariable ["tied",false])} && {!(_unit getVariable ["restrained",false])}) then {
-			velocity (vehicle _unit) params ["_xVel","_yVel","_zVel"];
+			private _velocity = ((velocity (vehicle _unit)) vectorMultiply 0.25) vectorAdd [0,0,5];
 			playSound "glassbreak";
 			unAssignVehicle _unit;
 			moveOut _unit;
-			_unit setVelocity [_xVel * 0.25,_yVel * 0.25,(_zVel * 0.25) + 5];
+			_unit setVelocity _velocity;
 			
 		};
 	};

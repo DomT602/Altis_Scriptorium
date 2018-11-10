@@ -17,6 +17,7 @@ mod_list = [];
 	mod_list pushBack (configName _x);
 } forEach ("true" configClasses (configFile >> "CfgPatches"));
 publicVariable "mod_list";
+mod_list = nil;
 
 addMissionEventHandler ["HandleDisconnect",{_this call server_fnc_onClientDisconnect; false}];
 
@@ -43,12 +44,12 @@ publicVariable "jail_bomb_planted";
 threat_level = _threat;
 publicVariable "threat_level";
 mayor = _mayor;
-publicVariable mayor;
-rebel_use = true;
-publicVariable rebel_use;
-rebel_started = false;
-publicVariable rebel_started;
-rebel_time = time;
-publicVariable rebel_time;
+publicVariable "mayor";
+//rebel_use = true;
+//publicVariable "rebel_use";
+//rebel_started = false;
+//publicVariable "rebel_started";
+//rebel_time = time;
+//publicVariable "rebel_time";
 
 [] spawn server_fnc_monitorServer;

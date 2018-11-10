@@ -76,6 +76,7 @@ class CfgFunctions {
             class jailbreak {};
             class logAction {};
             class monitorServer {};
+            class monitorSpikes {};
             class moveBlackMarketDealer {};
             class moveDrugDealer {};
             class onClientDisconnect {};

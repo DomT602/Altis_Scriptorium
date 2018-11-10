@@ -2,6 +2,7 @@ class Functions {
     file = "\Dom_Code\Functions";
     class checkMap {};
     class checkPlayer {};
+    class checkVehicle {};
     class clickChecker {};
     class conditionChecker {};
     class countFaction {};

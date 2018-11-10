@@ -4,7 +4,7 @@
 	Description: Initiliases ATM
 */
 
-if !(_dialog) then {
+if !(dialog) then {
 	createDialog "DT_atm";
 };
 

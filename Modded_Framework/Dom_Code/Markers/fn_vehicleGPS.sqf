@@ -7,11 +7,11 @@ params [
 	["_vehicle",objNull,[objNull]]
 ];
 
-if (isNull _vehicle || {player distance _vehicle > 3}) exitWith {};
+if !([_vehicle,3] call DT_fnc_checkVehicle) exitWith {};
 if !("ItemGPS" in (items player)) exitWith {["You need a GPS.","orange"] call DT_fnc_notify};
 
 
-["Attaching GPS",15,"AinvPknlMstpSnonWnonDnon_medic_1","isNull objectParent player && player distance _vehicle < 5",
+["Attaching GPS",15,"AinvPknlMstpSnonWnonDnon_medic_1","isNull objectParent player && !([MB_Interaction_Target,3] call DT_fnc_checkVehicle) exitWith {};",
 {
 	player removeItem "ItemGPS";
 	["GPS Tracker attached.","green"] call DT_fnc_notify;

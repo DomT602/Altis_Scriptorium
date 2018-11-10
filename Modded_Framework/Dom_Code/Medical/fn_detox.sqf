@@ -9,7 +9,7 @@ params [
 
 ["Initiating detox...","blue",3] call DT_fnc_notify;
 uiSleep 3;
-if (player distance _unit > 5) exitWith {["Detox failed - target moved too far away.","orange"] call DT_fnc_notify};
+if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 _unit setVariable ["intoxication",0,true];
 [_unit,"Detoxified"] call DT_fnc_recordMedical;
 ["Detoxication complete.","green"] call DT_fnc_notify;

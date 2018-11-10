@@ -23,9 +23,13 @@
 
 		private _legs = player getVariable ["legs",0];
 		if (_legs < 0.75) then {
-			player setHit ["legs",0];
+			if (player getHit "legs" != 0) then {
+				player setHit ["legs",0];
+			};
 		} else {
-			player setHit ["legs",1];
+			if (player getHit "legs" != 1) then {
+				player setHit ["legs",1];
+			};
 		};
 
 		private _arms = player getVariable ["arms",0];

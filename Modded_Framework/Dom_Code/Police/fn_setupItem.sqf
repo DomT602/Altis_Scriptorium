@@ -33,7 +33,7 @@ switch _item do {
 		_cone5 attachTo [player,[0,6,.35]];
 		{
 			_x setDir 90
-		} forEach (_cone1 getvariable ["components",[]]);
+		} forEach (_cone1 getVariable ["components",[]]);
 
 	};
 	case "Wood_Barrier_Boxed": {
@@ -51,7 +51,7 @@ switch _item do {
 		_cone2 attachTo [player,[0,9.1,.35]];
 		{
 			_x setDir 90
-		} forEach (_cone1 getvariable ["components",[]]);
+		} forEach (_cone1 getVariable ["components",[]]);
 	};
 	case "Concrete_Barrier_Boxed": {
 		private _barrier1 = "Land_CncBarrier_F" createVehicle [0,0,0];
@@ -74,8 +74,8 @@ switch _item do {
 		_lamp1 attachTo [player,[1.5,1,1.12]];  
 		_lamp2 attachTo [player,[-1.5,9.5,1.12]];   
 		{
-			_x setdir 90
-		} foreach (_cone1 getvariable ["components",[]]);
+			_x setDir 90
+		} foreach (_cone1 getVariable ["components",[]]);
 		_lamp1 setDir 150;  
 		_lamp2 setDir -30;
 	};	
@@ -92,7 +92,7 @@ switch _item do {
 		_cone2 attachTo [player,[0,10.5,.35]];
 		{
 			_x setDir 270
-		} forEach (_cone1 getvariable ["components",[]]);
+		} forEach (_cone1 getVariable ["components",[]]);
 
 	};
 };

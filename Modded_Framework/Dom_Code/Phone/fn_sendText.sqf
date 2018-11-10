@@ -10,6 +10,7 @@ private _myNumber = player getVariable ["phoneNumber",""];
 
 if (_message isEqualTo "") exitWith {["You didn't enter a message.","orange"] call DT_fnc_notify};
 if (_targetNumber isEqualTo "") exitWith {["You didn't enter a number.","orange"] call DT_fnc_notify};
+if (count _targetNumber > 6) exitWith {["Invalid number, text failed.","orange"] call DT_fnc_notify};
 _message = ((_message splitString "&") joinString "and");
 
 if (_targetNumber isEqualTo "911") then {

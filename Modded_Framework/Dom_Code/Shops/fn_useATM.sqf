@@ -36,7 +36,6 @@ switch _type do {
 		client_bank = client_bank - _value;
 		[format["You transferred $%1 to %2.",str(_value),name _unit],"green"] call DT_fnc_notify;
 		[_value,player,true] remoteExecCall ["DT_fnc_recieveMoney",_unit];
-
 	};
 };
 

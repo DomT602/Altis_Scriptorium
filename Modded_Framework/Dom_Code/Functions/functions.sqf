@@ -1,5 +1,6 @@
 publicVariable "DT_fnc_checkMap";
 publicVariable "DT_fnc_checkPlayer";
+publicVariable "DT_fnc_checkVehicle";
 publicVariable "DT_fnc_clickChecker";
 publicVariable "DT_fnc_conditionChecker";
 publicVariable "DT_fnc_countFaction";

@@ -30,18 +30,18 @@ switch _author do {
 	case "Jonzie": {
 		{
 			if (_x isEqualTo "") then {
-				_vehicle setObjectTexture [(_forEachIndex + 1), ""];
+				_vehicle setObjectTextureGlobal [(_forEachIndex + 1), ""];
 			} else {
-				_vehicle setObjectTexture [(_forEachIndex + 1), format ["\Jonzie_Carpack\Universal_Cars\Number_Plates\%1.paa",_x]];
+				_vehicle setObjectTextureGlobal [(_forEachIndex + 1), format ["\Jonzie_Carpack\Universal_Cars\Number_Plates\%1.paa",_x]];
 			};
 		} forEach [_plate1,_plate2,_plate3,_plate4,_plate5,_plate6,_plate7];
 	};
 	case "Ivory": { //need to do a isMultiplayer check
 		{
 			if (_x isEqualTo "") then {
-				_vehicle setObjectTexture [(_forEachIndex + 4), ""];
+				_vehicle setObjectTextureGlobal [(_forEachIndex + 4), ""];
 			} else {
-				_vehicle setObjectTexture [(_forEachIndex + 4), format ["\ivory_data\license\%1.paa",_x]];
+				_vehicle setObjectTextureGlobal [(_forEachIndex + 4), format ["\ivory_data\license\%1.paa",_x]];
 			};
 		} forEach [_plate1,_plate2,_plate3,_plate4,_plate5,_plate6,_plate7];
 	};

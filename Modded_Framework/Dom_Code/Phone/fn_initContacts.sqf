@@ -14,6 +14,7 @@ lbClear _contacts;
 		["_name","",[""]]
 	];
 	private _text = format["%1 (%2)",_name,_number];
+	_contacts lbAdd _text;
 } forEach phone_contacts;
 
 _contacts lbSetCurSel 0;

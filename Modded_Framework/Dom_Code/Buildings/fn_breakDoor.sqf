@@ -14,7 +14,7 @@ private _doors = getNumber(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "
 private _door = 0;
 for "_i" from 1 to _doors do {
 	private _pos = _building modeltoWorld (_building selectionPosition format["Door_%1_trigger",_i]);
-		if (player distance _pos < 2) exitWith {_door = _i};
+	if (player distance _pos < 2) exitWith {_door = _i};
 };
 if (_door isEqualTo 0) exitWith {["No nearby doors.","red"] call DT_fnc_notify};
 if ((_building getVariable [format["bis_disabled_Door_%1", _door],0]) isEqualTo 0) exitWith {["The door is already open.","blue"] call DT_fnc_notify};

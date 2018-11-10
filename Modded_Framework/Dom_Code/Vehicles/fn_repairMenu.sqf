@@ -8,7 +8,7 @@ params [
 	["_vehicle",objNull,[objNull]]
 ];
 
-if (isNull _vehicle || {player distance _vehicle > 3}) exitWith {};
+if !([_vehicle,3] call DT_fnc_checkVehicle) exitWith {};
 closeDialog 0;
 createDialog "DT_repairMenu";
 

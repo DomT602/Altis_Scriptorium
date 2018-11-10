@@ -62,7 +62,6 @@ player setVariable ["torso",_torso,true];
 player setVariable ["arms",_arms,true];
 player setVariable ["legs",_legs,true];
 
-client_position = _position;
 player setVariable ["phoneNumber",_phoneNumber,true];
 phone_contacts = _phoneContacts;
 phone_settings = _phoneSettings;
@@ -131,7 +130,7 @@ if (_arrested isEqualTo 1) then {
 	[_time] call DT_fnc_jailTimer;
 } else {
 	if (_alive isEqualTo 1) then {
-		player setVehiclePosition [client_position,[],0,"CAN_COLLIDE"];
+		player setVehiclePosition [_position,[],0,"CAN_COLLIDE"];
 	} else {
 		if (client_houses isEqualTo []) then {
 			player setVehiclePosition [(getMarkerPos "Lakeside_Spawn"),[],0,"CAN_COLLIDE"];

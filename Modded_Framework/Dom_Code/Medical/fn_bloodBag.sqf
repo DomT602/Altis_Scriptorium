@@ -5,7 +5,7 @@
 */
 if !("D_BloodBag_i" in (magazines player)) exitWith {["You have no bloodbags.","orange"] call DT_fnc_notify};
 
-["Applying bloodbag",5,["AinvPknlMstpSlayWnonDnon_medicOther","AinvPpneMstpSlayWnonDnon_medicOther"],"isNull objectParent player && player distance MB_Interaction_Target < 5",
+["Applying bloodbag",5,["AinvPknlMstpSlayWnonDnon_medicOther","AinvPpneMstpSlayWnonDnon_medicOther"],"isNull objectParent player && !([MB_Interaction_Target] call DT_fnc_checkPlayer)",
 {
 	player removeItem "D_BloodBag_i";
 	[100] remoteExec ["DT_fnc_recieveBlood",MB_Interaction_Target];

@@ -5,7 +5,7 @@
 */
 if !("D_Bandage_i" in (magazines player)) exitWith {["You have no bandages.","orange"] call DT_fnc_notify};
 
-["Bandaging",2,["AinvPknlMstpSlayWnonDnon_medicOther","AinvPpneMstpSlayWnonDnon_medicOther"],"isNull objectParent player && player distance MB_Interaction_Target < 5",
+["Bandaging",2,["AinvPknlMstpSlayWnonDnon_medicOther","AinvPpneMstpSlayWnonDnon_medicOther"],"isNull objectParent player && !([MB_Interaction_Target] call DT_fnc_checkPlayer)",
 {
 	player removeItem "D_Bandage_i";
 	private _bleeding = _unit getVariable ["bleeding",0];

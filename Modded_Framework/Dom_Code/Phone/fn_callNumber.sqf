@@ -101,44 +101,6 @@ if !(isNull _toRing) then {
 				phone_callingPlayer = false;
 			};
 		};
-		[
-			{
-				params [
-					["_arguments",[],[[]]],
-					["_handle",-1,[0]]
-				];
-				_arguments params ["_number","_ownNumber","_text"];
-
-				phone_callAttempts = phone_callAttempts + 1;
-				if (phone_acceptedCall) exitWith {
-					[_handle] call CBA_fnc_removePerFrameHandler;
-					playMusic ""; 
-					phone_callingPlayer = false; 
-					phone_inCall = true; 
-					[_ownNumber] call DT_fnc_setFrequency; 
-					player setVariable ["callTotal",(player getVariable ["callTotal",0] + 1),true]
-				};
-				if (phone_callAttempts isEqualTo 5 || phone_denyedCall) exitWith {
-					[_handle] call CBA_fnc_removePerFrameHandler;
-					playMusic "";
-					if (phone_denyedCall) then {
-						[format["Call to %1 was denied.",_number],"red"] call DT_fnc_notify;
-					} else {
-						["Call failed (no response).","red"] call DT_fnc_notify;
-					};
-					["Call failed (no response).","red"] call DT_fnc_notify;
-					phone_beingCalled = false; //safeguards
-					phone_acceptedCall = false;
-					phone_hungupCall = false;
-					phone_callingPlayer = false;
-					phone_callAttempts = 0;
-				};
-				[_text] call DT_fnc_notify;
-			},
-			3,
-			[_number,_ownNumber,_text]
-		] call CBA_fnc_addPerFrameHandler;
-
 	} else {
 		if !(phone_callOwner isEqualTo player) exitWith {["Only the call owner can add people to the call.","orange"] call DT_fnc_notify};
 		phone_callingPlayer = true;

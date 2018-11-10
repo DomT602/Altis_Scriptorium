@@ -6,10 +6,10 @@
 params [
     ["_object",objNull,[objNull]]
 ];
-_object = typeOf _object;
+private _type = typeOf _object;
 
-if (_object in ['log','coal']) then { //crafting stuff
-	(switch _object do {
+if (_type in ['log','coal']) then { //crafting stuff
+	(switch _type do {
 	    case "log": {["D_Log","You picked up a log."]}; //case 'class of item on ground': 'class of item for inventory'
 	    case "coal": {["D_Coal","You picked up some coal."]};
 	}) params ["_item","_message"];
@@ -19,6 +19,10 @@ if (_object in ['log','coal']) then { //crafting stuff
 	[_message,"green",5] call DT_fnc_notify;
 	deleteVehicle _object;
 } else {
+	if (_type isEqualTo "MW_spikeStrip") exitWith {
+		player addItem "MW_spikeStrip_Closed";
+		deleteVehicle _object;
+	};
 	private _hostCone = nearestObjects[getPosATL _object,["RoadCone_L_F"],5];
 	{
 		if !((_x getVariable ["components",[]]) isEqualTo []) exitWith {
