@@ -23,8 +23,7 @@ class CfgFunctions {
         class Buildings {
             file = "\Dom_Server\Functions\Buildings";
             class fetchBuildings {};
-            class initHousing {};
-            class initShops {};
+            class initBuildings {};
             class insertBuilding {};
             class insertFurniture {};
             class removeFurniture {};

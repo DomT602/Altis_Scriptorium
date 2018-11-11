@@ -9,7 +9,6 @@ params [
 if (_uid isEqualTo "") exitWith {};
 
 private _queryResult = [format["fetchFurniture:%1",_uid],2] call MySQL_fnc_DBasync;
-
 {
 	_x params [
 		["_pos",[0,0,0],[[]]],
@@ -20,8 +19,6 @@ private _queryResult = [format["fetchFurniture:%1",_uid],2] call MySQL_fnc_DBasy
 	];
 	private _house = nearestObject [_pos, "House"];
 	private _furniturePiece = createVehicle [_className,[0,0,0],[],0,"NONE"];
-
-	waitUntil {!isNull _furniturePiece};
 
 	private _furniture = _house getVariable ["furniture",[]];
 	_furniture pushBack _furniturePiece; //updates var on pushBack
@@ -53,7 +50,6 @@ private _queryResult = [format["fetchFurniture:%1",_uid],2] call MySQL_fnc_DBasy
 } forEach _queryResult;
 
 private _houses = [format["fetchHouses:%1",_uid],2,true] call MySQL_fnc_DBasync;
-
 private _return = [];
 {
 	_x params [
@@ -61,5 +57,4 @@ private _return = [];
 	];
 	_return pushBack _pos;
 } forEach _houses;
-
-missionNamespace setVariable [format ["houses_%1",_uid],_return];
+_return;

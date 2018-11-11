@@ -16,7 +16,7 @@ _position params ["_xPos","_yPos","_zPos"];
 }) params ["_className","_time","_height"];
 
 _time = _time + floor(random(50));
-private _plant = createVehicle [_className,[_xPos,_yPos,_zPos - _height],[],0,"CAN_COLLIDE"];
+private _plant = createVehicle [_className,(_position vectorAdd [0,0,-_height]),[],0,"CAN_COLLIDE"];
 
 private _growthTime = _time / 10;
 private _growthHeight = _height / 10;
@@ -28,5 +28,5 @@ for "_i" from 0 to 9 step 1 do {
 	uiSleep _growthTime;
 	_growthPercent = _growthPercent + 10;
 	_plant setVariable ["growthPercent",_growthPercent,true];
-	_plant setPosATL [_xPos,_yPos,(getPosATL _plant select 2) + _growthHeight];
+	_plant setPosATL ((getPosATL _plant) vectorAdd [0,0,_growthHeight]);
 };

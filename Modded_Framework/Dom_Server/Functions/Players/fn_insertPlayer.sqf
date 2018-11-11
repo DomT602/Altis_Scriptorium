@@ -26,4 +26,4 @@ for "_i" from 0 to 1 step 0 do {
 
 [format["insertPlayer:%1:%2:%3",_uid,name _unit,_number],1] call MySQL_fnc_DBasync;
 
-[_uid,_unit] remoteExec ["DB_fnc_initialStats",2];
+[_uid,_unit] remoteExecCall ["DB_fnc_initialStats",2];

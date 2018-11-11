@@ -12,7 +12,7 @@ if !(isServer) then {
 	};
 	call compile preprocessFileLineNumbers "initVars.sqf";
 	call compile preProcessFileLineNumbers '\Dom_Client\XEH_postClientInit.sqf';
-	[getPlayerUID player,player] remoteExec ["DB_fnc_initialStats",2];
+	[getPlayerUID player,player] remoteExecCall ["DB_fnc_initialStats",2];
 } else {
 	[] call compile preprocessFileLineNumbers "\Dom_Server\init.sqf";
 	[] spawn {

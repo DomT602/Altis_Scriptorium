@@ -32,8 +32,7 @@ addMissionEventHandler ["HandleDisconnect",{_this call server_fnc_onClientDiscon
 _tax params ["_atmTax","_itemTax","_vehTax"];
 gov_bank = _bank;
 
-call DB_fnc_initHousing;
-call DB_fnc_initShops;
+call DB_fnc_initBuildings;
 [3] call DB_fnc_fetchData;
 call DB_fnc_populateCompanies;
 

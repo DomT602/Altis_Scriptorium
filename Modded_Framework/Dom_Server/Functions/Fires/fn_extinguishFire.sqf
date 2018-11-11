@@ -8,7 +8,7 @@ params [
 ];
 if (_position isEqualTo []) exitWith {};
 
-private _stuff = nearestObjects [_position,[],3];
+private _stuff = nearestObjects [_position,[],2];
 private _nearBuilding = nearestBuilding _position;
 {
     if (typeOf _x isEqualTo "#particlesource") then {

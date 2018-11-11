@@ -19,7 +19,7 @@ private _cops = [];
 
 for "_i" from 0 to 900 do {
 	{
-		if (_x getVariable ["dead",false] || isNull _X || _x ditance _pos > 100) then {
+		if (_x getVariable ["dead",false] || isNull _X || _x distance _pos > 100) then {
 			_cops deleteAt _forEachIndex;
 		};
 	} forEach _cops;

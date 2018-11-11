@@ -10,7 +10,7 @@ if (isNull _building) exitWith {};
 
 private _positions = _building buildingPos -1;
 private _fires = [];
-
+//need fire alarm
 {
     private _randomArray = selectRandom [["MediumDestructionFire","SmallDestructionSmoke",0.25,[30,3,0,2],[0.4,1,0.1]],["BigDestructionFire","MediumDestructionSmoke",0.3,[50,4,0,2.5],[0.5,2,0.15]],["ObjectDestructionFire1Smallx","BigDestructionSmoke",0.35,[70,5,0,3],[0.6,3,0.2]]];
     _randomArray params ["_fireClass","_smokeClass","_brightness","_attenuation","_fireStats"];
