@@ -4,7 +4,7 @@
     Description: Sets up housing
 */
 
-private _houses = ["initHouses",2] call MySQL_fnc_DBasync;
+private _houses = ["initHouses",2,true] call MySQL_fnc_DBasync;
 
 {
 	_x params [
@@ -19,7 +19,7 @@ private _houses = ["initHouses",2] call MySQL_fnc_DBasync;
 	_house setVariable ["id",_id,true];
 	_house setVariable ["owner",_owner,true];
 	_house setVariable ["locked",true,true];
-	_house setVariable ["house_key_holders",_shared,true];
+	_house setVariable ["house_keyHolders",_shared,true];
 	_house setVariable ["alarm",_alarm,true];
 	
 	for "_i" from 1 to (getNumber(configFile >> "CfgVehicles" >> typeOf _house >> "numberOfDoors")) step 1 do {

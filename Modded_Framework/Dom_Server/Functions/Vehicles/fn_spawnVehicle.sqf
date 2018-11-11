@@ -6,9 +6,10 @@
 params [
 	["_pid","",[""]],
 	["_vid",-1,[0]],
-	["_spawnPoint","",[""]]
+	["_spawnPoint","",[""]],
+	["_name","",[""]]
 ];
-private _unit = remoteExecutedOwner;
+
 ([format["fetchVehicle:%1:%2",_pid,_vid],2] call MySQL_fnc_DBasync) params ["_className","_plate","_colourIndex","_fuel","_damage"];
 [format["setVehicleActive:%1:%2",_pid,_plate],1] call MySQL_fnc_DBasync;
 
@@ -24,9 +25,9 @@ clearBackpackCargoGlobal _vehicle;
 
 [_vehicle,_colourIndex] call DT_fnc_setTexture;
 _vehicle lock 2;
-_vehicle setVariable ["key_holders",[name _unit],true];
+_vehicle setVariable ["key_holders",[_name],true];
 _vehicle setVariable ["plate",_plate,true];
-[_vehicle] remoteExecCall ["DT_fnc_recieveKey",_unit];
+[_vehicle] remoteExecCall ["DT_fnc_recieveKey",remoteExecutedOwner];
 [_pid,_vehicle] call server_fnc_handleKeys;
 
 _vehicle setFuel _fuel;

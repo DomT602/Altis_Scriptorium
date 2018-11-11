@@ -8,7 +8,7 @@ params [
 ];
 if (isNull _house) exitWith {};
 
-private _doors = getNumber(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "numberOfDoors");
+private _doors = getNumber(configFile >> "CfgVehicles" >> (typeOf _house) >> "numberOfDoors");
 if (_house getVariable ["locked",true]) then {
     _house setVariable ["locked",false,true];
     ["Building unlocked."] call DT_fnc_notify;

@@ -4,9 +4,6 @@
 	Description: Handles the medical loop via CBA PFH
 */
 
-"colorCorrections" ppEffectEnable true;
-"radialblur" ppEffectEnable true;
-
 [
 	{
 		if (player getVariable ["dead",false]) exitWith {};
@@ -69,20 +66,25 @@
 		private _torso = player getVariable ["torso",0];
 		private _pain = ((_head + _torso + _arms + _legs) / 4);
 		if (_pain > 0.25 && !(player getVariable ["morphine",false])) then {
+			"colorCorrections" ppEffectEnable true;
+			"radialblur" ppEffectEnable true;
 			if (_pain > 0.5) then {
 				if (_pain > 0.75) then {
 					"colorCorrections" ppEffectAdjust [1, 0.5, 0, [0.8,0.9,1,-0.3], [1,1,1,2], [-0.5,0,-1,5]];
-					"radialBlur" ppEffectAdjust [0.01,0.2,0,0]; 
+					"radialBlur" ppEffectAdjust [0.01,0.2,0,0];
 				} else {
 					"colorCorrections" ppEffectAdjust [1, 0.5, 0, [0.8,0.9,1,-0.3], [1,1,1,2], [-0.5,0,-1,5]];
 					"radialBlur" ppEffectAdjust [0.01,0.15,0.1,0.15]; 
 				};
 			} else {
 				"colorCorrections" ppEffectAdjust [1, 0.5, 0, [0.8,0.9,1,-0.3], [1,1,1,2], [-0.5,0,-1,5]];
-				"radialBlur" ppEffectAdjust [0.01,0.2,0.1,0.2]; 
+				"radialBlur" ppEffectAdjust [0.01,0.2,0.1,0.2];
 			};
 			"colorCorrections" ppEffectCommit 1; 
 			"radialBlur" ppEffectCommit 1;
+		} else {
+			"colorCorrections" ppEffectEnable false;
+			"radialblur" ppEffectEnable false;
 		};
 	},
 	1

@@ -20,6 +20,7 @@ publicVariable "DT_fnc_handleItem";
 publicVariable "DT_fnc_handleMouse";
 publicVariable "DT_fnc_handleScroll";
 publicVariable "DT_fnc_holster";
+publicVariable "DT_fnc_introCamera";
 publicVariable "DT_fnc_notify";
 publicVariable "DT_fnc_onFired";
 publicVariable "DT_fnc_onGetOutMan";

@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Initiates the progress bar
 */
-
 params [
 	["_title","",[""]],
 	["_totalTime",0,[0]],
@@ -11,7 +10,7 @@ params [
 	["_conditions","",[""]],
 	["_onComplete",{},[{}]],
 	["_onFail",{},[{}]],
-	["_args",[],[]]
+	["_args",[],[[]]]
 ];
 
 closeDialog 0;
@@ -27,7 +26,7 @@ client_blockActions = true;
 		_arguments params [
 			["_conditions","",[""]],
 			["_totalTime",0,[0]],
-			["_animation","",[""]],
+			["_animation","",["",[]]],
 			["_startTime",0,[0]],
 			["_onComplete",{},[{}]],
 			["_onFail",{},[{}]],
@@ -55,14 +54,15 @@ client_blockActions = true;
 								player playMove _animation;
 							};
 						} else {
+							_animation params ["_kneel","_prone"];
 							if (stance player isEqualTo "PRONE") then {
-								if (animationState player != _animation) then {
-									player playMove (_animation select 1);
+								if (animationState player != _prone) then {
+									player playMove _prone;
 								};
 							} else {
 								if (stance player isEqualTo "UNDEFINED") exitWith {};
-								if (animationState player != _animation) then {
-									player playMove (_animation select 0);
+								if (animationState player != _kneel) then {
+									player playMove _kneel;
 								};
 							};
 						};

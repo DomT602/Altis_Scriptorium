@@ -33,7 +33,7 @@ for "_i" from 0 to (round(random 4)) step 1 do {
 	_light setLightColor [1,0.45,0];
 	_light setLightAttenuation _attenuation;
 	//_light setLightDayLight true;
-	if ((round random 10) isEqualTo 1) then {
+	if ((round random 25) isEqualTo 1) then {
         private _charge = "DemoCharge_Remote_Ammo_Scripted" createVehicle _position;
         _charge setDamage 1
     };

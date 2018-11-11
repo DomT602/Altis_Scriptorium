@@ -59,6 +59,7 @@ private _part = call {
 	if (_hitPoint in ["HitLegs"]) exitWith {"legs"};
 	if (_hitPoint isEqualTo "") exitWith {"all"};
 };
+_damage = parseNumber (_damage toFixed 2);
 
 [_part,_damage,_instigator] call DT_fnc_healthHandler;
 

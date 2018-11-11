@@ -74,16 +74,16 @@ private _records = player getVariable ["medRecords",[]];
 } forEach _records;*/
 
 _Btn1 ctrlSetText "Bandage";
-_Btn1 buttonSetAction "call DT_fnc_bandageSelf; closeDialog 0;";
+_Btn1 buttonSetAction "closeDialog 0; call DT_fnc_bandageSelf;";
 
 _Btn2 ctrlSetText "Cast";
-_Btn2 buttonSetAction "['cast'] call DT_fnc_treatSelf; closeDialog 0;";
+_Btn2 buttonSetAction "closeDialog 0; ['cast'] call DT_fnc_treatSelf;";
 
 _Btn3 ctrlSetText "Splint";
-_Btn3 buttonSetAction "['splint'] call DT_fnc_treatSelf; closeDialog 0;";
+_Btn3 buttonSetAction "closeDialog 0; ['splint'] call DT_fnc_treatSelf;";
 
 _Btn4 ctrlSetText "Morphine";
-_Btn4 buttonSetAction "call DT_fnc_morphineSelf; closeDialog 0;";
+_Btn4 buttonSetAction "closeDialog 0; call DT_fnc_morphineSelf;";
 
 _Btn5 ctrlShow false;
 _Btn6 ctrlShow false;

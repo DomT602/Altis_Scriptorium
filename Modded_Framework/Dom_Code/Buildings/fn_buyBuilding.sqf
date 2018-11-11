@@ -60,10 +60,10 @@ if (_action) then {
 	_building setVariable ["owner",getPlayerUID player,true];
 	_building setVariable ["locked",true,true];
 	_building setVariable ["furniture",[],true];
-	_building setVariable ["house_key_holders",[],true];
+	_building setVariable ["house_keyHolders",[],true];
 	_building setVariable ["alarm",[false,false,[]],true];
 
-	client_vehicles pushBack _building;
+	client_keys pushBack _building;
 	client_houses pushBack (getPosATL _building);
 	private _marker = createMarkerLocal [format ["house_%1",round(random 99999)],getPosATL _building];
 	_marker setMarkerTextLocal (getText(configFile >> "CfgVehicles" >> (typeOf _house) >> "displayName"));

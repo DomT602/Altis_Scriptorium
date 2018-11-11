@@ -39,4 +39,5 @@ if !(_item in (magazines player)) exitWith {["You don't have the necessary item.
 		case 2: {"You are dead."};
 		case 3: {"Treatment failed."};
 	}),"orange"] call DT_fnc_notify;
-}] call DT_fnc_progressBar;
+},
+[_item,_part,_text]] call DT_fnc_progressBar;

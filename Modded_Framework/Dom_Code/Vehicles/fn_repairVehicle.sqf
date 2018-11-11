@@ -11,7 +11,7 @@ params [
 if !([_vehicle,5] call DT_fnc_checkVehicle) exitWith {};
 if !("ToolKit" in (items player)) exitWith {["You need a toolkit.","orange"] call DT_fnc_notify};
 
-["Repairing",10,"Acts_carFixingWheel","isNull objectParent player && !([MB_Interaction_Target,5] call DT_fnc_checkVehicle)",
+["Repairing",10,"Acts_carFixingWheel","isNull objectParent player && ([MB_Interaction_Target,5] call DT_fnc_checkVehicle)",
 {
 	player removeItem "ToolKit";
 	["Repairing finished.","green"] call DT_fnc_notify;

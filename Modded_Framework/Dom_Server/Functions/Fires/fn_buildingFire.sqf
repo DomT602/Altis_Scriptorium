@@ -47,7 +47,7 @@ _nearestBuildings = _nearestBuildings - [_building];
 _nearestBuildings params ["_nearBuilding"];
 
 if (_building distance _nearBuilding < 15) then {
-    [_nearBuilding] spawn DT_fnc_buildingFire
+    [_nearBuilding] spawn server_fnc_buildingFire
 };
 
 {

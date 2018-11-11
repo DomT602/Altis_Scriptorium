@@ -17,7 +17,7 @@ if (MB_Interaction_Target getVariable [_part,0] > 0.5) then {_time = 5};
 
 if !(_item in (magazines player)) exitWith {["You don't have the necessary item.","orange"] call DT_fnc_notify};
 
-["Treating",_time,["AinvPknlMstpSlayWnonDnon_medicOther","AinvPpneMstpSlayWnonDnon_medicOther"],"isNull objectParent player && !([MB_Interaction_Target] call DT_fnc_checkPlayer)",
+["Treating",_time,["AinvPknlMstpSlayWnonDnon_medicOther","AinvPpneMstpSlayWnonDnon_medicOther"],"isNull objectParent player && ([MB_Interaction_Target] call DT_fnc_checkPlayer)",
 {
 	params [
 		["_item","",[""]],
@@ -25,7 +25,7 @@ if !(_item in (magazines player)) exitWith {["You don't have the necessary item.
 		["_text","",[""]]
 	];
 	player removeItem _item;
-	_unit setVariable [_part,0,true];
+	MB_Interaction_Target setVariable [_part,0,true];
 	[MB_Interaction_Target,_text] call DT_fnc_recordMedical;
 	["Treatment finished.","green"] call DT_fnc_notify;
 	[player,""] remoteExecCall ["switchMove",-2];

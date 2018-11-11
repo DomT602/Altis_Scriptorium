@@ -20,5 +20,4 @@ private _units = [];
 } forEach playableUnits;
 [_name] remoteExecCall ["DT_fnc_companyDeleted",_units];
 
-["CALL deleteOldCompanies",1] call MySQL_fnc_DBasync;
 call DB_fnc_populateCompanies;

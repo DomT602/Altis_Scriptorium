@@ -11,7 +11,7 @@ Item shop configs work by:
 class Buildings {
     class Houses {
         class Land_i_House_Big_02_V1_F {
-            price = 1550000;
+            price = 155000;
             maxFurniture = 100;
             type = 0;
             lightPos[] = {2,0,3.5};
@@ -21,7 +21,7 @@ class Buildings {
         class Land_i_House_Big_02_V3_F : Land_i_House_Big_02_V1_F{};
 
         class Land_i_House_Big_01_V1_F {
-            price = 2200000;
+            price = 220000;
             maxFurniture = 100;
             type = 0;
             lightPos[] = {0,-2,3.8};
@@ -31,7 +31,7 @@ class Buildings {
         class Land_i_House_Big_01_V3_F : Land_i_House_Big_01_V1_F{};
 
         class Land_i_House_Small_01_V1_F {
-            price = 1050000;
+            price = 105000;
             maxFurniture = 100;
             type = 0;
             lightPos[] = {-1.5,0,2};
@@ -41,7 +41,7 @@ class Buildings {
         class Land_i_House_Small_01_V3_F : Land_i_House_Small_01_V1_F{};
 
         class Land_i_House_Small_02_V1_F {
-            price = 1000500;
+            price = 100050;
             maxFurniture = 100;
             type = 0;
             lightPos[] = {2,0,2.4};
@@ -51,7 +51,7 @@ class Buildings {
         class Land_i_House_Small_02_V3_F : Land_i_House_Small_02_V1_F{};
 
         class Land_i_House_Small_03_V1_F {
-            price = 1250000;
+            price = 125000;
             maxFurniture = 100;
             type = 0;
             lightPos[] = {-3.3,1,2.5};
@@ -60,7 +60,7 @@ class Buildings {
         class Land_i_House_Small_03_V3_F : Land_i_House_Small_03_V1_F{};
 
         class Land_i_Stone_HouseSmall_V1_F {
-            price = 750000;
+            price = 75000;
             maxFurniture = 100;
             type = 0;
             lightPos[] = {0.90,2.3,4};
@@ -70,7 +70,7 @@ class Buildings {
         class Land_i_Stone_HouseSmall_V3_F : Land_i_Stone_HouseSmall_V1_F{};
 
         class Land_GarageShelter_01_F {
-            price = 80000;
+            price = 8000;
             maxFurniture = 0;
             type = 1;
             garageSpawnPos[] = {0.241684,-5.72266,-1.46744};

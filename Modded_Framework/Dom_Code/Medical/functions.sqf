@@ -20,5 +20,6 @@ publicVariable "DT_fnc_recordMedical";
 publicVariable "DT_fnc_respawn";
 publicVariable "DT_fnc_revived";
 publicVariable "DT_fnc_switchStretcher";
+publicVariable "DT_fnc_treatHead";
 publicVariable "DT_fnc_treatOther";
 publicVariable "DT_fnc_treatSelf";

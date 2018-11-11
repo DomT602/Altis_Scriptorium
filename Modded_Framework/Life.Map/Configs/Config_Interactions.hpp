@@ -2,8 +2,8 @@ class Interactions {
 	class cop {
 		class unrestrain {
 			title = "Unrestrain";
-			action = "cursorObject setVariable ['restrained',false,true]; cursorObject setVariable ['tied',false,true]";
-			check = "player addItem 'D_Handcuffs_i'; cursorObject getVariable ['restrained',false]";
+			action = "cursorObject setVariable ['restrained',false,true]; player addItem 'D_Handcuffs_i';";
+			check = "cursorObject getVariable ['restrained',false]";
 		};
 
 		class checkLicense {
@@ -15,13 +15,13 @@ class Interactions {
 		class patDown {
 			title = "Patdown";
 			action = "remoteExecCall ['DT_fnc_patDown',cursorObject]";
-			check = "cursorObject getVariable ['restrained',false]";
+			check = "cursorObject getVariable ['restrained',false] || cursorObject getVariable ['tied',false]";
 		};
 
 		class stripSearch {
 			title = "Strip search";
 			action = "remoteExecCall ['DT_fnc_stripSearch',cursorObject]";
-			check = "cursorObject getVariable ['restrained',false]";
+			check = "cursorObject getVariable ['restrained',false] || cursorObject getVariable ['tied',false]";
 		};
 
 		class escortPlayer {
@@ -129,6 +129,24 @@ class Interactions {
 			action = "cursorObject setVariable ['tied',false,true]";
 			check = "cursorObject getVariable ['tied',false]";
 		};
+
+		class patDown {
+			title = "Patdown";
+			action = "remoteExecCall ['DT_fnc_patDown',cursorObject]";
+			check = "cursorObject getVariable ['tied',false]";
+		};
+
+		class stripSearch {
+			title = "Strip search";
+			action = "remoteExecCall ['DT_fnc_stripSearch',cursorObject]";
+			check = "cursorObject getVariable ['tied',false]";
+		};
+
+		class putInCar {
+			title = "Put In Car";
+			action = "[cursorObject] call DT_fnc_loadPerson";
+			check = "isPlayer cursorObject && (cursorObject getVariable ['tied',false])";
+		};
 	};
 
 	class shared {
@@ -200,8 +218,8 @@ class Interactions {
 
 		class buyBuilding {
 			title = "Buy";
-			action = "[cursorObject] call DT_fnc_buyBuilding";
-			check = "(cursorObject isKindOf 'House_F') && {player distance cursorObject < 5}";
+			action = "[cursorObject] spawn DT_fnc_buyBuilding";
+			check = "(cursorObject isKindOf 'House_F') && {player distance cursorObject < 10}";
 		};
 
 		class pickupFurniture {
@@ -250,6 +268,12 @@ class Interactions {
 			title = "Zip-tie";
 			action = "[cursorObject] call DT_fnc_ziptie";
 			check = "isPlayer cursorObject && (animationState cursorObject in ['AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon','unconscious'])";
+		};
+
+		class unTie {
+			title = "Untie";
+			action = "cursorObject setVariable ['tied',false,true]; player addItem 'D_Ziptie_i';";
+			check = "cursorObject getVariable ['tied',false]";
 		};
 	};
 };

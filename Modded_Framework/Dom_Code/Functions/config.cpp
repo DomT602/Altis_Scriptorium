@@ -22,6 +22,7 @@ class Functions {
     class handleMouse {};
     class handleScroll {};
     class holster {};
+    class introCamera {};
     class notify {};
     class onFired {};
     class onGetOutMan {};

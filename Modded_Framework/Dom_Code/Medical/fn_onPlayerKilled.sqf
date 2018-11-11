@@ -82,7 +82,7 @@ if (isNull _killer || _killer isEqualTo _unit) then {
 		private _display = findDisplay 1002;
 		if (isNull _display) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
 
-		private _nearby = -1;
+		private _nearby = 99999;
 		{
 			if (!(_x getVariable ["dead",false]) && _x != _unit) then {
 				private _distance = (getPosATL _unit) distance _x;
@@ -90,7 +90,7 @@ if (isNull _killer || _killer isEqualTo _unit) then {
 			};
 		} forEach (["medic"] call DT_fnc_findPlayers);
 		(_display displayCtrl 7304) ctrlSetText format["Medics: %1",(["medic",true] call DT_fnc_countFaction)];
-		if (_nearby isEqualTo -1) then { 
+		if (_nearby isEqualTo 99999) then { 
 			(_display displayCtrl 7305) ctrlSetText "Nearest: None"; 
 		} else { 
 			(_display displayCtrl 7305) ctrlSetText format["Nearest: %1m",str(round _nearby)]; 

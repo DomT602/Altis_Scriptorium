@@ -23,7 +23,6 @@ addMissionEventHandler ["HandleDisconnect",{_this call server_fnc_onClientDiscon
 
 ["resetPositions",1] call MySQL_fnc_DBasync;
 ["resetVehicles",1] call MySQL_fnc_DBasync;
-["deleteOldCompanies",1] call MySQL_fnc_DBasync;
 (["selectPersisVars",2] call MySQL_fnc_DBasync) params [
 	["_threat","Green",[""]],
 	["_mayor","Aquarium",[""]],
@@ -33,6 +32,8 @@ addMissionEventHandler ["HandleDisconnect",{_this call server_fnc_onClientDiscon
 _tax params ["_atmTax","_itemTax","_vehTax"];
 gov_bank = _bank;
 
+call DB_fnc_initHousing;
+call DB_fnc_initShops;
 [3] call DB_fnc_fetchData;
 call DB_fnc_populateCompanies;
 

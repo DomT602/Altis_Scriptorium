@@ -13,7 +13,7 @@ params [
 	["_projectile",objNull,[objNull]]
 ];
 
-if (_ammoType isEqualTo "GrenadeHand_stone") exitWith {
+/*if (_ammoType isEqualTo "GrenadeHand_stone") exitWith {
 	[_projectile] spawn {
 		params [
 			["_projectile",objNull,[objNull]]
@@ -25,7 +25,7 @@ if (_ammoType isEqualTo "GrenadeHand_stone") exitWith {
 		};
 		[_position] remoteExec ["DT_fnc_flashBanged",-2];
 	};
-};
+};*/
 
 if (_ammoType isEqualTo "SmokeShellYellow") exitWith {
 	[_projectile] remoteExec ["DT_fnc_tearGas",-2];

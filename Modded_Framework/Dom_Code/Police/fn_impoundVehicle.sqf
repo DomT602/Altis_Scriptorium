@@ -10,7 +10,7 @@ params [
 
 if !([_vehicle,5] call DT_fnc_checkVehicle) exitWith {};
 
-["Impounding",5,"","isNull objectParent player && !([MB_Interaction_Target,5] call DT_fnc_checkVehicle)",
+["Impounding",5,"","isNull objectParent player && ([MB_Interaction_Target,5] call DT_fnc_checkVehicle)",
 {
 	if (MB_Interaction_Target in client_keys) then {
 		["You impounded your own vehicle.","green"] call DT_fnc_notify;
@@ -18,7 +18,7 @@ if !([_vehicle,5] call DT_fnc_checkVehicle) exitWith {};
 		client_bank = client_bank + 500;
 		["You recieved $500 for impounding the vehicle.","green"] call DT_fnc_notify;
 	};
-	[_vehicle,true] remoteExecCall ["DB_fnc_storeVehicle",2];
+	[MB_Interaction_Target,true] remoteExecCall ["DB_fnc_storeVehicle",2];
 },
 {
 	params [

@@ -4,7 +4,7 @@
     Description: Sets up shops
 */
 
-private _shops = ["initShops",2] call MySQL_fnc_DBasync;
+private _shops = ["initShops",2,true] call MySQL_fnc_DBasync;
 
 {
 	_x params [

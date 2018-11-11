@@ -10,7 +10,7 @@ params [
 
 if !([_vehicle,3] call DT_fnc_checkVehicle) exitWith {};
 
-["Pushing",3,"AinvPknlMstpSnonWnonDnon_medic_1","isNull objectParent player && !([MB_Interaction_Target,3] call DT_fnc_checkVehicle)",
+["Pushing",3,"AinvPknlMstpSnonWnonDnon_medic_1","isNull objectParent player && ([MB_Interaction_Target,3] call DT_fnc_checkVehicle)",
 {
 	(velocity MB_Interaction_Target) params ["_xVel","_yVel","_zVel"];
 	private _dir = direction player;

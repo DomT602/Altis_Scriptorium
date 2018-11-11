@@ -15,8 +15,8 @@ if (client_surrendered) then {
 			 if (player getVariable ["dead",false] || !(isNull objectParent player)) exitWith {client_surrendered = false};
 			 uiSleep 0.1;
 		};
-		if !(player getVariable ["dead",false] && isNull objectParent player) then {
-			player playMoveNow "AmovPercMstpSsurWnonDnon_AmovPercMstpSnonWnonDnon";
+		while {animationState player == "AmovPercMstpSsurWnonDnon" || animationState player == "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon"} do {
+			player switchMove "AmovPercMstpSsurWnonDnon_AmovPercMstpSnonWnonDnon";
 		};
 	};
 };

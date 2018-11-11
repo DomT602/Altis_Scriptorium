@@ -18,6 +18,6 @@ if (uiNamespace getVariable ["Impound_Lot",false]) then {
 	["You paid $100 to get the vehicle out the impound lot.","green"] call DT_fnc_notify;
 };
 
-[getPlayerUID player,_id,_spawn] remoteExecCall ["DB_fnc_spawnVehicle",2];
+[getPlayerUID player,_id,_spawn,(name player)] remoteExecCall ["DB_fnc_spawnVehicle",2];
 ["Requesting vehicle..."] call DT_fnc_notify;
 closeDialog 0;

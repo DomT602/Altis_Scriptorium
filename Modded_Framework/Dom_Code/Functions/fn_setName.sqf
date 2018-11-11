@@ -8,7 +8,7 @@ params [
 	["_unit",objNull,[objNull]]
 ];
 
-!([_unit] call DT_fnc_checkPlayer) exitWith {};
+if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 private _uid = getPlayerUID _unit;
 if (_uid isEqualTo "") exitWith {};
 private _name = (findDisplay 1004) displayCtrl 1400;

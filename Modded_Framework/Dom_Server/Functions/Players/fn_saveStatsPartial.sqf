@@ -24,16 +24,14 @@ switch _mode do {
 	};
 
 	case 2: {
-		_data = getUnitLoadout remoteExecutedOwner;
 		switch _side do {
 			case "cop": {[format["updateCopGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
-			case "civ": {[format["updateMedicGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
-			case "medic": {[format["updateCivGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
+			case "medic": {[format["updateMedicGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
+			case "civ": {[format["updateCivGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
 		};
 	};
 
 	case 3: {
-		_data = remoteExecutedOwner getVariable ["jail_details",[]];
 		[format["updateJail:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync;
 	};
 

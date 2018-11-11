@@ -6,11 +6,12 @@
 
 params [
 	["_vehicle",objNull,[objNull]],
-	["_author","",[""]]
+	["_author","Default",[""]]
 ];
 
 waitUntil {!isNil {_vehicle getVariable "plate"}};
 private _plate = _vehicle getVariable "plate";
+if (_author isEqualTo "Default") exitWith {_vehicle setPlateNumber _plate};
 _plate = _plate splitString "";
 _plate reSize 7;
 

@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `players` (
 	`civ_gear` text NOT NULL DEFAULT '[]',
 	`cop_gear` text NOT NULL DEFAULT '[]',
 	`med_gear` text NOT NULL DEFAULT '[]',
-	`stats` varchar(32) NOT NULL DEFAULT '[100,100,100,5000,0,0,0,0]', /*[hunger,thirst,battery,blood,head,torso,arms,legs]*/
+	`stats` varchar(48) NOT NULL DEFAULT '[100,100,100,5000,0,0,0,0]', /*[hunger,thirst,battery,blood,head,torso,arms,legs]*/
 	`jail_details` text NOT NULL DEFAULT '[0,"",0,""]',
 	`donorlevel` enum('0','1','2','3','4','5') NOT NULL DEFAULT '0',
 	`alive` tinyint(1) NOT NULL DEFAULT '0',
@@ -35,20 +35,22 @@ CREATE TABLE IF NOT EXISTS `players` (
 
 CREATE TABLE IF NOT EXISTS `vehicles` (
 	`id` int(6) NOT NULL AUTO_INCREMENT,
-	`faction` varchar(16) NOT NULL,
+	`faction` varchar(6) NOT NULL,
 	`classname` varchar(64) NOT NULL,
-	`type` varchar(16) NOT NULL,
+	`type` varchar(10) NOT NULL,
 	`pid` varchar(17) NOT NULL,
 	`active` tinyint(1) NOT NULL DEFAULT '1',
 	`plate` varchar(7) NOT NULL,
-	`colour` int(20) NOT NULL,
+	`colour` int(3) NOT NULL,
 	`fuel` double NOT NULL DEFAULT '1',
 	`damage` text NOT NULL DEFAULT '[]',
 	`impounded` tinyint(1) NOT NULL DEFAULT '0',
 	PRIMARY KEY (`id`),
+	UNIQUE KEY `plate` (`plate`),
 	KEY `faction` (`faction`),
 	KEY `pid` (`pid`),
 	KEY `type` (`type`)
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `houses` (

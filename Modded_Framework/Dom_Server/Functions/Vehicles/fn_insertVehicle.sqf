@@ -13,12 +13,6 @@ params [
 
 if (_className isEqualTo "" || _uid isEqualTo "") exitWith {};
 
-private _type = call {
-	if (_vehicle isKindOf "Car") exitWith {"Car"};
-	if (_vehicle isKindOf "Air") exitWith {"Air"};
-	if (_vehicle isKindOf "Ship") exitWith {"Ship"};
-};
-
 private _plate = "";
 private _letterArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 for "_i" from 0 to 1 step 0 do {
@@ -37,8 +31,6 @@ for "_i" from 0 to 1 step 0 do {
 	if (_return isEqualTo []) exitWith {_plate = _randomPlate};
 };
 
-[format["insertVehicle:%1:%2:%3:%4:%5:%6",_faction,_className,_type,_uid,_plate,_colour],1] call MySQL_fnc_DBasync;
-
 private _vehicle = createVehicle [_className, (getMarkerPos _spawnPoint), [], 0, "NONE"];
 _vehicle setPos (getMarkerPos _spawnPoint);
 _vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
@@ -53,5 +45,12 @@ clearBackpackCargoGlobal _vehicle;
 _vehicle lock 2;
 _vehicle setVariable ["key_holders",[profileName],true];
 _vehicle setVariable ["plate",_plate,true];
-[_vehicle] remoteExecCall ["DT_fnc_recieveKey",_unit];
+[_vehicle] remoteExecCall ["DT_fnc_recieveKey",remoteExecutedOwner];
 [_uid,_vehicle] call server_fnc_handleKeys;
+
+private _type = call {
+	if (_vehicle isKindOf "Car") exitWith {"Car"};
+	if (_vehicle isKindOf "Air") exitWith {"Air"};
+	if (_vehicle isKindOf "Ship") exitWith {"Ship"};
+};
+[format["insertVehicle:%1:%2:%3:%4:%5:%6",_faction,_className,_type,_uid,_plate,_colour],1] call MySQL_fnc_DBasync;

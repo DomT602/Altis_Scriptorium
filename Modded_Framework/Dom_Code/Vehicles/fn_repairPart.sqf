@@ -10,7 +10,7 @@ params [
 
 (switch _part do {
 	case "hull": {["D_scrapMetal",["HitBody","HitHull","HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGlass6"]]};
-	case "engine" {["D_engineParts","HitEngine"]};
+	case "engine": {["D_engineParts","HitEngine"]};
 	case "fuelTank": {["D_fuelTankParts","HitFuel"]};
 	case "LFwheel": {["D_spareWheel","HitLFWheel"]};
 	case "LBwheel": {["D_spareWheel","HitLF2Wheel"]};
@@ -21,7 +21,7 @@ params [
 if !(_item in (items player)) exitWith {["You don't have the required item.","orange"] call DT_fnc_notify};
 closeDialog 0;
 
-["Repairing",10,"Acts_carFixingWheel","isNull objectParent player && !([MB_Interaction_Target,5] call DT_fnc_checkVehicle)",
+["Repairing",10,"Acts_carFixingWheel","isNull objectParent player && ([MB_Interaction_Target,5] call DT_fnc_checkVehicle)",
 {
 	params [
 		["_item","",[""]],

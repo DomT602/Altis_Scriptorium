@@ -18,4 +18,4 @@ if (_alive isEqualTo 0) then {
 
 deleteVehicle _unit;
 
-[format["clientDisconnect:%1:%2",_alive,_position,_uid],1] call MySQL_fnc_DBasync;
+[format["clientDisconnect:%1:%2:%3",_alive,_position,_uid],1] call MySQL_fnc_DBasync;

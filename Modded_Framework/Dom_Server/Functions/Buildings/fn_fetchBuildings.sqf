@@ -52,7 +52,7 @@ private _queryResult = [format["fetchFurniture:%1",_uid],2] call MySQL_fnc_DBasy
 	_furniturePiece addEventHandler ["containerClosed",{_this call DT_fnc_saveFurnitureInventory}];
 } forEach _queryResult;
 
-private _houses = [format["fetchHouses:%1",_uid],2] call MySQL_fnc_DBasync;
+private _houses = [format["fetchHouses:%1",_uid],2,true] call MySQL_fnc_DBasync;
 
 private _return = [];
 {

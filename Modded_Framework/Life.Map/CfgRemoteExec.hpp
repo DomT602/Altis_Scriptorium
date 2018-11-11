@@ -22,6 +22,8 @@ class CfgRemoteExec {
 
 		F(DT_fnc_recieveMoney,CLIENT)
 
+		F(DT_fnc_removeTracker,CLIENT)
+
 		F(DT_fnc_onMorphine,CLIENT)
 		F(DT_fnc_onRespirator,CLIENT)
 		F(DT_fnc_recieveBlood,CLIENT)
@@ -46,8 +48,6 @@ class CfgRemoteExec {
 
 		F(DT_fnc_openGarage,CLIENT)
 		F(DT_fnc_recieveKey,CLIENT)
-		F(DT_fnc_recieveGear,CLIENT)
-		F(DT_fnc_recieveStats,CLIENT)
 
 		
 		F(server_fnc_jailBreak,SERVER)
@@ -106,5 +106,6 @@ class CfgRemoteExec {
 
 		F(switchMove,CLIENT)
 		F(systemChat,CLIENT)
+		F(addCamShake,CLIENT)
 	};
 };

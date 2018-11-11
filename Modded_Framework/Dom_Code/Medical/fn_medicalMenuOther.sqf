@@ -79,17 +79,17 @@ private _records = _unit getVariable ["medRecords",[]];
 } forEach _records;*/
 
 _Btn1 ctrlSetText "Defibrilate";
-_Btn1 buttonSetAction "[MB_Interaction_Target] call DT_fnc_defibTarget; closeDialog 0;";
+_Btn1 buttonSetAction "closeDialog 0; [MB_Interaction_Target] call DT_fnc_defibTarget;";
 
 if !(_unit getVariable ["dead",false]) then {
 	_Btn1 ctrlEnable false;
 };
 
 _Btn2 ctrlSetText "Blood bag";
-_Btn2 buttonSetAction "call DT_fnc_bloodbag; closeDialog 0;";
+_Btn2 buttonSetAction "closeDialog 0; call DT_fnc_bloodbag;";
 
 _Btn3 ctrlSetText "Respirator";
-_Btn3 buttonSetAction "[MB_Interaction_Target] call DT_fnc_applyRespirator; closeDialog 0;";
+_Btn3 buttonSetAction "closeDialog 0; [MB_Interaction_Target] call DT_fnc_applyRespirator;";
 
 if !(player getVariable ["faction","civ"] isEqualTo "medic") then {
 	_Btn1 ctrlShow false;
@@ -99,27 +99,30 @@ if !(player getVariable ["faction","civ"] isEqualTo "medic") then {
 };
 
 _Btn4 ctrlSetText "Head injuries";
-private _nearAmbo = nearestObjects[player,["Jonzie_Ambulance"],15];
-if !(_nearAmbo isEqualTo []) then {
-	_Btn4 buttonSetAction "if (MB_Interaction_Target getVariable ['head',0] > 0.75) then {player playMoveNow 'AinvPknlMstpSlayWnonDnon_medicOther'; MB_Interaction_Target setVariable ['head',0.75,true]} else {['You must take the patient to the hospital for further treatment'] call DT_fnc_notify}; closeDialog 0;";
-} else {
-	private _hospitals = ["LakesideEMS_Spawn"]; //hospital markers
-	{
-	    if ((player distance (getMarkerPos _x) < 30)) exitWith {_Btn4 ctrlEnable true};
-	} forEach _hospitals;
-	_Btn4 buttonSetAction "player playMoveNow 'AinvPknlMstpSlayWnonDnon_medicOther'; MB_Interaction_Target setVariable ['head',0,true]; closeDialog 0;";
+private _hospital = false;
+{
+	if ((player distance (getMarkerPos _x) < 30)) exitWith {_Btn4 buttonSetAction "closeDialog 0; ['hospital'] call DT_fnc_treatHead"; _hospital = true};
+} forEach ["LakesideEMS_Spawn"]; //hospital markers
+
+if !(_hospital) then {
+	private _nearAmbo = nearestObjects[player,["Jonzie_Ambulance"],15];
+	if (_nearAmbo isEqualTo []) then {
+		_Btn4 buttonSetAction "closeDialog 0; ['none'] call DT_fnc_treatHead";
+	} else {
+		_Btn4 buttonSetAction "closeDialog 0; ['ambulance'] call DT_fnc_treatHead";
+	};
 };
 
 _Btn5 ctrlSetText "Bandage";
-_Btn5 buttonSetAction "call DT_fnc_bandageOther; closeDialog 0;";
+_Btn5 buttonSetAction "closeDialog 0; call DT_fnc_bandageOther;";
 
 _Btn6 ctrlSetText "Cast";
-_Btn6 buttonSetAction "['cast'] call DT_fnc_treatOther; closeDialog 0;";
+_Btn6 buttonSetAction "closeDialog 0; ['cast'] call DT_fnc_treatOther;";
 
 _Btn7 ctrlSetText "Splint";
-_Btn7 buttonSetAction "['splint'] call DT_fnc_treatOther; closeDialog 0;";
+_Btn7 buttonSetAction "closeDialog 0; ['splint'] call DT_fnc_treatOther;";
 
 _Btn8 ctrlSetText "Morphine";
-_Btn8 buttonSetAction "call DT_fnc_morphineOther; closeDialog 0;";
+_Btn8 buttonSetAction "closeDialog 0; call DT_fnc_morphineOther;";
 
 _Btn9 ctrlShow false;

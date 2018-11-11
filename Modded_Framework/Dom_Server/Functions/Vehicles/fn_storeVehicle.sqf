@@ -18,10 +18,9 @@ if (_plate isEqualTo "") exitWith {
 getAllHitPointsDamage _vehicle params ["", "", "_damage"];
 
 private _fuel = fuel _vehicle;
-private _uid = getPlayerUID remoteExecutedOwner;
 _impound = if (_impound) then {1} else {0}; //silly thing as DB doesn't like true/false
 
-[format["storeVehicle:%1:%2:%3:%4:%5",_fuel,_damage,_impound,_uid,_plate],1] call MySQL_fnc_DBasync;
+[format["storeVehicle:%1:%2:%3:%4",_fuel,_damage,_impound,_plate],1] call MySQL_fnc_DBasync;
 
 deleteVehicle _vehicle;
 

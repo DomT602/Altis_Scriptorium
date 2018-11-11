@@ -35,7 +35,7 @@ switch (player getVariable ["faction","civ"]) do {
 		};
 	};
 	case "medic": {
-		if (player getVariable ["medic_rank",0] < 4) exitWith {};
+		private _rank = player getVariable ["medic_rank",0];
 		if (_rank < 4) exitWith {closeDialog 0};
 		if (MB_Interaction_Target getVariable ["medic_rank",0] >= _rank) exitWith {closeDialog 0; ["You can only promote ranks lower then yourself."] call DT_fnc_notify};
 

@@ -11,8 +11,9 @@ params [
 
 if (isNull _vehicle) exitWith {};
 
-private _name = ["Someone",_unit] call DT_fnc_findName;
+if !(isNull _unit) then {
+	private _name = ["Someone",_unit] call DT_fnc_findName;
+	[format["%1 has given you keys to a %2.",_name,(getText(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName"))],"green"] call DT_fnc_notify;
+};
 
-[format["%1 has given you keys to a %2.",_name,(getText(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "displayName"))],"green"] call DT_fnc_notify;
-	
 client_keys pushBackUnique _vehicle;

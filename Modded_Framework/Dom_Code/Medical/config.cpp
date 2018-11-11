@@ -22,6 +22,7 @@ class Medical {
     class respawn {};
     class revived {};
     class switchStretcher {};
+    class treatHead {};
     class treatOther {};
     class treatSelf {};
 };

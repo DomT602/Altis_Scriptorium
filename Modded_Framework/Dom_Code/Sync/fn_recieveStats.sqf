@@ -112,7 +112,7 @@ addMissionEventHandler ["Map", {_this call DT_fnc_checkMap}];
 addMissionEventHandler ["Draw3D",{call DT_fnc_playerTags}];
 
 for "_i" from 0 to (15 - 1) do {
-	DT_notif_array pushBack ["",-1];
+	DT_notifArray pushBack ["",-1];
 };
 
 cutText ["","PLAIN",1];
@@ -141,6 +141,7 @@ if (_arrested isEqualTo 1) then {
 		};
 	};
 };
+[] spawn DT_fnc_introCamera;
 
 {
 	(switch _forEachIndex do {

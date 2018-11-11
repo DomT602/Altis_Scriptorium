@@ -14,7 +14,7 @@ player setVariable ["tf_voiceVolume",1,true];
 player setVariable ["tf_unable_to_use_radio",false];
 
 player setVariable ["head",0,true];
-player SetVariable ["torso",0,true];
+player setVariable ["torso",0,true];
 player setVariable ["legs",0,true];
 player setVariable ["arms",0,true];
 player setVariable ["bleeding",0,true];

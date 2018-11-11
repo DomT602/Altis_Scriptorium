@@ -5,7 +5,7 @@
 */
 if !("D_Morphine_i" in (magazines player)) exitWith {["You have no morphine.","orange"] call DT_fnc_notify};
 
-["Applying morphine",1,["AinvPknlMstpSlayWnonDnon_medicOther","AinvPpneMstpSlayWnonDnon_medicOther"],"isNull objectParent player && !([MB_Interaction_Target] call DT_fnc_checkPlayer)",
+["Applying morphine",1,["AinvPknlMstpSlayWnonDnon_medicOther","AinvPpneMstpSlayWnonDnon_medicOther"],"isNull objectParent player && ([MB_Interaction_Target] call DT_fnc_checkPlayer)",
 {
 	player removeItem "D_Morphine_i";
 	remoteExecCall ["DT_fnc_onMorphine",MB_Interaction_Target];
