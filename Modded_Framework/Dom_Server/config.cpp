@@ -28,7 +28,7 @@ class CfgFunctions {
             class insertFurniture {};
             class removeFurniture {};
             class updateAlarmState {};
-            class updateFurnitureInventory {};
+            class updateFurniture {};
             class updateShop {};
         };
         class Companies {

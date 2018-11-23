@@ -19,8 +19,8 @@ switch _type do {
 };
 
 private _id = if (_type isEqualTo 2) then {
-    ([format["insertedShop:%1:%2",_pos,_uid],1] call MySQL_fnc_DBasync) select 0;
+    ([format["insertedShop:%1:%2",_pos,_uid],2] call MySQL_fnc_DBasync) select 0;
 } else {
-    ([format["insertedBuilding:%1:%2",_pos,_uid],1] call MySQL_fnc_DBasync) select 0;
+    ([format["insertedBuilding:%1:%2",_pos,_uid],2] call MySQL_fnc_DBasync) select 0;
 };
 _building setVariable ["id",_id,true];

@@ -34,6 +34,8 @@ if (_type) then {
 	};
 };
 phone_inbox pushBack [_message,_brief];
+private _radios = player call TFAR_fnc_radiosList;
+if (_radios isEqualTo [] || phone_battery isEqualTo 0) exitWith {};
 [_brief,_message] call DT_fnc_popupPhone;
 phone_settings params ["_soundMode"];
 if (_soundMode isEqualTo 1) then {

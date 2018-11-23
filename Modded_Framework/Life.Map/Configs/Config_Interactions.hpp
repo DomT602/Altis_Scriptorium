@@ -194,7 +194,7 @@ class Interactions {
 
 		class giveKey {
 			title = "Give Keys";
-			action = "call DT_fnc_keyMenu"; //need script!
+			action = "[cursorObject] call DT_fnc_keyMenu";
 			check = "isPlayer cursorObject";
 		};
 
@@ -219,7 +219,7 @@ class Interactions {
 		class buyBuilding {
 			title = "Buy";
 			action = "[cursorObject] spawn DT_fnc_buyBuilding";
-			check = "(cursorObject isKindOf 'House_F') && {player distance cursorObject < 10}";
+			check = "(cursorObject isKindOf 'House_F') && {player distance cursorObject < 10} && {(cursorObject getVariable ['id',-1]) isEqualTo -1}";
 		};
 
 		class pickupFurniture {

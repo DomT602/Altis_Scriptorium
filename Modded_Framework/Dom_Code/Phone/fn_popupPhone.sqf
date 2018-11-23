@@ -3,6 +3,8 @@
 	Author: Dom
 	Description: When a message is recieved, shows a notification
 */
+private _radios = player call TFAR_fnc_radiosList;
+if (_radios isEqualTo [] || phone_battery isEqualTo 0) exitWith {};
 
 params [
 	["_brief","",[""]],

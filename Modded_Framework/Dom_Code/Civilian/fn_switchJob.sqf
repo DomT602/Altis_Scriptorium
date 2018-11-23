@@ -41,4 +41,5 @@ if (_curJob isEqualTo "") then {
 	};
 } else {
 	[format["You left your job as a %1.",_curJob]] call DT_fnc_notify;
+	player setVariable ["job","",true];
 };

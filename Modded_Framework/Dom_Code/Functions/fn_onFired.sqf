@@ -19,9 +19,9 @@ params [
 			["_projectile",objNull,[objNull]]
 		];
 		private "_position";
-		while {!isNull _projectile} do {
-			_position = ASLtoATL (visiblePositionASL _projectile);
-			sleep 0.1;
+		waitUntil {
+			if (isNull _projectile) exitWith {true};
+			_position = getPosATL _projectile;
 		};
 		[_position] remoteExec ["DT_fnc_flashBanged",-2];
 	};
@@ -37,16 +37,26 @@ if (_ammoType isEqualTo "Molotov_Cocktail") exitWith {
 			["_projectile",objNull,[objNull]]
 		];
 		private "_position";
-		while {!isNull _projectile} do {
-			_position = ASLtoATL (visiblePositionASL _projectile);
-			sleep 0.1;
+		waitUntil {
+			if (isNull _projectile) exitWith {true};
+			_position = getPosATL _projectile;
 		};
 		[_position,"medium"] remoteExecCall ["server_fnc_createFire",2];
 	};
 };
 
 if (_weapon isEqualTo "Extinguisher") exitWith {
-	[getPosATL player] remoteExecCall ["server_fnc_extinguishFire",2];
+	[_projectile] spawn {
+		params [
+			["_projectile",objNull,[objNull]]
+		];
+		private "_position";
+		waitUntil {
+			if (isNull _projectile) exitWith {true};
+			_position = getPosATL _projectile;
+		};
+		[_position] remoteExecCall ["server_fnc_extinguishFire",2];
+	};
 };
 
 if (_weapon isEqualTo "Axe") exitWith {

@@ -1,7 +1,4 @@
 
-client_cash = 0;
-client_bank = 0;
-client_paycheck = 0;
 client_keys = [];
 client_seatbelt = false;
 client_holster = "";
@@ -15,11 +12,9 @@ client_blockActions = false;
 client_surrendered = false;
 
 phone_inbox = [];
-phone_battery = 100;
 phone_charging = false;
 phone_appOpen = -1;
 phone_apps = [];
-phone_contacts = [];
 phone_callingPlayer = false;
 phone_beingCalled = false;
 phone_callOwner = objNull;
@@ -48,7 +43,5 @@ player setVariable ["morphine",false,true];
 player setVariable ["medRecords",[],true];
 
 player setVariable ["faction","civ",true];
-player setVariable ["job","",true];
 player setVariable ["restrained",false,true];
 player setVariable ["tied",false,true];
-player setVariable ["jail_details",[0,"",0,""],true];

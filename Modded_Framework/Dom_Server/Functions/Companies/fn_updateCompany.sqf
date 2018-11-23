@@ -45,6 +45,7 @@ switch _mode do {
 	case 5: { //remove employee
 		private _employees = [format["selectCompanyEmployees:%1",_ID],2] call MySQL_fnc_DBasync;
 		private _index = _employees findIf {(_x select 0) isEqualTo _data}; //_data is UID
+		if (_index isEqualTo -1) exitWith {};
 		_employees deleteAt _index;
 		[format["updateCompanyEmployee:%1:%2",_employees,_ID],1] call MySQL_fnc_DBasync;
 	};

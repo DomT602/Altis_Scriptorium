@@ -7,18 +7,6 @@
 ["DT_DB"] call MYSQL_fnc_DBinit;
 [] call compile preprocessFileLineNumbers "\Dom_Code\init.sqf";
 
-phone_backgrounds = [//background name, path
-	["",""]
-];
-publicVariable "phone_backgrounds";
-
-mod_list = [];
-{
-	mod_list pushBack (configName _x);
-} forEach ("true" configClasses (configFile >> "CfgPatches"));
-publicVariable "mod_list";
-mod_list = nil;
-
 addMissionEventHandler ["HandleDisconnect",{_this call server_fnc_onClientDisconnect; false}];
 
 ["resetPositions",1] call MySQL_fnc_DBasync;
@@ -51,5 +39,17 @@ publicVariable "mayor";
 //publicVariable "rebel_started";
 //rebel_time = time;
 //publicVariable "rebel_time";
+
+phone_backgrounds = [//background name, path
+	["",""]
+];
+publicVariable "phone_backgrounds";
+
+mod_list = [];
+{
+	mod_list pushBack (configName _x);
+} forEach ("true" configClasses (configFile >> "CfgPatches"));
+publicVariable "mod_list";
+mod_list = nil;
 
 [] spawn server_fnc_monitorServer;

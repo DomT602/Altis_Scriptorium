@@ -4,17 +4,21 @@
     Description: Delete selected furniture from DB
 */
 params [
-    ["_uid","",[""]],
-    ["_furniture",objNull,[objNull]]
+    ["_furniture",objNull,[objNull]],
+    ["_house",objNull,[objNull]]
 ];
 
-if (isNull _furniture || {_uid isEqualTo ""}) exitWith {};
+if (isNull _furniture) exitWith {};
 
-private _id = _furniture getVariable ["container_id",-1];
+private _id = _furniture getVariable ["furn_id",-1];
 if (_id isEqualTo -1) exitWith {};
 
-[format["deleteFurniture:%1:%2",_uid,_id],1] call MySQL_fnc_DBasync;
-
-_furniture setVariable ["furniture_owner",nil,true];
-_furniture setVariable ["furniture_id",nil,true];
+_furniture setVariable ["furn_id",nil,true];
 deleteVehicle _furniture;
+
+private _houseID = _house getVariable ["id",-1];
+private _set = [format["getFurniture:%1",_houseID],1] call MySQL_fnc_DBasync;
+private _index = _set findIf {(_x select 0) isEqualTo _id};
+if (_index isEqualTo -1) exitWith {};
+_set deleteAt _index;
+[format["updateFurniture:%1:%2",_set,_houseID],1] call MySQL_fnc_DBasync;

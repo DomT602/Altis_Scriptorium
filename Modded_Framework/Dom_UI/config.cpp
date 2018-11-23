@@ -2328,10 +2328,39 @@ class DT_clothingShop {
     };
 };
 
-class DT_giveKey {
+class DT_keyMenu {
 	idd = 1014;
-	name = "DT_giveKey";
+	name = "DT_keyMenu";
 	movingEnable = 0;
+    class controls {
+        class DT_vehList: PS_RscListbox
+        {
+            idc = 1500;
+            x = 0.37625 * safezoneW + safezoneX;
+            y = 0.379 * safezoneH + safezoneY;
+            w = 0.237187 * safezoneW;
+            h = 0.242 * safezoneH;
+        };
+        class DT_nameBox: PS_RscText
+        {
+            idc = 1001;
+            text = "Give key to: Unknown"; //--- ToDo: Localize;
+            x = 0.37625 * safezoneW + safezoneX;
+            y = 0.324 * safezoneH + safezoneY;
+            w = 0.237187 * safezoneW;
+            h = 0.055 * safezoneH;
+        };
+        class DT_give: PS_RscButtonMenu
+        {
+            idc = -1;
+            text = "Give"; //--- ToDo: Localize;
+            onButtonClick="[MB_Interaction_Target] call DT_fnc_giveKey";
+            x = 0.469063 * safezoneW + safezoneX;
+            y = 0.621 * safezoneH + safezoneY;
+            w = 0.061875 * safezoneW;
+            h = 0.022 * safezoneH;
+        };
+    };
 };
 
 class RscTitles

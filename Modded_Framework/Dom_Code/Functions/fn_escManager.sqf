@@ -30,6 +30,7 @@ if ((player getVariable ["restrained",false]) || {player getVariable ["tied",fal
 	waitUntil {
 		_abortButton ctrlSetText format["Abort in %1",[(_timer - time),"SS.MS"] call BIS_fnc_secondsToString];
 		_abortButton ctrlCommit 0;
+		if (dialog && {isNull (findDisplay 1002)}) then {closeDialog 0};
 		round(_timer - time) <= 0 || isNull (findDisplay 49)
 	};
 

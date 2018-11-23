@@ -41,9 +41,7 @@ player setVariable ["donor_level",_donorlevel,true];
 } forEach _licenses;
 
 _jailDetails params ["_arrested","_reason","_time","_cell"];
-if (_arrested isEqualTo 1) then {
-	player setVariable ["jail_details",[_arrested,_reason,_time,_cell],true];
-};
+player setVariable ["jail_details",[_arrested,_reason,_time,_cell],true];
 
 if (_gear isEqualTo []) then {
 	call DT_fnc_defaultLoadout;
@@ -83,17 +81,13 @@ if !(_companyData isEqualTo []) then {
 	player setVariable ["company_rank",-1,true];
 };
 
-client_houses = _houses;
-if !(_houses isEqualTo []) then {
-	{
-		private _house = nearestObject [_x,"House"];
-		client_keys pushBack _house;
-		private _marker = createMarkerLocal [format ["house_%1",round(random 99999)],_x];
-		_marker setMarkerTextLocal (getText(configFile >> "CfgVehicles" >> (typeOf _house) >> "displayName"));
-		_marker setMarkerColorLocal "ColorBlue";
-		_marker setMarkerTypeLocal "loc_Lighthouse";
-	} forEach client_houses;
-};
+{
+	client_keys pushBack _x;
+	private _marker = createMarkerLocal [format ["house_%1",round(random 99999)],_x];
+	_marker setMarkerTextLocal (getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName"));
+	_marker setMarkerColorLocal "ColorBlue";
+	_marker setMarkerTypeLocal "loc_Lighthouse";
+} forEach _houses;
 
 {
 	client_keys pushBack _x
@@ -132,10 +126,10 @@ if (_arrested isEqualTo 1) then {
 	if (_alive isEqualTo 1) then {
 		player setVehiclePosition [_position,[],0,"CAN_COLLIDE"];
 	} else {
-		if (client_houses isEqualTo []) then {
+		if (_houses isEqualTo []) then {
 			player setVehiclePosition [(getMarkerPos "Lakeside_Spawn"),[],0,"CAN_COLLIDE"];
 		} else {
-			private _spawnHouse = nearestObject [(selectRandom client_houses),"House"];
+			private _spawnHouse = nearestObject [(selectRandom _houses),"House"];
 			_spawnHouse = _spawnHouse buildingPos 0;
 			player setVehiclePosition [_spawnHouse,[],0,"CAN_COLLIDE"];
 		};
@@ -159,11 +153,11 @@ if (_arrested isEqualTo 1) then {
 	};
 } forEach [exp_woodcutting,exp_mining,exp_farming,exp_fishing,exp_hunting];
 
-switch (player getVariable ["doj_rank",0]) do {
-	case 0: {client_paycheck = 0}; // Civ
-	case 1: {client_paycheck = 1000}; // State Prosecutor
-	case 2: {client_paycheck = 1500}; // DA
-	case 3: {client_paycheck = 1500}; // Judge
-	case 4: {client_paycheck = 2000}; // Justice 
-	case 5: {client_paycheck = 2500}; // Chief Justice 
+client_paycheck = switch (player getVariable ["doj_rank",0]) do {
+	case 0: {0}; // Civ
+	case 1: {1000}; // State Prosecutor
+	case 2: {1500}; // DA
+	case 3: {1500}; // Judge
+	case 4: {2000}; // Justice 
+	case 5: {2500}; // Chief Justice 
 };

@@ -10,7 +10,8 @@ if (isNull _building) exitWith {};
 if !(_building getVariable ["id",-1] isEqualTo -1) exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
 
 closeDialog 0;
-if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> (typeOf _building))) exitWith {
+private _class = typeOf _building;
+if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> _class)) exitWith {
 	if !(_building getVariable ["shop_company",""] isEqualTo "") exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
 	if (player getVariable ["company","none"] isEqualTo "none") exitWith {["You are not in a company.","orange"] call DT_fnc_notify};
 	if !(player getVariable ["company_rank",0] isEqualTo 3) exitWith {["Only the company owner can buy property.","orange"] call DT_fnc_notify};
@@ -38,7 +39,7 @@ if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> (typeOf _building))) 
 	};
 };
 
-if !(isClass (missionConfigFile >> "Buildings" >> "Houses" >> (typeOf _building))) exitWith {["This building is not buyable.","red"] call DT_fnc_notify};
+if !(isClass (missionConfigFile >> "Buildings" >> "Houses" >> _class)) exitWith {["This building is not buyable.","red"] call DT_fnc_notify};
 private _config = missionConfigFile >> "Buildings" >> "Houses" >> typeOf _building;
 private _price = getNumber(_config >> "price");
 private _maxFurniture = getNumber(_config >> "_maxFurniture");

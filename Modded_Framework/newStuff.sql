@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `players` (
 	`skills` varchar(100) NOT NULL DEFAULT '[0,0,0,0,0]',
 	PRIMARY KEY (`uid`),
 	UNIQUE KEY `pid` (`pid`),
-	KEY `name` (`name`)
+	UNIQUE KEY `phone_number` (`phone_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `vehicles` (
@@ -43,45 +43,31 @@ CREATE TABLE IF NOT EXISTS `vehicles` (
 	`plate` varchar(7) NOT NULL,
 	`colour` int(3) NOT NULL,
 	`fuel` double NOT NULL DEFAULT '1',
-	`damage` text NOT NULL DEFAULT '[]',
+	`damage` varchar(256) NOT NULL DEFAULT '[]',
 	`impounded` tinyint(1) NOT NULL DEFAULT '0',
 	PRIMARY KEY (`id`),
-	UNIQUE KEY `plate` (`plate`),
-	KEY `faction` (`faction`),
-	KEY `pid` (`pid`),
-	KEY `type` (`type`)
-
+	UNIQUE KEY `plate` (`plate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `houses` (
 	`id` int(6) NOT NULL AUTO_INCREMENT,
-	`owner_pid` varchar(17) NOT NULL,
+	`pid` varchar(17) NOT NULL,
 	`pos` varchar(64) DEFAULT NULL,
 	`type` tinyint(1) NOT NULL DEFAULT '0',
+	`furniture` text NOT NULL DEFAULT '[]', /*[[id,class,pos,gear,dir],[]]*/
 	`shared` varchar(300) NOT NULL DEFAULT '[]',
 	`alarm` varchar(300) NOT NULL DEFAULT '[false,false,[]]',
-	PRIMARY KEY (`id`,`owner_pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-CREATE TABLE IF NOT EXISTS `furniture` (
-	`id` int(6) NOT NULL AUTO_INCREMENT,
-	`owner_pid` varchar(17) NOT NULL,
-	`classname` varchar(32) NOT NULL,
-	`pos` varchar(64) DEFAULT NULL,
-	`gear` text NOT NULL DEFAULT '[]',
-	`dir` varchar(128) DEFAULT NULL,
-	`active` tinyint(1) NOT NULL DEFAULT '0',
-	PRIMARY KEY (`id`,`owner_pid`)
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `shops` (
 	`id` int(6) NOT NULL AUTO_INCREMENT,
 	`company_name` varchar(48) DEFAULT NULL,
 	`pos` varchar(64) DEFAULT NULL,
-	`items` varchar(3000) NOT NULL DEFAULT '[]', /*[[item,price]]*/
+	`items` text NOT NULL DEFAULT '[]', /*[[item,price]]*/
 	`funds` int(100) NOT NULL DEFAULT '0',
 	`transaction_log` text NOT NULL DEFAULT '[]',
-	PRIMARY KEY (`id`,`company_name`)
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `companies` (
@@ -93,7 +79,8 @@ CREATE TABLE IF NOT EXISTS `companies` (
 	`bank` int(100) NOT NULL DEFAULT '0',
 	`employees` text,
 	`active` tinyint(1) DEFAULT '1',
-	PRIMARY KEY (`id`,`owner`)
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `owner` (`owner`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `pd_db_arrests` (
@@ -104,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `pd_db_arrests` (
 	`time` int(4) NOT NULL,
 	`bail` int(9) NOT NULL,
 	`insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`id`,`name`)
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `pd_db_tickets` (
@@ -114,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `pd_db_tickets` (
 	`officer` varchar(64) NOT NULL,
 	`cost` int(7) NOT NULL,
 	`insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`id`,`name`)
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `pd_db_warrants` (
@@ -128,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `pd_db_warrants` (
 	`active` tinyint(1) DEFAULT '0',
 	`completed_by` varchar(64),
 	`insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`id`,`name`)
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `gangs` (
@@ -140,12 +127,12 @@ CREATE TABLE IF NOT EXISTS `gangs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `logs` (
-	`uid` int(6) NOT NULL AUTO_INCREMENT,
+	`id` int(6) NOT NULL AUTO_INCREMENT,
 	`pid` varchar(17) NOT NULL,
 	`name` varchar(32) NOT NULL,
 	`action` varchar(255) DEFAULT NULL,
 	`insert_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	PRIMARY KEY (`uid`)
+	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `persis_vars` (

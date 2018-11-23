@@ -68,7 +68,7 @@ class CfgRemoteExec {
 		F(DB_fnc_insertFurniture,SERVER)
 		F(DB_fnc_removeFurniture,SERVER)
 		F(DB_fnc_updateAlarmState,SERVER)
-		F(DB_fnc_updateFurnitureInventory,SERVER)
+		F(DB_fnc_updateFurniture,SERVER)
 		F(DB_fnc_updateShop,SERVER)
 
 		F(DB_fnc_deleteCompany,SERVER)

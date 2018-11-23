@@ -4,8 +4,8 @@ class Buildings {
     class breakDoor {};
     class buyBuilding {};
     class changeAlarm {};
+    class handleFurnitureKey {};
     class placeFurniture {};
-    class saveFurnitureInventory {};
     class switchLights {};
     class switchLockHouse {};
 };

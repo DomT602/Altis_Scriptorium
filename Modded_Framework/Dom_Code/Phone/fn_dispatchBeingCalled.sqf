@@ -3,6 +3,9 @@
 	Author: Dom
 	Description: Recieves a call from a player going to dispatch
 */
+private _radios = player call TFAR_fnc_radiosList;
+if (_radios isEqualTo [] || phone_battery isEqualTo 0) exitWith {};
+	
 params [
 	["_number","",[""]],
 	["_caller",objNull,[objNull]]

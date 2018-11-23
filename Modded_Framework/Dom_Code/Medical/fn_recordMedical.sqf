@@ -10,10 +10,10 @@ params [
 ];
 
 date params ["","","","_hour","_minute"];
-if (_minute >= 0 && _minute < 10) then {
+if (_minute < 10) then {
 	_minute = format["0%1",_minute];
 };
-if (_hour >= 0 && _hour < 10) then {
+if (_hour < 10) then {
 	_hour = format["0%1",_hour];
 };
 _text = format["%1:%2 - %3",_hour,_minute,_text];

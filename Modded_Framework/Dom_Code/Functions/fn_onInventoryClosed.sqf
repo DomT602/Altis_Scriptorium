@@ -9,6 +9,10 @@ params [
 	["_container",objNull,[objNull]]
 ];
 
+private _furnitureList = [];
+if ((typeOf _container) in _furnitureList) then {
+	[_container] remoteExecCall ["DB_fnc_updateFurniture",2];
+};
 _container setVariable ["inUse",nil,true];
 
 [2] call DT_fnc_saveStatsPartial;
