@@ -20,7 +20,7 @@ _abortButton ctrlEnable false;
 _respawnButton ctrlEnable false;
 _fieldManual ctrlEnable false;
 
-if ((player getVariable ["restrained",false]) || {player getVariable ["tied",false]}) exitWith {}; //stop aborting
+if (client_blockActions) exitWith {};  //stop aborting
 
 [] spawn {
 	disableSerialization;

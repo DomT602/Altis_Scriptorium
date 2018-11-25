@@ -87,7 +87,7 @@
 		};
 
 		private _goProPic = "";
-		if (client_goPro && {"PS_GoPro_i" in (magazines player)}) then {
+		if (client_goPro && {"D_GoPro_i" in (magazines player)}) then {
 			_goProPic = "\Dom_Client\Textures\HUD\Camera1.paa";
 		};
 

@@ -8,7 +8,7 @@ params [
 ];
 
 if !(isNull objectParent player) exitWith {};
-if (player getVariable ["restrained",false] || player getVariable ["tied",false]) exitWith {};
+if (client_blockActions) exitWith {};
 
 (switch (typeOf _plant) do {
 	case "Wheat_vehicle": {["wheat",false,"Wheat_i"]};
@@ -25,7 +25,7 @@ if (_growthPercent isEqualTo 100) then {
 	private _harvestedAmount = 1 + round(player getVariable ["level_farming",0] / 10);
 	if (player canAdd [_class,_harvestedAmount]) then {
 		player playMove "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";
-		waitUntil {animationState player != "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";};
+		waitUntil {animationState player != "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon"};
 		deleteVehicle _plant;
 		for "_i" from 1 to _harvestedAmount do {
 			player addItem _class;

@@ -24,13 +24,14 @@ _textBox ctrlSetText format["Give key to: %1",_name];
 {
 	private _index = _forEachIndex;
 	private _vehType = typeOf _x;
-	((getArray (missionConfigFile >> "Textures" >> _vehType >> "textures")) select (_x getVariable ["veh_colour",-1])) params ["veh_colour",""];
-	if !(_colour isEqualTo "") then {
-		_colour = format["(%1)",_colour];
-	};
 	private _name = getText(configFile >> "CfgVehicles" >> _vehType >> "displayName");
+	if (_x isKindOf "House_F") then {
+		_vehList lbAdd _name;
+	} else {
+		((getArray (missionConfigFile >> "Textures" >> "Vehicle" >> _vehType >> "textures")) select (_x getVariable ["veh_colour",-1])) params ["_colour",""];
+		_vehList lbAdd format ["%1 (%2)",_name,_colour];
+	};
 	private _pic = getText(configFile >> "CfgVehicles" >> _vehType >> "picture");
-	_vehList lbAdd format ["%1 (%2)",_name,_colour];
 	if (_pic != "pictureStaticObject") then {
 		_vehList lbSetPicture [_index,_pic];
 	};

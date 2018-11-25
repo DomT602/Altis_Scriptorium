@@ -1,11 +1,12 @@
 /*
-    File: fn_getVehicle.sqf
+    File: fn_destroyVehicle.sqf
     Author: Dom
-    Description: Sends request to the server to spawn a vehicle
+    Description: Destroys a vehicle
 */
-if ((lbCurSel 1500) isEqualTo -1) exitWith {["You need to select a vehicle.","orange"] call DT_fnc_notify};
+private _index = lbCurSel 1500;
+if (_index isEqualTo -1) exitWith {["You need to select a vehicle.","orange"] call DT_fnc_notify};
 
-private _plate = (parseSimpleArray (lbData[2802,(lbCurSel 2802)])) param [2];
+private _plate = (parseSimpleArray (lbData[1500,_index])) param [2];
 
 [_plate,getPlayerUID player] remoteExecCall ["DB_fnc_soldVehicle",2];
 ["Destroyed vehicle."] call DT_fnc_notify;

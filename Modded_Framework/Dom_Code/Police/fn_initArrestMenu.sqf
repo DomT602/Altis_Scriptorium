@@ -14,4 +14,4 @@ createDialog "DT_arrestMenu";
 private _nameBox = (findDisplay 1009) displayCtrl 1000;
 private _name = ["Unknown",_unit] call DT_fnc_findName;
 
-_nameBox ctrlSetStructuredText parseText format["<t align='center'>%1</t>",_name];
+_nameBox setText _name;

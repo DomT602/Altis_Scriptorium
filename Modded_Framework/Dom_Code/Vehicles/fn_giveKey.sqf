@@ -9,7 +9,7 @@ params [
 ];
 
 if !([_unit] call DT_fnc_checkPlayer) exitWith {};
-private _index = lbCurSel 1014;
+private _index = lbCurSel 1500;
 if (_index isEqualTo -1) exitWith {["You haven't selected a vehicle.","orange"] call DT_fnc_notify};
 
 private _selected = client_keys select _index;

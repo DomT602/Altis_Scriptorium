@@ -16,6 +16,7 @@ private _control = _display displayCtrl 1500;
 lbClear _control;
 
 {
+    private _index = _forEachIndex;
     _x params [
         ["_id",0,[0]],
         ["_className","Default",[""]],
@@ -24,7 +25,7 @@ lbClear _control;
     ];
     ([_className] call DT_fnc_fetchDetails) params ["_name","_picture"];
     _control lbAdd _name;
-    _control lbSetData [(lbSize _control)-1,(str([_className,_colour,_plate]))];
-    _control lbSetValue [(lbSize _control)-1,_id];
-    _control lbSetPicture [(lbSize _control)-1,_picture];
+    _control lbSetData [_index,(str([_className,_colour,_plate]))];
+    _control lbSetValue [_index,_id];
+    _control lbSetPicture [_index,_picture];
 } forEach _vehicles;

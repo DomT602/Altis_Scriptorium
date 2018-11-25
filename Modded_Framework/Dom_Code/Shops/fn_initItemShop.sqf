@@ -34,7 +34,7 @@ lbClear _primaryList;
     _x params ["_className","_buyPrice","","_conditions"];
     if ([_conditions] call DT_fnc_conditionChecker) then {
         ([_className] call DT_fnc_fetchDetails) params ["_name","_picture"];
-        _primaryList lbAdd format ["%1",_name];
+        _primaryList lbAdd _name;
         _primaryList lbSetData[(lbSize _primaryList)-1,_className];
         _primaryList lbSetPicture[(lbSize _primaryList)-1,_picture];
         _primaryList lbSetValue[(lbSize _primaryList)-1,_buyPrice];
@@ -71,7 +71,7 @@ _itemArray pushBack (getArray(missionConfigFile >> "Shops" >> "Items" >> _shop >
                             if (_itemCount > 1) then {
                                 _inventoryList lbAdd format ["[%2] %1",_name,_itemCount];
                             } else {
-                                _inventoryList lbAdd format ["%1",_name];
+                                _inventoryList lbAdd _name;
                             };
                             _inventoryList lbSetData[(lbSize _inventoryList)-1,_className];
                             _inventoryList lbSetPicture[(lbSize _inventoryList)-1,_picture];

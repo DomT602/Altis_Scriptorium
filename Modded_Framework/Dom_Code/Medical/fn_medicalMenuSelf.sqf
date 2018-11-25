@@ -70,7 +70,7 @@ _bleedingCtrl ctrlSetText _bleeding;
 /*private _listbox = _display displayCtrl -1;
 private _records = player getVariable ["medRecords",[]];
 {
-	_listbox lbAdd format["%1"_x];
+	_listbox lbAdd _x;
 } forEach _records;*/
 
 _Btn1 ctrlSetText "Bandage";

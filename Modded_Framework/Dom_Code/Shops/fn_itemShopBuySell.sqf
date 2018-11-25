@@ -12,9 +12,10 @@ scopeName "main";
 switch _mode do {
 	case 0: {
 		scopeName "buy";
-		if ((lbCurSel 6000) isEqualTo -1) exitWith {["Nothing selected.","orange"] call DT_fnc_notify};
-		private _price = lbValue[6000,(lbCurSel 6000)];
-		private _item = lbData[6000,(lbCurSel 6000)];
+		private _index = lbCurSel 6000;
+		if (_index isEqualTo -1) exitWith {["Nothing selected.","orange"] call DT_fnc_notify};
+		private _price = lbValue[6000,_index];
+		private _item = lbData[6000,_index];
 		([_item] call DT_fnc_fetchDetails) params ["_name"];
 		if (_price > client_cash) exitWith {["You don't have enough money.","orange"] call DT_fnc_notify};
 		([_item] call BIS_fnc_itemType) params ["_category","_type"]; //do this
@@ -143,9 +144,10 @@ switch _mode do {
 		[2] call DT_fnc_saveStatsPartial;
 	};
 	case 1: {
-		if ((lbCurSel 6001) isEqualTo -1) exitWith {["Nothing selected.","orange"] call DT_fnc_notify;};
-		private _price = lbValue[6001,(lbCurSel 6001)];
-		private _item = lbData[6001,(lbCurSel 6001)];
+		private _index = lbCurSel 6001;
+		if (_index isEqualTo -1) exitWith {["Nothing selected.","orange"] call DT_fnc_notify;};
+		private _price = lbValue[6001,_index];
+		private _item = lbData[6001,_index];
 		([_item] call DT_fnc_fetchDetails) params ["_name"];
 		if !(player canAdd _item) exitWith {["You don't have enough room for this item.","orange"] call DT_fnc_notify};
 		if (_price > client_cash) exitWith {["You don't have enough money.","orange"] call DT_fnc_notify};
@@ -156,9 +158,10 @@ switch _mode do {
 		[2] call DT_fnc_saveStatsPartial;
 	};
 	case 2: {
-		if ((lbCurSel 6002) isEqualTo -1) exitWith {["Nothing selected.","orange"] call DT_fnc_notify;};
-		private _price = lbValue[6002,(lbCurSel 6002)];
-		private _item = lbData[6002,(lbCurSel 6002)];
+		private _index = lbCurSel 6002;
+		if (_index isEqualTo -1) exitWith {["Nothing selected.","orange"] call DT_fnc_notify;};
+		private _price = lbValue[6002,_index];
+		private _item = lbData[6002,_index];
 		([_item] call DT_fnc_fetchDetails) params ["_name"];
 		client_cash = client_cash + _price;
 		player removeItem _item;

@@ -3,12 +3,12 @@
     Author: Dom
     Description: Buys a vehicle and sends info to server to input to DB
 */
-
-if ((lbCurSel 1500) isEqualTo -1) exitWith {["No vehicle selected.","orange"] call DT_fnc_notify; closeDialog 0};
+private _index = lbCurSel 1500;
+if (_index isEqualTo -1) exitWith {["No vehicle selected.","orange"] call DT_fnc_notify; closeDialog 0};
 (uiNamespace getVariable ["Veh_Shop_Details",[]]) params ["_shop","_spawnPoints"];
-private _className = lbData[1500,(lbCurSel 1500)];
-private _price = lbValue[1500,(lbCurSel 1500)];
-private _colourIndex = lbValue[2100,(lbCurSel 2100)];
+private _className = lbData[1500,_index];
+private _price = lbValue[1500,_index];
+private _colourIndex = lbValue[2100,_index];
 
 closeDialog 0;
 if (client_cash < _price) exitWith {[format["You don't have enough money, $%1 needed.",str(_price - client_cash)],"orange"] call DT_fnc_notify; closeDialog 0};

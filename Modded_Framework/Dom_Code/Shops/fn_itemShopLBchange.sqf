@@ -46,7 +46,7 @@ switch _mode do {
 				if (_count > 0) then {
 					private _name = getText(configFile >> "CfgMagazines" >> _className >> "displayName");
 					private _picture = getText(configFile >> "CfgMagazines" >> _className >> "picture");
-					_secondaryList lbAdd format ["%1",_name];
+					_secondaryList lbAdd _name;
 					_secondaryList lbSetData[(lbSize _secondaryList)-1,_className];
 					_secondaryList lbSetPicture[(lbSize _secondaryList)-1,_picture];
 					_secondaryList lbSetValue[(lbSize _secondaryList)-1,_buyPrice];

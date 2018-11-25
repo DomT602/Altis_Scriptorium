@@ -12,6 +12,7 @@ class CfgPatches
 	};
 };
 #define ST_LEFT           0x00
+#define ST_CENTER           0x02
 #define ST_MULTI          0x10
 #define GUI_GRID_CENTER_WAbs        ((safezoneW / safezoneH) min 1.2)
 #define GUI_GRID_CENTER_HAbs        (GUI_GRID_CENTER_WAbs / 1.2)
@@ -233,7 +234,7 @@ class PS_RscStructuredText {
     size = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
     colorText[] = {1, 1, 1, 1.0};
     shadow = 1;
-
+    sizeEx = 0.035;
     class Attributes {
         font = "PuristaLight";
         color = "#ffffff";
@@ -462,7 +463,7 @@ class PS_RscButtonMenu : PS_RscShortcutButton {
     };
     class Attributes
     {
-        font = "RobotoCondensedLight";
+        font = "PuristaLight";
         color = "#E5E5E5";
         align = "center";
         shadow = "false";
@@ -1735,19 +1736,15 @@ class DT_promotionMenu
 			h="0.28 * safezoneH";
 			colorBackground[]={0,0,0,0.5};
 		};
-		class DT_nameBox: PS_RscStructuredText
+		class DT_nameBox: PS_RscText
 		{
 			idc=9200;
+            style = ST_CENTER;
 			x="0.44 * safezoneW + safezoneX";
 			y="0.41 * safezoneH + safezoneY";
 			w="0.12 * safezoneW";
 			h="0.04 * safezoneH";
 			colorBackground[]={0,0,0,0.69999999};
-			class Attributes
-			{
-				align="center";
-				valign="middle";
-			};
 		};
 		class DT_rankBox: PS_RscListBox
 		{
@@ -2023,10 +2020,11 @@ class DT_arrestMenu {
 	duration=9.9999998e+010;
 	class controls
 	{
-		class DT_name: PS_RscStructuredText
+		class DT_name: PS_RscText
 		{
 			idc = 1000;
 			text = ""; //--- ToDo: Localize;
+            style = ST_CENTER;
 			x = 0.375 * safezoneW + safezoneX;
 			y = 0.44 * safezoneH + safezoneY;
 			w = 0.225 * safezoneW;
@@ -2097,10 +2095,10 @@ class DT_jailMenu {
 	duration=9.9999998e+010;
 	class controls
 	{
-		class DT_name: PS_RscStructuredText
+		class DT_name: PS_RscText
 		{
 			idc = 1000;
-
+            style = ST_CENTER;
 			x = 0.39 * safezoneW + safezoneX;
 			y = 0.43598 * safezoneH + safezoneY;
 			w = 0.21 * safezoneW;
@@ -2345,6 +2343,7 @@ class DT_keyMenu {
         {
             idc = 1001;
             text = "Give key to: Unknown"; //--- ToDo: Localize;
+            style = ST_CENTER;
             x = 0.37625 * safezoneW + safezoneX;
             y = 0.324 * safezoneH + safezoneY;
             w = 0.237187 * safezoneW;

@@ -40,7 +40,7 @@ _itemArray pushBack (getArray(missionConfigFile >> "Shops" >> "Items" >> _shop >
                             if (_itemCount > 1) then {
                                 _inventoryList lbAdd format ["[%2] %1",_name,_itemCount];
                             } else {
-                                _inventoryList lbAdd format ["%1",_name];
+                                _inventoryList lbAdd _name;
                             };
                             _inventoryList lbSetData[(lbSize _inventoryList)-1,_className];
                             _inventoryList lbSetPicture[(lbSize _inventoryList)-1,_picture];

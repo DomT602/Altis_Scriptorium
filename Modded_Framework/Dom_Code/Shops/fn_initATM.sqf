@@ -15,8 +15,8 @@ private _units = _display displayCtrl -1;
 lbClear _units;
 
 {
-	_units lbAdd format["%1",name _x];
-	_units lbSetData [(lbSize _units) - 1,str(_x)];
+	_units lbAdd (name _x);
+	_units lbSetData [_index,str(_x)];
 } forEach (playableUnits - [player]);
 lbSetCurSel [-1,0];
 

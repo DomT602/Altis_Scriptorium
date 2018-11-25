@@ -56,6 +56,6 @@ if (player getVariable ["level_crafting",0] > 20) then {
 
 private _countBox = _display displayCtrl 1502;
 for "_i" from 1 to 10 do {
-	_countbox lbAdd format["%1",_i];
+	_countbox lbAdd str(_i);
 };
 ctrlEnable [2400,false];

@@ -27,9 +27,10 @@ switch _type do {
 		[format["You deposited $%1 into your bank account.",str(_value)],"green"] call DT_fnc_notify;
 	};
 	case 2: {
-		if ((lbCurSel -1) isEqualTo -1) exitWith {["You need to select someone.","red"] call DT_fnc_notify};
+		private _index = lbCurSel -1;
+		if (_index isEqualTo -1) exitWith {["You need to select someone.","red"] call DT_fnc_notify};
 		private _value = parseNumber(ctrlText -1);
-		private _unit = call compile format ["%1",(lbData[-1,(lbCurSel -1)])];
+		private _unit = call compile format ["%1",(lbData[-1,_index])];
 		if (isNull _unit) exitWith {};
 		if (_value > client_bank) exitWith {["You don't have enough money in your bank.","orange"] call DT_fnc_notify};
 		if (_value > 999999) exitWith {["You can't transfer over $999999.","orange"] call DT_fnc_notify};

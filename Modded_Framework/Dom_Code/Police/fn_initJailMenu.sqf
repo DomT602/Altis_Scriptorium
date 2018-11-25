@@ -13,7 +13,7 @@ private _display = findDisplay 1010;
 private _nameBox = _display displayCtrl 1000;
 private _name = ["Unknown",_unit] call DT_fnc_findName;
 
-_nameBox ctrlSetStructuredText format["<t align='center'>%1</t>",_name];
+_nameBox setText _name;
 
 _unit getVariable ["jail_details",[]] params ["","_reason","_time","_cell"];
 

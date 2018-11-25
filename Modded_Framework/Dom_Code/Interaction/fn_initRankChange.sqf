@@ -12,7 +12,7 @@ private _rankBox = _display displayCtrl 9201;
 private _departmentBox = _display displayCtrl 9202;
 
 private _name = ["Unknown",MB_Interaction_Target] call DT_fnc_findName;
-_nameBox ctrlSetStructuredText parseText format["<t align='center'>%1</t>",_name];
+_nameBox setText _name;
 
 switch (player getVariable ["faction","civ"]) do {
 	case "cop": {

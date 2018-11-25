@@ -12,10 +12,11 @@ if (player getVariable "company" isEqualTo "none") then { //for my own company m
 private _companyList = (findDisplay -1) displayCtrl -1;
 lbClear _companyList;
 {
+	private _index = _forEachIndex;
 	_x params [
 		"_ID",
 		"_name"
 	];
-	_companyList lbAdd format ["%1",_name];
-	_companyList lbSetValue [(lbSize _companyList) - 1,_ID];
+	_companyList lbAdd _name;
+	_companyList lbSetValue [_index,_ID];
 } forEach company_list;

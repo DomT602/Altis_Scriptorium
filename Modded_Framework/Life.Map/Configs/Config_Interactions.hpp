@@ -207,7 +207,7 @@ class Interactions {
 		class plantSeed {
 			title = "Plant Seed";
 			action = "call DT_fnc_plantSeed";
-			check = "!(active_seed isEqualTo '') && isNull objectParent player && ({if (player distance (getMarkerPos _x) < 30) exitWith {true}} forEach ['Farming_Markers'])";
+			check = "!(active_seed isEqualTo '') && isNull objectParent player && (surfaceType (getPosATL player) in ['dirt','farm'])"; //({if (player distance (getMarkerPos _x) < 30) exitWith {true}} forEach ['Farming_Markers'])
 		};
 
 		class harvestPlant {

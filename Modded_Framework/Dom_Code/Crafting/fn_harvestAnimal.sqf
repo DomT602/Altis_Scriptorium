@@ -9,7 +9,7 @@ params [
 
 if (isNull _animal) exitWith {};
 if !(isNull objectParent player) exitWith {};
-if (player getVariable ["restrained",false] || player getVariable ["tied",false]) exitWith {};
+if (client_blockActions) exitWith {};
 
 private _time = switch (typeOf _animal) do {
 	case "Hen_random_F": {4};
