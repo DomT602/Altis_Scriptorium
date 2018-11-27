@@ -37,7 +37,7 @@ lbClear _ingredList;
 
 if !(_cost isEqualTo 0) then {
 	_cost = _cost * _amount;
-	_ingredList lbAdd format["$%1",_cost];
+	_ingredList lbAdd str(_cost);
 	if (client_cash > _cost) then {
 		_ingredList lbSetColor [(lbSize 1501) - 1,[0,1,0,1]];
 	} else {

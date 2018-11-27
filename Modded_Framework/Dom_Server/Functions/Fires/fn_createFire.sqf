@@ -8,6 +8,7 @@ params [
 	["_type","large",[""]]
 ];
 if (_position isEqualTo []) exitWith {};
+if (surfaceType _position == "ag_seabed" || surfaceIsWater _position) exitWith {};
 
 (switch _type do {
     case "small": {

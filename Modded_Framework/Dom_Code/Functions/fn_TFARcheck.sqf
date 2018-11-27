@@ -4,8 +4,6 @@
 	Description: Checks clients TFAR status every 2 seconds via a CBA PFH
 */
 
-diag_log "TFAR check loaded successfully";
-
 [
 	{
 		private _somethingWrong = false;
@@ -13,8 +11,8 @@ diag_log "TFAR check loaded successfully";
 			titleText ["Please enable Task Force Radio in your TS3 Addons. | TS3 -> Tools -> Options -> Addons","BLACK"];
 			_somethingWrong = true;
 		} else {
-			if !((call TFAR_fnc_getTeamSpeakServerName) isEqualTo "Modern RP") then {
-				titleText ["Please join the Modern RP teamspeak server. | ts3.modernrp.net","BLACK"];
+			if !((call TFAR_fnc_getTeamSpeakServerName) isEqualTo "ServerHere") then {
+				titleText ["Please join the ServerHere teamspeak server. | ip","BLACK"];
 				_somethingWrong = true;
 			} else {
 				if !((call TFAR_fnc_getTeamSpeakChannelName) isEqualTo "TaskForceRadio") then {

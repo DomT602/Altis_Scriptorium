@@ -27,7 +27,6 @@ for "_i" from 0 to 1 step 0 do {
 	_randomPlate = _plateArray joinString "";
 
 	private _return = [format["checkPlate:%1",_randomPlate],2] call MySQL_fnc_DBasync;
-
 	if (_return isEqualTo []) exitWith {_plate = _randomPlate};
 };
 

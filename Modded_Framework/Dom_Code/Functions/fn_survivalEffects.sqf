@@ -16,7 +16,7 @@ if (_type isEqualTo "hunger") exitWith {
 	if (_newValue isEqualTo 0) then {
 		[player] call DT_fnc_onPlayerKilled
 	} else {
-		if (_newValue <= 15) then {
+		if (_newValue < 15) then {
 			["You are starving!","red"] call DT_fnc_notify;
 		};
 	};

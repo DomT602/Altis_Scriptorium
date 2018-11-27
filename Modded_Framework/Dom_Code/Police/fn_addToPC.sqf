@@ -45,8 +45,8 @@ switch _type do {
 			private _notes = ctrlText -1;
 			private _toAdd = [_plate,_model,_colour,_notes];
 
-			police_veh_bolos pushBack _toAdd;
-			publicVariable police_veh_bolos;
+			police_vehBOLOs pushBack _toAdd;
+			publicVariable police_vehBOLOs;
 		} else {
 			//person bolo
 		};

@@ -17,7 +17,7 @@ for "_i" from 1 to _doors do {
 	if (player distance _pos < 2) exitWith {_door = _i};
 };
 if (_door isEqualTo 0) exitWith {["No nearby doors.","red"] call DT_fnc_notify};
-if ((_building getVariable [format["bis_disabled_Door_%1", _door],0]) isEqualTo 0) exitWith {["The door is already open.","blue"] call DT_fnc_notify};
+if ((_building getVariable [format["bis_disabled_Door_%1", _door],0]) isEqualTo 0) exitWith {["The door is already unlocked.","blue"] call DT_fnc_notify};
 
 (_building getVariable ["alarm",[false,false,[]]]) params ["_police","_security","_people"];
 private _toAlert = [];

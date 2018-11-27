@@ -10,13 +10,11 @@ params [
 
 if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 private _uid = getPlayerUID _unit;
-if (_uid isEqualTo "") exitWith {};
-private _name = (findDisplay 1004) displayCtrl 1400;
-
-_name = ctrlText _name;
+private _name = ctrlText ((findDisplay 1004) displayCtrl 1400);
 
 if (count _name > 50) exitWith {["Name is too long.","red"] call DT_fnc_notify};
 
+closeDialog 0;
 private _insertArr = [_uid,_name];
 
 private _array = profileNamespace getVariable ["DT_Names",[]];
@@ -29,4 +27,3 @@ if (_index isEqualTo -1) then {
 };
 
 profileNamespace setVariable ["DT_Names",_array];
-closeDialog 0;

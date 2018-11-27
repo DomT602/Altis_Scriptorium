@@ -45,7 +45,7 @@ for "_i" from 0 to _totalTime step 1 do {
 };
 
 if !(player getVariable ["dead",false]) then {
-	uiSleep _totalTime;
 	[0] call DT_fnc_saveStatsPartial;
+	uiSleep _totalTime;
 };
 _target addAction["Rob Store",DT_fnc_robStore,[_attempts,_totalTime,_totalCash,_name]];

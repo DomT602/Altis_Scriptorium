@@ -11,7 +11,7 @@ if (isNull _house) exitWith {};
 if (isNull (_house getVariable ["lightSource",objNull])) then {
     private _lightPos = (getArray (missionConfigFile >> "Housing" >> "Houses" >> (typeOf _house) >> "lightPos"));
     if (_lightPos isEqualTo []) exitWith {};
-    private _lightSource = "#lightpoint" createVehicleLocal [0,0,0];
+    private _lightSource = "#lightpoint" createVehicle [0,0,0];
     _lightSource lightAttachObject [_house,_lightPos];
     _lightSource setLightColor [250,150,50];
     _lightSource setLightAmbient [1,1,0.2];
@@ -22,6 +22,5 @@ if (isNull (_house getVariable ["lightSource",objNull])) then {
     _lightSource setLightFlareMaxDistance 50;
     _house setVariable ["lightSource",_lightSource];
 } else {
-    if (isNull (_house getVariable ["lightSource",objNull])) exitWith {};
     deleteVehicle (_house getVariable ["lightSource",objNull]);
 };

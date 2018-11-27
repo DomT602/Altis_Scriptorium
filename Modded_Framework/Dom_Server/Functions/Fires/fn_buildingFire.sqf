@@ -53,6 +53,11 @@ if (_building distance _nearBuilding < 15) then {
 {
     deleteVehicle _x
 } forEach _fires;
+
+private _furniture = _building getVariable ["furniture",[]];
+{
+    _x hideObjectGlobal true;
+} forEach _furniture; //just hide furniture till restart
 _building setDamage 1;
 
 _building setVariable ["fire_count",nil,true];

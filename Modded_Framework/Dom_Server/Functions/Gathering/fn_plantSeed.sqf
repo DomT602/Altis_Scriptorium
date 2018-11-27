@@ -9,8 +9,6 @@ params [
 	["_plant","",[""]]
 ];
 
-_position params ["_xPos","_yPos","_zPos"];
-
 (switch _plant do {
 	case "Wheat_i": {["Wheat_vehicle",300,1.2]};
 }) params ["_className","_time","_height"];

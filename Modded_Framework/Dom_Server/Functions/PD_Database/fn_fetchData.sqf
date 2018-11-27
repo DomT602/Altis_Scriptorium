@@ -11,26 +11,22 @@ params [
 switch _type do {
 	case 0: {
 		private _return = [format["fetchArrests:%1",_name],2] call MySQL_fnc_DBasync;
-		if (_return isEqualTo []) exitWith {[[]] remoteExecCall ["DT_fnc_recieveArrests",remoteExecutedOwner]};
+		if (_return isEqualTo []) exitWith {remoteExecCall ["DT_fnc_recieveArrests",remoteExecutedOwner]};
 		[_return] remoteExecCall ["DT_fnc_recieveArrests",remoteExecutedOwner]; //crimes, officer, time, bail, insert_time
 	};
 	case 1: {
 		private _return = [format["fetchTickets:%1",_name],2] call MySQL_fnc_DBasync;
-		if (_return isEqualTo []) exitWith {[[]] remoteExecCall ["DT_fnc_recieveTickets",remoteExecutedOwner]};
+		if (_return isEqualTo []) exitWith {remoteExecCall ["DT_fnc_recieveTickets",remoteExecutedOwner]};
 		[_return] remoteExecCall ["DT_fnc_recieveArrests",remoteExecutedOwner]; //crimes, officer, cost, insert_time
 	};
 	case 2: {
 		private _return = [format["fetchWarrants:%1",_name],2] call MySQL_fnc_DBasync;
-		if (_return isEqualTo []) exitWith {[[]] remoteExecCall ["DT_fnc_recieveWarrants",remoteExecutedOwner]};
+		if (_return isEqualTo []) exitWith {remoteExecCall ["DT_fnc_recieveWarrants",remoteExecutedOwner]};
 		[_return] remoteExecCall ["DT_fnc_recieveArrests",remoteExecutedOwner]; //id, name, crimes, officer, notes, type, approved, active, insert_time
 	};
 	case 3: {
 		private _return = ["populateWarrants",2] call MySQL_fnc_DBasync;
-		if !(_return isEqualTo []) then {
-			warrant_list = _return
-		} else {
-			warrant_list = []
-		};
+		warrant_list = _return;
 		publicVariable "warrant_list";
 	};
 	case 4: {

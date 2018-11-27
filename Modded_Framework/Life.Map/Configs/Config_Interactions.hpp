@@ -207,19 +207,25 @@ class Interactions {
 		class plantSeed {
 			title = "Plant Seed";
 			action = "call DT_fnc_plantSeed";
-			check = "!(active_seed isEqualTo '') && isNull objectParent player && (surfaceType (getPosATL player) in ['dirt','farm'])"; //({if (player distance (getMarkerPos _x) < 30) exitWith {true}} forEach ['Farming_Markers'])
+			check = "!(active_seed isEqualTo '') && isNull objectParent player && (surfaceType (getPosATL player) in ['dirt','ag_farm'])"; //({if (player distance (getMarkerPos _x) < 30) exitWith {true}} forEach ['Farming_Markers'])
 		};
 
 		class harvestPlant {
 			title = "Harvest Plant";
-			action = "[cursorObject call DT_fnc_harvestPlant";
+			action = "[cursorObject] call DT_fnc_harvestPlant";
 			check = "(typeOf cursorObject in ['Wheat_vehicle']) && isNull objectParent player";
 		};
 
 		class buyBuilding {
 			title = "Buy";
 			action = "[cursorObject] spawn DT_fnc_buyBuilding";
-			check = "(cursorObject isKindOf 'House_F') && {player distance cursorObject < 10} && {(cursorObject getVariable ['id',-1]) isEqualTo -1}";
+			check = "(cursorObject isKindOf 'House_F') && {player distance cursorObject < 7} && {(cursorObject getVariable ['id',-1]) isEqualTo -1}";
+		};
+
+		class breakDoor {
+			title = "Break Door";
+			action = "[cursorObject] call DT_fnc_breakDoor";
+			check = "(cursorObject isKindOf 'House_F') && {player distance cursorObject < 5}";
 		};
 
 		class pickupFurniture {

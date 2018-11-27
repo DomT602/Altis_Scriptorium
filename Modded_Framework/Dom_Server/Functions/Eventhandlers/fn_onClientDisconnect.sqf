@@ -15,6 +15,9 @@ private _alive = if (_unit getVariable ["dead",false]) then {0} else {1};
 if (_alive isEqualTo 0) then {
 	[_unit,"Combat Logged",true] call server_fnc_logAction;
 };
+if (_unit getVariable ["restrained",false] || _unit getVariable ["tied",false]) then {
+	[_unit,"Logged while restrained/tied",true] call server_fnc_logAction;
+};
 
 deleteVehicle _unit;
 

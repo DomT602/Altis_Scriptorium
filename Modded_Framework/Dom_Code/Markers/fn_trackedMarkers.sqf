@@ -29,10 +29,9 @@ private _markers = [];
 [
 	{
 		params [
-			["_arguments",[],[[]]],
+			["_markers",[],[[]]],
 			["_handle",-1,[0]]
 		];
-		_arguments params ["_markers"];
 
 		if !(visibleMap) exitWith {
 			[_handle] call CBA_fnc_removePerFrameHandler;
@@ -55,5 +54,5 @@ private _markers = [];
 		} forEach _markers;
 	},
 	0,
-	[_markers]
+	_markers
 ] call CBA_fnc_addPerFrameHandler;

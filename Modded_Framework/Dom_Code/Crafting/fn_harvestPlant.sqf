@@ -22,18 +22,30 @@ if (player getVariable ["faction","civ"] isEqualTo "cop" && _illegal) exitwith {
 
 private _growthPercent = _plant getVariable ["growthPercent",0];
 if (_growthPercent isEqualTo 100) then {
-	private _harvestedAmount = 1 + round(player getVariable ["level_farming",0] / 10);
-	if (player canAdd [_class,_harvestedAmount]) then {
-		player playMove "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";
-		waitUntil {animationState player != "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon"};
-		deleteVehicle _plant;
-		for "_i" from 1 to _harvestedAmount do {
-			player addItem _class;
-		};
-		[format["You harvested some %1.",_name],"green"] call DT_fnc_notify;
-		["farming",1] call DT_fnc_addExp;
+	private _level = player getVariable ["level_farming",0];
+	if (_level < 5) then {
+		if (round(random(100)) < 50) exitWith {["You failed to harvest the plant!","red"] call DT_fnc_notify};
+			["farming",1] call DT_fnc_addExp;
 	} else {
-		["Your inventory is full.","orange"] call DT_fnc_notify;
+		if (_level < 10) then {
+			if (round(random(100)) < 25) exitWith {["You failed to harvest the plant!","red"] call DT_fnc_notify};
+				["farming",1] call DT_fnc_addExp;
+		} else {
+			private _count = if (surfaceType (getPosATL player) == "ag_farm") then {2} else {1};
+			_count = _count + round(player getVariable ["level_farming",0] / 10);
+			if (player canAdd [_class,_count]) then {
+				player playMove "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";
+				waitUntil {animationState player != "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon"};
+				deleteVehicle _plant;
+				for "_i" from 1 to _count do {
+					player addItem _class;
+				};
+				[format["You harvested %2 units of %1.",_name,_count],"green"] call DT_fnc_notify;
+				["farming",2] call DT_fnc_addExp;
+			} else {
+				["Your inventory is full.","orange"] call DT_fnc_notify;
+			};
+		};
 	};
 } else {
 	[(call {
