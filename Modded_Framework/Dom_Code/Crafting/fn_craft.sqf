@@ -5,13 +5,14 @@
 */
 
 private _display = findDisplay 1003;
-private _control = _display displayCtrl 1500;
-private _index = lbCurSel _control;
-if (_index isEqualTo -1) exitWith {["You haven't selected an item to craft.","orange"] call DT_fnc_notify};
+private _tree = _display displayCtrl 1500;
+private _index = tvCurSel _tree;
+if (_index isEqualTo []) exitWith {["You haven't selected an item to craft.","orange"] call DT_fnc_notify};
 if (lbCurSel 1502 isEqualTo -1) exitWith {["You haven't selected a quantity to craft.","orange"] call DT_fnc_notify};
 
-(parseSimpleArray format["%1",(_control lbData _index)]) params ["_class","_requiredMaterials","_cost"];
+(parseSimpleArray format["%1",(_tree lbData _index)]) params ["_class","_requiredMaterials","_cost"];
 private _amount = (lbCurSel (_display displayCtrl 1502)) + 1;
+if (player canAdd [_item,_amount]) exitWith {["You don't have enough inventory space.","orange"] call DT_fnc_notify};
 
 {
 	_x params ["_className","_neededCount"];
@@ -20,7 +21,9 @@ private _amount = (lbCurSel (_display displayCtrl 1502)) + 1;
 	};
 } forEach _requiredMaterials;
 
-client_cash = client_cash - (_cost * _amount);
+if !(_amount isEqualTo 0) then {
+	client_cash = client_cash - (_cost * _amount);
+};
 
 closeDialog 0;
 

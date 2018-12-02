@@ -54,9 +54,9 @@ private _headgear = getArray(missionConfigFile >> "Shops" >> "Clothing" >> _shop
 			([_className] call DT_fnc_fetchDetails) params ["_name","_picture"];
 			_tree tvAdd [[_index],_name];
 			private _count = (_tree tvCount [_index]) - 1;
-			_tree tvSetData[[_index,_count],_className];
-			_tree tvSetPicture[[_index,_count],_picture];
-			_tree tvSetValue[[_index,_count],_buyPrice];
+			_tree tvSetData [[_index,_count],_className];
+			_tree tvSetPicture [[_index,_count],_picture];
+			_tree tvSetValue [[_index,_count],_buyPrice];
 		};
 	} forEach _itemArray;
 } forEach [_uniforms,_vests,_backpacks,_goggles,_headgear];

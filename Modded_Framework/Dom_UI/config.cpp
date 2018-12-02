@@ -1502,10 +1502,10 @@ class Crafting_Menu
 	enableSimulation=1;
 	class controls
 	{
-		class Main_Listbox: PS_RscListBox
+		class Main_Tree: PS_RscTree
 		{
 			idc=1500;
-			onLBSelChanged="_this call DT_fnc_craftLBchange";
+			onTreeSelChanged="_this call DT_fnc_craftLBchange";
 			x="0.319531 * safezoneW + safezoneX";
 			y="0.302 * safezoneH + safezoneY";
 			w="0.144375 * safezoneW";

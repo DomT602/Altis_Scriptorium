@@ -26,10 +26,12 @@ if (_growthPercent isEqualTo 100) then {
 	if (_level < 5) then {
 		if (round(random(100)) < 50) exitWith {["You failed to harvest the plant!","red"] call DT_fnc_notify};
 			["farming",1] call DT_fnc_addExp;
+			deleteVehicle _plant;
 	} else {
 		if (_level < 10) then {
 			if (round(random(100)) < 25) exitWith {["You failed to harvest the plant!","red"] call DT_fnc_notify};
 				["farming",1] call DT_fnc_addExp;
+				deleteVehicle _plant;
 		} else {
 			private _count = if (surfaceType (getPosATL player) == "ag_farm") then {2} else {1};
 			_count = _count + round(player getVariable ["level_farming",0] / 10);

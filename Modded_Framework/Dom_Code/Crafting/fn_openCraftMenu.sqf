@@ -6,52 +6,67 @@
 
 createDialog "Crafting_Menu";
 private _display = findDisplay 1003;
-private _control = _display displayCtrl 1500;
+private _tree = _display displayCtrl 1500;
 
-private _basicOptions = missionConfigFile >> "Crafting" >> "Basic";
-for "_i" from 0 to count(_basicOptions) - 1 do {
-	private _curCfg = _basicOptions select _i;
-	private _class = getText(_curCfg >> "productClass");
-	private _requiredMaterials = getArray(_curCfg >> "requiredMaterials");
-	private _location = getText(_curCfg >> "location");
-	private _cost = getNumber(_curCfg >> "cost");
-	([_class] call DT_fnc_fetchDetails) params ["_text","_icon"];
+_tree tvAdd [[],"Items"];
+_tree tvAdd [[],"Materials"];
+_tree tvAdd [[],"Weapons"];
+_tree tvAdd [[],"Vehicles"];
 
-	if !(_location isEqualTo "") then {
-		if (player distance (getMarkerPos _location) < 30) then {
-			_control lbAdd format["%1",_text];
-			_control lbSetData [(lbSize 1500) - 1,(str([_class,_requiredMaterials,_cost]))];
-			_control lbSetPicture [(lbSize 1500) - 1,_icon];
-		};
-	} else {
-		_control lbAdd format["%1",_text];
-		_control lbSetData [(lbSize 1500) - 1,(str([_class,_requiredMaterials,_cost]))];
-		_control lbSetPicture [(lbSize 1500) - 1,_icon];
-	};
-};
+private _baseCfg = missionConfigFile >> "Crafting";
+private _basicCfg = _baseCfg >> "Basic";
+private _bItems = _basicCfg >> "Items";
+private _bMaterials = _basicCfg >> "Materials";
+private _bWeapons = _basicCfg >> "Weapons";
+private _bVehicles = _basicCfg >> "Vehicles";
 
-if (player getVariable ["level_crafting",0] > 20) then {
-	private _advancedOptions = missionConfigFile >> "Crafting" >> "Advanced";
-	for "_i" from 0 to count(_advancedOptions) - 1 do {
-		private _curCfg = _advancedOptions select _i;
+{
+	private _index = _forEachIndex;
+	for "_i" from 0 to (count(_x) - 1) do {
+		private _curCfg = _x select _i;
 		private _class = getText(_curCfg >> "productClass");
 		private _requiredMaterials = getArray(_curCfg >> "requiredMaterials");
 		private _location = getText(_curCfg >> "location");
 		private _cost = getNumber(_curCfg >> "cost");
 		([_class] call DT_fnc_fetchDetails) params ["_text","_icon"];
 
-		if !(_location isEqualTo "") then {
-			if (player distance (getMarkerPos _location) < 30) then {
-				_control lbAdd format["%1",_text];
-				_control lbSetData [(lbSize 1500) - 1,(str([_class,_requiredMaterials,_cost]))];
-				_control lbSetPicture [(lbSize 1500) - 1,_icon];
-			};
-		} else {
-			_control lbAdd format["%1",_text];
-			_control lbSetData [(lbSize 1500) - 1,(str([_class,_requiredMaterials,_cost]))];
-			_control lbSetPicture [(lbSize 1500) - 1,_icon];
+		_tree tvAdd [[_index],_text];
+		_tree tvSetPicture [[_index,_i],_icon];
+		if (_location isEqualTo "" || player distance (getMarkerPos _location) < 10) then {
+			_tree tvSetData [[_index,_i],(str([_class,_requiredMaterials,_cost]))];
+		}  else {
+			_tree tvSetColor [[_index,_i],[1,0,0,1]];
 		};
+		
 	};
+} forEach [_bItems,_bMaterials,_bWeapons,_bVehicles];
+
+if (player getVariable ["level_crafting",0] > 20) then {
+	private _advancedCfg = _baseCfg >> "Advanced";
+	private _aItems = _advancedCfg >> "Items";
+	private _aMaterials = _advancedCfg >> "Materials";
+	private _aWeapons = _advancedCfg >> "Weapons";
+	private _aVehicles = _advancedCfg >> "Vehicles";
+
+	{
+		private _index = _forEachIndex;
+		for "_i" from 0 to (count(_x) - 1) do {
+			private _curCfg = _x select _i;
+			private _class = getText(_curCfg >> "productClass");
+			private _requiredMaterials = getArray(_curCfg >> "requiredMaterials");
+			private _location = getText(_curCfg >> "location");
+			private _cost = getNumber(_curCfg >> "cost");
+			([_class] call DT_fnc_fetchDetails) params ["_text","_icon"];
+
+			_tree tvAdd [[_index],_text];
+			_tree tvSetPicture [[_index,_i],_icon];
+			if (_location isEqualTo "" || player distance (getMarkerPos _location) < 10) then {
+				_tree tvSetData [[_index,_i],(str([_class,_requiredMaterials,_cost]))];
+			}  else {
+				_tree tvSetColor [[_index,_i],[1,0,0,1]];
+			};
+		};
+	} forEach [_aItems,_aMaterials,_aWeapons,_aVehicles];
 };
 
 private _countBox = _display displayCtrl 1502;
