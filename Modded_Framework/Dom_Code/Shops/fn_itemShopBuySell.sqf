@@ -18,7 +18,7 @@ switch _mode do {
 		private _item = lbData[6000,_index];
 		([_item] call DT_fnc_fetchDetails) params ["_name"];
 		if (_price > client_cash) exitWith {["You don't have enough money.","orange"] call DT_fnc_notify};
-		([_item] call BIS_fnc_itemType) params ["_category","_type"]; //do this
+		([_item] call BIS_fnc_itemType) params ["_category","_type"];
 		switch _category do {
 			case "Weapon": {
 				if (_type isEqualTo "Handgun") then {
@@ -77,6 +77,14 @@ switch _mode do {
 							player addItem _item;
 						} else {
 							player linkItem _item;
+						};
+					};
+					case "Binocular": {
+						if (_item in (assignedItems player)) then {
+							if !(player canAdd _item) exitWith {["You don't have enough room for this item.","orange"] call DT_fnc_notify; breakTo "main"};
+							player addItem _item
+						} else {
+							player addWeapon _item
 						};
 					};
 					default {

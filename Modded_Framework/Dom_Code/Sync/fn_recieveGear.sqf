@@ -11,9 +11,9 @@ params [
 
 player setVariable ["faction",_faction,true];
 if (_department isEqualTo "") then {
-	player setVariable ["department",nil,true];
+	player setVariable ["department",nil,-2];
 } else {
-	player setVariable ["department",_department,true];
+	player setVariable ["department",_department,-2];
 };
 
 if (_gear isEqualTo []) then {

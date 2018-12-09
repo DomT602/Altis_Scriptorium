@@ -14,7 +14,7 @@ private _class = typeOf _building;
 if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> _class)) exitWith {
 	if !(_building getVariable ["shop_company",""] isEqualTo "") exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
 	if (player getVariable ["company","none"] isEqualTo "none") exitWith {["You are not in a company.","orange"] call DT_fnc_notify};
-	if !(player getVariable ["company_rank",0] isEqualTo 3) exitWith {["Only the company owner can buy property.","orange"] call DT_fnc_notify};
+	if !(player getVariable ["company_rank",-1] isEqualTo 3) exitWith {["Only the company owner can buy property.","orange"] call DT_fnc_notify};
 	private _config = missionConfigFile >> "Buildings" >> "Shops" >> typeOf _building;
 	private _price = getNumber(_config >> "price");
 	private _maxItems = getNumber(_config >> "maxItems");
@@ -60,7 +60,7 @@ if (_action) then {
 
 	_building setVariable ["owner",getPlayerUID player,true];
 	_building setVariable ["locked",true,true];
-	_building setVariable ["furniture",[],true];
+	_building setVariable ["furniture",[],2];
 	_building setVariable ["house_keyHolders",[],true];
 	_building setVariable ["alarm",[false,false,[]],true];
 

@@ -24,11 +24,11 @@
 		if !(_somethingWrong) then {
 			titleText ["","PLAIN"];
 			if !(player getVariable ["TFAR",true]) then {
-				player setVariable ["TFAR",true,true];
+				player setVariable ["TFAR",true,-2];
 			};
 		} else {
 			if (player getVariable ["TFAR",true]) then {
-				player setVariable ["TFAR",false,true];
+				player setVariable ["TFAR",false,-2];
 			};
 		};
 	},

@@ -4,9 +4,9 @@ briefingName 		= "Life";
 onLoadName 			= "Life";
 onLoadMissionTime	= 0;
 overviewPicture 	= "";
-onLoadMission 		= "A roleplay mission by";
-overviewText 		= "A roleplay mission by";
-overviewTextLocked 	= "A roleplay mission by";
+onLoadMission 		= "RPG By Dom";
+overviewText 		= "RPG By Dom";
+overviewTextLocked 	= "RPG By Dom";
 
 enableDebugConsole = 2; //change to 1 or 0 later
 joinUnassigned = 1;

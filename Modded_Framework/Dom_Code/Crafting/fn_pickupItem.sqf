@@ -19,6 +19,10 @@ if (_type in ['log','coal']) then { //crafting stuff
 	[_message,"green",5] call DT_fnc_notify;
 	deleteVehicle _object;
 } else {
+	if (_type isEqualTo "Small_Package") exitWith {
+		_object attachTo [player,[0.035,-.11,-0.1],"RightHandMiddle1"];
+		[format["This package needs to be delivered to %1.",(vehicleVarName (_object getVariable ["pack_details",[]] select 0))]] call DT_fnc_notify;
+	};
 	if (_type isEqualTo "MW_spikeStrip") exitWith {
 		player addItem "MW_spikeStrip_Closed";
 		deleteVehicle _object;

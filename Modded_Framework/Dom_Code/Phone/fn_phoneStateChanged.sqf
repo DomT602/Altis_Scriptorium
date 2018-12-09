@@ -13,7 +13,7 @@ switch _state do {
       	["Connecting call.","blue"] call DT_fnc_notify;
   	};
   	case "callerHungup": {
-  		player setVariable ["callTotal",(player getVariable ["callTotal",0] - 1),true];
+  		player setVariable ["callTotal",(player getVariable ["callTotal",0] - 1),-2];
 	  	if (player getVariable ["callTotal",0] < 2) then {
 	  		phone_hungupCall = true;
 	      	["Call ended.","blue"] call DT_fnc_notify;

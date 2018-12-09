@@ -11,7 +11,7 @@ if (player getVariable ["dead",false]) exitWith {};
 if (_type isEqualTo "hunger") exitWith {
 	private _oldValue = player getVariable ["hunger",100];
 	private _newValue = (_oldValue - 10) max 0;
-	player setVariable ["hunger",_newValue,true];
+	player setVariable ["hunger",_newValue,-2];
 
 	if (_newValue isEqualTo 0) then {
 		[player] call DT_fnc_onPlayerKilled
@@ -25,7 +25,7 @@ if (_type isEqualTo "hunger") exitWith {
 if (_type isEqualTo "thirst") exitWith {
 	private _oldValue = player getVariable ["thirst",100];
 	private _newValue = (_oldValue - 10) max 0;
-	player setVariable ["thirst",_newValue,true];
+	player setVariable ["thirst",_newValue,-2];
 	
 	if (_newValue isEqualTo 0) then {
 		[player] call DT_fnc_onPlayerKilled

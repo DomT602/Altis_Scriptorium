@@ -19,6 +19,6 @@ while {animationState player isEqualTo "deadstate"} do {
 player setVariable ["dead",false,true];
 player setVariable ["tf_unable_to_use_radio",false];
 player setVariable ["tf_voiceVolume",1,true];
-player setVariable ["Reviving",nil,true];
+player setVariable ["reviving",nil,-2];
 call DT_fnc_saveStatsFull;
 client_blockActions = false;

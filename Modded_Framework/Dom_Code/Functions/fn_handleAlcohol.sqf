@@ -9,7 +9,7 @@ params [
 ];
 if (_item isEqualTo "") exitWith {};
 
-player setVariable ["intoxication",(player getVariable ["intoxication",0]) + _value,true];
+player setVariable ["intoxication",(player getVariable ["intoxication",0]) + _value,-2];
 
 if !(client_intoxicated) then {
 	client_intoxicated = true;
@@ -60,12 +60,11 @@ if !(client_intoxicated) then {
 	[
 		{
 			private _intoxication = player getVariable ["intoxication",0];
-			if (_intoxication < 0.03) exitWith {
-				player setVariable ["intoxication",0,true];
+			player setVariable ["intoxication",(_intoxication - 0.02) max 0,-2];
+			if (_intoxication isEqualTo 0) exitWith {
 				["You are completely sober.","green"] call DT_fnc_notify;
 				[_this select 1] call CBA_fnc_removePerFrameHandler;
 			};
-			player setVariable ["intoxication",(_intoxication - 0.02) max 0,true];
 		},
 		30
 	] call CBA_fnc_addPerFrameHandler;

@@ -6,21 +6,21 @@
 
 client_cash = 0;
 
-player setVariable ["hunger",100,true];
-player setVariable ["thirst",100,true];
+player setVariable ["hunger",100,-2];
+player setVariable ["thirst",100,-2];
 player setVariable ["dead",false,true];
-player setVariable ["Reviving",nil,true];
+player setVariable ["reviving",nil,-2];
 player setVariable ["tf_voiceVolume",1,true];
 player setVariable ["tf_unable_to_use_radio",false];
 
-player setVariable ["head",0,true];
-player setVariable ["torso",0,true];
-player setVariable ["legs",0,true];
-player setVariable ["arms",0,true];
-player setVariable ["bleeding",0,true];
+player setVariable ["head",0,-2];
+player setVariable ["torso",0,-2];
+player setVariable ["legs",0,-2];
+player setVariable ["arms",0,-2];
+player setVariable ["bleeding",0,-2];
 player setVariable ["blood",5000,true];
-player setVariable ["morphine",false,true];
-player setVariable ["medRecords",[],true];
+player setVariable ["morphine",false,false];
+player setVariable ["medRecords",[],-2];
 
 death_camera cameraEffect ["TERMINATE","BACK"];
 camDestroy death_camera;

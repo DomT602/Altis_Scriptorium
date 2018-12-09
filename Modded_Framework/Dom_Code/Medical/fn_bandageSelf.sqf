@@ -11,7 +11,7 @@ if !("D_Bandage_i" in (magazines player)) exitWith {["You have no bandages.","or
 	player removeItem "D_Bandage_i";
 	private _bleeding = player getVariable ["bleeding",0];
 	_bleeding = (_bleeding - 2) max 0;
-	player setVariable ["bleeding",_bleeding,true];
+	player setVariable ["bleeding",_bleeding,-2];
 	[player,"Bandaged"] call DT_fnc_recordMedical;
 	["Bandaging finished.","green"] call DT_fnc_notify;
 	[player,""] remoteExecCall ["switchMove",-2];

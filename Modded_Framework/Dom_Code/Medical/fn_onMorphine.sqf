@@ -5,18 +5,18 @@
 */
 
 ["Morphine will last 5 minutes, or until your downed."] call DT_fnc_notify;
-player setVariable ["morphine",true,true];
+player setVariable ["morphine",true,false];
 
 [
 	{
 		player getVariable ["dead",false]
 	},
 	{
-		player setVariable ["morphine",false,true];
+		player setVariable ["morphine",false,false];
 	},
 	[],
 	300,
 	{
-		player setVariable ["morphine",false,true];
+		player setVariable ["morphine",false,false];
 	}
 ] call CBA_fnc_waitUntilAndExecute;

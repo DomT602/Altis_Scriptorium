@@ -30,7 +30,7 @@ private _return = call {
 
 		if (_containerType in _furnitureList) exitWith {
 			private _house = nearestObject [player, "House"];
-			if !(_house in client_keys) && (_house getVariable ["locked",true]) exitWith {
+			if (!(_house in client_keys) && {_house getVariable ["locked",true]}) exitWith {
 				["This furniture is locked.","red"] call DT_fnc_notify;
 				true
 			};

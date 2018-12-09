@@ -16,4 +16,4 @@ phone_inCall = false;
 phone_acceptedCall = false;
 phone_hungupCall = false;
 phone_denyedCall = false;
-player setVariable ["callTotal",0,true];
+player setVariable ["callTotal",0,-2];

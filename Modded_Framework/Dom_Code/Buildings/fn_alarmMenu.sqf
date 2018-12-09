@@ -7,7 +7,7 @@ params [
     ["_house",objNull,[objNull]]
 ];
 if (isNull _house) exitWith {};
-if !(_house getVariable ["owner",""] isEqualTo getPlayerUID player) exitWith {["This is not your house","orange"] call DT_fnc_notify};
+if !(_house getVariable ["owner",""] isEqualTo getPlayerUID player) exitWith {["This is not your house.","orange"] call DT_fnc_notify};
 
 createDialog "DT_alarmMenu";
 (_house getVariable ["alarm",[false,false,[]]]) params ["_police","_security","_people"];

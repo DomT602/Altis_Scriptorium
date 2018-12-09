@@ -10,12 +10,12 @@ if (_department isEqualTo -1) exitWith {["You need to select a department.","ora
 if (_rank isEqualTo -1) exitWith {["You need to select a rank.","orange"] call DT_fnc_notify};
 
 _rank = _rank + 1;
-private _faction = player getVariable ["faction",""];
+private _faction = player getVariable ["faction","civ"];
 closeDialog 0;
 
 switch _faction do {
 	case "cop": {
-		MB_Interaction_Target setVariable ["cop_rank",_rank,true];
+		MB_Interaction_Target setVariable ["cop_rank",_rank,-2];
 		MB_Interaction_Target setVariable ["department",(switch _department do {
 			case 0: {"Patrol"};
 			case 1: {"Department of Corrections"};
@@ -23,16 +23,16 @@ switch _faction do {
 			case 3: {"SWAT"};
 			case 4: {"DTU"};
 			case 5: {"High Command"};
-		}),true];
+		}),-2];
 	};
 	case "medic": {
-		MB_Interaction_Target setVariable ["medic_rank",_rank,true];
+		MB_Interaction_Target setVariable ["medic_rank",_rank,-2];
 		MB_Interaction_Target setVariable ["department",(switch _department do {
 			case 0: {"EMS"};
 			case 1: {"Search and Rescue"};
 			case 2: {"Fire Department"};
 			case 3: {"High Command"};
-		}),true];
+		}),-2];
 	};
 	case "doj": {};
 };

@@ -59,7 +59,7 @@ if !(isNull _toRing) then {
 	private _ownNumber = player getVariable ["phoneNumber",""];
 	if !(phone_inCall) then {
 		phone_callOwner = player; //setting variable to use in dialogs (owner)
-		player setVariable ["callTotal",1,true];
+		player setVariable ["callTotal",1,-2];
 		phone_callingPlayer = true;
 
 		private _name = "";
@@ -87,7 +87,7 @@ if !(isNull _toRing) then {
 				["_text","",[""]]
 			];
 			for "_i" from 0 to 5 do {
-				if (phone_acceptedCall) exitWith {phone_callingPlayer = false; phone_inCall = true; [_ownNumber] call DT_fnc_setFrequency; player setVariable ["callTotal",(player getVariable ["callTotal",0] + 1),true]};
+				if (phone_acceptedCall) exitWith {phone_callingPlayer = false; phone_inCall = true; [_ownNumber] call DT_fnc_setFrequency; player setVariable ["callTotal",(player getVariable ["callTotal",0] + 1),-2]};
 				if (phone_denyedCall) exitWith {[format["Call to %1 was denied.",_number],"red"] call DT_fnc_notify};
 				[_text,"blue"] call DT_fnc_notify;
 				//playSound "call";
@@ -111,7 +111,7 @@ if !(isNull _toRing) then {
 				["_ownNumber","",[""]]
 			];
 			for "_i" from 0 to 5 do {
-				if (phone_acceptedCall) exitWith {phone_callingPlayer = false; player setVariable ["callTotal",(player getVariable ["callTotal",0] + 1),true]};
+				if (phone_acceptedCall) exitWith {phone_callingPlayer = false; player setVariable ["callTotal",(player getVariable ["callTotal",0] + 1),-2]};
 				if (phone_denyedCall) exitWith {[format["Call to %1 was denied.",_number],"red"] call DT_fnc_notify};
 				[format["Calling %1.",_number],"blue"] call DT_fnc_notify;
 				//playSound "call";

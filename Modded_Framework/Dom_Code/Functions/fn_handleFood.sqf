@@ -12,7 +12,7 @@ if (_item isEqualTo "") exitWith {};
 private _oldValue = player getVariable ["hunger",100];
 if !(_oldValue isEqualTo 100) then {
     private _newValue = (_oldValue + _value) min 100;
-    player setVariable ["hunger",_newValue,true];
+    player setVariable ["hunger",_newValue,-2];
     ["You feel less hungry.","green"] call DT_fnc_notify;
 };
 

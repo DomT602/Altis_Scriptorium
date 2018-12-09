@@ -5,7 +5,8 @@
 */
 params [
     ["_uid","",[""]],
-    ["_unit",objNull,[objNull]]
+    ["_unit",objNull,[objNull]],
+    ["_clientID",-1,[0]]
 ];
 
 if (_uid isEqualTo "" || {isNull _unit}) exitWith {};
@@ -26,4 +27,4 @@ for "_i" from 0 to 1 step 0 do {
 
 [format["insertPlayer:%1:%2:%3",_uid,name _unit,_number],1] call MySQL_fnc_DBasync;
 
-[_uid,_unit] remoteExecCall ["DB_fnc_initialStats",2];
+[_uid,_unit,_clientID] call DB_fnc_initialStats;

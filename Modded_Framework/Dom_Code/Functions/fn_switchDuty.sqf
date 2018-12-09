@@ -24,15 +24,15 @@ if ((player getVariable ["faction","civ"]) isEqualTo _faction) then {
 	["You went off duty.","blue"] call DT_fnc_notify;
 	player setVariable ["copLevel",nil,true];
 	if (player getVariable ["dispatch",false]) then {
-		player setVariable ["dispatch",nil,true];
+		player setVariable ["dispatch",nil,-2];
 	};
-	switch (player getVariable ["doj_rank",0]) do {
-		case 0: {client_paycheck = 0};
-		case 1: {client_paycheck = 1000};
-		case 2: {client_paycheck = 1500};
-		case 3: {client_paycheck = 1500};
-		case 4: {client_paycheck = 2000};
-		case 5: {client_paycheck = 2500};
+	client_paycheck = switch (player getVariable ["doj_rank",0]) do {
+		case 0: {0};
+		case 1: {1000};
+		case 2: {1500};
+		case 3: {1500};
+		case 4: {2000};
+		case 5: {2500};
 	};
 } else {
 	[getPlayerUID player,_faction] remoteExecCall ["DB_fnc_recieveFactionGear",2];

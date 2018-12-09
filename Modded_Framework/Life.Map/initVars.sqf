@@ -22,7 +22,6 @@ phone_inCall = false;
 phone_acceptedCall = false;
 phone_hungupCall = false;
 phone_denyedCall = false;
-player setVariable ["callTotal",0,true];
 
 DT_notifArray = [];
 DT_notifCount = 0;
@@ -38,10 +37,10 @@ active_seed = "";
 old_speed = 0;
 
 player setVariable ["dead",false,true];
-player setVariable ["bleeding",0,true];
-player setVariable ["morphine",false,true];
-player setVariable ["medRecords",[],true];
-
+player setVariable ["bleeding",0,-2];
+player setVariable ["morphine",false,false];
+player setVariable ["medRecords",[],-2];
+player setVariable ["callTotal",0,-2];
 player setVariable ["faction","civ",true];
 player setVariable ["restrained",false,true];
 player setVariable ["tied",false,true];

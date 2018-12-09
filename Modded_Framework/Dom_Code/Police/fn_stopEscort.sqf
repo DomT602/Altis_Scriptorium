@@ -1,13 +1,9 @@
 /*
     File: fn_stopEscort.sqf
     Author: Dom
-    Description: Stops escorting any attached players
+    Description: Stops escorting any attached players (just detaches what your carrying)
 */
 
-{
-	if (_x isKindOf "Man") then {
-		detach _x;
-	};
-} forEach attachedObjects player;
+detach client_carrying;
 
 client_carrying = objNull;

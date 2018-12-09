@@ -27,13 +27,13 @@ params [
 	["_keys",[],[[]]]
 ];
 
-player setVariable ["DBid",_dbID,true];
+player setVariable ["DBid",_dbID,-2];
 client_cash = _cash;
 client_bank = _bank;
-player setVariable ["cop_rank",_coplevel,true];
-player setVariable ["medic_rank",_mediclevel,true];
-player setVariable ["doj_rank",_dojlevel,true];
-player setVariable ["donor_level",_donorlevel,true];
+player setVariable ["cop_rank",_coplevel,-2];
+player setVariable ["medic_rank",_mediclevel,-2];
+player setVariable ["doj_rank",_dojlevel,-2];
+player setVariable ["donor_level",_donorlevel,-2];
 
 {
 	_x params ["_name","_bool"];
@@ -50,17 +50,17 @@ if (_gear isEqualTo []) then {
 };
 
 _stats params ["_hunger","_thirst","_battery","_blood","_head","_torso","_arms","_legs"];
-player setVariable ["hunger",_hunger,true];
-player setVariable ["thirst",_thirst,true];
+player setVariable ["hunger",_hunger,-2];
+player setVariable ["thirst",_thirst,-2];
 phone_battery = _battery;
 if (_blood isEqualTo 0) then {[player,"Combat Logged",true] remoteExecCall ["server_fnc_logAction",2]};
 player setVariable ["blood",_blood,true]; //if this is 0 they combat logged - lets do something with it?
-player setVariable ["head",_head,true];
-player setVariable ["torso",_torso,true];
-player setVariable ["arms",_arms,true];
-player setVariable ["legs",_legs,true];
+player setVariable ["head",_head,-2];
+player setVariable ["torso",_torso,-2];
+player setVariable ["arms",_arms,-2];
+player setVariable ["legs",_legs,-2];
 
-player setVariable ["phoneNumber",_phoneNumber,true];
+player setVariable ["phoneNumber",_phoneNumber,-2];
 phone_contacts = _phoneContacts;
 phone_settings = _phoneSettings;
 //phone_settings params ["_mode","_background","_ringTone"];
@@ -76,9 +76,6 @@ if !(_companyData isEqualTo []) then {
 	company_ID = _id;
 	player setVariable ["company",_name,true];
 	player setVariable ["company_rank",_rank,true];
-} else {
-	player setVariable ["company","none",true];
-	player setVariable ["company_rank",-1,true];
 };
 
 {

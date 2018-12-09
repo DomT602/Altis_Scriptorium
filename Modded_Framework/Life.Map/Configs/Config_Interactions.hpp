@@ -199,9 +199,9 @@ class Interactions {
 		};
 
 		class pickupItem {
-			title = "Pickup Item";
+			title = "Pickup";
 			action = "[cursorObject] call DT_fnc_pickupItem";
-			check = "typeOf cursorObject in ['log','rock','MW_spikeStrip','RoadCone_L_F','RoadBarrier_F','Land_CncBarrier_F','Land_BarGate_F']";
+			check = "typeOf cursorObject in ['log','rock','MW_spikeStrip','RoadCone_L_F','RoadBarrier_F','Land_CncBarrier_F','Land_BarGate_F','Small_Package']";
 		};
 
 		class plantSeed {
@@ -280,6 +280,24 @@ class Interactions {
 			title = "Untie";
 			action = "cursorObject setVariable ['tied',false,true]; player addItem 'D_Ziptie_i';";
 			check = "cursorObject getVariable ['tied',false]";
+		};
+
+		class dropItem {
+			title = "Drop Package";
+			action = "call DT_fnc_stopEscort";
+			check = "client_carrying isTypeOf 'Small_Package'";
+		};
+
+		class startDelivery {
+			title = "Start delivery";
+			action = "createDialog 'DT_delivery'";
+			check = "cursorObject isTypeOf 'CAManBase' && !isPlayer cursorObject";
+		};
+
+		class endDelivery {
+			title = "Complete delivery";
+			action = "call DT_fnc_endDelivery";
+			check = "cursorObject isEqualTo ((client_carrying getVariable ['pack_details',[]]) select 0)";
 		};
 	};
 };

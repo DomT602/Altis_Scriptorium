@@ -24,7 +24,7 @@ if (_value > MB_Interaction_Target getVariable ["head",0]) exitWith {
 		["_text","",[""]]
 	];
 	
-	MB_Interaction_Target setVariable ["head",_value,true];
+	MB_Interaction_Target setVariable ["head",_value,-2];
 	[MB_Interaction_Target,"Treated head"] call DT_fnc_recordMedical;
 	[_text,"green"] call DT_fnc_notify;
 	[player,""] remoteExecCall ["switchMove",-2];

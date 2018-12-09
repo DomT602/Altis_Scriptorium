@@ -5,17 +5,22 @@
 */
 params [
     ["_uid","",[""]],
-    ["_unit",objNull,[objNull]]
+    ["_unit",objNull,[objNull]],
+    ["_clientID",-1,[0]]
 ];
+
+if (_clientID isEqualTo -1) then {
+	_clientID = remoteExecutedOwner;
+};
 
 private _return = [format["selectPlayer:%1",_uid],2] call MySQL_fnc_DBasync;
 
-if (_return isEqualTo []) exitWith {[_uid,_unit] call DB_fnc_insertPlayer};
+if (_return isEqualTo []) exitWith {[_uid,_unit,_clientID] call DB_fnc_insertPlayer};
 
 private _companyData = [_uid] call DB_fnc_fetchCompany; //company data - returns either [] or [filled,with,data];
 _return pushBack _companyData;
 
-private _houseData = [_uid] call DB_fnc_fetchBuildings;
+private _houseData = [_uid,_clientID] call DB_fnc_fetchBuildings;
 _return pushBack _houseData;
 
 private _keyArr = missionNamespace getVariable [format["keys_%1",_uid],[]];

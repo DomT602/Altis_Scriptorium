@@ -25,7 +25,7 @@ if !(_item in (magazines player)) exitWith {["You don't have the necessary item.
 		["_text","",[""]]
 	];
 	player removeItem _item;
-	MB_Interaction_Target setVariable [_part,0,true];
+	MB_Interaction_Target setVariable [_part,0,-2];
 	[MB_Interaction_Target,_text] call DT_fnc_recordMedical;
 	["Treatment finished.","green"] call DT_fnc_notify;
 	[player,""] remoteExecCall ["switchMove",-2];

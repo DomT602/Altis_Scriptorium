@@ -4,7 +4,8 @@
 	Description: Fetches buildings & furniture in building
 */
 params [
-	["_uid","",[""]]
+	["_uid","",[""]],
+	["_clientID",-1,[0]]
 ];
 if (_uid isEqualTo "") exitWith {};
 
@@ -17,6 +18,7 @@ private _return = [];
 	];
 	private _house = nearestObject [_pos,"House"];
 	_return pushBack _house;
+	_house setVariable ["furniture",[],_clientID];
 	{
 		_x params [
 			["_pos",[0,0,0],[[]]],
@@ -32,7 +34,7 @@ private _return = [];
 		_furniturePiece allowDamage false;
 		_furniturePiece setPosATL _pos;
 		_furniturePiece setVectorDirAndUp _dir;
-		_furniturePiece setVariable ["furn_id",_id,true];
+		_furniturePiece setVariable ["furn_id",_id,_clientID];
 		clearWeaponCargoGlobal _furniturePiece;
 		clearItemCargoGlobal _furniturePiece;
 		clearMagazineCargoGlobal _furniturePiece;

@@ -25,7 +25,7 @@ if !(_item in (magazines player)) exitWith {["You don't have the necessary item.
 		["_text","",[""]]
 	];
 	player removeItem _item;
-	player setVariable [_part,0,true]; 
+	player setVariable [_part,0,-2]; 
 	[player,_text] call DT_fnc_recordMedical;
 	[player,""] remoteExecCall ["switchMove",-2];
 },

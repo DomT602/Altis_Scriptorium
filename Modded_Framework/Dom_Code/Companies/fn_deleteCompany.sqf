@@ -3,7 +3,7 @@
 	Author: Dom
 	Description: Prompts the owner to check if he wants to delete his menu
 */
-if !(player getVariable ["company_rank",0] isEqualTo 4) exitWith {};
+if !(player getVariable ["company_rank",-1] isEqualTo 3) exitWith {};
 private _action = [
     "Are you sure you want to disband your company, you will lose any remaining funds, and make all your employees redundant.", //message
     "Disband company",
