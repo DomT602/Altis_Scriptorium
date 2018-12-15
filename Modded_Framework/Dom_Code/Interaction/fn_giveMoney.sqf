@@ -9,8 +9,9 @@ params [
 
 if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 
-private _amount =  parseNumber (ctrlText ((findDisplay 1012) displayCtrl 1501));
-if (_amount < 1) exitWith {["Invalid number.","red"] call DT_fnc_notify};
+private _amount = ctrlText ((findDisplay 1012) displayCtrl 1501);
+if !([_amount,0] call DT_fnc_checkNumber) exitWith {};
+_amount = parseNumber _amount;
 
 if (_amount < (client_cash + 1)) then {
 	closeDialog 0;

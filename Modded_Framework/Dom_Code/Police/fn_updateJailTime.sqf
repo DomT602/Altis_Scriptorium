@@ -10,9 +10,15 @@ params [
 if (isNull _unit || {!isPlayer _unit}) exitWith {};
 
 private _display = findDisplay 1009;
-private _hours = parseNumber (ctrlText (_display displayCtrl 1400));
-private _minutes = parseNumber (ctrlText (_display displayCtrl 1401));
-private _seconds = parseNumber (ctrlText (_display displayCtrl 1402));
+private _hours = ctrlText (_display displayCtrl 1400);
+if !([_hours] call DT_fnc_checkNumber) exitWith {};
+_hours = parseNumber _hours;
+private _minutes = ctrlText (_display displayCtrl 1401);
+if !([_minutes] call DT_fnc_checkNumber) exitWith {};
+_minutes = parseNumber _minutes;
+private _seconds = ctrlText (_display displayCtrl 1402);
+if !([_seconds] call DT_fnc_checkNumber) exitWith {};
+_seconds = parseNumber _seconds;
 private _crimes = ctrlText (_display displayCtrl 1403);
 closeDialog 0;
 

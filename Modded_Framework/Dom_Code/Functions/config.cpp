@@ -1,6 +1,7 @@
 class Functions {
     file = "\Dom_Code\Functions";
     class checkMap {};
+    class checkNumber {};
     class checkPlayer {};
     class checkVehicle {};
     class clickChecker {};

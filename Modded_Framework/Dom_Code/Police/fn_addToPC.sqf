@@ -14,8 +14,12 @@ switch _type do {
 		if (_name isEqualTo "") exitWith {["You didn't enter a name.","orange"] call DT_fnc_notify};
 		private _crimes = ctrlText -1;
 		if (_crimes isEqualTo "") exitWith {["You didn't enter any crimes.","orange"] call DT_fnc_notify};
-		private _time = parseNumber (ctrlText -1);
-		private _bail = parseNumber (ctrlText -1);
+		private _time = ctrlText -1;
+		if !([_time,0] call DT_fnc_checkNumber) exitWith {};
+		_time = parseNumber _time;
+		private _bail = ctrlText -1;
+		if !([_bail] call DT_fnc_checkNumber) exitWith {};
+		_bail = parseNumber _bail;
 
 		[_name,_crimes,profileName,_time,_bail] remoteExecCall ["DB_fnc_insertArrest",2];
 	};
@@ -24,7 +28,9 @@ switch _type do {
 		if (_name isEqualTo "") exitWith {["You didn't enter a name.","orange"] call DT_fnc_notify};
 		private _crimes = ctrlText -1;
 		if (_crimes isEqualTo "") exitWith {["You didn't enter any crimes.","orange"] call DT_fnc_notify};
-		private _cost = parseNumber (ctrlText -1);
+		private _cost = ctrlText -1;
+		if !([_cost] call DT_fnc_checkNumber) exitWith {};
+		_cost = parseNumber _cost;
 
 		[_name,_crimes,profileName,_cost] remoteExecCall ["DB_fnc_insertTicket",2];
 	};

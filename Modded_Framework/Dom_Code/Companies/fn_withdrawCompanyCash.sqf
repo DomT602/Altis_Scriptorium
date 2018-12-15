@@ -4,9 +4,10 @@
 	Description: Withdraws company funds
 */
 if (player getVariable ["company_rank",-1] < 3) exitWith {["You are not allowed to withdraw from your companies bank.","red"] call DT_fnc_notify};
-private _value = parseNumber(ctrlText -1);
+private _value = ctrlText -1;
+if !([_value,0] call DT_fnc_checkNumber) exitWith {};
+_value = parseNumber _value;
 //need to get company funds
-if (_value > 999999 || {_value <= 0}) exitWith {["Invalid number.","red"] call DT_fnc_notify};
 if (_value > _companyFunds) exitWith {["You don't have that much money on you.","red"] call DT_fnc_notify};
 
 client_cash = client_cash + _value;

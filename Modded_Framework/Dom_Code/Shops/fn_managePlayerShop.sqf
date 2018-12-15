@@ -32,8 +32,9 @@ switch _state do {
     case 2: {
         private _selected = lbCurSel -1;
         private _item = lbData[-1,_selected];
-        private _price = parseNumber (ctrlText[-1,-1]);
-        if !(_price > 0) exitWith {};
+        private _price = ctrlText[-1,-1];
+        if ([_price,0] call DT_fnc_checkNumber) exitWith {};
+        _price = parseNumber _price;
         player removeItem _item;
         _items pushBack ([_item,_price]);
         //MB_Interaction_Target setVariable ["shop_inventory",_items,true];

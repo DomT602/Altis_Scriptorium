@@ -29,11 +29,12 @@ switch _type do {
 	case 2: {
 		private _index = lbCurSel -1;
 		if (_index isEqualTo -1) exitWith {["You need to select someone.","red"] call DT_fnc_notify};
-		private _value = parseNumber(ctrlText -1);
+		private _value = ctrlText -1;
+		if !([_value,0] call DT_fnc_checkNumber) exitWith {};
+		_value = parseNumber _value;
 		private _unit = call compile format ["%1",(lbData[-1,_index])];
 		if (isNull _unit) exitWith {};
 		if (_value > client_bank) exitWith {["You don't have enough money in your bank.","orange"] call DT_fnc_notify};
-		if (_value > 999999) exitWith {["You can't transfer over $999999.","orange"] call DT_fnc_notify};
 		client_bank = client_bank - _value;
 		[format["You transferred $%1 to %2.",str(_value),name _unit],"green"] call DT_fnc_notify;
 		[_value,player,true] remoteExecCall ["DT_fnc_recieveMoney",_unit];

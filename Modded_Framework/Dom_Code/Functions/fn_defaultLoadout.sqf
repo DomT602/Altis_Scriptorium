@@ -1,65 +1,50 @@
 /*
-    File: fn_defaultLoadout.sqf
-    Author: Dom
-    Description: Loads default gear for selected faction.
+	File: fn_defaultLoadout.sqf
+	Author: Dom
+	Description: Loads default gear for selected faction.
 */
 
 private _faction = player getVariable ["faction","civ"];
+private _uniform = "";
+private _vest = "";
+private _backpack = "";
 
-removeAllWeapons player;
-removeUniform player;
-removeVest player;
-removeBackpack player;
-removeGoggles player;
-removeHeadGear player;
-
-{
-    player unassignItem _x;
-    player removeItem _x;
-} forEach (assignedItems player);
-
-if !(hmd player isEqualTo "") then {
-    player unlinkItem (hmd player);
+if (_faction isEqualTo "civ") then {
+	private _uniform = selectRandom ["D_FeelsBadManShorts"];
+} else {
+	if (_faction isEqualTo "medic") then {
+		_uniform = switch (player getVariable ["medic_rank",0]) do {
+			case 1: {"PS_EMS_Probie"};
+			case 2: {};
+			case 3: {};
+			case 4: {};
+			case 5: {};
+			case 6: {};
+			case 7: {};
+		};
+		_backpack = "D_Invisible_Backpack";
+	} else {
+		_uniform = switch (player getVariable ["cop_rank",0]) do {
+			case 1: {"D_Police_Cadet"};
+			case 2: {"D_Police_Officer"};
+			case 3: {"D_Police_Corporal"};
+			case 4: {"D_Police_Sergeant"};
+			case 5: {"D_Police_Lieutenant"};
+			case 6: {"D_Police_Captain"};
+			case 7: {"D_Police_AsstChief"};
+		};
+		_vest = "PoliceVest";
+		_backpack = "AM_PoliceBelt";
+	};
 };
 
-player linkItem "ItemMap";
-player linkItem "ItemCompass";
-player linkItem "ItemWatch";
-player linkItem "D_Phone";
+private _gear = [
+	[],[],[], //weapons
+	[_uniform,[]], //uniform
+	[_vest,[]], //vest
+	[_backpack], //backpack
+	"","",[], //items
+	["ItemMap","","D_Phone","ItemCompass","ItemWatch",""] //items
+];
 
-if (_faction isEqualTo "civ") exitWith {
-    private _clothing = ["D_FeelsBadManShorts"];
-    player addUniform selectRandom _clothing;
-};
-
-if (_faction isEqualTo "medic") exitWith {
-    (switch (player getVariable ["medic_rank",0]) do {
-        case 1: {["PS_EMS_Probie","","PS_Invisible_Backpack"]};
-        case 2: {};
-        case 3: {};
-        case 4: {};
-        case 5: {};
-        case 6: {};
-        case 7: {};
-    }) params ["_uniform","_vest","_backpack"];
-    player addUniform _uniform;
-    player addVest _vest;
-    player addBackpack _backpack;
-};
-
-
-if (_faction isEqualTo "cop") exitWith {
-    (switch (player getVariable ["cop_rank",0]) do {
-        case 1: {["D_Police_Cadet","PoliceVest","AM_PoliceBelt"]};
-        case 2: {["D_Police_Officer","PoliceVest","AM_PoliceBelt"]};
-        case 3: {["D_Police_Corporal","PoliceVest","AM_PoliceBelt"]};
-        case 4: {["D_Police_Sergeant","PoliceVest","AM_PoliceBelt"]};
-        case 5: {["D_Police_Lieutenant","PoliceVest","AM_PoliceBelt"]};
-        case 6: {["D_Police_Captain","PoliceVest","AM_PoliceBelt"]};
-        case 7: {["D_Police_AsstChief","PoliceVest","AM_PoliceBelt"]};
-    }) params ["_uniform","_vest","_backpack"];
-    player addUniform _uniform;
-    player addVest _vest;
-    player addBackpack _backpack;
-};  
-
+player setUnitLoadout [_gear,false];
