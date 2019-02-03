@@ -7,7 +7,7 @@ params [
 	["_mode",-1,[0]]
 ];
 if (_mode isEqualTo -1) exitWith {};
-private _packet = [getPlayerUID player,player getVariable ["faction","civ"],_mode];
+private _packet = [getPlayerUID player,_mode];
 
 switch _mode do {
 	case 0: {
@@ -25,12 +25,13 @@ switch _mode do {
 	};
 	case 2: {
 		_packet pushBack (getUnitLoadout player);
+		_packet pushBack (player getVariable ["faction","civ"]);
 	};
 	case 3: {
 		_packet pushBack (player getVariable ["jail_details",[]]);
 	};
 	case 4: {
-		_packet pushBack ([player getVariable ["hunger",100],player getVariable ["thirst",100],phone_battery,player getVariable ["blood",5000],player getVariable ["head",0],player getVariable ["torso",0],player getVariable ["arms",0],player getVariable ["legs",0]]);
+		_packet pushBack ([player getVariable ["hunger",100],player getVariable ["thirst",100],phone_battery,player getVariable ["blood",5000],player getVariable ["injuries",[]]]);
 	};
 	case 5: {
 		_packet pushBack phone_settings;

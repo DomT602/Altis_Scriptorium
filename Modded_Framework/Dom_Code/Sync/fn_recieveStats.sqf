@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Recieves clients information and sets it up
 */
-
 params [
 	["_dbID",-1,[0]],
 	["_cash",0,[0]],
@@ -27,21 +26,20 @@ params [
 	["_keys",[],[[]]]
 ];
 
-player setVariable ["DBid",_dbID,-2];
+player setVariable ["DBid",_dbID,true];
 client_cash = _cash;
 client_bank = _bank;
-player setVariable ["cop_rank",_coplevel,-2];
-player setVariable ["medic_rank",_mediclevel,-2];
-player setVariable ["doj_rank",_dojlevel,-2];
-player setVariable ["donor_level",_donorlevel,-2];
+player setVariable ["cop_rank",_coplevel,true];
+player setVariable ["medic_rank",_mediclevel,true];
+player setVariable ["doj_rank",_dojlevel,true];
+player setVariable ["donor_level",_donorlevel,true];
 
 {
 	_x params ["_name","_bool"];
 	missionNamespace setVariable [_name,_bool];
 } forEach _licenses;
 
-_jailDetails params ["_arrested","_reason","_time","_cell"];
-player setVariable ["jail_details",[_arrested,_reason,_time,_cell],true];
+player setVariable ["jail_details",_jailDetails,true];
 
 if (_gear isEqualTo []) then {
 	call DT_fnc_defaultLoadout;
@@ -49,18 +47,15 @@ if (_gear isEqualTo []) then {
 	player setUnitLoadout [_gear,false];
 };
 
-_stats params ["_hunger","_thirst","_battery","_blood","_head","_torso","_arms","_legs"];
-player setVariable ["hunger",_hunger,-2];
-player setVariable ["thirst",_thirst,-2];
+_stats params ["_hunger","_thirst","_battery","_blood","_injuries"];
+player setVariable ["hunger",_hunger,true];
+player setVariable ["thirst",_thirst,true];
 phone_battery = _battery;
-if (_blood isEqualTo 0) then {[player,"Combat Logged",true] remoteExecCall ["server_fnc_logAction",2]};
-player setVariable ["blood",_blood,true]; //if this is 0 they combat logged - lets do something with it?
-player setVariable ["head",_head,-2];
-player setVariable ["torso",_torso,-2];
-player setVariable ["arms",_arms,-2];
-player setVariable ["legs",_legs,-2];
+player setVariable ["blood",_blood,true];
+player setVariable ["injuries",_injuries,true];
+if (_blood isEqualTo 0) then {[player,"Combat Logged",true] remoteExecCall ["server_fnc_logAction",2]; [player] call DT_fnc_onPlayerKilled};
 
-player setVariable ["phoneNumber",_phoneNumber,-2];
+player setVariable ["phoneNumber",_phoneNumber,true];
 phone_contacts = _phoneContacts;
 phone_settings = _phoneSettings;
 //phone_settings params ["_mode","_background","_ringTone"];
@@ -72,15 +67,15 @@ exp_fishing = _fishing;
 exp_hunting = _hunting;
 
 if !(_companyData isEqualTo []) then {
-	_companyData params ["_id","_name","_rank","_salary"]; //salary not put in yet
-	company_ID = _id;
+	_companyData params ["_name","_rank","_rankName","_salary"]; //salary not put in yet
 	player setVariable ["company",_name,true];
 	player setVariable ["company_rank",_rank,true];
+	player setVariable ["company_position",_rankName,false];
 };
 
 {
 	client_keys pushBack _x;
-	private _marker = createMarkerLocal [format ["house_%1",round(random 99999)],_x];
+	private _marker = createMarkerLocal [format ["house_%1",_forEachIndex],_x];
 	_marker setMarkerTextLocal (getText(configFile >> "CfgVehicles" >> (typeOf _x) >> "displayName"));
 	_marker setMarkerColorLocal "ColorBlue";
 	_marker setMarkerTypeLocal "loc_Lighthouse";
@@ -97,7 +92,7 @@ player addEventHandler ["InventoryClosed", {_this call DT_fnc_onInventoryClosed}
 player addEventHandler ["InventoryOpened", {_this call DT_fnc_onInventoryOpened}];
 player addEventHandler ["HandleRating", {0}];
 player addEventHandler ["HandleScore", {false}];
-player addEventHandler ["GetOutMan",{_this spawn DT_fnc_onGetOutMan}];
+player addEventHandler ["GetOutMan",{_this call DT_fnc_onGetOutMan}];
 player addEventHandler ["Put",{[2] call DT_fnc_saveStatsPartial}];
 addMissionEventHandler ["Map", {_this call DT_fnc_checkMap}];
 addMissionEventHandler ["Draw3D",{call DT_fnc_playerTags}];
@@ -116,9 +111,9 @@ call DT_fnc_medicalLoop;
 call DT_fnc_survivalLoop;	
 call DT_fnc_setupHUD;
 
-if (_arrested isEqualTo 1) then {
+if (_jailDetails select 0) then {
 	player setVehiclePosition [(getMarkerPos "Jail_Spawn"),[],0,"CAN_COLLIDE"];
-	[_time] call DT_fnc_jailTimer;
+	call DT_fnc_jailTimer;
 } else {
 	if (_alive isEqualTo 1) then {
 		player setVehiclePosition [_position,[],0,"CAN_COLLIDE"];
@@ -151,10 +146,10 @@ if (_arrested isEqualTo 1) then {
 } forEach [exp_woodcutting,exp_mining,exp_farming,exp_fishing,exp_hunting];
 
 client_paycheck = switch (player getVariable ["doj_rank",0]) do {
-	case 0: {0}; // Civ
-	case 1: {1000}; // State Prosecutor
-	case 2: {1500}; // DA
-	case 3: {1500}; // Judge
-	case 4: {2000}; // Justice 
-	case 5: {2500}; // Chief Justice 
+	case 0: {0};
+	case 1: {1000};
+	case 2: {1500};
+	case 3: {1500};
+	case 4: {2000};
+	case 5: {2500};
 };
