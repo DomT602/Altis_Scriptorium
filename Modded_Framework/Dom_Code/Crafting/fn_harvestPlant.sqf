@@ -7,14 +7,17 @@ params [
 	["_plant",objNull,[objNull]]
 ];
 
-if !(isNull objectParent player) exitWith {};
-if (client_blockActions) exitWith {};
+if (client_blockActions || !(isNull objectParent player)) exitWith {};
 
 (switch (typeOf _plant) do {
 	case "Wheat_vehicle": {["wheat",false,"Wheat_i"]};
+	case "Oleander2": {["opium",true,"Opium_i"]};
+	case "Ficus_Bush_1": {["olive",false,"Olive_i"]};
 }) params ["_name","_illegal","_class"];
 
-if (player getVariable ["faction","civ"] isEqualTo "cop" && _illegal) exitwith {
+if (player getVariable ["faction","civ"] isEqualTo "cop" && _illegal) exitWith {
+	player playMoveNow "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";
+	waitUntil {animationState player != "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon"};
 	[format["You received $500 for destroying the %1 plant.",_name],"green"] call DT_fnc_notify;
 	client_cash = client_cash + 500;
 	deleteVehicle _plant;
@@ -33,10 +36,10 @@ if (_growthPercent isEqualTo 100) then {
 				["farming",1] call DT_fnc_addExp;
 				deleteVehicle _plant;
 		} else {
-			private _count = if (surfaceType (getPosATL player) == "ag_farm") then {2} else {1};
+			private _count = if (surfaceType (getPosATL player) == "#ag_farm") then {2} else {1};
 			_count = _count + round(player getVariable ["level_farming",0] / 10);
 			if (player canAdd [_class,_count]) then {
-				player playMove "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";
+				player playMoveNow "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";
 				waitUntil {animationState player != "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon"};
 				deleteVehicle _plant;
 				for "_i" from 1 to _count do {

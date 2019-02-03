@@ -4,8 +4,7 @@
 	Description: Sends request to server to plant the seed
 */
 
-if !(isNull objectParent player) exitWith {};
-if (client_blockActions) exitWith {};
+if (client_blockActions || !(isNull objectParent player)) exitWith {};
 if !(active_seed in (magazines player)) exitWith {["You have none of your selected seed.","orange"] call DT_fnc_notify};
 
 private _nearPlants = nearestObjects [player,["Plant_1","Plant_2"],3];
@@ -17,4 +16,4 @@ private _plantName = switch (active_seed) do {
 
 player playMove "AinvPercMstpSnonWnonDnon_Putdown_AmovPercMstpSnonWnonDnon";
 [format["You planted some %1.",_plantName],"green"] call DT_fnc_notify;
-[getPosATL player,active_seed] remoteExec ["server_fnc_plantSeed",2];
+[getPosATL player,active_seed] remoteExecCall ["server_fnc_plantSeed",2];

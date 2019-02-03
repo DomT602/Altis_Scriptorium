@@ -7,9 +7,7 @@ params [
 	["_animal",objNull,[objNull]]
 ];
 
-if (isNull _animal) exitWith {};
-if !(isNull objectParent player) exitWith {};
-if (client_blockActions) exitWith {};
+if (isNull _animal || client_blockActions || !(isNull objectParent player)) exitWith {};
 
 private _time = switch (typeOf _animal) do {
 	case "Hen_random_F": {4};
@@ -39,7 +37,7 @@ private _time = switch (typeOf _animal) do {
 	deleteVehicle MB_Interaction_Target;
 	["hunting",1] call DT_fnc_addExp;
 	remoteExecCall ["server_fnc_spawnAnimal",2];
-	private _amount = 1 + round(floor(random 10) * (player getVariable ["level_hunting",1] / 100));
+	private _amount = 1 + round(floor(random 10) * ((player getVariable ["level_hunting",1]) / 100));
 	for "_i" from 0 to _amount do {
 		if !(player canAdd _item) exitWith {["Your inventory is full.","orange"] call DT_fnc_notify};
 		player addItem _item;

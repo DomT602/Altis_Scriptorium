@@ -6,33 +6,32 @@
 
 private _display = findDisplay 1003;
 private _tree = _display displayCtrl 1500;
-private _index = tvCurSel _tree;
-if (_index isEqualTo []) exitWith {["You haven't selected an item to craft.","orange"] call DT_fnc_notify};
-if (lbCurSel 1502 isEqualTo -1) exitWith {["You haven't selected a quantity to craft.","orange"] call DT_fnc_notify};
+private _selectionPath = tvCurSel _tree;
+if (count _selectionPath isEqualTo 1) exitWith {["You haven't selected an item to craft.","orange"] call DT_fnc_notify};
+if (lbCurSel 2100 isEqualTo -1) exitWith {["You haven't selected a quantity to craft.","orange"] call DT_fnc_notify};
 
-(parseSimpleArray format["%1",(_tree lbData _index)]) params ["_class","_requiredMaterials","_cost"];
-private _amount = (lbCurSel (_display displayCtrl 1502)) + 1;
-if (player canAdd [_item,_amount]) exitWith {["You don't have enough inventory space.","orange"] call DT_fnc_notify};
+(parseSimpleArray (_tree tvData _selectionPath)) params [["_class","",[""]],["_requiredMaterials",[],[[]]],["_requiredCount",[],[[]]],["_tool","",[""]],["_cost",0,[0]]];
+private _amount = (lbCurSel (_display displayCtrl 2100)) + 1;
+if !(player canAdd [_class,_amount]) exitWith {["You don't have enough inventory space.","orange"] call DT_fnc_notify};
 
-{
-	_x params ["_className","_neededCount"];
-	for "_i" from 1 to (_neededCount * _amount) do {
-		player removeItem _className;
-	};
-} forEach _requiredMaterials;
-
-if !(_amount isEqualTo 0) then {
-	client_cash = client_cash - (_cost * _amount);
-};
-
-closeDialog 0;
-
-["Crafting",_amount,"AinvPknlMstpSnonWnonDnon_medic_1","true",
+["Crafting",(_amount * 3),"AinvPknlMstpSnonWnonDnon_medic_1","true",
 {
 	params [
 		["_class","",[""]],
-		["_amount",1,[0]]
+		["_amount",1,[0]],
+		["_cost",0,[0]],
+		["_requiredMaterials",[],[[]]],
+		["_requiredCount",[],[[]]]
 	];
+	if !(_cost isEqualTo 0) then {
+		client_cash = client_cash - (_cost * _amount);
+	};
+	{
+		private _neededCount = _requiredCount select _forEachIndex;
+		for "_i" from 1 to (_neededCount * _amount) do {
+			player removeItem _x;
+		};
+	} forEach _requiredMaterials;
 	for "_i" from 1 to _amount do {
 		player addItem _class;
 	};
@@ -49,5 +48,5 @@ closeDialog 0;
 		case 3: {"Crafting failed."};
 	}),"orange"] call DT_fnc_notify;
 },
-[_class,_amount]] call DT_fnc_progressBar;
+[_class,_amount,_cost,_requiredMaterials,_requiredCount]] call DT_fnc_progressBar;
 

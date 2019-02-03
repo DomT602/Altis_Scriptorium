@@ -1,51 +1,56 @@
 /*
-	File: fn_craftLBchange.sqf
+	File: fn_countCraftLBchange.sqf
 	Author: Dom
 	Description: Called when a different selection is made on crafting menu
 */
 
 params [
     "",
-    ["_index2",-1,[0]]
+    ["_index",-1,[0]]
 ];
 
 private _canCraft = true;
 private _display = findDisplay 1003;
-private _craftList = _display displayCtrl 1500;
-private _ingredList = _display displayCtrl 1501;
-private _index = lbCurSel _craftList;
-(parseSimpleArray format ["%1",(_craftList lbData _index)]) params ["_class","_requiredMaterials","_cost"];
-private _amount = _index2 + 1; //counter listbox
+private _tree = _display displayCtrl 1500;
+private _infoBox = _display displayCtrl 1100;
+private _selectionPath = tvCurSel _tree;
+(parseSimpleArray (_tree tvData _selectionPath)) params [["_class","",[""]],["_requiredMaterials",[],[[]]],["_requiredCount",[],[[]]],["_tool","",[""]],["_cost",0,[0]]];
+private _amount = _index + 1; //counter listbox
+private _myItems = [player] call DT_fnc_getItems;
 
-lbClear _ingredList;
+private _text = format["<img size='5' image='%1'></img><br/>",_tree tvPicture _selectionPath];
 {
-	_x params ["_className","_neededCount","_icon"];
-	private _ownCount = {_className isEqualTo _x} count ((uniformItems player) + (vestItems player) + (backpackItems player));
-	([_className] call DT_fnc_fetchDetails) params ["_name","_picture"];
+	private _neededCount = _requiredCount select _forEachIndex;
+	private _className = _x;
+	private _ownCount = {_className == _x} count _myItems;
+	([_className] call DT_fnc_fetchDetails) params ["_name"];
 	_neededCount = _neededCount * _amount;
-	_ingredList lbAdd format["%1x %2",_neededCount,_name];
-	_ingredList lbSetPicture [(lbSize 1501) - 1,_picture];
 	if (_ownCount >= _neededCount) then {
-		_ingredList lbSetColor [(lbSize 1501) - 1,[0,1,0,1]];
+		_text = _text + format["<t color='#8cff9b'>%1x %2</t><br/>",_neededCount,_name];
 	} else {
-		_ingredList lbSetColor [(lbSize 1501) - 1,[1,0,0,1]];
+		_text = _text + format["<t color='#ff0000'>%1x %2</t><br/>",_neededCount,_name];
 		if (_canCraft) then {
 			_canCraft = false;
 		};
 	};
 } forEach _requiredMaterials;
 
+if (_tool in (items player)) then {
+
+} else {
+	
+};
+
 if !(_cost isEqualTo 0) then {
 	_cost = _cost * _amount;
-	_ingredList lbAdd str(_cost);
 	if (client_cash > _cost) then {
-		_ingredList lbSetColor [(lbSize 1501) - 1,[0,1,0,1]];
+		_text = _text + format["<t color='#8cff9b'>$%1</t><br/>",_cost];
 	} else {
-		_ingredList lbSetColor [(lbSize 1501) - 1,[1,0,0,1]];
+		_text = _text + format["<t color='#ff0000'>$%1</t><br/>",_cost];
 		if (_canCraft) then {
 			_canCraft = false;
 		};
 	};
 };
-
-ctrlEnable [2400,_canCraft];
+_infoBox ctrlSetStructuredText parseText _text;
+ctrlEnable [1600,_canCraft];
