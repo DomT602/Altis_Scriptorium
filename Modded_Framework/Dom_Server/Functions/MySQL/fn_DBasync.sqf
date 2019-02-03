@@ -13,7 +13,7 @@ params [
 private _key = "extDB3" callExtension format["%1:%2:%3",_mode, (call extDB_SQL_CUSTOM_ID), _queryStmt];
 if (_mode isEqualTo 1) exitWith {true};
 
-_key = call compile format ["%1",_key];
+_key = parseSimpleArray format ["%1",_key];
 _key = _key select 1;
 private _queryResult = "extDB3" callExtension format ["4:%1", _key];
 
@@ -37,7 +37,7 @@ if (_queryResult isEqualTo "[5]") then {
     if (!_loop) exitWith {};
     };
 };
-_queryResult = call compile _queryResult;
+_queryResult = parseSimpleArray _queryResult;
 if ((_queryResult select 0) isEqualTo 0) exitWith {diag_log format ["extDB3: Protocol Error: %1", _queryResult]; []};
 private _return = (_queryResult select 1);
 if (!_multi && !(_return isEqualTo [])) then {

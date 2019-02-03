@@ -42,8 +42,9 @@ clearBackpackCargoGlobal _vehicle;
 
 [_vehicle,_colour] call DT_fnc_setTexture;
 _vehicle lock 2;
-_vehicle setVariable ["key_holders",[profileName],true];
+_vehicle setVariable ["keyHolders",[profileName],true];
 _vehicle setVariable ["plate",_plate,true];
+_vehicle setPlateNumber _plate;
 [_vehicle] remoteExecCall ["DT_fnc_recieveKey",remoteExecutedOwner];
 [_uid,_vehicle] call server_fnc_handleKeys;
 
@@ -52,4 +53,4 @@ private _type = call {
 	if (_vehicle isKindOf "Air") exitWith {"Air"};
 	if (_vehicle isKindOf "Ship") exitWith {"Ship"};
 };
-[format["insertVehicle:%1:%2:%3:%4:%5:%6",_faction,_className,_type,_uid,_plate,_colour],1] call MySQL_fnc_DBasync;
+[format["insertVehicle:%1:%2:%3:%4:%5:%6",_faction,_className,_type,_uid,_plate,[_colour]],1] call MySQL_fnc_DBasync;

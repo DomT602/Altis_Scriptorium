@@ -6,18 +6,16 @@
 params [
 	["_uid","",[""]]
 ];
-
-private _queryResult = ["fetchCompanies",2] call MySQL_fnc_DBasync;
-
+scopeName "main";
 private _companyData = [];
 {
-	_queryResult params ["_id","_name","_employees"];
+	_x params ["_name","_employees"];
 	{
 		_x params ["_employeeUID","_rank","_rankName","_salary"];
 		if (_uid isEqualTo _employeeUID) exitWith {
-			_companyData = [_id,_name,_rank,_salary]
+			_companyData = [_name,_rank,_rankName,_salary];
+			breakTo "main";
 		};
 	} forEach _employees;
-	if !(_companyData isEqualTo []) exitWith {};
-} forEach _queryResult;
+} forEach server_companies;
 _companyData;

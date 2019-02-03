@@ -34,12 +34,12 @@ private _fires = [];
     _fires pushBack _fire;
     _fires pushBack _smoke;
     _fires pushBack _light;
-    _building setVariable ["fire_count",(_building getVariable ["fire_count",0]) + 1,true];
+    _building setVariable ["fire_count",(_building getVariable ["fire_count",0]) + 1,false];
 } forEach _positions;
 
 private _fireTime = time;
 waitUntil {(_building getVariable ["fire_count",0] isEqualTo 0) || ((time - _fireTime) > 15)};
-if (_building getVariable ["fire_count",0] isEqualTo 0) exitWith {_building setVariable ["fire_count",nil,true]};
+if (_building getVariable ["fire_count",0] isEqualTo 0) exitWith {_building setVariable ["fire_count",nil,false]};
 
 private _coords = getPosATL _building;
 private _nearestBuildings = nearestObjects [_building, ["House", "Building"], 20];
@@ -60,5 +60,5 @@ private _furniture = _building getVariable ["furniture",[]];
 } forEach _furniture; //just hide furniture till restart
 _building setDamage 1;
 
-_building setVariable ["fire_count",nil,true];
-[_coords,"small"] spawn server_fnc_createFire;
+_building setVariable ["fire_count",nil,false];
+[_coords,"small"] call server_fnc_createFire;

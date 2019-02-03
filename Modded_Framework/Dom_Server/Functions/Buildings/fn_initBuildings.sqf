@@ -15,7 +15,7 @@ private _houses = ["initHouses",2,true] call MySQL_fnc_DBasync;
 	];
 	private _house = nearestObject [_pos,"House"];
 	
-	_house setVariable ["id",_id,true];
+	_house setVariable ["id",_id,false];
 	_house setVariable ["owner",_owner,true];
 	_house setVariable ["locked",true,true];
 	_house setVariable ["house_keyHolders",_shared,true];
@@ -37,7 +37,7 @@ private _shops = ["initShops",2,true] call MySQL_fnc_DBasync;
 	];
 	private _building = nearestObject [_pos,"House"];
 	
-	_building setVariable ["id",_id,true];
+	_building setVariable ["id",_id,false];
 	_building setVariable ["shop_company",_company,true];
 	_building setVariable ["shop_inventory",_items,true];
 	_building setVariable ["shop_funds",_funds,true];

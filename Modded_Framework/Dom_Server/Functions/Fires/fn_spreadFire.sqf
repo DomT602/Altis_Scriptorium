@@ -7,21 +7,19 @@ params [
 	["_oldFire",objNull,[objNull]],
 	["_oldType","medium",[""]]
 ];
-if (isNull _oldFire) exitWith {};
-uiSleep (round(random 15) + 15);
-if (isNull _oldFire) exitWith {};
+
 private _origin = getPosATL _oldFire;
 private _surface = surfaceType _origin;
 if (_surface == "ag_seabed" || surfaceIsWater _origin) exitWith {};
 
 private _chance = switch _surface do {
-	case "ag_grass": {80};	
-	case "ag_sand": {50};
-	case "ag_rock": {25};
-	case "ag_concrete": {10};
-	case "ag_pebbles": {50};
-	case "ag_racing": {10};
-	case "ag_farm": {90};
+	case "#ag_grass": {80};	
+	case "#ag_sand": {50};
+	case "#ag_rock": {25};
+	case "#ag_concrete": {10};
+	case "#ag_pebbles": {50};
+	case "#ag_racing": {10};
+	case "#ag_farm": {90};
 	default {50};
 };
 
@@ -47,9 +45,9 @@ if ((round random 100) < _chance) then {
 		_light setLightAttenuation _attenuation;
 		//_light setLightDayLight true;
 		if ((round random 25) isEqualTo 1) then {
-	        private _charge = "DemoCharge_Remote_Ammo_Scripted" createVehicle _position;
-	        _charge setDamage 1
-	    };
-	    [_extraFire] spawn server_fnc_spreadFire;
+			private _charge = "DemoCharge_Remote_Ammo_Scripted" createVehicle _position;
+			_charge setDamage 1
+		};
+		server_fires pushBack [_extraFire,false,CBA_missionTime];
 	};
 };

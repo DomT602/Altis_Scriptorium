@@ -4,10 +4,8 @@
     Description: Sells a vehicle and deletes it from DB
 */
 params [
-    ["_plate","",[""]],
-    ["_pid","",[""]]
+    ["_plate","",[""]]
 ];
+if (_plate isEqualTo "") exitWith {};
 
-if (_plate isEqualTo "" || {_pid isEqualTo ""}) exitWith {};
-
-[format["deleteVehicle:%1:%2",_pid,_plate],1] call MySQL_fnc_DBasync;
+[format["deleteVehicle:%1",_plate],1] call MySQL_fnc_DBasync;

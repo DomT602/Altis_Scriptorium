@@ -8,17 +8,16 @@ params [
 ];
 
 private _pos = getPosATL _spikes;
-private "_nearVehicles";
+private "_nearVehicle";
 
 waitUntil {
-	_nearVehicles = nearestObjects[_pos,["Car"],5]; 
-	!(_nearVehicles isEqualTo []) || 
+	_nearVehicle = nearestObjects[_pos,["Car"],5] param [0,objNull,[objNull]]; 
+	!(isNull _nearVehicle) || 
 	isNull _spikeStrip
 };
 
 if (isNull _spikeStrip) exitWith {};
 
-_nearVehicles params ["_vehicle"];
-_vehicle setHitPointDamage["HitLFWheel",1];
-_vehicle setHitPointDamage["HitRFWheel",1];
+_nearVehicle setHitPointDamage["HitLFWheel",1];
+_nearVehicle setHitPointDamage["HitRFWheel",1];
 deleteVehicle _spikeStrip;

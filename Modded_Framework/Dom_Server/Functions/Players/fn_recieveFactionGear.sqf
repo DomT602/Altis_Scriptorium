@@ -33,7 +33,6 @@ switch _faction do {
 			case 2: {"Highway Patrol"};
 			case 3: {"SWAT"};
 			case 4: {"DTU"};
-			case 5: {"High Command"};
 		};
 	};
 	case "medic": {
@@ -41,7 +40,6 @@ switch _faction do {
 			case 0: {"EMS"};
 			case 1: {"Search and Rescue"};
 			case 2: {"Fire Department"};
-			case 3: {"High Command"};
 		};
 	};
 	case "civ": {

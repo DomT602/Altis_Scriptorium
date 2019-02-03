@@ -4,13 +4,10 @@
 	Description: Marks a company for deletion
 */
 params [
-	["_ID",-1,[0]],
 	["_name","",[""]]
 ];
 
-if (_ID isEqualTo -1 || {_name isEqualTo ""}) exitWith {};
-
-[format["deleteCompany:%1",_ID],1] call MySQL_fnc_DBasync;
+[format["deleteCompany:%1",_name],1] call MySQL_fnc_DBasync;
 
 private _units = [];
 {

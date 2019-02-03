@@ -14,7 +14,6 @@ class CfgFunctions {
             file = "\Dom_Server\Functions\MySQL";
             class DBasync {};
             class DBinit {};
-            class strip {};
         };
     };
 
@@ -26,6 +25,7 @@ class CfgFunctions {
             class initBuildings {};
             class insertBuilding {};
             class insertFurniture {};
+            class keyChange {};
             class removeFurniture {};
             class updateAlarmState {};
             class updateFurniture {};
@@ -35,7 +35,6 @@ class CfgFunctions {
             file = "\Dom_Server\Functions\Companies";
             class deleteCompany {};
             class fetchCompany {};
-            class fetchCompanyBank {};
             class insertCompany {};
             class populateCompanies {};
             class updateCompany {};
@@ -46,6 +45,8 @@ class CfgFunctions {
             class insertArrest {};
             class insertTicket {};
             class insertWarrant {};
+            class manageUpdate {};
+            class updateWarrant {};
         };
         class Players {
             file = "\Dom_Server\Functions\Players";
@@ -71,6 +72,7 @@ class CfgFunctions {
         class Eventhandlers {
             file = "\Dom_Server\Functions\Eventhandlers";
             class animalHandleDamage {};
+            class entityKilled {};
             class handleKeys {};
             class jailbreak {};
             class logAction {};

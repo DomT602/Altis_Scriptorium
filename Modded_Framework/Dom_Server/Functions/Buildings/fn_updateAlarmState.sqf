@@ -4,10 +4,10 @@
     Description: Syncs alarm changes to DB
 */
 params [
-    ["_id",-1,[0]],
-    ["_pid","",[""]],
-    ["_alarmState",[],[[]]] //alert cops, alert security, uid's
+    ["_house",objNull,[objNull]],
+    ["_alarmState",[],[[]]]
 ];
-if (_id isEqualTo -1) exitWith {};
+if (isNull _house) exitWith {};
 
-[format["updateAlarm:%1:%2",_alarmState,_id,_pid],1] call MySQL_fnc_DBasync;
+private _id = _house getVariable ["id",-1];
+[format["updateAlarm:%1:%2",_alarmState,_id],1] call MySQL_fnc_DBasync;

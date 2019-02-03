@@ -6,10 +6,9 @@
 
 params [
 	["_uid","",[""]],
-	["_side","civ",[""]],
 	["_mode",-1,[0]],
 	["_data",-1,[0,[],false]],
-	["_aditData",-1,[0,[]]]
+	["_aditData",-1,[0,[],""]]
 ];
 
 if (_uid isEqualTo "") exitWith {};
@@ -24,7 +23,7 @@ switch _mode do {
 	};
 
 	case 2: {
-		switch _side do {
+		switch _aditData do {
 			case "cop": {[format["updateCopGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
 			case "medic": {[format["updateMedicGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};
 			case "civ": {[format["updateCivGear:%1:%2",_data,_uid],1] call MySQL_fnc_DBasync};

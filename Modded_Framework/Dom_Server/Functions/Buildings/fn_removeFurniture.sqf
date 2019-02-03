@@ -13,7 +13,7 @@ if (isNull _furniture) exitWith {};
 private _id = _furniture getVariable ["furn_id",-1];
 if (_id isEqualTo -1) exitWith {};
 
-_furniture setVariable ["furn_id",nil,true];
+_furniture setVariable ["furn_id",nil,remoteExecutedOwner];
 deleteVehicle _furniture;
 
 private _houseID = _house getVariable ["id",-1];

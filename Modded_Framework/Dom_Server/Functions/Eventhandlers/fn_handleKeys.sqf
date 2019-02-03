@@ -5,7 +5,7 @@
 */
 params [
     ["_uid","",[""]],
-    ["_input",objNull,[objNull,[]]]
+    ["_input",objNull,[objNull]]
 ];
 
 if (_uid isEqualTo "" || isNull _input || _input isKindOf "House") exitWith {};

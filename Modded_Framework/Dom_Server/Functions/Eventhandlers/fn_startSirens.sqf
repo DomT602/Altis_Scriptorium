@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Starts and monitors the sirens
 */
-
 params [
 	["_vehicle",objNull,[objNull]],
 	["_type",0,[0]]
@@ -11,49 +10,44 @@ params [
 
 switch _type do {
 	case 0: {
-		while {_vehicle getVariable ["siren",false]} do {
-			if (!alive _vehicle || !(_vehicle getVariable ["siren",false])) exitWith {};
-			_vehicle say3D ["Whelen_Siren1",1000,1];
-			sleep 5;
-			if (!alive _vehicle || !(_vehicle getVariable ["siren",false])) exitWith {};
-			_vehicle say3D ["Whelen_Siren2",1000,1];
-			sleep 5;
-			if (!alive _vehicle || !(_vehicle getVariable ["siren",false])) exitWith {};
-			_vehicle say3D ["Whelen_Siren3",1000,1];
-			sleep 5;
+		private _sirenTimes = [5.964,5.191,3.668];
+		private _source = "#particlesource" createVehicle getPosATL _vehicle;
+		_source attachTo [_vehicle,[0,0,0]];
+		private _i = 0;
+		while {_vehicle getVariable ["siren",false] && alive _vehicle} do {
+			private _time = time;
+			private _sirenTime = _sirenTimes select _i;
+			[_source,[format["Whelen_Siren%1",_i],1000,1]] remoteExecCall ["say3D",-2];
+			_i = _i + 1;
+			if (_i isEqualTo 3) then {_i = 0};
+			waitUntil {
+				time >= _time + _sirenTime ||
+				!(_vehicle getVariable ["siren",false]) ||
+				!alive _vehicle
+			};
 		};
+		deleteVehicle _source;
 	};
 	case 1: {
-		while {_vehicle getVariable ["siren",false]} do {
-			if (!alive _vehicle || !(_vehicle getVariable ["siren",false])) exitWith {};
-			_vehicle say3D ["Siren1",1000,1];
-			sleep 10;
-			if (!alive _vehicle || !(_vehicle getVariable ["siren",false])) exitWith {};
-			_vehicle say3D ["Siren2",1000,1];
-			sleep 4;
-			if (!alive _vehicle || !(_vehicle getVariable ["siren",false])) exitWith {};
-			_vehicle say3D ["Siren3",1000,1];
-			sleep 4;
+		private _sirenTimes = [10.402,4.237,4.025];
+		private _source = "#particlesource" createVehicle getPosATL _vehicle;
+		_source attachTo [_vehicle,[0,0,0]];
+		private _i = 0;
+		while {_vehicle getVariable ["siren",false] && alive _vehicle} do {
+			private _time = time;
+			private _sirenTime = _sirenTimes select _i;
+			[_source,[format["siren%1",_i],1000,1]] remoteExecCall ["say3D",-2];
+			_i = _i + 1;
+			if (_i isEqualTo 3) then {_i = 0};
+			waitUntil {
+				time >= _time + _sirenTime ||
+				!(_vehicle getVariable ["siren",false]) ||
+				!alive _vehicle
+			};
 		};
+		deleteVehicle _source;
 	};
 	case 2: {
 		//ss2000 thing
 	};
 };
-
-/*
-	In class of UserActions for a vehicle (code 1):
-		...
-		condition="driver this isEqualTo player && (this getVariable ['lightbar',false])";
-		statement = "this setVariable ['lightbar',false,true]; this setVariable ['siren',false,true];";
-
-		In class of UserActions for a vehicle (code 3):
-		...
-		condition="driver this isEqualTo player && !(this getVariable ['siren',false])";
-		statement = "if !(_vehicle getVariable ['lightbar',false] then {[this] spawn DT_fnc_genericLightbar}; [this] spawn DT_fnc_genericSiren;";
-
-		In class of UserActions for a vehicle (code 2):
-		...
-		condition="driver this isEqualTo player && ((!this getVariable ['lightbar',false]) || ((this getVariable ['lightbar',false]) && (this getVariable ['siren',false])))";
-		statement = "this setVariable ['siren',false,true]; if !(_vehicle getVariable ['lightbar',false] then {[this] spawn DT_fnc_genericLightbar};";
-*/
