@@ -22,15 +22,18 @@ private _medics = [];
 	private _marker = createMarkerLocal [format ["%1_marker",_x],visiblePositionASL _x];
 	_marker setMarkerColorLocal "ColorIndependent";
 	_marker setMarkerTypeLocal "Mil_dot";
-	_marker setMarkerTextLocal format ["%1",name _x];
+	_marker setMarkerTextLocal (name _x);
 	_medicMarks pushBack [_marker,_x]
 } forEach _medics;
 
 {
 	private _marker = createMarkerLocal [format ["%1_dead_marker",_x],visiblePositionASL _x];
+	_marker setMarkerShapeLocal "ELLIPSE";
 	_marker setMarkerColorLocal "ColorRed";
-	_marker setMarkerTypeLocal "loc_Hospital";
-	_marker setMarkerTextLocal format ["%1",name _x];
+	_marker setMarkerSizeLocal [20,20];
+	_marker setMarkerBrushLocal "SolidFull";
+	_marker setMarkerAlphaLocal 0.5;
+	//_marker setMarkerTextLocal (name _x);
 	_markers pushBack _marker;
 } forEach _dead;
 

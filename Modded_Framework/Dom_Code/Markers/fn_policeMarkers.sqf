@@ -20,7 +20,7 @@ private _cops = [];
 		_marker setMarkerColorLocal "ColorBLUFOR";
 	};
 	_marker setMarkerTypeLocal "Mil_dot";
-	_marker setMarkerTextLocal format ["%1",name _x];
+	_marker setMarkerTextLocal (name _x);
 	_markers pushBack [_marker,_x]
 } forEach _cops;
 

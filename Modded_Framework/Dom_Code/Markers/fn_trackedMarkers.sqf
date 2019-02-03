@@ -5,10 +5,9 @@
 */
 
 private _markers = [];
-
 {
 	if (_x getVariable ["tracked",false]) then {	
-		private _marker = createMarkerLocal [format["%1_pMarker",_x],visiblePositionASL _x];
+		private _marker = createMarkerLocal [format["%1_pMarker",_forEachIndex],visiblePositionASL _x];
 		_marker setMarkerColorLocal "ColorBlue";
 		_marker setMarkerTypeLocal "Mil_dot";
 		_marker setMarkerTextLocal format["GPS Tracker - %1",name _x];
@@ -18,14 +17,14 @@ private _markers = [];
 
 {  
 	if (_x getVariable ["tracked",false]) then {	 
-		private _marker = createMarkerLocal [format["%1_vMarker",(random(9999))],visiblePositionASL _x];
+		private _marker = createMarkerLocal [format["%1_vMarker",_forEachIndex],visiblePositionASL _x];
 		_marker setMarkerColorLocal "ColorBlue";
 		_marker setMarkerTypeLocal "Mil_dot";
-		_marker setMarkerTextLocal format["GPS Tracker - %1",(typeOf _x)];
+		_marker setMarkerTextLocal format["GPS Tracker - %1",typeOf _x];
 		_markers pushBack [_marker,_x]
 	};
 } forEach (allMissionObjects "Car" + allMissionObjects "Air" + allMissionObjects "Ship");
-
+if (_markers isEqualTo []) exitWith {};
 [
 	{
 		params [

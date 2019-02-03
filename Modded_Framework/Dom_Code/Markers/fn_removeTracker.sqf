@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Allows you to remove a GPS tracker from you/a vehicle, not sure if I want this on a NPC, or use an item, your choice
 */
-
 params [
 	["_thing",objNull,[objNull]]
 ];
