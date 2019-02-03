@@ -3,13 +3,11 @@
 	Author: Dom
 	Description: Recieves money
 */
-
 params [
 	["_amount",-1,[0]],
 	["_unit",objNull,[objNull]],
 	["_bank",false,[false]]
 ];
-
 if (isNull _unit || _amount isEqualTo -1) exitWith {};
 
 private _name = ["someone",_unit] call DT_fnc_findName;

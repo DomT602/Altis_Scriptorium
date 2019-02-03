@@ -7,9 +7,9 @@ params [
 	["_unit",objNull,[objNull]]
 ];
 
-if !([_unit] call DT_fnc_checkPlayer) exitWith {};
+if !([_unit,true] call DT_fnc_checkPlayer) exitWith {};
 
-private _amount = ctrlText ((findDisplay 1012) displayCtrl 1501);
+private _amount = ctrlText ((findDisplay 1012) displayCtrl 1400);
 if !([_amount,0] call DT_fnc_checkNumber) exitWith {};
 _amount = parseNumber _amount;
 

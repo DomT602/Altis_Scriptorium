@@ -13,7 +13,6 @@ createDialog "MB_Interaction_Menu";
 MB_actionList = [];
 
 private _idd = 1001;
-
 {
 	_x params ["_text"];
 	ctrlSetText[_idd,_text];
