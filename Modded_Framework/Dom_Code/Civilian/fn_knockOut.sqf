@@ -8,7 +8,7 @@ params [
 ];
 
 if (client_blockActions) exitWith {};
-if !([_unit] call DT_fnc_checkPlayer) exitWith {};
+if !([_unit,true] call DT_fnc_checkPlayer) exitWith {};
 if (animationState _unit == "unconscious") exitWith {};
 if !(stance player isEqualTo "STAND") exitWith {};
 	

@@ -1,5 +1,4 @@
 publicVariable "DT_fnc_endDelivery";
-publicVariable "DT_fnc_jailTimeChanged";
 publicVariable "DT_fnc_knockedDown";
 publicVariable "DT_fnc_knockOut";
 publicVariable "DT_fnc_repairTerrainObject";

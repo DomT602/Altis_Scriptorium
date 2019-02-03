@@ -4,7 +4,7 @@
 	Description: Monitors the tied people
 */
 
-player say3D ["tied",50,1];
+[player,["tied",50,1]] remoteExecCall ["say3D",-2];
 player setVariable ["tf_unable_to_use_radio",true];
 client_blockActions = true;
 while {player getVariable ["tied",false]} do {
