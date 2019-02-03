@@ -3,28 +3,17 @@
 	Author: Dom
 	Description: Creates the company with filled in details
 */
-private _name = ctrlText (-1);
-private _description = ctrlText (-1);
-private _length = count (toArray(_name));
-private _chrByte = toArray (_name);
-private _descByte = toArray (_description);
-private _allowed = toArray("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_ ");
+private _name = ctrlText 1400;
+private _description = ctrlText 1401;
 
-if (_length > 48) exitWith {hint "Your company name is too long."};
+if (count _name > 48) exitWith {["The company name is too long.","orange"] call DT_fnc_notify};
+if (count _description > 256) exitWith {["The company description is too long.","orange"] call DT_fnc_notify};
 
-private _badChar = false;
-{
-	if !(_x in _allowed) exitWith {_badChar = true};
-} forEach _chrByte;
-if (_badChar) exitWith {hint "Bad character entered."};
+if ([_name] call DT_fnc_checkText || [_description] call DT_fnc_checkText) exitWith {};
 
-{
-	if !(_x in _allowed) exitWith {_badChar = true};
-} forEach _descByte;
-if (_badChar) exitWith {hint "Bad character entered."};
+if (client_cash < 25000) exitWith {["You need $25000 to start a new company.","orange"] call DT_fnc_notify};
 
-if (client_cash < 1000) exitWith {hint "You need $1000 to make a Company"};
-
-[getPlayerUID player,name player,_name,_description] remoteExecCall ["DB_fnc_insertCompany",2];
-
+private _index = company_list findIf {_x select 0 == _name};
+if (_index != -1) exitWith {["You can't have the same name as another company.","orange"] call DT_fnc_notify};
 closeDialog 0;
+[getPlayerUID player,_name,_description] remoteExecCall ["DB_fnc_insertCompany",2];

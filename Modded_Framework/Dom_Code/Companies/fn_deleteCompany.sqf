@@ -12,7 +12,7 @@ private _action = [
 ] call BIS_fnc_guiMessage;
 
 if (_action) then {
-    [company_ID,player getVariable "company"] remoteExecCall ["DB_fnc_deleteCompany",2]
+    [player getVariable "company"] remoteExecCall ["DB_fnc_deleteCompany",2]
 } else {
-   [ "You did not disband your company."] call DT_fnc_notify;
+   ["You did not disband your company."] call DT_fnc_notify;
 };

@@ -5,12 +5,8 @@ class Companies {
     class companyLBChanged {};
     class createCompany {};
     class deleteCompany {};
-    class depositCompanyCash {};
     class invitedPlayer {};
-    class invitePlayer {};
+    class manageCompany {};
     class openCompanyMenu {};
-    class removeEmployee {};
-    class updateCompanyInfo {};
-    class updateEmployee {};
-    class withdrawCompanyCash {};
+    class showCompany {};
 };

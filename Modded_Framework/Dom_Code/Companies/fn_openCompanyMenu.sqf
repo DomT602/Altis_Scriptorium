@@ -3,20 +3,17 @@
 	Author: Dom
 	Description: Opens the general company menu
 */
-createDialog "DT_Company_Menu";
+createDialog "DT_showCompanies";
+private _display = findDisplay 1025;
+private _listbox = _display displayCtrl 1500;
 
-if (player getVariable "company" isEqualTo "none") then { //for my own company menu
-	ctrlShow [-1,false];
-};
-
-private _companyList = (findDisplay -1) displayCtrl -1;
-lbClear _companyList;
 {
-	private _index = _forEachIndex;
 	_x params [
-		"_ID",
-		"_name"
+		["_name","",[""]]
 	];
-	_companyList lbAdd _name;
-	_companyList lbSetValue [_index,_ID];
+	_listbox lbAdd _name;
 } forEach company_list;
+
+if (player getVariable ["company",""] isEqualTo "") then {
+	(_display displayCtrl 1600) ctrlSetText "Create a Company";
+};

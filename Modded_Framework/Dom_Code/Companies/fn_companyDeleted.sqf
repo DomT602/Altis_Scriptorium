@@ -8,7 +8,6 @@ params [
 ];
 if (_name isEqualTo "") exitWith {};
 
-hint format ["The company %1 has been disbanded, thus you are no longer employed with them.",_name];
-player setVariable ["company","none",true];
+[format["The company %1 has been disbanded, thus you are no longer employed with them.",_name],"red"] call DT_fnc_notify;
+player setVariable ["company",nil,true];
 player setVariable ["company_rank",nil,true];
-company_ID = nil;

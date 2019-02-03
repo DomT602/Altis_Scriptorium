@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS `DT_DB` DEFAULT CHARACTER SET utf8mb4;
 USE `DT_DB`;
 
 CREATE TABLE IF NOT EXISTS `players` (
-	`uid` int(6) NOT NULL AUTO_INCREMENT,
+	`id` int(6) NOT NULL AUTO_INCREMENT,
 	`name` varchar(64) NOT NULL,
 	`pid` varchar(17) NOT NULL,
 	`cash` int(100) NOT NULL DEFAULT '0',
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `players` (
 	`copLevel` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0',
 	`medLevel` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0',
 	`copDepartment` enum('0','1','2','3','4') NOT NULL DEFAULT '0',
-	`medicDepartment` enum('0','1','2','3','4') NOT NULL DEFAULT '0',
+	`medDepartment` enum('0','1','2','3','4') NOT NULL DEFAULT '0',
 	`licenses` text NOT NULL DEFAULT '[]',
 	`civGear` text NOT NULL DEFAULT '[]',
 	`copGear` text NOT NULL DEFAULT '[]',
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `players` (
 	`phoneSettings` varchar(150) NOT NULL DEFAULT '[true,"",""]', /*[sound mode,background_path,ringtone_sound]*/
 	`phoneContacts` varchar(900) NOT NULL DEFAULT '[]', /*[[number,name,notes]]*/
 	`skills` varchar(100) NOT NULL DEFAULT '[0,0,0,0,0]',
-	PRIMARY KEY (`uid`),
+	PRIMARY KEY (`id`),
 	UNIQUE KEY `pid` (`pid`),
 	UNIQUE KEY `phoneNumber` (`phoneNumber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -72,15 +72,14 @@ CREATE TABLE IF NOT EXISTS `shops` (
 
 CREATE TABLE IF NOT EXISTS `companies` (
 	`id` int(6) NOT NULL AUTO_INCREMENT,
-	`owner` varchar(32) NOT NULL,
-	`ownerName` varchar(32) NOT NULL,
+	`pid` varchar(17) NOT NULL,
 	`name` varchar(48) NOT NULL,
 	`description` varchar(256)  NOT NULL DEFAULT '',
 	`tasks` varchar(256) NOT NULL DEFAULT '',
 	`bank` int(100) NOT NULL DEFAULT '0',
 	`employees` text,
 	PRIMARY KEY (`id`),
-	UNIQUE KEY `owner` (`owner`)
+	UNIQUE KEY `pid` (`pid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `pd_db_arrests` (
