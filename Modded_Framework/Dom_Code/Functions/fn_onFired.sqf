@@ -60,18 +60,13 @@ if (_weapon isEqualTo "Extinguisher") exitWith {
 };
 
 if (_weapon isEqualTo "Axe") exitWith {
-	private _classes = ["t_"]; //bo_t_
 	private _tree = objNull;
 	private _objects = lineIntersectsWith [eyePos player, ATLtoASL (player modelToWorld [0, 3, 0]), player, objNull, true];
 	{
-		private _object = _x;
-		private _class = toLower (str _object);
-		{
-			if ((_class find (toLower _x)) != -1) exitWith { 
-				_tree = _object;
-			};
-		} forEach _classes;
-		if !(isNull _tree) exitWith {};
+		private _class = toLower (str _x);
+		if (_class find "t_" != -1) exitWith {
+			_tree = _x;
+		};
 	} forEach _objects;
 	if (isNull _tree) exitWith {};
 

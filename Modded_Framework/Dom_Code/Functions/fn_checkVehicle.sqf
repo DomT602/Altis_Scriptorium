@@ -15,6 +15,6 @@ if !(_distance isEqualTo -1) exitWith {
 		["Target is too far away.","red"] call DT_fnc_notify; 
 		false
 	};
-	true;
+	true
 };
-true;
+true

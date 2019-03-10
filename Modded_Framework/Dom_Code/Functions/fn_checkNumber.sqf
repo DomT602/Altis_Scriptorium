@@ -11,8 +11,8 @@ params [
 private _parsed = parseNumber _number;
 if (_number != str(_parsed)) exitWith {["Invalid number.","red"] call DT_fnc_notify; false};
 if (_lowest != -1) exitWith {
-	if (_parsed >= _lowest) exitWith {true};
+	if (_parsed > _lowest) exitWith {true};
 	[format["You need to enter a number greater then %1.",_lowest],"orange"] call DT_fnc_notify;
-	true
+	false
 };
 true

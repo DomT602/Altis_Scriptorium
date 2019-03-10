@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Finds a name within profilenamespace
 */
-
 params [
 	["_name","unknown",[""]],
 	["_unit",objNull,[objNull]]

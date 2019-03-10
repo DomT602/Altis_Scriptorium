@@ -6,14 +6,9 @@
 params [
 	["_faction","",[""]]
 ];
-
 if (_faction isEqualTo "") exitWith {};
 
-private _factionRank = switch _faction do {
-	case "cop": {player getVariable ["cop_rank",0]};
-	case "medic": {player getVariable ["medic_rank",0]};
-};
-
+private _factionRank = player getVariable [format["%1_rank",_faction],0];
 if (_factionRank isEqualTo 0) exitWith {
 	["You do not work here.","orange"] call DT_fnc_notify;
 };
@@ -22,9 +17,9 @@ call DT_fnc_saveStatsFull;
 if ((player getVariable ["faction","civ"]) isEqualTo _faction) then {
 	[getPlayerUID player,"civ"] remoteExecCall ["DB_fnc_recieveFactionGear",2];
 	["You went off duty.","blue"] call DT_fnc_notify;
-	player setVariable ["copLevel",nil,true];
+	player setVariable ["copLevel",0,true];
 	if (player getVariable ["dispatch",false]) then {
-		player setVariable ["dispatch",nil,-2];
+		player setVariable ["dispatch",nil,true];
 	};
 	client_paycheck = switch (player getVariable ["doj_rank",0]) do {
 		case 0: {0};

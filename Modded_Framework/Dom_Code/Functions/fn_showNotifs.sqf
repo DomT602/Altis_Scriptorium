@@ -7,8 +7,8 @@ private _block = "";
 for "_i" from 0 to 14 do {
 	(DT_notifArray select _i) params [["_text","",[""]]];
 	if !(_text isEqualTo "") then {
-		_block = _block + _text + "<br />";
+		_block = _block + _text + "<br/>";
 	};
 };
 
-((uiNamespace getVariable ["DT_Notif_Display",displayNull]) displayCtrl 6591) ctrlSetStructuredText parseText _block;
+((uiNamespace getVariable ["DT_Notifs",displayNull]) displayCtrl 1200) ctrlSetStructuredText parseText _block;

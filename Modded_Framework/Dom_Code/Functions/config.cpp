@@ -3,6 +3,7 @@ class Functions {
     class checkMap {};
     class checkNumber {};
     class checkPlayer {};
+    class checkText {};
     class checkVehicle {};
     class clickChecker {};
     class conditionChecker {};
@@ -15,7 +16,9 @@ class Functions {
     class findIndex {};
     class findJobPerson {};
     class findName {};
+    class findPlayer {};
     class findPlayers {};
+    class getItems {};
     class handleAlcohol {};
     class handleDrink {};
     class handleFood {};
@@ -24,6 +27,7 @@ class Functions {
     class handleScroll {};
     class holster {};
     class introCamera {};
+    class lookingAt {};
     class notify {};
     class onFired {};
     class onGetOutMan {};
@@ -34,6 +38,7 @@ class Functions {
     class pickupMoney {};
     class playerTags {};
     class progressBar {};
+    class rankName {};
     class seatbelt {};
     class setName {};
     class setupHUD {};

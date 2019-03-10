@@ -99,7 +99,6 @@
 			_charging = parseText format ["<t color='#5FC900' size='1' align='center'>[%1%]Charging Cellphone...</t>",phone_battery];
 		};
 
-		private _name = parseText format ["<t size='1.2' align='right'>%1</t>",(name player)];
 		_ammoText = parseText format ["<t size='1' align='right'>%1</t>",_ammoText];
 		_magText = parseText format ["<t size='1' align='right'>%1</t>",_magText];
 		_fireMode = parseText format ["<t size='1' align='center'>%1</t>",_fireMode];
@@ -109,7 +108,6 @@
 		(_HUD displayCtrl 1501) ctrlSetText _thirstPic;
 		(_HUD displayCtrl 1502) ctrlSetText _healthPic;
 		(_HUD displayCtrl 1507) ctrlSetText _weaponPic;
-		(_HUD displayCtrl 1506) ctrlSetStructuredText _name;
 		(_HUD displayCtrl 1511) ctrlSetStructuredText _ammoText;
 		(_HUD displayCtrl 1508) ctrlSetStructuredText _fireMode;
 		(_HUD displayCtrl 1510) ctrlSetStructuredText _magText;

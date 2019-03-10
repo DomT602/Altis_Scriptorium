@@ -23,7 +23,7 @@ private _masks = [];
 		};
 
 		private _icon = "";
-		if !(player getVariable ["TFAR",true]) then {_icon = "\Dom_Client\Textures\connection.paa"};
+		if !(player getVariable ["TFAR",true]) then {_icon = "\Dom_UI\misc\connection.paa"};
 		drawIcon3D [_icon, [0,0,0,1], _pos, 1.5, 1.5, 0, _text, 1, 0.04, "PuristaBold", "center"];
 	};
 } forEach _units;

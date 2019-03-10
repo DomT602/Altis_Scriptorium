@@ -14,7 +14,7 @@ if (_faction isEqualTo "civ") then {
 } else {
 	if (_faction isEqualTo "medic") then {
 		_uniform = switch (player getVariable ["medic_rank",0]) do {
-			case 1: {"PS_EMS_Probie"};
+			case 1: {"D_EMS_Probie"};
 			case 2: {};
 			case 3: {};
 			case 4: {};

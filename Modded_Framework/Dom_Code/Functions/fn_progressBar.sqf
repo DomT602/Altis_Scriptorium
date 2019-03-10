@@ -14,8 +14,7 @@ params [
 ];
 
 closeDialog 0;
-createDialog "DT_Progress";
-
+657 cutRsc ["DT_Progress","PLAIN"];
 private _ui = uiNamespace getVariable ["Progress_Bar",controlNull];
 (_ui displayCtrl 1001) ctrlSetStructuredText parseText format ["<t align='center'>%1</t>",_title];
 client_blockActions = true;
@@ -51,18 +50,18 @@ client_blockActions = true;
 						if (_animation isEqualType "") then {
 							if (_animation isEqualTo "") exitWith {};
 							if (animationState player != _animation) then {
-								player playMove _animation;
+								player playMoveNow _animation;
 							};
 						} else {
 							_animation params ["_kneel","_prone"];
 							if (stance player isEqualTo "PRONE") then {
 								if (animationState player != _prone) then {
-									player playMove _prone;
+									player playMoveNow _prone;
 								};
 							} else {
 								if (stance player isEqualTo "UNDEFINED") exitWith {};
 								if (animationState player != _kneel) then {
-									player playMove _kneel;
+									player playMoveNow _kneel;
 								};
 							};
 						};
@@ -73,7 +72,7 @@ client_blockActions = true;
 
 		if !(_state isEqualTo -1) then {
 			if (!isNull (uiNamespace getVariable ["Progress_Bar",controlNull])) then {
-				closeDialog 0;
+				657 cutText ["","PLAIN"];
 			};
 
 			[_handle] call CBA_fnc_removePerFrameHandler;

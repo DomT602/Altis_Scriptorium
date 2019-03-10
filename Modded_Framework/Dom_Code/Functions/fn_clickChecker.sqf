@@ -14,7 +14,7 @@
 		{
 			client_clicks = client_clicks - 1;
 		},
-		[],
+		0,
 		1
 	] call CBA_fnc_waitAndExecute;
 	if (client_clicks > 24) then {
@@ -26,7 +26,7 @@
 				closeDialog 0;
 				disableUserInput false;
 			},
-			[],
+			0,
 			5
 		] call CBA_fnc_waitAndExecute;
 	};

@@ -5,7 +5,7 @@
 */
 if !(isNull objectParent player) then {
 	//playSound "seatbelt"; need to find a sound
-	if (!client_seatbelt) then {
+	if !(client_seatbelt) then {
 	    client_seatbelt = true;
 	} else {
 	    client_seatbelt = false;

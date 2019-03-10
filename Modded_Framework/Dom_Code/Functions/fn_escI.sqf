@@ -14,7 +14,7 @@
 	{
 		[
 			{
-				!isNull (findDisplay 49) && (!isNull (findDisplay 602))
+				!isNull (findDisplay 49) && !isNull (findDisplay 602)
 			},
 			{
 				call DT_fnc_escI

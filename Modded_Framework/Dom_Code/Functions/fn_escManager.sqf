@@ -20,10 +20,9 @@ _abortButton ctrlEnable false;
 _respawnButton ctrlEnable false;
 _fieldManual ctrlEnable false;
 
-if (client_blockActions) exitWith {};  //stop aborting
+if (client_blockActions) exitWith {};
 
 [] spawn {
-	disableSerialization;
 	private _abortButton = (findDisplay 49) displayCtrl 104;
 	private _timer = time + 5;
 
@@ -31,6 +30,7 @@ if (client_blockActions) exitWith {};  //stop aborting
 		_abortButton ctrlSetText format["Abort in %1",[(_timer - time),"SS.MS"] call BIS_fnc_secondsToString];
 		_abortButton ctrlCommit 0;
 		if (dialog && {isNull (findDisplay 1002)}) then {closeDialog 0};
+		if (player getVariable ["dead",false]) then {(findDisplay 49) closeDisplay 0};
 		round(_timer - time) <= 0 || isNull (findDisplay 49)
 	};
 
