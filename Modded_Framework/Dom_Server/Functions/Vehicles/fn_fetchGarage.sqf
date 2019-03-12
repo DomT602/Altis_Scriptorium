@@ -10,7 +10,7 @@ params [
     ["_impounded",false,[false]]
 ];
 
-if (_pid isEqualTo "" || {_type isEqualTo ""}) exitWith {
+if (_pid isEqualTo "") exitWith {
     remoteExecCall ["DT_fnc_openGarage",remoteExecutedOwner];
 };
 _impounded = if (_impounded) then {1} else {0};

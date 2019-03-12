@@ -3,15 +3,13 @@
 	Author: Dom
 	Description: Handles when a tree gets hit
 */
-
 params [
 	["_id","",[""]],
 	["_level",1,[0]]
 ];
 
 private _tree = objectFromNetId _id;
-if (isNull _tree) exitWith {};
-if !(alive _tree) exitWith {};
+if (isNull _tree || !(alive _tree)) exitWith {};
 
 private _damage = ((_level / 100) / 2) max 0.04;
 _damage = ((damage _tree) + _damage) min 1;

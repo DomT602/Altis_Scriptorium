@@ -9,7 +9,6 @@ params [
 	["_rank",0,[0]],
 	["_department",0,[0]]
 ];
-
 if (_uid isEqualTo "" || {_faction isEqualTo ""}) exitWith {};
 
 switch _faction do {

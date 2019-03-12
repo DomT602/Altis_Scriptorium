@@ -7,7 +7,7 @@ params [
 	["_building",objNull,[objNull]]
 ];
 if (isNull _building) exitWith {};
-if (_building getVariable ["id",-1] isEqualTo -1) exitWith {["Nobody owns this building.","orange"] call DT_fnc_notify};
+if (_building getVariable ["owner",""] isEqualTo "") exitWith {["Nobody owns this building.","orange"] call DT_fnc_notify};
 if !("D_BoltCutter_i" in (magazines player)) exitWith {["You need boltcutters to do this.","orange"] call DT_fnc_notify};
 
 private _doors = getNumber(configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "numberOfDoors");
@@ -19,13 +19,13 @@ for "_i" from 1 to _doors do {
 if (_door isEqualTo 0) exitWith {["No nearby doors.","red"] call DT_fnc_notify};
 if ((_building getVariable [format["bis_disabled_Door_%1", _door],0]) isEqualTo 0) exitWith {["The door is already unlocked.","blue"] call DT_fnc_notify};
 
-(_building getVariable ["alarm",[false,false,[]]]) params ["_police","_security","_people"];
+(_building getVariable ["alarm",[false,false]]) params ["_police","_security"];
 private _toAlert = [];
 if (_police) then {
 	_toAlert append (["cop"] call DT_fnc_findPlayers);
 };
 if (_security) then {
-	_toAlert append (["security"] call DT_fnc_findJobPerson);
+	_toAlert append (["security guard"] call DT_fnc_findJobPerson);
 };
 {
 	private _toCheck = _x;
@@ -33,7 +33,7 @@ if (_security) then {
 		if (getPlayerUID _toCheck isEqualTo _x) exitWith {
 			_toAlert pushBack _x;
 		};
-	} forEach _people;
+	} forEach (_building getVariable ["house_keyHolders",[]]);
 } forEach playableUnits;
 
 ["Burglary in progress! It has been marked on your map.","red"] remoteExecCall ["DT_fnc_notify",_toAlert];

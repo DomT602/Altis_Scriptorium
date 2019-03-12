@@ -11,7 +11,7 @@ params [
 private _price = _control tvValue _selectionPath;
 private _item = _control tvData _selectionPath;
 _selectionPath params ["_filter"];
-private _purchase = uiNamespace getVariable ["Shop_Purchase",[]];
+private _purchase = uiNamespace getVariable ["purchase",[]];
 _purchase set [_filter,[_item,_price]];
 
 switch _filter do {
@@ -22,9 +22,9 @@ switch _filter do {
 	case 4: {removeHeadgear client_preview; client_preview addHeadgear _item};
 };
 
-private _singleText = ((findDisplay 1013) displayCtrl 1100);
-private _totalText = ((findDisplay 1013) displayCtrl 1101);
-_singleText ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#8cff9b'>$%1</t></t>",str(_price)];
+private _display = findDisplay 1013;
+private _infoBox = _display displayCtrl 1102;
+private _button = _display displayCtrl 1600;
 
 private _totalPrice = 0;
 {
@@ -35,9 +35,9 @@ private _totalPrice = 0;
 } forEach _purchase;
 
 if (_totalPrice > client_cash) then {
-	_totalText ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#ff0000'>$%1 </t>You lack: <t color='#8cff9b'>$%2</t></t>",str(_totalPrice),str(_totalPrice - client_cash)];
-	ctrlEnable [1200,false];
+	_infoBox ctrlSetStructuredText parseText format ["Price: $%1<br/>Total: <t color='#ff0000'>$%2</t>",str(_price),str(_totalPrice)];
+	_button ctrlEnable false;
 } else {
-	_totalText ctrlSetStructuredText parseText format ["<t size='0.7'>Price: <t color='#8cff9b'>$%1</t></t>",str(_totalPrice)];
-	ctrlEnable [1200,true];
+	_infoBox ctrlSetStructuredText parseText format ["Price: $%1<br/>Total: <t color='#8cff9b'>$%2</t>",str(_price),str(_totalPrice)];
+	_button ctrlEnable true;
 };

@@ -7,7 +7,6 @@ params [
     ["_furniture",objNull,[objNull]],
     ["_house",objNull,[objNull]]
 ];
-
 if (isNull _furniture) exitWith {};
 
 private _id = _furniture getVariable ["furn_id",-1];

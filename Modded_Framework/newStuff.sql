@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `players` (
 	`alive` tinyint(1) NOT NULL DEFAULT 0,
 	`position` varchar(64) NOT NULL DEFAULT '[0,0,0]',
 	`phoneNumber` varchar(12) NOT NULL,
-	`phoneSettings` varchar(150) NOT NULL DEFAULT '["","",8]', /*[background_path,ringtone_sound,volume]*/
+	`phoneSettings` varchar(150) NOT NULL DEFAULT '["\Dom_UI\phone\backgrounds\background1.paa","",8]', /*[background_path,ringtone_sound,volume]*/
 	`phoneContacts` varchar(900) NOT NULL DEFAULT '[]', /*[[number,name,notes]]*/
 	`skills` varchar(100) NOT NULL DEFAULT '[0,0,0,0,0]',
 	PRIMARY KEY (`id`),
@@ -129,10 +129,11 @@ CREATE TABLE IF NOT EXISTS `logs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE TABLE IF NOT EXISTS `persis_vars` (
+	`serverID` int NOT NULL AUTO_INCREMENT,
 	`threat` varchar(10) NOT NULL DEFAULT 'Green',
 	`mayor` varchar(32) NOT NULL,
 	`tax` varchar(100) NOT NULL DEFAULT '[0,0,0]', /*atm,item,vehicle*/
 	`bank` int NOT NULL DEFAULT 0,
 	`announcement` varchar (140) NOT NULL DEFAULT '',
-	PRIMARY KEY (`threat`,`mayor`,`tax`,`bank`,`announcement`)
+	PRIMARY KEY (`serverID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

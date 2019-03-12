@@ -7,13 +7,13 @@ params [
 	["_building",objNull,[objNull]]
 ];
 if (isNull _building) exitWith {};
-if !(_building getVariable ["id",-1] isEqualTo -1) exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
+if (_building getVariable ["owner",""] != "") exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
 
 closeDialog 0;
 private _class = typeOf _building;
 if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> _class)) exitWith {
 	if !(_building getVariable ["shop_company",""] isEqualTo "") exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
-	if (player getVariable ["company","none"] isEqualTo "none") exitWith {["You are not in a company.","orange"] call DT_fnc_notify};
+	if (player getVariable ["company",""] isEqualTo "") exitWith {["You are not in a company.","orange"] call DT_fnc_notify};
 	if !(player getVariable ["company_rank",-1] isEqualTo 3) exitWith {["Only the company owner can buy property.","orange"] call DT_fnc_notify};
 	private _config = missionConfigFile >> "Buildings" >> "Shops" >> typeOf _building;
 	private _price = getNumber(_config >> "price");
@@ -30,8 +30,8 @@ if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> _class)) exitWith {
 		client_bank = client_bank - _price;
 		[0] call DT_fnc_saveStatsPartial;
 
-		[getPlayerUID player,_building,2,(player getVariable "company")] remoteExecCall ["DB_fnc_insertBuilding",2];
-
+		[getPlayerUID player,_building,2,player getVariable ["company",""]] remoteExecCall ["DB_fnc_insertBuilding",2];
+		["You bought this shop.","green"] call DT_fnc_notify;
 		_building setVariable ["shop_company",(player getVariable "company"),true];
 		_building setVariable ["shop_inventory",[],true];
 		_building setVariable ["shop_funds",0,true];
@@ -42,8 +42,8 @@ if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> _class)) exitWith {
 if !(isClass (missionConfigFile >> "Buildings" >> "Houses" >> _class)) exitWith {["This building is not buyable.","red"] call DT_fnc_notify};
 private _config = missionConfigFile >> "Buildings" >> "Houses" >> typeOf _building;
 private _price = getNumber(_config >> "price");
-private _maxFurniture = getNumber(_config >> "_maxFurniture");
-private _type = getNumber(_config >> "_type");
+private _maxFurniture = getNumber(_config >> "maxFurniture");
+private _type = getNumber(_config >> "type");
 private _action = [
 	format ["This building is for sale for: $%1, it can support %2 furniture items.",str(_price),str(_maxFurniture)],
 	"Buy property",
@@ -56,20 +56,20 @@ if (_action) then {
 	client_bank = client_bank - _price;
 	[0] call DT_fnc_saveStatsPartial;
 
-	[getPlayerUID player,_building,_type] remoteExecCall ["DB_fnc_insertBuilding",2];
-
 	_building setVariable ["owner",getPlayerUID player,true];
 	_building setVariable ["locked",true,true];
 	_building setVariable ["furniture",[],2];
 	_building setVariable ["house_keyHolders",[],true];
-	_building setVariable ["alarm",[false,false,[]],true];
+	_building setVariable ["alarm",[false,false],true];
+	[getPlayerUID player,_building,_type] remoteExecCall ["DB_fnc_insertBuilding",2];
 
 	client_keys pushBack _building;
+	["You bought this house.","green"] call DT_fnc_notify;
 	private _marker = createMarkerLocal [format ["house_%1",round(random 99999)],getPosATL _building];
-	_marker setMarkerTextLocal (getText(configFile >> "CfgVehicles" >> (typeOf _house) >> "displayName"));
+	_marker setMarkerTextLocal (getText(configFile >> "CfgVehicles" >> (typeOf _building) >> "displayName"));
 	_marker setMarkerColorLocal "ColorBlue";
 	_marker setMarkerTypeLocal "loc_Lighthouse";
-	for "_i" from 1 to (getNumber(configFile >> "CfgVehicles" >> typeOf _house >> "numberOfDoors")) step 1 do {
+	for "_i" from 1 to (getNumber(configFile >> "CfgVehicles" >> typeOf _building >> "numberOfDoors")) step 1 do {
 		_building setVariable [format ["bis_disabled_Door_%1",_i],1,true];
 	};
 };

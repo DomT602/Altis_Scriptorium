@@ -12,7 +12,7 @@ addMissionEventHandler ["EntityKilled", {_this call server_fnc_entityKilled}];
 
 ["resetPositions",1] call MySQL_fnc_DBasync;
 ["resetVehicles",1] call MySQL_fnc_DBasync;
-(["selectPersisVars",2] call MySQL_fnc_DBasync) params [
+([format["selectPersisVars:%1",0],2] call MySQL_fnc_DBasync) params [
 	["_threat","Green",[""]],
 	["_mayor","Aquarium",[""]],
 	["_tax",[0,0,0],[[]]],
@@ -23,7 +23,7 @@ _tax params ["_atmTax","_itemTax","_vehTax"];
 gov_bank = _bank;
 
 call DB_fnc_initBuildings;
-[3] call DB_fnc_fetchData;
+[0] call DB_fnc_fetchData;
 call DB_fnc_populateCompanies;
 
 [(50 + round(random 50))] call server_fnc_spawnAnimal;

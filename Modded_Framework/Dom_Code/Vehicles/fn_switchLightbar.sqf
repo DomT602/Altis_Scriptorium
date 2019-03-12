@@ -6,6 +6,7 @@
 
 private _vehicle = objectParent player;
 if (isNull _vehicle) exitWith {};
+if (driver _vehicle != player) exitWith {["Only the driver can activate the lightbar.","orange"] call DT_fnc_notify};
 //if !(typeOf _vehicle in siren_vehicles) exitWith {["This vehicle does not support lightbars.","orange"] call DT_fnc_notify};
 
 

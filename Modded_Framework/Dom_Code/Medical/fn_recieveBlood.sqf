@@ -7,10 +7,17 @@ params [
 	["_amount",0,[0]]
 ];
 
-for "_i" from 0 to 20 step 1 do {
-	private _blood = player getVariable ["blood",100];
-	_blood = _blood + 100;
-	if (_blood > 5000) exitWith {player setVariable ["blood",5000,true]};
-	player setVariable ["blood",_blood,true];
-	uiSleep 2;
-};
+[
+	{
+		params ["_arguments"];
+		_arguments params ["_count","_amount"];
+		if (_blood isEqualTo 5000) exitWith {};
+		private _blood = player getVariable ["blood",100];
+		_blood = (_blood + _amount) min 5000;
+		player setVariable ["blood",_blood,true];
+		if (_count isEqualTo 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler};
+		_arguments set [0,(_count - 1)];
+	},
+	2.5,
+	[20,_amount]
+] call CBA_fnc_addPerFrameHandler;

@@ -6,12 +6,12 @@
 params [
 	["_className","",[""]],
 	["_spawnPoint","",[""]],
-	["_uid","",[""]],
-	["_faction","civ",[""]],
+	["_unit",objNull,[objNull]],
 	["_colour",-1,[0]]
 ];
-
-if (_className isEqualTo "" || _uid isEqualTo "") exitWith {};
+if (_className isEqualTo "" || isNull _unit) exitWith {};
+private _uid = getPlayerUID _unit;
+private _faction = _unit getVariable ["faction","civ"];
 
 private _plate = "";
 private _letterArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -21,18 +21,17 @@ for "_i" from 0 to 1 step 0 do {
 	for "_y" from 0 to 2 step 1 do {
 		_plateArray pushBack (selectRandom _letterArray)
 	};
-	for "_v" from 0 to 3 step 1 do {
-		_plateArray pushBack floor(random 10)
-	};
+	_plateArray pushBack (1000 + round(random 8999));
 	_randomPlate = _plateArray joinString "";
 
 	private _return = [format["checkPlate:%1",_randomPlate],2] call MySQL_fnc_DBasync;
 	if (_return isEqualTo []) exitWith {_plate = _randomPlate};
 };
 
-private _vehicle = createVehicle [_className, (getMarkerPos _spawnPoint), [], 0, "NONE"];
-_vehicle setPos (getMarkerPos _spawnPoint);
-_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
+private _pos = getMarkerPos _spawnPoint;
+private _vehicle = createVehicle [_className,_pos,[],0,"NONE"];
+_vehicle setPos _pos;
+_vehicle setVectorUp (surfaceNormal _pos);
 _vehicle setDir (markerDir _spawnPoint);
 
 clearWeaponCargoGlobal _vehicle;
@@ -42,7 +41,7 @@ clearBackpackCargoGlobal _vehicle;
 
 [_vehicle,_colour] call DT_fnc_setTexture;
 _vehicle lock 2;
-_vehicle setVariable ["keyHolders",[profileName],true];
+_vehicle setVariable ["keyHolders",[name _unit],true];
 _vehicle setVariable ["plate",_plate,true];
 _vehicle setPlateNumber _plate;
 [_vehicle] remoteExecCall ["DT_fnc_recieveKey",remoteExecutedOwner];

@@ -1,5 +1,4 @@
 publicVariable "DT_fnc_destroyVehicle";
-publicVariable "DT_fnc_garageChange";
 publicVariable "DT_fnc_getVehicle";
 publicVariable "DT_fnc_giveKey";
 publicVariable "DT_fnc_initGarage";

@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Handles key presses for placing furniture
 */
-
 params [
 	["_ctrl",-1,[0]],
 	["_code",-1,[0]],

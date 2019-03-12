@@ -9,24 +9,14 @@ if (isNull _holder) then {
 	_holder = createVehicle ["GroundWeaponHolder",getPosATL player,[],0,"CAN_COLLIDE"];
 };
 
-private _weapons = [];
 {
 	player removeWeapon _x;
-	_weapons pushBack _x;
+	_holder addWeaponCargoGlobal [_x,1];
 } forEach weapons player;
 
-private _magazines = [];
 {
 	player removeMagazine _x;
-	_magazines pushBack _x;
-} forEach magazines player;
-
-{
-	_holder addWeaponCargoGlobal [_x,1];
-} forEach _weapons;
-
-{
 	_holder addMagazineCargoGlobal [_x,1];
-} forEach _magazines;
+} forEach magazines player;
 
 [2] call DT_fnc_saveStatsPartial;

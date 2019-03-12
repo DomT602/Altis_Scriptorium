@@ -3,13 +3,13 @@
 	Author: Dom
 	Description: Buys selected clothing
 */
-private _purchase = uiNamespace getVariable ["Shop_Purchase",[]];
+private _purchase = uiNamespace getVariable ["purchase",[]];
 closeDialog 0;
 private _totalPrice = 0;
 {
-	_x params ["_item","_singlePrice"];
+	_x params ["_item","_price"];
 	if !(_item isEqualTo "") then {
-		_totalPrice = _totalPrice + _singlePrice;
+		_totalPrice = _totalPrice + _price;
 		switch _forEachIndex do {
 			case 0: {
 				private _items = uniformItems player;

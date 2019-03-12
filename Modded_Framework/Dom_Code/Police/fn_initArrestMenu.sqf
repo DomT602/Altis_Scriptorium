@@ -7,11 +7,7 @@ params [
 	["_unit",objNull,[objNull]]
 ];
 
-if !([_unit] call DT_fnc_checkPlayer) exitWith {};
+if !([_unit,true] call DT_fnc_checkPlayer) exitWith {};
 if !(_unit getVariable ["restrained",false]) exitWith {["Person must be restrained."] call DT_fnc_notify};
 
 createDialog "DT_arrestMenu";
-private _nameBox = (findDisplay 1009) displayCtrl 1000;
-private _name = ["Unknown",_unit] call DT_fnc_findName;
-
-_nameBox setText _name;

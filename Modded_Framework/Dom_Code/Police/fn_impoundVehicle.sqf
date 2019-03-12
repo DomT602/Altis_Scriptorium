@@ -3,7 +3,6 @@
     Author: Dom
     Description: Starts impounding process
 */
-
 params [
 	["_vehicle",objNull,[objNull]]
 ];

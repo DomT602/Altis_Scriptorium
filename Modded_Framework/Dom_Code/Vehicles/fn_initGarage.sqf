@@ -14,9 +14,6 @@ _data params [
 ];
 
 createDialog "DT_garage";
-disableSerialization;
 
-uiNamespace setVariable ["Impound_Lot",_impounded];
-uiNamespace setVariable ["Garage_Spawns",_spawns];
-
+uiNamespace setVariable ["garage",[_impounded,_spawns]];
 [getPlayerUID player,player getVariable ["faction","civ"],_type,_impounded] remoteExecCall ["DB_fnc_fetchGarage",2];

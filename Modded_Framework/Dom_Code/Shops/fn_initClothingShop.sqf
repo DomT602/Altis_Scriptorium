@@ -11,13 +11,12 @@ if !(isClass(missionConfigFile >> "Shops" >> "Clothing" >> _shop)) exitWith {};
 private _conditions = getText(missionConfigFile >> "Shops" >> "Clothing" >> _shop >> "conditions");
 if !([_conditions] call DT_fnc_conditionChecker) exitWith {["You cannot use this shop.","orange"] call DT_fnc_notify};
 
-client_preview = "C_man_polo_2_F" createVehicleLocal [190.764,10128.4,0];
+if !(createDialog "DT_clothingShop") exitWith {};
+uiNamespace setVariable ["purchase",[["",-1],["",-1],["",-1],["",-1],["",-1]]];
+
+client_preview = "D_Base_Civ_2" createVehicleLocal [270.372,10089.1,2.56106];
 client_preview setUnitLoadout (getUnitLoadout player);
 client_preview setFace (face player);
-
-if !(createDialog "DT_clothingShop") exitWith {deleteVehicle client_preview};
-uiNamespace setVariable ["Shop_Purchase",[["",-1],["",-1],["",-1],["",-1],["",-1]]];
-
 client_target = createAgent ["Logic",position client_preview,[],0,"NONE"];//createVehicleLocal?
 client_target attachTo [client_preview,client_cameraSettings select 3,""];
 

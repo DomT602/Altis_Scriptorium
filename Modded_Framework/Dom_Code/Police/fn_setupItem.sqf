@@ -23,7 +23,7 @@ switch _item do {
 		private _cone4 = "RoadCone_L_F" createVehicle [0,0,0];
 		private _cone5 = "RoadCone_L_F" createVehicle [0,0,0];
 
-		_cone1 setVariable ["components",[_cone1,_cone2,_cone3,_cone4,_cone5],-2];
+		_cone1 setVariable ["components",[_cone1,_cone2,_cone3,_cone4,_cone5],true];
 		client_carrying = _cone1;
 
 		_cone1 attachTo [player,[0,2,.35]];
@@ -42,7 +42,7 @@ switch _item do {
 		private _barrier1 = "RoadBarrier_F" createVehicle [0,0,0];
 		private _barrier2 = "RoadBarrier_F" createVehicle [0,0,0];
 		
-		_cone1 setVariable ["components",[_barrier1,_barrier2,_cone1,_cone2],-2];
+		_cone1 setVariable ["components",[_barrier1,_barrier2,_cone1,_cone2],true];
 		client_carrying = _cone1;
 
 		_barrier1 attachTo [player,[0,4,.6]];
@@ -62,7 +62,7 @@ switch _item do {
 		private _cone2 = "RoadCone_L_F" createVehicle [0,0,0];
 		private _lamp1 = "Land_Portablelight_Single_F" createVehicle [0,0,0];
 		private _lamp2 = "Land_Portablelight_Single_F" createVehicle [0,0,0];
-		_cone1 setVariable ["components",[_barrier1,_barrier2,_barrier3,_barrier4,_cone1,_cone2,_lamp1,_lamp2],-2];
+		_cone1 setVariable ["components",[_barrier1,_barrier2,_barrier3,_barrier4,_cone1,_cone2,_lamp1,_lamp2],true];
 		client_carrying = _cone1;
 
 		_barrier1 attachTo [player,[0,4,.3]];
@@ -84,7 +84,7 @@ switch _item do {
 		private _cone2 = "RoadCone_L_F" createVehicle [0,0,0];
 		private _bargate = "Land_BarGate_F" createVehicle [0,0,0];
 		
-		_cone1 setVariable ["components",[_cone1,_bargate,_cone2],-2];
+		_cone1 setVariable ["components",[_cone1,_bargate,_cone2],true];
 		client_carrying = _cone1;
 
 		_bargate attachTo [player,[0,6.4,4.4]];
@@ -93,6 +93,5 @@ switch _item do {
 		{
 			_x setDir 270
 		} forEach (_cone1 getVariable ["components",[]]);
-
 	};
 };

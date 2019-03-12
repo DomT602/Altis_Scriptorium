@@ -58,7 +58,8 @@ if (_blood isEqualTo 0) then {[player,"Combat Logged",true] remoteExecCall ["ser
 player setVariable ["phoneNumber",_phoneNumber,true];
 phone_contacts = _phoneContacts;
 phone_settings = _phoneSettings;
-//phone_settings params ["_mode","_background","_ringTone"];
+[(call TFAR_fnc_ActiveSWRadio),(_phoneSettings select 2)] call TFAR_fnc_setSwVolume;
+
 _skills params ["_woodcutting","_mining","_farming","_fishing","_hunting"];
 exp_woodcutting = _woodcutting;
 exp_mining = _mining;
@@ -70,7 +71,6 @@ if !(_companyData isEqualTo []) then {
 	_companyData params ["_name","_rank","_rankName","_salary"]; //salary not put in yet
 	player setVariable ["company",_name,true];
 	player setVariable ["company_rank",_rank,true];
-	player setVariable ["company_position",_rankName,false];
 };
 
 {
@@ -121,9 +121,8 @@ if (_jailDetails select 0) then {
 		if (_houses isEqualTo []) then {
 			player setVehiclePosition [(getMarkerPos "Lakeside_Spawn"),[],0,"CAN_COLLIDE"];
 		} else {
-			private _spawnHouse = nearestObject [(selectRandom _houses),"House"];
-			_spawnHouse = _spawnHouse buildingPos 0;
-			player setVehiclePosition [_spawnHouse,[],0,"CAN_COLLIDE"];
+			private _spawnPos = (selectRandom _houses) buildingPos 0;
+			player setVehiclePosition [_spawnPos,[],0,"CAN_COLLIDE"];
 		};
 	};
 };

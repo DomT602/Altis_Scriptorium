@@ -22,7 +22,7 @@
 			_weaponPic = getText (configFile >> "CfgWeapons" >> _curWeapon >> "picture");
 			_weaponName = getText (configFile >> "CfgWeapons" >> _curWeapon >> "displayName");
 			private _magCount = {_x isEqualTo (currentMagazine player)} count magazines player;
-			private _ammoCount = (player ammo _curWeapon);
+			private _ammoCount = player ammo _curWeapon;
 			private _percentAmmo = if (_ammoCount isEqualTo 0) then {
 				0;
 			} else {
@@ -87,34 +87,33 @@
 		};
 
 		private _goProPic = "";
-		if (client_goPro && {"D_GoPro_i" in (magazines player)}) then {
-			_goProPic = "\Dom_Client\Textures\HUD\Camera1.paa";
+		if (client_goPro) then {
+			if ("D_GoPro_i" in (magazines player)) then {
+				_goProPic = "\Dom_Client\Textures\HUD\Camera1.paa";
+			} else {
+				client_goPro = false;
+			};
 		};
 
-		private _charging = parseText "";
+		private _charging = "";
 		if (phone_charging) then {
 			if (isNull objectParent player) exitWith {
 				phone_charging = false;
 			};
-			_charging = parseText format ["<t color='#5FC900' size='1' align='center'>[%1%]Charging Cellphone...</t>",phone_battery];
+			_charging = format["[%1%2] Charging phone",phone_battery,"%"];
 		};
-
-		_ammoText = parseText format ["<t size='1' align='right'>%1</t>",_ammoText];
-		_magText = parseText format ["<t size='1' align='right'>%1</t>",_magText];
-		_fireMode = parseText format ["<t size='1' align='center'>%1</t>",_fireMode];
-		_weaponName = parseText format ["<t size='1' align='right'>%1</t>",_weaponName];
 
 		(_HUD displayCtrl 1500) ctrlSetText _hungerPic;
 		(_HUD displayCtrl 1501) ctrlSetText _thirstPic;
 		(_HUD displayCtrl 1502) ctrlSetText _healthPic;
-		(_HUD displayCtrl 1507) ctrlSetText _weaponPic;
-		(_HUD displayCtrl 1511) ctrlSetStructuredText _ammoText;
-		(_HUD displayCtrl 1508) ctrlSetStructuredText _fireMode;
-		(_HUD displayCtrl 1510) ctrlSetStructuredText _magText;
-		(_HUD displayCtrl 1509) ctrlSetStructuredText _weaponName;
-		(_HUD displayCtrl 1512) ctrlSetStructuredText _charging;
-		(_HUD displayCtrl 1504) ctrlSetText _goProPic;
 		(_HUD displayCtrl 1503) ctrlSetText _seatbeltPic;
+		(_HUD displayCtrl 1504) ctrlSetText _goProPic;
+		(_HUD displayCtrl 1507) ctrlSetText _weaponPic;
+		(_HUD displayCtrl 1508) ctrlSetStructuredText parseText _fireMode;
+		(_HUD displayCtrl 1509) ctrlSetStructuredText parseText _weaponName;
+		(_HUD displayCtrl 1510) ctrlSetStructuredText parseText _magText;
+		(_HUD displayCtrl 1511) ctrlSetStructuredText parseText _ammoText;
+		(_HUD displayCtrl 1512) ctrlSetStructuredText parseText _charging;
 	},
 	0
 ] call CBA_fnc_addPerFrameHandler;

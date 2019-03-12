@@ -5,5 +5,4 @@
 */
 
 detach client_carrying;
-
 client_carrying = objNull;

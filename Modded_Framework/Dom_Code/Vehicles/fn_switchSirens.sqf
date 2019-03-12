@@ -3,13 +3,13 @@
     Author: Dom
     Description: Checks if vehicle supports sirens and tells server to start them if needed
 */
-
 params [
     ["_type",0,[0]]
 ];
 
 private _vehicle = objectParent player;
 if (isNull _vehicle) exitWith {};
+if (driver _vehicle != player) exitWith {["Only the driver can activate the sirens.","orange"] call DT_fnc_notify};
 //if !(typeOf _vehicle in siren_vehicles) exitWith {["This vehicle does not support sirens.","orange"] call DT_fnc_notify};
 
 if (_vehicle getVariable ["siren",false]) then {

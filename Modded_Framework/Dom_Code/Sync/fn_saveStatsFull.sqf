@@ -9,11 +9,11 @@ private _packet = [getPlayerUID player,profileName,player getVariable ["faction"
 private _array = [];
 {
     private _varName = format["license_%1",(getText(missionConfigFile >> "Licenses" >> (configName _x) >> "variable"))];
-    _array pushBack [_varName,missionNamespace getVariable [_varName,0]]; 
+    _array pushBack [_varName,missionNamespace getVariable [_varName,false]]; 
 } forEach ("true" configClasses (missionConfigFile >> "Licenses"));
 _packet pushBack _array;
 _packet pushBack (getUnitLoadout player);
-_packet pushBack (player getVariable ["jail_details",[false,"",0,""]]);
+_packet pushBack (player getVariable ["jail_details",[]]);
 _packet pushBack ([player getVariable ["hunger",100],player getVariable ["thirst",100],phone_battery,player getVariable ["blood",5000],player getVariable ["injuries",[]]]);
 _packet pushBack phone_settings;
 _packet pushBack phone_contacts;

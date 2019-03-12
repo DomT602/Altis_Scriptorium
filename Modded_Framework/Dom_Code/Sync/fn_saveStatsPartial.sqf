@@ -19,7 +19,7 @@ switch _mode do {
 		private _array = [];
 		{
 			private _varName = format["license_%1",(getText(missionConfigFile >> "Licenses" >> (configName _x) >> "variable"))];
-			_array pushBack [_varName,missionNamespace getVariable [_varName,0]]; 
+			_array pushBack [_varName,missionNamespace getVariable [_varName,false]]; 
 		} forEach ("true" configClasses (missionConfigFile >> "Licenses"));
 		_packet pushBack _array;
 	};

@@ -3,6 +3,7 @@ class Shops {
     class buyClothing {};
     class buyLicense {};
     class buyPlayerShop {};
+    class buyVehicle {};
     class closeShop {};
     class fetchDetails {};
     class initATM {};
@@ -17,6 +18,5 @@ class Shops {
     class previewClothing {};
     class refreshInventory {};
     class useATM {};
-    class vehicleShopBuy {};
     class vehicleShopLBChange {};
 };

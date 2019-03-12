@@ -15,10 +15,14 @@ class CfgRemoteExec {
 		F(DT_fnc_knockedDown,CLIENT)
 		F(DT_fnc_ziptied,CLIENT)
 
+		F(DT_fnc_companyCreated,CLIENT)
+		F(DT_fnc_companyDeleted,CLIENT)
 		F(DT_fnc_invitedPlayer,CLIENT)
+		F(DT_fnc_manageCompany,CLIENT)
 
 		F(DT_fnc_createMarker,CLIENT)
 		F(DT_fnc_notify,CLIENT)
+		F(DT_fnc_switchDuty,CLIENT)
 
 		F(DT_fnc_recieveMoney,CLIENT)
 
@@ -37,10 +41,11 @@ class CfgRemoteExec {
 		F(DT_fnc_beLoaded,CLIENT)
 		F(DT_fnc_jailTimer,CLIENT)
 		F(DT_fnc_patDown,CLIENT)
+		F(DT_fnc_recieveTicket,CLIENT)
+		F(DT_fnc_respondTicket,CLIENT)
 		F(DT_fnc_restrained,CLIENT)
 		F(DT_fnc_stripSearch,CLIENT)
 		F(DT_fnc_switchLegCuff,CLIENT)
-		F(DT_fnc_switchPickaxe,CLIENT)
 		F(DT_fnc_tearGas,CLIENT)
 		
 		F(DT_fnc_recieveGear,CLIENT)
@@ -66,6 +71,7 @@ class CfgRemoteExec {
 		
 		F(DB_fnc_insertBuilding,SERVER)
 		F(DB_fnc_insertFurniture,SERVER)
+		F(DB_fnc_keyChange,SERVER)
 		F(DB_fnc_removeFurniture,SERVER)
 		F(DB_fnc_updateAlarmState,SERVER)
 		F(DB_fnc_updateFurniture,SERVER)
@@ -80,6 +86,8 @@ class CfgRemoteExec {
 		F(DB_fnc_insertArrest,SERVER)
 		F(DB_fnc_insertTicket,SERVER)
 		F(DB_fnc_insertWarrant,SERVER)
+		F(DB_fnc_manageUpdate,SERVER)
+		F(DB_fnc_updateWarrant,SERVER)
 		
 		F(DB_fnc_adjustRank,SERVER)
 		F(DB_fnc_initialStats,SERVER)
@@ -95,7 +103,7 @@ class CfgRemoteExec {
 
 		F(BIS_fnc_effectKilledAirDestruction,ANYONE)
 		F(BIS_fnc_effectKilledSecondaries,ANYONE)
-		F(BIS_fnc_earthquake,ANYONE)
+		F(BIS_fnc_earthquake,CLIENT)
 		
 		F(BIS_fnc_debugConsoleExec,ANYONE) //remove later
 	};
@@ -107,5 +115,7 @@ class CfgRemoteExec {
 		F(switchMove,CLIENT)
 		F(systemChat,CLIENT)
 		F(addCamShake,CLIENT)
+		F(lock,ANYONE)
+		F(say3D,CLIENT)
 	};
 };

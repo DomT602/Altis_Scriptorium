@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Respawns a rock for mining
 */
-
 params [
 	["_origin",[],[[]]]
 ];

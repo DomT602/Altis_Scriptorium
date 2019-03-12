@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Inserts arrest into the DB
 */
-
 params [
 	["_name","",[""]],
 	["_crimes","",[""]],
@@ -12,4 +11,4 @@ params [
 	["_bail",0,[0]]
 ];
 
-[format["insertArrest:%1:%2:%3:%4",_name,_crimes,_officer,_time,_bail],1] call MySQL_fnc_DBasync;
+[format["insertArrest:%1:%2:%3:%4:%5",_name,_crimes,_officer,_time,_bail],1] call MySQL_fnc_DBasync;

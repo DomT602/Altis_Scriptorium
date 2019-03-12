@@ -9,7 +9,7 @@ params [
 	["_job","",[""]]
 ];
 
-if !(_caller getVariable ["faction","civ"] isEqualTo "civ") exitWith {["Your already on duty.","orange"] call DT_fnc_notify};
+if !(_caller getVariable ["faction","civ"] isEqualTo "civ") exitWith {["You're already on duty.","orange"] call DT_fnc_notify};
 
 private _curJob = _caller getVariable ["job",""];
 if (_curJob isEqualTo "") then {
@@ -24,24 +24,26 @@ if (_curJob isEqualTo "") then {
 			(nearestObjects[getPosATL _caller,["CAManBase"],5]) params ["",["_nearPlayer",objNull,[objNull]]];
 			if (isNull _nearPlayer) exitWith {["You need a Police Officer standing next to you to sign up.","orange"] call DT_fnc_notify};
 			if !(_nearPlayer getVariable ["faction","civ"] isEqualTo "cop") exitWith {["You need a Police Officer standing next to you to sign up.","orange"] call DT_fnc_notify};
-			_caller setVariable ["job","lawyer",true]
+			_caller setVariable ["job","lawyer",true];
 		};
 		case "taxi": {
-			_caller setVariable ["job","taximan",true]
+			_caller setVariable ["job","taximan",true];
 		};
 		case "delivery": {
 			_caller setVariable ["job","deliveryman",true]
 		};
 		case "news": {
-			_caller setVariable ["job","news_reporter",true]
+			_caller setVariable ["job","news reporter",true]
 		};
 		case "repair": {
+			_caller setVariable ["job","repairman",true];
 			["You successfully signed on as a repairman.","green"] call DT_fnc_notify;
 			["You can repair terrain objects (such as fences)."] call DT_fnc_notify;
-			_caller setVariable ["job","repairman",true]
 		};
 		case "security": {
-			_caller setVariable ["job","security_guard",true]
+			_caller setVariable ["job","security guard",true];
+			["You successfully signed on as a security guard.","green"] call DT_fnc_notify;
+			["You will recieve alerts of various crimes and should react accordingly."] call DT_fnc_notify;
 		};
 	};
 } else {

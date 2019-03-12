@@ -4,10 +4,11 @@
 	Description: Recieves an invite to join the company
 */
 params [
-	["_companyName","",[""]]
+	["_companyName","",[""]],
+    ["_unit",objNull,[objNull]]
 ];
 
-private _name = ["Unknown",MB_Interaction_Target] call DT_fnc_findName;
+private _name = ["Unknown",_unit] call DT_fnc_findName;
 private _action = [
     format ["You have been invited by %1 to join the company: %2.",_name,_companyName],
     "Employee Invite",
@@ -20,6 +21,7 @@ if (_action) then {
     player setVariable ["company",_companyName,true];
     player setVariable ["company_rank",0,true];
     [format["%1 joined your company.",profileName],"green"] remoteExecCall ["DT_fnc_notify",remoteExecutedOwner];
+    [format["You joined %1.",_companyName],"green"] call DT_fnc_notify;
 } else {
     ["You denied the company invite.","orange"] call DT_fnc_notify;
     [format["%1 denied the invite to join your company.",profileName],"red"] remoteExecCall ["DT_fnc_notify",remoteExecutedOwner];

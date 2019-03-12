@@ -12,12 +12,17 @@ if (isNull _vehicle) exitWith {};
 private _className = typeOf _vehicle;
 _vehicle setVariable ["veh_colour",_index,true];
 
-if (!isClass (missionConfigFile >> "Textures" >> "Vehicle" >> _className)) exitWith {
-    diag_log "Vehicle colour error";
+if !(isClass (missionConfigFile >> "Textures" >> "Vehicle" >> _className)) exitWith {
+    diag_log format["Vehicle colour error: %1",_className];
+    _className = "Default";
 };
 
 private _textures = (getArray(missionConfigFile >> "Textures" >> "Vehicle" >> _className >> "textures")) select _index param [1,[]];
 
 {
-    _vehicle setObjectTextureGlobal [_forEachIndex,_x];
+	if (local _vehicle) then {
+			_vehicle setObjectTexture [_forEachIndex,_x];
+	} else {
+		_vehicle setObjectTextureGlobal [_forEachIndex,_x];
+	};
 } forEach _textures;

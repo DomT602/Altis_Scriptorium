@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Sets the plate textures
 */
-
 params [
 	["_vehicle",objNull,[objNull]],
 	["_author","Default",[""]]
@@ -11,7 +10,7 @@ params [
 
 waitUntil {!isNil {_vehicle getVariable "plate"}};
 private _plate = _vehicle getVariable "plate";
-if (_author isEqualTo "Default") exitWith {_vehicle setPlateNumber _plate};
+if (_author in ["Default","Ivory"]) exitWith {_vehicle setPlateNumber _plate};
 _plate = _plate splitString "";
 _plate reSize 7;
 
@@ -34,15 +33,6 @@ switch _author do {
 				_vehicle setObjectTextureGlobal [(_forEachIndex + 1), ""];
 			} else {
 				_vehicle setObjectTextureGlobal [(_forEachIndex + 1), format ["\Jonzie_Carpack\Universal_Cars\Number_Plates\%1.paa",_x]];
-			};
-		} forEach [_plate1,_plate2,_plate3,_plate4,_plate5,_plate6,_plate7];
-	};
-	case "Ivory": { //need to do a isMultiplayer check
-		{
-			if (_x isEqualTo "") then {
-				_vehicle setObjectTextureGlobal [(_forEachIndex + 4), ""];
-			} else {
-				_vehicle setObjectTextureGlobal [(_forEachIndex + 4), format ["\ivory_data\license\%1.paa",_x]];
 			};
 		} forEach [_plate1,_plate2,_plate3,_plate4,_plate5,_plate6,_plate7];
 	};

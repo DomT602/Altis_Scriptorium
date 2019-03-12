@@ -14,10 +14,9 @@ if (_clientID isEqualTo -1) then {
 };
 
 private _return = [format["selectPlayer:%1",_uid],2] call MySQL_fnc_DBasync;
-
 if (_return isEqualTo []) exitWith {[_uid,_unit,_clientID] call DB_fnc_insertPlayer};
 
-private _companyData = [_uid] call DB_fnc_fetchCompany; //company data - returns either [] or [filled,with,data];
+private _companyData = [_uid] call DB_fnc_fetchCompany;
 _return pushBack _companyData;
 
 private _houseData = [_uid,_clientID] call DB_fnc_fetchBuildings;

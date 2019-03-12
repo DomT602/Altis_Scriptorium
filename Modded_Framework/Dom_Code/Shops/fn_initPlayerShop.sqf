@@ -15,8 +15,6 @@ private _items = _shop getVariable ["shop_inventory",[]];
 
 if !(createDialog "Player_Shop") exitWith {};
 
-disableSerialization;
-
 ctrlSetText[-1,_company];
 
 private _primaryList = ((findDisplay -1) displayCtrl -1);

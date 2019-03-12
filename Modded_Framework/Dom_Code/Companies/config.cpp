@@ -8,5 +8,6 @@ class Companies {
     class invitedPlayer {};
     class manageCompany {};
     class openCompanyMenu {};
+    class quitCompany {};
     class showCompany {};
 };

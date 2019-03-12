@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Resets the speed radar
 */
-
 params [
 	["_vehicle",objNull,[objNull]]
 ];
@@ -19,5 +18,5 @@ private _array = switch (typeOf _vehicle) do {
 
 old_speed = 0; 
 {
-	_vehicle setObjectTexture [_x,"\PS_Client\Textures\C4_Radar\red\0.paa"];
+	_vehicle setObjectTexture [_x,"\Dom_Client\Textures\Radar\red0.paa"];
 } forEach _array;

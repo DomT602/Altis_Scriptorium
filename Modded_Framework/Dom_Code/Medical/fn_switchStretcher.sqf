@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Loads or unloads the stretcher
 */
-
 params [
 	["_ambulance",objNull,[objNull]]
 ];

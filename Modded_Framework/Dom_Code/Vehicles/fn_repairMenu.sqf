@@ -3,13 +3,11 @@
     Author: Dom
     Description: Opens and populates the repair menu for cars
 */
-
 params [
 	["_vehicle",objNull,[objNull]]
 ];
 
 if !([_vehicle,3] call DT_fnc_checkVehicle) exitWith {};
-closeDialog 0;
 createDialog "DT_repairMenu";
 
 private _LFwheel = _vehicle getHitPointDamage "HitLFWheel";

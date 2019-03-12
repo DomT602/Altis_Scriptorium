@@ -3,7 +3,6 @@
     Author: Dom
     Description: Pushes a vehicle
 */
-
 params [
 	["_vehicle",objNull,[objNull]]
 ];

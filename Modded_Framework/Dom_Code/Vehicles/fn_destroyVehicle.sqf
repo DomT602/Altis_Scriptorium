@@ -6,8 +6,8 @@
 private _index = lbCurSel 1500;
 if (_index isEqualTo -1) exitWith {["You need to select a vehicle.","orange"] call DT_fnc_notify};
 
-private _plate = (parseSimpleArray (lbData[1500,_index])) param [2];
+private _plate = lbData[1500,_index];
 
-[_plate,getPlayerUID player] remoteExecCall ["DB_fnc_soldVehicle",2];
+[_plate] remoteExecCall ["DB_fnc_soldVehicle",2];
 ["Destroyed vehicle."] call DT_fnc_notify;
 closeDialog 0;

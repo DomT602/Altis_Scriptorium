@@ -3,14 +3,12 @@
 	Author: Dom
 	Description: Recieves request from client to update specific values
 */
-
 params [
 	["_uid","",[""]],
 	["_mode",-1,[0]],
 	["_data",-1,[0,[],false]],
 	["_aditData",-1,[0,[],""]]
 ];
-
 if (_uid isEqualTo "") exitWith {};
 
 switch _mode do {

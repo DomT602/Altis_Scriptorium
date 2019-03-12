@@ -1,7 +1,6 @@
 class Vehicles {
     file = "\Dom_Code\Vehicles";
     class destroyVehicle {};
-    class garageChange {};
     class getVehicle {};
     class giveKey {};
     class initGarage {};

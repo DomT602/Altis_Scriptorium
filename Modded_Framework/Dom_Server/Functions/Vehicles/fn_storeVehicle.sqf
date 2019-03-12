@@ -15,13 +15,12 @@ if (_plate isEqualTo "") exitWith {
     ["Error code 01: report to devs."] remoteExecCall ["DT_fnc_notify",remoteExecutedOwner]
 };
 
-getAllHitPointsDamage _vehicle params ["", "", "_damage"];
+private _damage = (getAllHitPointsDamage _vehicle) select 2;
 
 private _fuel = fuel _vehicle;
-_impound = if (_impound) then {1} else {0}; //silly thing as DB doesn't like true/false
+_impound = if (_impound) then {1} else {0};
 
 [format["storeVehicle:%1:%2:%3:%4",_fuel,_damage,_impound,_plate],1] call MySQL_fnc_DBasync;
 
 deleteVehicle _vehicle;
-
 ["Vehicle saved."] remoteExecCall ["DT_fnc_notify",remoteExecutedOwner];

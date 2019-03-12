@@ -22,6 +22,6 @@ call {
 	if (_item in ['Spikestrip_Boxed','Roadcone_Boxed','Wood_Barrier_Boxed','Concrete_Barrier_Boxed','Bargate_Boxed']) exitWith {[_item] call DT_fnc_setupItem; player removeItem _item; closeDialog 0};
 	if (_item in ["Wardrobe"]) exitWith {[_item] call DT_fnc_placeFurniture; player removeItem _item; closeDialog 0}; //furniture line
 	if (_item in ["Seed_Types"]) exitWith {active_seed = _item; [format["You have selected %1 as your active seed.",_item]] call DT_fnc_notify; closeDialog 0};
-	if (_item isEqualTo "D_Bandage_i") exitWith {call DT_fnc_bandageSelf};
+	if (_item isEqualTo "MW_tablet") exitWith {[false] call DT_fnc_startJailbreak; closeDialog 0};
 };
 true

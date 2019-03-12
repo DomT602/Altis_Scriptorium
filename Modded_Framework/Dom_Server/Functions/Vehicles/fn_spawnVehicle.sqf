@@ -14,9 +14,10 @@ params [
 [format["setVehicleActive:%1:%2",_pid,_plate],1] call MySQL_fnc_DBasync;
 _customisation params ["_colour"];
 
-private _vehicle = createVehicle [_className,(getMarkerPos _spawnPoint),[],0,"NONE"];
-_vehicle setPos (getMarkerPos _spawnPoint);
-_vehicle setVectorUp (surfaceNormal (getMarkerPos _spawnPoint));
+private _pos = getMarkerPos _spawnPoint;
+private _vehicle = createVehicle [_className,_pos,[],0,"NONE"];
+_vehicle setPos _pos;
+_vehicle setVectorUp (surfaceNormal _pos);
 _vehicle setDir (markerDir _spawnPoint);
 
 clearWeaponCargoGlobal _vehicle;
@@ -36,9 +37,8 @@ _vehicle setFuel _fuel;
 if !(_damage isEqualTo []) then {
 	(getAllHitPointsDamage _vehicle) params ["_parts"];
 
-	for "_i" from 0 to ((count _damage) - 1) do {
-		_vehicle setHitPointDamage [format ["%1",_parts select _i],_damage select _i];
-	};
+	{
+		_vehicle setHitPointDamage [_x,_damage select _forEachIndex];
+	} forEach _parts;
 };
-
 ["Your vehicle is ready.","green"] remoteExecCall ["DT_fnc_notify",remoteExecutedOwner];

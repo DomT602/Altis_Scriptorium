@@ -6,12 +6,11 @@
 	[vehicle player] call DT_fnc_switchRadar;
 	old_speed = 0; this setObjectTexture [40,'\PS_Client\Textures\C4_Radar\pic0.paa']; this setObjectTexture [41,'\PS_Client\Textures\C4_Radar\pic0.paa']; this setObjectTexture [42,'\PS_Client\Textures\C4_Radar\pic0.paa'];
 */
-
 params [
 	["_vehicle",objNull,[objNull]]
 ];
 if (isNull _vehicle) exitWith {};
-if !(_vehicle in ["supported_vehicles"]) exitWith {["This vehicle does not have a radar.","orange"] call DT_fnc_notify};
+//if !(_vehicle in ["supported_vehicles"]) exitWith {["This vehicle does not have a radar.","orange"] call DT_fnc_notify};
 if (_vehicle getVariable ["radar_inUse",false]) exitWith {["Someone is controlling the radar already.","orange"] call DT_fnc_notify};
 
 if (old_speed isEqualTo -1) then {
@@ -46,7 +45,7 @@ if (old_speed isEqualTo -1) then {
 			};
 
 			{
-				private _number = format["\PS_Client\Textures\C4_Radar\green\%1.paa",_x];
+				private _number = format["\Dom_Client\Textures\Radar\green%1.paa",_x];
 				_vehicle setObjectTexture [(_patrolArray select _forEachIndex),_number];
 			} forEach _mySpeed;
 
@@ -67,7 +66,7 @@ if (old_speed isEqualTo -1) then {
 				};
 
 				{
-					private _number = format["\PS_Client\Textures\C4_Radar\red\%1.paa",_x];
+					private _number = format["\Dom_Client\Textures\Radar\red%1.paa",_x];
 					_vehicle setObjectTexture [(_lockArray select _forEachIndex),_number];
 				} forEach _maxSpeed;
 			};
@@ -82,7 +81,7 @@ if (old_speed isEqualTo -1) then {
 			};
 
 			{
-				private _number = format["\PS_Client\Textures\C4_Radar\yellow\%1.paa",_x];
+				private _number = format["\Dom_Client\Textures\Radar\yellow%1.paa",_x];
 				_vehicle setObjectTexture [(_targetArray select _forEachIndex),_number];
 			} forEach _targetSpeed;
 		},

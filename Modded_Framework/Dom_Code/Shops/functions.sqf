@@ -1,6 +1,7 @@
 publicVariable "DT_fnc_buyClothing";
 publicVariable "DT_fnc_buyLicense";
 publicVariable "DT_fnc_buyPlayerShop";
+publicVariable "DT_fnc_buyVehicle";
 publicVariable "DT_fnc_closeShop";
 publicVariable "DT_fnc_fetchDetails";
 publicVariable "DT_fnc_initATM";
@@ -15,5 +16,4 @@ publicVariable "DT_fnc_playerShopLBchange";
 publicVariable "DT_fnc_previewClothing";
 publicVariable "DT_fnc_refreshInventory";
 publicVariable "DT_fnc_useATM";
-publicVariable "DT_fnc_vehicleShopBuy";
 publicVariable "DT_fnc_vehicleShopLBChange";

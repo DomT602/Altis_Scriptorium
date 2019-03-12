@@ -19,7 +19,12 @@ private _nextLevel = _level + 1;
 private _nextLevelExp = getNumber(missionConfigFile >> "Skills" >> (format["Level_%1",_nextLevel]) >> "experience");
 
 if (_exp > _nextLevelExp) then {
-	player setVariable [_formatted,_nextLevel,false];
+	private _flag = if (_type isEqualTo "mining") then {
+		2
+	} else {
+		false
+	};
+	player setVariable [_formatted,_nextLevel,_flag];
 	[format["You reached level %1 in %2.",_nextLevel,_type],"green"] call DT_fnc_notify;
 	if (_nextLevel isEqualTo 50) then {
 		[format["Congratulations, you have reached the max level in %1.",_type],"green"] call DT_fnc_notify;

@@ -3,12 +3,10 @@
 	Author: Dom
 	Description: Adds a key to player
 */
-
 params [
 	["_vehicle",objNull,[objNull]],
 	["_unit",objNull,[objNull]]
 ];
-
 if (isNull _vehicle) exitWith {};
 
 if !(isNull _unit) then {
