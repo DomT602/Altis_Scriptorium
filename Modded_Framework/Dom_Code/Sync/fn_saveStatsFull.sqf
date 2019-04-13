@@ -6,12 +6,7 @@
 
 private _packet = [getPlayerUID player,profileName,player getVariable ["faction","civ"],client_cash,client_bank];
 
-private _array = [];
-{
-    private _varName = format["license_%1",(getText(missionConfigFile >> "Licenses" >> (configName _x) >> "variable"))];
-    _array pushBack [_varName,missionNamespace getVariable [_varName,false]]; 
-} forEach ("true" configClasses (missionConfigFile >> "Licenses"));
-_packet pushBack _array;
+_packet pushBack client_licenses;
 _packet pushBack (getUnitLoadout player);
 _packet pushBack (player getVariable ["jail_details",[]]);
 _packet pushBack ([player getVariable ["hunger",100],player getVariable ["thirst",100],phone_battery,player getVariable ["blood",5000],player getVariable ["injuries",[]]]);

@@ -34,10 +34,7 @@ player setVariable ["medic_rank",_mediclevel,true];
 player setVariable ["doj_rank",_dojlevel,true];
 player setVariable ["donor_level",_donorlevel,true];
 
-{
-	_x params ["_name","_bool"];
-	missionNamespace setVariable [_name,_bool];
-} forEach _licenses;
+client_licenses = _licenses;
 
 player setVariable ["jail_details",_jailDetails,true];
 

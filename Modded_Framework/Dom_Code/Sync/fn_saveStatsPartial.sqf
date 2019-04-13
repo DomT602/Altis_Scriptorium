@@ -14,14 +14,8 @@ switch _mode do {
 		_packet pushBack client_cash;
 		_packet pushBack client_bank;
 	};
-	
 	case 1: {
-		private _array = [];
-		{
-			private _varName = format["license_%1",(getText(missionConfigFile >> "Licenses" >> (configName _x) >> "variable"))];
-			_array pushBack [_varName,missionNamespace getVariable [_varName,false]]; 
-		} forEach ("true" configClasses (missionConfigFile >> "Licenses"));
-		_packet pushBack _array;
+		_packet pushBack client_licenses;
 	};
 	case 2: {
 		_packet pushBack (getUnitLoadout player);

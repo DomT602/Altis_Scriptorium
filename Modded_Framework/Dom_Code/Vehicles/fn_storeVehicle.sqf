@@ -6,7 +6,6 @@
 params [
 	["_garage",objNull,[objNull]]
 ];
-
 if (isNull _garage) exitWith {};
 
 private _nearVehicles = nearestObjects[getPosATL _garage,["Car","Air","Ship"],10];

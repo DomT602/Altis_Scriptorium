@@ -20,9 +20,9 @@ if !(isClass (missionConfigFile >> "Textures" >> "Vehicle" >> _className)) exitW
 private _textures = (getArray(missionConfigFile >> "Textures" >> "Vehicle" >> _className >> "textures")) select _index param [1,[]];
 
 {
-	if (local _vehicle) then {
-			_vehicle setObjectTexture [_forEachIndex,_x];
-	} else {
+	if (isServer) then {
 		_vehicle setObjectTextureGlobal [_forEachIndex,_x];
+	} else {
+		_vehicle setObjectTexture [_forEachIndex,_x];
 	};
 } forEach _textures;

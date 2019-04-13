@@ -59,5 +59,3 @@ switch _faction do {
 		};
 	};
 };
-
-//[] call DT_fnc_setupPhone;
