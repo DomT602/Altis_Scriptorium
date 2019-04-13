@@ -8,7 +8,7 @@ params [
 	["_index",-1,[0]]
 ];
 
-(company_list select _index) params ["_name","_description","_ownerName"];
+(company_list select _index) params ["","_description","_ownerName"];
 
 ((findDisplay 1025) displayCtrl 1100) ctrlSetStructuredText parseText format [
 	"Owner: %1 <br/>Description: %2",

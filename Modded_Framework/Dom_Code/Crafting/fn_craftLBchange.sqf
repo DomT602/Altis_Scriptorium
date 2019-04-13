@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Called when a different selection is made on crafting menu
 */
-
 params [
 	["_control",controlNull,[controlNull]],
 	["_selectionPath",[],[[]]]
@@ -16,7 +15,7 @@ if (count _selectionPath isEqualTo 1) exitWith {ctrlEnable [1600,false]; _infoBo
 
 (parseSimpleArray (_control tvData _selectionPath)) params [["_class","",[""]]];
 if (_class isEqualTo "") exitWith {	//location is red
-	_infoBox ctrlSetStructuredText parseText "<t color='#ff0000'>Wrong location</t>";
+	_infoBox ctrlSetStructuredText parseText "Wrong location";
 	ctrlEnable [1600,false];
 };
 

@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Inserts the _unit's UID and desired name to players profileNamespace, either as a new or overwrite depending on if it existed before
 */
-
 params [
 	["_unit",objNull,[objNull]]
 ];
@@ -23,7 +22,7 @@ private _index = _array findIf {(_x param [0,""]) isEqualTo _uid};
 if (_index isEqualTo -1) then {
 	_array pushBack _insertArr;
 } else {
-	_array set[_index,_insertArr];
+	_array set [_index,_insertArr];
 };
 
 profileNamespace setVariable ["DT_Names",_array];

@@ -8,7 +8,6 @@ params [
 ];
 
 //createDialog "DT_delivery";
-
 if !(isNull client_carrying) exitWith {["You're already carrying something.","orange"] call DT_fnc_notify};
 
 (switch _type do {

@@ -22,13 +22,13 @@ private _display = findDisplay 1015;
 private _config = configFile >> "CfgVehicles" >> _className;
 (_display displayCtrl 1102) ctrlSetStructuredText parseText format [
 	"Price: %1 <br/>Max speed: %4<br/>Horsepower: %3<br/>Passenger seats: %4<br/>Fuel capacity: %5L",
-	str(_price),getNumber(_config >> "maxSpeed"),getNumber(_config >> "enginePower"),getNumber(_config >> "transportSoldier"),getNumber(_config >> "fuelCapacity")
+	_price,getNumber(_config >> "maxSpeed"),getNumber(_config >> "enginePower"),getNumber(_config >> "transportSoldier"),getNumber(_config >> "fuelCapacity")
 ];
 
-private _ctrl = (_display displayCtrl 1501);
+private _ctrl = _display displayCtrl 2100;
 lbClear _ctrl;
 
-if (!isClass (missionConfigFile >> "Textures" >> "Vehicle" >> _className)) then {
+if !(isClass(missionConfigFile >> "Textures" >> "Vehicle" >> _className)) then {
 	_className = "Default"
 };
 

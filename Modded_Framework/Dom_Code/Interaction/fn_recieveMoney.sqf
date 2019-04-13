@@ -12,10 +12,10 @@ if (isNull _unit || _amount isEqualTo -1) exitWith {};
 
 private _name = ["someone",_unit] call DT_fnc_findName;
 if (_bank) then {
-	[format["You were transferred $%1 from %2.",str(_amount),_name],"green"] call DT_fnc_notify;
+	[format["You were transferred $%1 from %2.",_amount,_name],"green"] call DT_fnc_notify;
 	client_bank = client_bank + _amount;
 } else {
-	[format["You recieved $%1 from %2.",str(_amount),_name],"green"] call DT_fnc_notify;
+	[format["You recieved $%1 from %2.",_amount,_name],"green"] call DT_fnc_notify;
 	client_cash = client_cash + _amount;
 };
 

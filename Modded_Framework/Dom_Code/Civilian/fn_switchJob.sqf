@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Switches job state
 */
-
 params [
 	["_caller",objNull,[objNull]],
 	["_job","",[""]]

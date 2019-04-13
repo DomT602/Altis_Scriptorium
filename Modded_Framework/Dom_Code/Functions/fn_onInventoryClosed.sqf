@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Handles whenever the player closes their inventory
 */
-
 params [
 	"",
 	["_container",objNull,[objNull]]

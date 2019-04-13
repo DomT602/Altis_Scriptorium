@@ -22,22 +22,27 @@ _fieldManual ctrlEnable false;
 
 if (client_blockActions) exitWith {};
 
-[] spawn {
-	private _abortButton = (findDisplay 49) displayCtrl 104;
-	private _timer = time + 5;
-
-	waitUntil {
-		_abortButton ctrlSetText format["Abort in %1",[(_timer - time),"SS.MS"] call BIS_fnc_secondsToString];
-		_abortButton ctrlCommit 0;
-		if (dialog && {isNull (findDisplay 1002)}) then {closeDialog 0};
-		if (player getVariable ["dead",false]) then {(findDisplay 49) closeDisplay 0};
-		round(_timer - time) <= 0 || isNull (findDisplay 49)
-	};
-
-	_abortButton ctrlSetText localize "STR_DISP_INT_ABORT";
-	_abortButton ctrlCommit 0;
-	_abortButton ctrlEnable true;
-};
+private _timer = time + 5;
+[
+	{
+		params ["_timer","_button"];
+		_button ctrlSetText format["Abort in %1",[(_timer - time),"SS.MS"] call BIS_fnc_secondsToString];
+		_button ctrlCommit 0;
+		isNull (findDisplay 49) || player getVariable ["dead",false] || client_blockActions
+	},
+	{
+		params ["","_button"];
+		_button ctrlSetText "Aborting interupted";
+	},
+	[_timer,_abortButton],
+	5,
+	{
+		params ["","_button"];
+		_button ctrlSetText localize "STR_DISP_INT_ABORT";
+		_button ctrlCommit 0;
+		_button ctrlEnable true;
+	}
+] call CBA_fnc_waitUntilAndExecute;
 
 [
 	{

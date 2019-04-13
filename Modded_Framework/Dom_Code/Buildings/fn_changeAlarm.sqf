@@ -8,12 +8,13 @@ params [
 ];
 if (isNull _house) exitWith {};
 
-private _display = findDisplay -1;
-private _police = _display displayCtrl -1;
-private _security = _security displayCtrl -1;
-private _people = [];
+private _display = findDisplay 1029;
+private _police = _display displayCtrl 2800;
+private _security = _display displayCtrl 2801;
+closeDialog 0;
 
-private _alarm = [cbChecked _police,cbChecked _security,_people];
+private _alarm = [cbChecked _police,cbChecked _security];
 
 _house setVariable ["alarm",_alarm,true];
-[(_house getVariable ["id",-1]),getPlayerUID player,_alarm] remoteExecCall ["DB_fnc_updateAlarmState",2];
+[_house,_alarm] remoteExecCall ["DB_fnc_updateAlarmState",2];
+["Alarm updated.","green"] call DT_fnc_notify;

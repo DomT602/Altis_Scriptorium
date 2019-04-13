@@ -19,7 +19,7 @@ if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> _class)) exitWith {
 	private _price = getNumber(_config >> "price");
 	private _maxItems = getNumber(_config >> "maxItems");
 	private _action = [
-		format ["This shop is for sale for: $%1, it can support a max of %2 unique items.",str(_price),str(_maxItems)],
+		format ["This shop is for sale for: $%1, it can support a max of %2 unique items.",_price,_maxItems],
 		"Buy property",
 		"Buy",
 		"Cancel"
@@ -45,7 +45,7 @@ private _price = getNumber(_config >> "price");
 private _maxFurniture = getNumber(_config >> "maxFurniture");
 private _type = getNumber(_config >> "type");
 private _action = [
-	format ["This building is for sale for: $%1, it can support %2 furniture items.",str(_price),str(_maxFurniture)],
+	format ["This building is for sale for: $%1, it can support %2 furniture items.",_price,_maxFurniture],
 	"Buy property",
 	"Buy",
 	"Cancel"

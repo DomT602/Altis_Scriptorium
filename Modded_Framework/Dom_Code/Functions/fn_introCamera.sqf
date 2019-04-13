@@ -4,7 +4,6 @@
 	Description: When a player connects to the server, plays an intro (while the player is initialising)
 */
 
-
 private _camera = "camera" camCreate ((getPosATL player) vectorAdd [0,0,1500]);
 _camera cameraEffect ["internal","back"];
 showCinemaBorder false;

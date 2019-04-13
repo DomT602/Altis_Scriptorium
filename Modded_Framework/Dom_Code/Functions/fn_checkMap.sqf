@@ -3,7 +3,6 @@
     Author: Dom
     Description: Checks if the map is being opened or closed, then puts markers according to side.
 */
-
 params [
     ["_mapOpen",false,[false]]
 ];

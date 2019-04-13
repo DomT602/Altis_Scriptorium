@@ -9,13 +9,10 @@ params [
 ];
 
 private _uid = getPlayerUID _unit;
-{
-	_x params [
-		["_sUID","",[""]],
-		["_sName","",[""]]
-	];
-	if (_sUID isEqualTo _uid) exitWith {
-		_name = _sName;
-	};
-} forEach (profileNamespace getVariable "DT_Names");
+private _names = profileNamespace getVariable ["DT_Names",[]];
+private _index = _names findIf {_x select 0 isEqualTo _uid};
+
+if (_index != -1) then {
+	_name = (_names select _index) select 1;
+};
 _name;

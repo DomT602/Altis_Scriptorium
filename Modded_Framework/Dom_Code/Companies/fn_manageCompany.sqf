@@ -67,8 +67,9 @@ switch _action do {
 		private _tree = _display displayCtrl 1500;
 		private _selectionPath = tvCurSel _tree;
 		if (count _selectionPath < 2) exitWith {["You need to select somebody.","orange"] call DT_fnc_notify};
-		if ((_selectionPath select 0) >= (player getVariable ["company_rank",0])) exitWith {["You can only fire ranks of those under you.","orange"] call DT_fnc_notify};
-		private _uid = (_tree tvData _selectionPath);
+		if ((_selectionPath select 0) >= (player getVariable ["company_rank",0])) exitWith {["You can only update ranks of those under you.","orange"] call DT_fnc_notify};
+		private _uid = _tree tvData _selectionPath;
+		private _name = _tree tvText _selectionPath;
 		_selectionPath params ["_rank"];
 		if (_data) then {
 			_rank = _rank + 1;
@@ -76,7 +77,7 @@ switch _action do {
 			_rank = _rank - 1;
 		};
 		_tree tvDelete _selectionPath;
-		_tree tvAdd [[_rank],_uid];
+		_tree tvAdd [[_rank],_name];
 		_tree tvSetData [[_rank,(_tree tvCount [_rank])-1],_uid];
 		_tree tvSortByValue [[_rank],false];
 		_tree tvSetCurSel [-1];
@@ -94,8 +95,8 @@ switch _action do {
 		private _selectionPath = tvCurSel _tree;
 		if (count _selectionPath < 2) exitWith {["You need to select somebody.","orange"] call DT_fnc_notify};
 		if ((_selectionPath select 0) >= (player getVariable ["company_rank",0])) exitWith {["You can only fire ranks of those under you.","orange"] call DT_fnc_notify};
-		private _uid = (_tree tvData _selectionPath);
-		private _name = (_tree tvText _selectionPath);
+		private _uid = _tree tvData _selectionPath;
+		private _name = _tree tvText _selectionPath;
 		_tree tvDelete _selectionPath;
 		[format["You successfully fired %1.",_name]] call DT_fnc_notify;
 		[(player getVariable ["company",""]),5,_uid] remoteExecCall ["DB_fnc_updateCompany",2];

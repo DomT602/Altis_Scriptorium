@@ -8,4 +8,4 @@ params [
 	["_array",[],[[]]]
 ];
 
-_array findIf {_item in _x};
+_array findIf {_item == (_x select 0)};

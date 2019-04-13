@@ -3,7 +3,6 @@
 	Author: Dom
 	Description: Handles whenever the player opens their inventory
 */
-
 params [
 	["_unit",objNull,[objNull]],
 	["_container",objNull,[objNull]],

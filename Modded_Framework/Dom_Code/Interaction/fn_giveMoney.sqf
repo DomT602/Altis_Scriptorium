@@ -19,7 +19,7 @@ if (_amount < (client_cash + 1)) then {
 
 	[_amount,player] remoteExecCall ["DT_fnc_recieveMoney",_unit];
 	client_cash = client_cash - _amount;
-	[format["You gave %1 $%2.",_name,str(_amount)],"green"] call DT_fnc_notify;	
+	[format["You gave %1 $%2.",_name,_amount],"green"] call DT_fnc_notify;	
 	[0] call DT_fnc_saveStatsPartial;
 } else {
 	["You do not have enough money on you.","orange"] call DT_fnc_notify;

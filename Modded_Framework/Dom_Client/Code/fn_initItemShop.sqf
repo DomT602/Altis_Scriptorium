@@ -4,10 +4,10 @@
     Description: Switches player on or off duty
 */
 params [
-	"",
+	["_target",objNull,[objNull]],
 	"",
 	"",
 	["_shop","",[""]]
 ];
 
-[_shop] call DT_fnc_initItemShop;
+[_target,_shop] call DT_fnc_initItemShop;
