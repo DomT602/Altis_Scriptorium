@@ -7,4 +7,4 @@ Put DT_nameMenu into the dialog folder, and add it to the masterhandler.h(pp)
 Put remaining SQF files into desired folder (default: dialog/function) and add each file to functions.h(pp)
 Add a button or a way to bring up the name menu e.g:
 _Btn1 ctrlSetText "Name Menu";
-_Btn1 buttonSetAction "[life_pInact_curTarget] call life_fnc_nameMenu;";
+_Btn1 buttonSetAction "closeDialog 0; createDialog 'DT_SetPlayerTag'";

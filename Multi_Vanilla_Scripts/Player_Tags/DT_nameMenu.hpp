@@ -5,6 +5,7 @@ class DT_SetPlayerTag {
 	class controls {
 		class DT_EnterName: Life_RscEdit {
 			idc = 1400;
+			maxChars=50;
 			x = 0.412344 * safezoneW + safezoneX;
 			y = 0.467 * safezoneH + safezoneY;
 			w = 0.165 * safezoneW;

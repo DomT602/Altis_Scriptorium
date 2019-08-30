@@ -47,4 +47,4 @@ player removeItem "ItemGPS";
 
 hint format["You attached the GPS Tracker to the %1.",_displayName];
 
-_vehicle setVariable ["_tracked",true,false];
+_vehicle setVariable ["tracked",true,false];
