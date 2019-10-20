@@ -1,0 +1,204 @@
+version=53;
+class EditorData
+{
+	moveGridStep=1;
+	angleGridStep=0.2617994;
+	scaleGridStep=1;
+	autoGroupingDist=10;
+	toggles=1;
+	class ItemIDProvider
+	{
+		nextID=12;
+	};
+	class Camera
+	{
+		pos[]={8718.8125,12.179594,6668.8921};
+		dir[]={-0.186821,-0.13196531,-0.97352111};
+		up[]={-0.024876902,0.9912436,-0.12962998};
+		aside[]={-0.98210609,-3.5616904e-007,0.1884691};
+	};
+};
+binarizationWanted=0;
+addons[]=
+{
+	"D_C",
+	"D_FireRescue",
+	"D_Police"
+};
+class AddonsMetaData
+{
+	class List
+	{
+		items=3;
+		class Item0
+		{
+			className="D_C";
+			name="d_c";
+			author="DomRP";
+			url="CriticalGaming.org";
+		};
+		class Item1
+		{
+			className="D_FireRescue";
+			name="D_FireRescue";
+		};
+		class Item2
+		{
+			className="D_Police";
+			name="D_Police";
+		};
+	};
+};
+randomSeed=2702076;
+class ScenarioData
+{
+	author="Happy Panda";
+};
+class Intro
+{
+	assetType="Free";
+	class Intel
+	{
+		briefingName="Lakeside Intro";
+		timeOfChanges=1800.0002;
+		startWeather=0.2;
+		startWind=0.1;
+		startWaves=0.1;
+		forecastWeather=0.60000002;
+		forecastWind=0.1;
+		forecastWaves=0.1;
+		forecastLightnings=0.1;
+		year=2019;
+		month=1;
+		day=1;
+		hour=12;
+		minute=0;
+		startFogDecay=0.014;
+		forecastFogDecay=0.014;
+	};
+	class Entities
+	{
+		items=4;
+		class Item0
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8718.7881,10.521431,6669.249};
+						angles[]={0,3.2610469,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+						isPlayer=1;
+					};
+					id=1;
+					type="D_BapeShorts_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=0;
+		};
+		class Item1
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8717.2383,10.521432,6660.2085};
+						angles[]={0,0.1855676,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=5;
+					type="D_FeelsBadManShorts_F";
+					atlOffset=9.5367432e-007;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=4;
+			atlOffset=9.5367432e-007;
+		};
+		class Item2
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8715.7471,10.521431,6661.3608};
+						angles[]={0,0.66966885,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=7;
+					type="D_FireRescue_Uni_SeniorEMT_F";
+				};
+			};
+			class Attributes
+			{
+			};
+			id=6;
+		};
+		class Item3
+		{
+			dataType="Group";
+			side="Civilian";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={8719,10.521432,6660.7573};
+						angles[]={0,5.7970009,0};
+					};
+					side="Civilian";
+					flags=7;
+					class Attributes
+					{
+					};
+					id=9;
+					type="D_Police_CorporalFTO_F";
+					atlOffset=9.5367432e-007;
+				};
+			};
+			class Attributes
+			{
+			};
+			id=8;
+			atlOffset=9.5367432e-007;
+		};
+	};
+};

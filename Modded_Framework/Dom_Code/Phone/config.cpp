@@ -1,0 +1,25 @@
+class Phone {
+    file = "\Dom_Code\Phone";
+    class beingCalled {};
+    class callNumber {};
+    class chargePhone {};
+    class dialPad {};
+    class editContact {};
+    class endCall {};
+    class findContact {};
+    class govFreq {};
+    class initContacts {};
+    class initInbox {};
+    class initSettings {};
+    class openPhone {};
+    class phoneStateChanged {};
+    class popupPhone {};
+    class recieveText {};
+    class respondCall {};
+    class seeMessage {};
+    class sendText {};
+    class setFrequency {};
+    class updatePhone {};
+    class updateSettings {};
+    class useContact {};
+};

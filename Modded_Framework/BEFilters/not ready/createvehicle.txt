@@ -1,0 +1,2 @@
+7 "" !=GroundWeaponHolder !=#lightpoint !=Logic !=DemoCharge_Remote_Ammo_Scripted !=Land_Money_F !=RoadCone_L_F !=RoadBarrier_F !=Land_CncBarrier_F !=Land_Portablelight_Single_F !=Land_Portablelight_Single_F !=Supply[\d]{1,3} !=Chemlight_(red|yellow|green|blue)
+Needs all backpacks

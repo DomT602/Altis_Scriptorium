@@ -1,0 +1,10 @@
+publicVariable "DT_fnc_addExp";
+publicVariable "DT_fnc_countCraftLBchange";
+publicVariable "DT_fnc_craft";
+publicVariable "DT_fnc_craftLBchange";
+publicVariable "DT_fnc_harvestAnimal";
+publicVariable "DT_fnc_harvestPlant";
+publicVariable "DT_fnc_lockpick";
+publicVariable "DT_fnc_openCraftMenu";
+publicVariable "DT_fnc_pickupItem";
+publicVariable "DT_fnc_plantSeed";
