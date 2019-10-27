@@ -4,11 +4,12 @@
 	Description: Recieves request from client to update specific values
 */
 params [
-	["_uid","",[""]],
+	["_unit",objNull,[objNull]],
 	["_mode",-1,[0]],
-	["_data",-1,[0,[],objNull]]
+	["_data",-1,[0,[]]]
 ];
-if (_uid isEqualTo "") exitWith {};
+if (isNull _unit) exitWith {};
+private _uid = getPlayerUID _unit;
 
 switch _mode do {
 	case 0: {
@@ -16,8 +17,8 @@ switch _mode do {
 	};
 
 	case 1: {
-		private _gear = getUnitLoadout _data;
-		private _side = _data getVariable ["faction",""];
+		private _gear = getUnitLoadout _unit;
+		private _side = _unit getVariable ["faction",""];
 		switch _side do {
 			case "cop": {[format["updateCopGear:%1:%2",_gear,_uid],1] call MySQL_fnc_DBasync};
 			case "medic": {[format["updateMedicGear:%1:%2",_gear,_uid],1] call MySQL_fnc_DBasync};

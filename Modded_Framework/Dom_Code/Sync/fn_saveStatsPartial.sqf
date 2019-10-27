@@ -7,14 +7,14 @@ params [
 	["_mode",-1,[0]]
 ];
 if (_mode isEqualTo -1) exitWith {};
-private _packet = [getPlayerUID player,_mode];
+private _packet = [player,_mode];
 
 switch _mode do {
 	case 0: {
 		_packet pushBack client_licenses;
 	};
 	case 1: {
-		_packet pushBack player;
+		//gear
 	};
 	case 2: {
 		_packet pushBack phone_settings;

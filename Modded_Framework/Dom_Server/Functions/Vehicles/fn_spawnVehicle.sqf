@@ -11,10 +11,11 @@ params [
 ];
 
 ([format["fetchVehicle:%1",_plate],2] call MySQL_fnc_DBasync) params ["_className","_customisation","_fuel","_damage"];
-[format["setVehicleActive:%1",_plate],1] call MySQL_fnc_DBasync;
 _customisation params ["_colour"];
 
 private _vehicle = createVehicle [_className,getMarkerPos _spawnPoint,[],0];
+if (isNull _vehicle) exitWith {["Vehicle failed to spawn."] remoteExecCall ["DT_fnc_notify",remoteExecutedOwner]};
+[format["setVehicleActive:%1",_plate],1] call MySQL_fnc_DBasync;
 _vehicle setDir (markerDir _spawnPoint);
 
 clearWeaponCargoGlobal _vehicle;

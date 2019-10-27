@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `players` (
 	`copLevel` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0',
 	`medLevel` enum('0','1','2','3','4','5','6','7') NOT NULL DEFAULT '0',
 	`copDepartment` enum('0','1','2','3','4') NOT NULL DEFAULT '0',
-	`medDepartment` enum('0','1','2','3') NOT NULL DEFAULT '0',
+	`medDepartment` enum('0','1','2') NOT NULL DEFAULT '0',
 	`licenses` text NOT NULL DEFAULT '[]',
 	`civGear` text NOT NULL DEFAULT '[]',
 	`copGear` text NOT NULL DEFAULT '[]',
