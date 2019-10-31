@@ -33,11 +33,15 @@ private _timer = CBA_missionTime + 10;
 		isNull _display || player getVariable ["dead",false] || client_blockActions
 	},
 	{
-		params ["","_button"];
-		_button ctrlSetText "Aborting interupted";
+		params ["","_button","_display"];
+		if (player getVariable ["dead",false]) then {
+			_display closeDisplay 2;
+		} else {
+			_button ctrlSetText "Aborting interupted";
+		};
 	},
 	[_timer,_abortButton,_display],
-	_timer,
+	10,
 	{
 		params ["","_button"];
 		_button ctrlSetText localize "STR_DISP_INT_ABORT";
