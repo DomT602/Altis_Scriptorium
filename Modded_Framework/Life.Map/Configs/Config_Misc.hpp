@@ -48,4 +48,9 @@ class Misc {
 		MW_tablet = "[false] call DT_fnc_startJailbreak";
 		D_PanicButton = "[player] remoteExecCall ['DT_fnc_panic',(['cop'] call DT_fnc_findPlayers)]";
 	};
+
+	dealerPositions[] = {
+		{{8601.07,6517.07,0.167201},142.646},
+		{{1,1,1},100}
+	};
 };

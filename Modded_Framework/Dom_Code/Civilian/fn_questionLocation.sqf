@@ -16,7 +16,7 @@ if ((player getVariable ["cash",0]) < 100) exitWith {
 _unit setVariable ["dealerTimer",CBA_missionTime];
 if (random 4 < 1) exitWith {["Thanks for the drink - but I don't actually know any information."] call DT_fnc_notify;};
 
-private _locations = [[[8601.07,6517.07,0.167201],142.646],[[1,1,1],100],[[1,1,1],100],[[1,1,1],100]];
+private _locations = getArray(missionConfigFile >> "Misc" >> "dealerPositions");
 private _toShow = [(dealer_positions select _blackMarket)];
 private _max = (count _locations) - 1;
 while {count _toShow < 3} do {

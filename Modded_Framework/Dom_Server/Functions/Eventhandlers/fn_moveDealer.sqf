@@ -7,7 +7,7 @@ params [
 	["_object",objNull,[objNull]]
 ];
 
-private _locations = [[[8601.07,6517.07,0.167201],142.646],[[1,1,1],100]];
+private _locations = getArray(missionConfigFile >> "Misc" >> "dealerPositions");
 private _index = -1;
 private _max = (count _locations) - 1;
 while {_index isEqualTo -1} do {
