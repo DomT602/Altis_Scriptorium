@@ -16,7 +16,7 @@ if (isNull _vehicle || {player distance _vehicle > 3}) exitWith {};
 //if !("ItemGPS" in (items player)) exitWith {hint "You need a GPS."}; uncomment if you want player to need a GPS to track vehicle
 
 life_action_inUse = true;
-private _displayName = FETCH_CONFIG2(getText,"CfgVehicles",(typeOf _veh),"displayName");
+private _displayName = FETCH_CONFIG2(getText,"CfgVehicles",(typeOf _vehicle),"displayName");
 private _upp = format ["Attaching GPS to %1.",_displayName];
 
 disableSerialization;
