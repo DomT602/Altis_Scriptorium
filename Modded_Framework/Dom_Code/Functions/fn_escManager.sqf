@@ -10,7 +10,6 @@ params [
 private _abortButton = _display displayCtrl 104;
 private _respawnButton = _display displayCtrl 1010;
 private _fieldManual = _display displayCtrl 122;
-private _abortButton = _display displayCtrl 104;
 private _saveButton = _display displayCtrl 103;
 private _topButton = _display displayCtrl 2;
 
