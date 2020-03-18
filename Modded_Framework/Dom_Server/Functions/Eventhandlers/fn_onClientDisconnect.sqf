@@ -11,9 +11,11 @@ params [
 ];
 
 private _position = getPosATL _unit;
+private _gear = getUnitLoadout _unit;
 if (_unit getVariable ["dead",false]) then {
 	[[_uid,_name],"Combat Logged"] call server_fnc_logAction;
 	_position = [];
+	_gear = [];
 };
 
 if (_unit getVariable ["restrained",false] || _unit getVariable ["tied",false]) then {
