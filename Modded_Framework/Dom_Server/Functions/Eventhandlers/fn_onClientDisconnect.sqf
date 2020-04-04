@@ -12,10 +12,12 @@ params [
 
 private _position = getPosATL _unit;
 private _gear = getUnitLoadout _unit;
+private _stats = [_unit getVariable ["hunger",100],_unit getVariable ["thirst",100],_unit getVariable ["phoneBattery",100],_unit getVariable ["blood",5000],_unit getVariable ["injuries",[]]];
 if (_unit getVariable ["dead",false]) then {
 	[[_uid,_name],"Combat Logged"] call server_fnc_logAction;
 	_position = [];
 	_gear = [];
+	_stats = [100,100,100,5000,[0,0,0,0,0,0]];
 };
 
 if (_unit getVariable ["restrained",false] || _unit getVariable ["tied",false]) then {
