@@ -57,6 +57,7 @@ class CfgRemoteExec {
 		F(DT_fnc_openGarage,CLIENT)
 		F(DT_fnc_openTransferMenu,CLIENT)
 		F(DT_fnc_recieveKey,CLIENT)
+		F(DT_fnc_spikeVehicle,CLIENT)
 
 		
 		F(server_fnc_fixGate,SERVER)

@@ -17,6 +17,7 @@ class Vehicles {
     class resetRadar {};
     class setCustomisation {};
     class setPlate {};
+    class spikeVehicle {};
     class storeVehicle {};
     class switchLightbar {};
     class switchRadar {};

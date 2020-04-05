@@ -15,6 +15,7 @@ publicVariable "DT_fnc_repairVehicle";
 publicVariable "DT_fnc_resetRadar";
 publicVariable "DT_fnc_setCustomisation";
 publicVariable "DT_fnc_setPlate";
+publicVariable "DT_fnc_spikeVehicle";
 publicVariable "DT_fnc_storeVehicle";
 publicVariable "DT_fnc_switchLightbar";
 publicVariable "DT_fnc_switchRadar";
