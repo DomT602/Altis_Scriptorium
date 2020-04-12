@@ -1,0 +1,1 @@
+This was my experimental damage handling system, trying to ensure that the correct body part should take most damage. The SQF functions are a simple replace and the CfgVehicles in config.cpp should replace its equivalent in the D_C PBO found on google drive.
