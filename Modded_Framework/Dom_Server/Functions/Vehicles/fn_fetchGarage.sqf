@@ -1,17 +1,17 @@
 /*
-    File: fn_fetchGarage.sqf
-    Author: Dom
-    Description: Fetches the players garage depending on their faction
+	File: fn_fetchGarage.sqf
+	Author: Dom
+	Description: Fetches the players garage depending on their faction
 */
 params [
-    ["_pid","",[""]],
-    ["_faction","civ",[""]],
-    ["_type","",[""]],
-    ["_impounded",false,[false]]
+	["_pid","",[""]],
+	["_faction","civ",[""]],
+	["_type","",[""]],
+	["_impounded",false,[false]]
 ];
 
 if (_pid isEqualTo "") exitWith {
-    remoteExecCall ["DT_fnc_openGarage",remoteExecutedOwner];
+	remoteExecCall ["DT_fnc_openGarage",remoteExecutedOwner];
 };
 
 private _return = [format["fetchGarage:%1:%2:%3:%4",_pid,_faction,_type,(parseNumber _impounded)],2,true] call MySQL_fnc_DBasync;

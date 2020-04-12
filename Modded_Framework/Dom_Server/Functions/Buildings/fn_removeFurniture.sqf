@@ -1,11 +1,11 @@
 /*
-    File: fn_removeFurniture.sqf
-    Author: Dom
-    Description: Delete selected furniture from DB
+	File: fn_removeFurniture.sqf
+	Author: Dom
+	Description: Delete selected furniture from DB
 */
 params [
-    ["_furniture",objNull,[objNull]],
-    ["_house",objNull,[objNull]]
+	["_furniture",objNull,[objNull]],
+	["_house",objNull,[objNull]]
 ];
 if (isNull _furniture) exitWith {};
 

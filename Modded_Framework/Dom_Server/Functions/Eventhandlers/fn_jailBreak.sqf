@@ -1,7 +1,7 @@
 /*
-    File: fn_jailBreak.sqf
-    Author: Dom
-    Description: Recieves and monitors the bomb state
+	File: fn_jailBreak.sqf
+	Author: Dom
+	Description: Recieves and monitors the bomb state
 */
 params [
 	["_object",objNull,[objNull]],
@@ -55,7 +55,7 @@ if (_time isEqualTo -1) then {
 	private _bomb = createVehicle ["DemoCharge_Remote_Ammo_Scripted",[0,0,0],[],0,"CAN_COLLIDE"];
 	_bomb attachTo [_object,[0,0,0]];
 	//[_bomb,["alarm",500,1]] remoteExecCall ["say3D",-2]; need a sound
-	
+
 	private _bombTime = time;
 	waitUntil {_bomb getVariable ["defused",false] || ((time - _bombTime) > _time)};
 

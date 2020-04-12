@@ -287,7 +287,7 @@ class Shops {
 				{"B_Quadbike_01_F",1000,""}
 			};
 		};
-		class cop {
+		class cop_car {
 			name = "Police Vehicles";
 			conditions = "(player getVariable ['faction','civ']) isEqualTo 'cop'";
 			vehicles[] = {
@@ -309,11 +309,18 @@ class Shops {
 				{"B_SDV_01_F",0,""}
 			};
 		};
-		class med {
+		class med_car {
 			name = "Medic Vehicles";
 			conditions = "(player getVariable ['faction','civ']) isEqualTo 'medic'";
 			vehicles[] = {
 				{"Jonzie_Ambulance",0,""}
+			};
+		};
+		class med_air {
+			name = "Medic Aircraft";
+			conditions = "(player getVariable ['faction','civ']) isEqualTo 'medic'";
+			vehicles[] = {
+				{"B_Heli_Light_01_F",0,""}
 			};
 		};
 	};

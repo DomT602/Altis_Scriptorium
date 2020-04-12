@@ -1,18 +1,18 @@
 /*
-    File: fn_storeVehicle.sqf
-    Author: Dom
-    Description: Stores the vehicle in the clients garage, if impounded it sets it to '1' in DB
-    [_vehicle,false] remoteExecCall ["DB_fnc_storeVehicle",2];
+	File: fn_storeVehicle.sqf
+	Author: Dom
+	Description: Stores the vehicle in the clients garage, if impounded it sets it to '1' in DB
+	[_vehicle,false] remoteExecCall ["DB_fnc_storeVehicle",2];
 */
 params [
-    ["_vehicle",objNull,[objNull]],
-    ["_impound",false,[false]]
+	["_vehicle",objNull,[objNull]],
+	["_impound",false,[false]]
 ];
 if (isNull _vehicle) exitWith {};
 
 private _plate = _vehicle getVariable ["plate",""];
 if (_plate isEqualTo "") exitWith {
-    ["Error code 01: report to devs."] remoteExecCall ["DT_fnc_notify",remoteExecutedOwner]
+	["Error code 01: report to devs."] remoteExecCall ["DT_fnc_notify",remoteExecutedOwner]
 };
 
 private _damage = (getAllHitPointsDamage _vehicle) select 2;

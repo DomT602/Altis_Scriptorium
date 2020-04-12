@@ -1,7 +1,7 @@
 /*
-    File: fn_jailBreak.sqf
-    Author: Dom
-    Description: Recieves and monitors the bomb state (needs gate in SQM)
+	File: fn_jailBreak.sqf
+	Author: Dom
+	Description: Recieves and monitors the bomb state (needs gate in SQM)
 */
 
 private _pos = getMarkerPos "rebel";

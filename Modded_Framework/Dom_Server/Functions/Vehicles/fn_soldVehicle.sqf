@@ -1,10 +1,10 @@
 /*
-    File: fn_soldVehicle.sqf
-    Author: Dom
-    Description: Sells a vehicle and deletes it from DB
+	File: fn_soldVehicle.sqf
+	Author: Dom
+	Description: Sells a vehicle and deletes it from DB
 */
 params [
-    ["_plate","",[""]]
+	["_plate","",[""]]
 ];
 if (_plate isEqualTo "") exitWith {};
 

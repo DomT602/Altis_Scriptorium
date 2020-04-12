@@ -1,11 +1,11 @@
 /*
-    File: fn_transferVehicle.sqf
-    Author: Dom
-    Description: Transfers ownership of a vehicle
+	File: fn_transferVehicle.sqf
+	Author: Dom
+	Description: Transfers ownership of a vehicle
 */
 params [
-    ["_plate","",[""]],
-    ["_uid","",[""]]
+	["_plate","",[""]],
+	["_uid","",[""]]
 ];
 if (_plate isEqualTo "" || {_uid isEqualTo ""}) exitWith {};
 

@@ -4,9 +4,9 @@
 	Description: Recieves request from client and inserts data to DB
 */
 params [
-    ["_uid","",[""]],
-    ["_unit",objNull,[objNull]],
-    ["_clientID",-1,[0]]
+	["_uid","",[""]],
+	["_unit",objNull,[objNull]],
+	["_clientID",-1,[0]]
 ];
 if (_uid isEqualTo "" || {isNull _unit}) exitWith {};
 

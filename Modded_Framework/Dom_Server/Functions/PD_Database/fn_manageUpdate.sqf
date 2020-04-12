@@ -1,7 +1,7 @@
 /*
-    File: fn_updateManage.sqf
-    Author: Dom
-    Description: Updates from information in the management panel
+	File: fn_updateManage.sqf
+	Author: Dom
+	Description: Updates from information in the management panel
 */
 params [
 	["_action","",[""]],

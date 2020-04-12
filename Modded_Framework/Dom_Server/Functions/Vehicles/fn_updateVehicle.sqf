@@ -1,10 +1,10 @@
 /*
-    File: fn_updateVehicle.sqf
-    Author: Dom
-    Description: Updates the customisation of a vehicle
+	File: fn_updateVehicle.sqf
+	Author: Dom
+	Description: Updates the customisation of a vehicle
 */
 params [
-    ["_vehicle",objNull,[objNull]]
+	["_vehicle",objNull,[objNull]]
 ];
 if (isNull _vehicle) exitWith {};
 

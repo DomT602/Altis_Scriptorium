@@ -1,11 +1,11 @@
 /*
-    File : fn_updateAlarmState.sqf
-    Author: Dom
-    Description: Syncs alarm changes to DB
+	File : fn_updateAlarmState.sqf
+	Author: Dom
+	Description: Syncs alarm changes to DB
 */
 params [
-    ["_house",objNull,[objNull]],
-    ["_alarmState",[],[[]]]
+	["_house",objNull,[objNull]],
+	["_alarmState",[],[[]]]
 ];
 if (isNull _house) exitWith {};
 

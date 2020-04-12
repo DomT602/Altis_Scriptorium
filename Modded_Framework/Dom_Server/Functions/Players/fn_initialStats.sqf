@@ -4,8 +4,8 @@
 	Description: Recieves request from client and sets their stuff up on connect
 */
 params [
-    ["_unit",objNull,[objNull]],
-    ["_clientID",-1,[0]]
+	["_unit",objNull,[objNull]],
+	["_clientID",-1,[0]]
 ];
 private _uid = getPlayerUID _unit;
 

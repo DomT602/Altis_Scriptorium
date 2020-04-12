@@ -21,7 +21,7 @@ if (_unit getVariable ["dead",false]) then {
 };
 
 if (_unit getVariable ["restrained",false] || _unit getVariable ["tied",false]) then {
-    [[_uid,_name],"Logged while restrained/tied"] call server_fnc_logAction;
+	[[_uid,_name],"Logged while restrained/tied"] call server_fnc_logAction;
 };
 
 private _jailDetails = _unit getVariable ["jailStats",[false,"",0,""]];

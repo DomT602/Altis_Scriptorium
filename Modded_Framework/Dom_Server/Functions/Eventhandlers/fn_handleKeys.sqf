@@ -1,11 +1,11 @@
 /*
-    File: fn_handleKeys.sqf
-    Author: Dom
-    Description: Handles keys so on rejoining players get keys reassigned
+	File: fn_handleKeys.sqf
+	Author: Dom
+	Description: Handles keys so on rejoining players get keys reassigned
 */
 params [
-    ["_uid","",[""]],
-    ["_input",objNull,[objNull]]
+	["_uid","",[""]],
+	["_input",objNull,[objNull]]
 ];
 
 if (_uid isEqualTo "" || isNull _input || _input isKindOf "House") exitWith {};

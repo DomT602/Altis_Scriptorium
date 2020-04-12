@@ -1,7 +1,7 @@
 /*
-    File: fn_fetchCompany.sqf
-    Author: Dom
-    Description: Checks if a person is a company member.
+	File: fn_fetchCompany.sqf
+	Author: Dom
+	Description: Checks if a person is a company member.
 */
 params [
 	["_uid","",[""]]

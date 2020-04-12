@@ -1,7 +1,7 @@
 /*
-    File: fn_entityKilled.sqf
-    Author: Dom
-    Description: Called when an entity is killed (for removing vehicles from DB currently)
+	File: fn_entityKilled.sqf
+	Author: Dom
+	Description: Called when an entity is killed (for removing vehicles from DB currently)
 */
 params [
 	["_unit",objNull,[objNull]]

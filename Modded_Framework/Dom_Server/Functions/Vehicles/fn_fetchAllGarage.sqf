@@ -1,11 +1,11 @@
 /*
-    File: fn_fetchAllGarage.sqf
-    Author: Dom
-    Description: Fetches the players garage depending on their faction
+	File: fn_fetchAllGarage.sqf
+	Author: Dom
+	Description: Fetches the players garage depending on their faction
 */
 params [
-    ["_pid","",[""]],
-    ["_faction","civ",[""]]
+	["_pid","",[""]],
+	["_faction","civ",[""]]
 ];
 
 private _return = [format["fetchAllGarage:%1:%2",_pid,_faction],2,true] call MySQL_fnc_DBasync;

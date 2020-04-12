@@ -1,7 +1,7 @@
 /*
-    File: fn_monitorSpikes.sqf
-    Author: Dom
-    Description: Monitors the spikestrip till a car hits it or it is picked up
+	File: fn_monitorSpikes.sqf
+	Author: Dom
+	Description: Monitors the spikestrip till a car hits it or it is picked up
 */
 params [
 	["_spikes",objNull,[objNull]]

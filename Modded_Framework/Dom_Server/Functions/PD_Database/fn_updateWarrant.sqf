@@ -1,7 +1,7 @@
 /*
-    File: fn_updateWarrant.sqf
-    Author: Dom
-    Description: Updates the status of a warrant and updates DB accordingly
+	File: fn_updateWarrant.sqf
+	Author: Dom
+	Description: Updates the status of a warrant and updates DB accordingly
 */
 params [
 	["_action","",[""]],

@@ -1,11 +1,11 @@
 /*
-    File: fn_updateShop.sqf
-    Author: Dom
-    Description: Syncs shop changes to DB
+	File: fn_updateShop.sqf
+	Author: Dom
+	Description: Syncs shop changes to DB
 */
 params [
-    ["_shop",objNull,[objNull]],
-    ["_type",0,[0]]
+	["_shop",objNull,[objNull]],
+	["_type",0,[0]]
 ];
 
 private _id = _shop getVariable ["id",-1];

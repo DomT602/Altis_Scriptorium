@@ -1,10 +1,10 @@
 /*
-    File: fn_keyChange.sqf
-    Author: Dom
-    Description: Changes permanent key status of a house
+	File: fn_keyChange.sqf
+	Author: Dom
+	Description: Changes permanent key status of a house
 */
 params [
-    ["_house",objNull,[objNull]]
+	["_house",objNull,[objNull]]
 ];
 
 private _keys = _house getVariable ["houseKeys",[]];
