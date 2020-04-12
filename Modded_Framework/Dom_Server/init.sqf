@@ -5,7 +5,6 @@
 */
 
 ["DT_DB"] call MYSQL_fnc_DBinit;
-[] call compile preprocessFileLineNumbers "\Dom_Code\init.sqf";
 
 addMissionEventHandler ["HandleDisconnect",{_this call server_fnc_onClientDisconnect; false}];
 addMissionEventHandler ["EntityKilled", {_this call server_fnc_entityKilled}];
