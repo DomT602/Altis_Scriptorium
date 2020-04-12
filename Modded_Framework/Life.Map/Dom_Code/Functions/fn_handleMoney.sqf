@@ -4,8 +4,8 @@
 	Description: Handles money
 */
 params [
-    ["_var","cash",["cash"]],
-    ["_value",0,[0]]
+	["_var","cash",["cash"]],
+	["_value",0,[0]]
 ];
 if (_value isEqualTo 0) exitWith {};
 

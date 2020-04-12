@@ -1,7 +1,7 @@
 /*
-    File: fn_checkText.sqf
-    Author: Dom
-    Description: Validates text (checks for :[])
+	File: fn_checkText.sqf
+	Author: Dom
+	Description: Validates text (checks for :[])
 */
 params [
 	["_text","",[""]]

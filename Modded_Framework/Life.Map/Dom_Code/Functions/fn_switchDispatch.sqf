@@ -1,7 +1,7 @@
 /*
-    File: fn_switchDispatch.sqf
-    Author: Dom
-    Description: Switches player onto dispatcher role
+	File: fn_switchDispatch.sqf
+	Author: Dom
+	Description: Switches player onto dispatcher role
 */
 if (player getVariable ["faction","civ"] isEqualTo "civ") exitWith {};
 if (player getVariable ["dispatch",false]) exitWith {player setVariable ["dispatch",nil,true]; ["You finished working as a dispatcher.","blue"] call DT_fnc_notify};

@@ -1,7 +1,7 @@
 /*
-    File: fn_checkPlayer.sqf
-    Author: Dom
-    Description: Series of checks to see if a target is valid if !([_unit] call DT_fnc_checkPlayer) exitWith {};
+	File: fn_checkPlayer.sqf
+	Author: Dom
+	Description: Series of checks to see if a target is valid if !([_unit] call DT_fnc_checkPlayer) exitWith {};
 */
 params [
 	["_unit",objNull,[objNull]],

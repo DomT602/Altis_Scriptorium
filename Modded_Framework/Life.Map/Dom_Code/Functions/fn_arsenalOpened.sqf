@@ -1,7 +1,7 @@
 /*
-    File: fn_arsenalOpened.sqf
-    Author: Dom
-    Description: Called when arsenal is opened
+	File: fn_arsenalOpened.sqf
+	Author: Dom
+	Description: Called when arsenal is opened
 */
 params [
 	["_display",displayNull,[displayNull]]

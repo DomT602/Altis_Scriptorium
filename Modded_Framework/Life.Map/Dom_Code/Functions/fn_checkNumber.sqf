@@ -1,7 +1,7 @@
 /*
-    File: fn_checkNumber.sqf
-    Author: Dom
-    Description: Validates a number if !([_number,0] call DT_fnc_checkNumber) exitWith {};
+	File: fn_checkNumber.sqf
+	Author: Dom
+	Description: Validates a number if !([_number,0] call DT_fnc_checkNumber) exitWith {};
 */
 params [
 	["_number","",[""]],

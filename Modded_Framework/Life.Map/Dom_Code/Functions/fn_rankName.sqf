@@ -1,7 +1,7 @@
 /*
-    File: fn_rankName.sqf
-    Author: Dom
-    Description: Changes a rank (NUMBER) to a named rank (STRING)
+	File: fn_rankName.sqf
+	Author: Dom
+	Description: Changes a rank (NUMBER) to a named rank (STRING)
 */
 params [
 	["_faction","cop",[""]],
