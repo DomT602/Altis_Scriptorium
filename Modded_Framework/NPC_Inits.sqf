@@ -12,6 +12,7 @@ this setVariable ["vehShop",["cop_boat",["Lakeside_Boat_Spawn","Lakeside_Boat_Sp
 this setVariable ["vehShop",["cop_air",["DOC_Air_Spawn_1"]]]; this setVariable ["garage",[false,"air",["DOC_Air_Spawn_1"],"cop"]];
 this setVariable ["vehShop",["cop_car",["DOC_Veh_Spawn","DOC_Veh_Spawn_1", "DOC_Veh_Spawn_2"]]]; this setVariable ["garage",[false,"car",["DOC_Veh_Spawn","DOC_Veh_Spawn_1", "DOC_Veh_Spawn_2"],"cop"]];
 
+this setVariable ["dutySwitch","medic"];
 this setVariable ["vehShop",["med_air",["LakesideEMS_Air_Spawn"]]]; this setVariable ["garage",[false,"air",["LakesideEMS_Air_Spawn"],"medic"]];
 this setVariable ["vehShop",["med_car",["LakesideEMS_Veh_Spawn","LakesideEMS_Veh_Spawn_1","LakesideEMS_Veh_Spawn_2","LakesideEMS_Veh_Spawn_3","LakesideEMS_Veh_Spawn_4"]]]; this setVariable ["garage",[false,"car",["LakesideEMS_Veh_Spawn","LakesideEMS_Veh_Spawn_1","LakesideEMS_Veh_Spawn_2","LakesideEMS_Veh_Spawn_3","LakesideEMS_Veh_Spawn_4"],"medic"]];
 this setVariable ["dutySwitch","medic"]; this setVariable ["clothingShop","medic"]; this setVariable ["itemShop","medic"];
