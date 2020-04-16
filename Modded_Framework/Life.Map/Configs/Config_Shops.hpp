@@ -234,30 +234,6 @@ class Shops {
 
 			};
 		};
-		class medic {
-			conditions = "player getVariable 'faction' isEqualTo 'medic'";
-			uniforms[] = {
-				{"D_FireRescue_Uni_Probie",0,"player getVariable ['medic_rank',0] isEqualTo 1"},
-				{"D_FireRescue_Uni_EMT",0,"player getVariable ['medic_rank',0] isEqualTo 2"},
-				{"D_FireRescue_Uni_EMTYellow",0,"player getVariable ['medic_rank',0] isEqualTo 2"},
-				{"D_FireRescue_Uni_SeniorEMT",0,"player getVariable ['medic_rank',0] > 2"},
-				{"D_FireRescue_Uni_SeniorEMTYellow",0,"player getVariable ['medic_rank',0] > 2"},
-				{"D_FireRescue_Uni_Command",0,"player getVariable ['medic_rank',0] > 4"},
-				{"D_FireRescue_Uni_Probie",0,"player getVariable ['medic_rank',0] > 4"}
-			};
-			vests[] = {
-
-			};
-			backpacks[] = {
-
-			};
-			goggles[] = {
-
-			};
-			headgear[] = {
-
-			};
-		};
 		class civ {
 			conditions = "";
 			uniforms[] = {
