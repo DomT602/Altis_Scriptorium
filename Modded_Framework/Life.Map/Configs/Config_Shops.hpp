@@ -195,8 +195,6 @@ class Shops {
 				{"D_SWAT_Bala_Stealth",0,"(player getVariable ['department','Patrol']) isEqualTo 'SWAT'"}
 			};
 			headgear[] = {
-				{"D_PatrolHat",0,"(player getVariable ['department','Patrol']) isEqualTo 'High Command'"},
-				{"D_PatrolHat2",0,"(player getVariable ['department','Patrol']) isEqualTo 'Patrol'"},
 				{"D_Hat_Police_Academy",0,""},
 				{"D_Hat_Police",0,""},
 				{"D_HatBack_Police",0,""},
