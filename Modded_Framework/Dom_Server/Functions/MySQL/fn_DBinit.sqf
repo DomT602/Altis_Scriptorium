@@ -19,7 +19,7 @@ if ( isNil {uiNamespace getVariable "extDB_SQL_CUSTOM_ID"}) then {
 
 	diag_log format ["extDB3: Version: %1", _result];
 	if(_result isEqualTo "") exitWith {diag_log "extDB3: Failed to Load"; false};
-	//--- if ((parseNumber _result) < 20) exitWith {diag_log "Error: extDB version 20 or Higher Required";};
+	if ((parseNumber _result) < 1.031) exitWith {diag_log "Error: extDB3 version 1.031 or Higher Required"; false};
 
 	//---  extDB Connect to Database
 	_result = parseSimpleArray ("extDB3" callExtension format["9:ADD_DATABASE:%1", _database]);

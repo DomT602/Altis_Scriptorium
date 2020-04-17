@@ -14,7 +14,7 @@ params [
 	["_hitPoint","",[""]]
 ];
 
-if (_hitPoint in ["hitlegs","hithands","hitarms"]) exitWith {0}; //old
+//if (_hitPoint in ["hitlegs","hithands","hitarms"]) exitWith {0}; //old
 
 if (_hitPoint isEqualTo "") then {_hitPoint = "all"};
 _unit setVariable [_hitPoint,_damage];
@@ -25,18 +25,18 @@ if (_hitPoint isEqualTo "dt_lasthitpoint") exitWith { //this event triggers twic
 	private _allBodyDamage = _unit getVariable ["all",0];
 
 	private _headDamages = [
-		_unit getVariable ["HitFace",0],
-		_unit getVariable ["HitNeck",0],
-		_unit getVariable ["HitHead",0]
+		_unit getVariable ["hitface",0],
+		_unit getVariable ["hitneck",0],
+		_unit getVariable ["hithead",0]
 	];
 	_headDamages sort false;
 	_headDamages params ["_headDamage"];
 
 	private _torsoDamages = [
-		_unit getVariable ["HitPelvis",0],
-		_unit getVariable ["HitAbdomen",0],
-		_unit getVariable ["HitDiaphragm",0],
-		_unit getVariable ["HitChest",0]
+		_unit getVariable ["hitpelvis",0],
+		_unit getVariable ["hitabdomen",0],
+		_unit getVariable ["hitdiaphragm",0],
+		_unit getVariable ["hitchest",0]
 	];
 	_torsoDamages sort false;
 	_torsoDamages params ["_torsoDamage"];
@@ -98,6 +98,11 @@ if (_hitPoint isEqualTo "dt_lasthitpoint") exitWith { //this event triggers twic
 	if (_recievedDamage > 0.0000001) then {
 		[_hitIndex,_recievedDamage] call DT_fnc_healthHandler;
 	};
+
+	{
+		_unit setVariable [_x,0];
+	} forEach ["hitface","hitneck","hithead","hitpelvis","hitabdomen","hitdiaphragm","hitchest","hitleftarm","hitrightarm","hitleftleg","hitrightleg"];
+
 	0;
 };
 

@@ -4,7 +4,8 @@
 	Description: Begins initialisation for serverside stuff
 */
 
-["DT_DB"] call MYSQL_fnc_DBinit;
+private _databaseSetup = ["DT_DB"] call MYSQL_fnc_DBinit;
+if !(_databaseSetup) exitWith {diag_log "Database setup failed - check RPT and ExtDB3 Logs"};
 
 addMissionEventHandler ["HandleDisconnect",{_this call server_fnc_onClientDisconnect; false}];
 addMissionEventHandler ["EntityKilled", {_this call server_fnc_entityKilled}];

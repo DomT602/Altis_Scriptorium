@@ -20,10 +20,10 @@ class Shops {
 			name = "Logan's Firearms";
 			conditions = "('gun' in client_licenses)";
 			items[] = {
-				{"RH_g17",6500,3250,""}
+				{"hgun_Pistol_heavy_01_F",6500,3250,""}
 			};
 			mags[] = {
-				{"RH_17Rnd_9x19_g17",125,60,""}
+				{"11Rnd_45ACP_Mag",125,60,""}
 			};
 		};
 
@@ -41,7 +41,7 @@ class Shops {
 				{"ItemCompass",50, 25,""},
 				{"ItemWatch",50,25,""},
 				{"D_Wrench_i",50,25,""},
-				//{"D_iPhone9_i","Phone",10,50,""},
+				{"D_iPhone9_i","Phone",10,50,""},
 				{"NVGoggles",1000,500,""},
 				{"NVGoggles_OPFOR",1000,500,""},
 				{"NVGoggles_INDEP",1000,500,""},
@@ -86,47 +86,26 @@ class Shops {
 			conditions = "(player getVariable ['faction','civ']) isEqualTo 'cop'";
 			items[] = {
 				{"D_GoPro_i",0,-1,""},
-				{"D_Coffee_i",30,-1,""},
-				{"np_donuts",30,-1,""},
-				{"np_chdonuts",30,-1,""},
-				{"np_jdonuts",30,-1,""},
-				{"np_cdonuts",30,-1,""},
+				{"D_Coffee_i",0,-1,""},
 				{"D_Redgul_i",0,-1,""},
 				{"D_Bandage_i",0,-1,""},
 				{"D_Battery_i",0,-1,""},
 				{"D_Handcuffs_i",0,-1,""},
 				{"D_Ziptie_i",0,-1,""},
-				{"D_Wrench_i",50,25,""},
+				{"D_Wrench_i",0,-1,""},
 				{"Chemlight_red",0,-1,""},
 				{"ItemWatch",0,-1,""},
 				{"ItemMap",0,-1,""},
 				{"ItemCompass",0,-1,""},
-				{"ItemGPS",100,-1,""},
-				{"D_Earpiece",100,-1,""},
-				{"Binocular",100,-1,""},
-				{"RH_g19",0,-1,""},
-				{"RH_p226",0,-1,""},
-				{"RH_fnp45",0,-1,""},
-				{"RH_m1911",0,-1,""},
-				{"RH_kimber_nw",0,-1,""},
-				{"RH_fn57",0,-1,""},
-				{"RH_bullb",0,-1,""},
-				{"hlc_smg_mp5k_PDW",0,-1,""},
-				{"hlc_smg_mp5a2",0,-1,""},
-				{"RH_uspm",0,-1,"(player getVariable ['department','Patrol']) isEqualTo 'SWAT'"},
-				{"hlc_mp510_tac",0,-1,"(player getVariable ['department','Patrol']) isEqualTo 'SWAT'"},
-				{"SmokeShellYellow",500,-1,"(player getVariable ['department','Patrol']) isEqualTo 'SWAT' && player getVariable ['copRank',0] >= 4"}
+				{"ItemGPS",0,-1,""},
+				{"D_iPhone9_i","Phone",10,50,""},
+				{"D_Earpiece",0,-1,""},
+				{"Binocular",0,-1,""},
+				{"hgun_Pistol_heavy_01_F",0,-1,""},
+				{"SmokeShellYellow",0,-1,"(player getVariable ['department','Patrol']) isEqualTo 'SWAT' && player getVariable ['copRank',0] >= 4"}
 			};
 			mags[] = {
-				{"RH_16Rnd_40cal_usp",125,-1,""},
-				{"RH_15Rnd_9x19_SIG",125,-1,""},
-				{"RH_7Rnd_45cal_m1911",125,-1,""},
-				{"RH_17Rnd_9x19_g17",125,-1,""},
-				{"RH_15Rnd_45cal_fnp",125,-1,""},
-				{"RH_20Rnd_57x28_FN",125,-1,""},
-				{"RH_6Rnd_454_Mag",125,-1,""},
-				{"hlc_30Rnd_10mm_JHP_MP5",125,-1,""},
-				{"hlc_30Rnd_9x19_GD_MP5",125,-1,""}
+				{"11Rnd_45ACP_Mag",0,-1,""}
 			};
 		};
 
@@ -141,7 +120,8 @@ class Shops {
 				{"D_Cast_i",0,-1,""},
 				{"D_IcePack_i",0,-1,""},
 				{"D_Heatpack_i",0,-1,""},
-				{"D_Defibrillator_i",0,-1,""}
+				{"D_Defibrillator_i",0,-1,""},
+				{"D_iPhone9_i","Phone",10,50,""}
 			};
 			mags[] = {};
 		};
@@ -255,7 +235,7 @@ class Shops {
 	};
 	class Vehicle {
 		class civ_basic {
-			name = "Logan's Shit Cars";
+			name = "Bob's Cars";
 			conditions = "";
 			vehicles[] = {
 				{"B_Quadbike_01_F",1000,""}
