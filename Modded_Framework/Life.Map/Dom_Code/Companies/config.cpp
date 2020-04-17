@@ -1,5 +1,5 @@
 class Companies {
-	file = "\Dom_Code\Companies";
+	file = "Dom_Code\Companies";
 	class companyCreated {};
 	class companyDeleted {};
 	class companyLBChanged {};

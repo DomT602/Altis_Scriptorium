@@ -1,5 +1,5 @@
 class Police {
-	file = "\Dom_Code\Police";
+	file = "Dom_Code\Police";
 	class arrestPlayer {};
 	class beLoaded {};
 	class createBOLO {};

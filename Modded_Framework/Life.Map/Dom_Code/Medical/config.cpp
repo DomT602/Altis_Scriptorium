@@ -1,5 +1,5 @@
 class Medical {
-	file = "\Dom_Code\Medical";
+	file = "Dom_Code\Medical";
 	class applyHeatpack {};
 	class applyRespirator {};
 	class bandage {};

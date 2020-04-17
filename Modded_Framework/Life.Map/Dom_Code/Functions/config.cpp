@@ -1,5 +1,5 @@
 class Functions {
-	file = "\Dom_Code\Functions";
+	file = "Dom_Code\Functions";
 	class arsenalOpened {};
 	class cameraLBchange {};
 	class checkMap {};

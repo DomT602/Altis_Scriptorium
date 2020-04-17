@@ -1,5 +1,5 @@
 class Shops {
-	file = "\Dom_Code\Shops";
+	file = "Dom_Code\Shops";
 	class buyClothing {};
 	class buyLicense {};
 	class buyMods {};

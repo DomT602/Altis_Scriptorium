@@ -1,5 +1,5 @@
 class Interaction {
-	file = "\Dom_Code\Interaction";
+	file = "Dom_Code\Interaction";
 	class changeRank {};
 	class giveMoney {};
 	class initMoneyMenu {};

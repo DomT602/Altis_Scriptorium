@@ -1,5 +1,5 @@
 class Crafting {
-	file = "\Dom_Code\Crafting";
+	file = "Dom_Code\Crafting";
 	class addExp {};
 	class countCraftLBchange {};
 	class craft {};

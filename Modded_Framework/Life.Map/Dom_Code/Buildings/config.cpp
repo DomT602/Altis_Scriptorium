@@ -1,5 +1,5 @@
 class Buildings {
-	file = "\Dom_Code\Buildings";
+	file = "Dom_Code\Buildings";
 	class alarmMenu {};
 	class breakDoor {};
 	class buyBuilding {};

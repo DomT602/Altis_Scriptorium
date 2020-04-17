@@ -1,5 +1,5 @@
 class Civilian {
-	file = "\Dom_Code\Civilian";
+	file = "Dom_Code\Civilian";
 	class catchFish {};
 	class endDelivery {};
 	class initBombMenu {};

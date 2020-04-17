@@ -62,7 +62,7 @@ _itemArray append (getArray(missionConfigFile >> "Shops" >> "Items" >> _shop >> 
 {
 	private _item = _x;
 	if !(_x in _itemList) then {
-		private _index = _itemArray findIf {_item == (_x select 0))};
+		private _index = _itemArray findIf {_item == (_x select 0)};
 		if !(_index isEqualTo -1) then {
 			private _config = _itemArray select _index;
 			_config params ["_className","","_sellPrice","_conditions"];

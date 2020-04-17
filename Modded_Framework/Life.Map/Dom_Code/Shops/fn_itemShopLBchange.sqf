@@ -42,7 +42,7 @@ switch _mode do {
 		};
 		private _item = _control tvData _selectionPath;
 		private _itemArray = getArray(missionConfigFile >> "Shops" >> "Items" >> _shop >> "items");
-		private _selectionPath2 = _itemArray findIf {_item == (_x select 0))};
+		private _selectionPath2 = _itemArray findIf {_item == (_x select 0)};
 		(_itemArray select _selectionPath2) params ["","",["_sellPrice",0,[0]]];
 		_infoBox ctrlSetStructuredText parseText format ["Sell Price: <t color='#8cff9b'>$%1</t></t>",_sellPrice];
 		_control tvSetValue [_selectionPath,_sellPrice];

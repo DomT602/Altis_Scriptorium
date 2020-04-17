@@ -1,5 +1,5 @@
 class Phone {
-	file = "\Dom_Code\Phone";
+	file = "Dom_Code\Phone";
 	class beingCalled {};
 	class callNumber {};
 	class chargePhone {};

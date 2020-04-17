@@ -1,5 +1,5 @@
 class Vehicles {
-	file = "\Dom_Code\Vehicles";
+	file = "Dom_Code\Vehicles";
 	class destroyVehicle {};
 	class flipVehicle {};
 	class getVehicle {};
