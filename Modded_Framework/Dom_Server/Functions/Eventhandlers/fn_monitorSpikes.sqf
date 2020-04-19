@@ -21,7 +21,7 @@ if (spike_handle isEqualTo -1) then {
 				_x params ["_object","_time"];
 				private _pos = getPosATL _object;
 				(nearestObjects[_pos,["Car"],5]) params [["_nearVeh",objNull]];
-				if (alive _nearVeh && {speed _nearVeh > 3}) then {
+				if (alive _nearVeh && {abs (speed _nearVeh) > 3}) then {
 					[_nearVeh] remoteExecCall ["DT_fnc_spikeVehicle",_nearVeh];
 					deleteVehicle _object;
 					_toDelete pushBack _forEachIndex;
