@@ -38,9 +38,11 @@ class Functions {
 	class onInventoryOpened {};
 	class onMouseButtonDown {};
 	class onMouseButtonUp {};
+	class onPutItem {};
 	class pickupMoney {};
 	class progressBar {};
 	class rankName {};
+	class resetHUD {};
 	class seatbelt {};
 	class setLightParams {};
 	class setName {};
@@ -54,4 +56,5 @@ class Functions {
 	class TFARcheck {};
 	class updateCamera {};
 	class updateHUD {};
+	class updateHUDPartial {};
 };

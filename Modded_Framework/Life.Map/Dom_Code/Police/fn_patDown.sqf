@@ -34,3 +34,8 @@ if (_strip) then {
 		_holder addItemCargoGlobal [_x,1];
 	} forEach items player;
 };
+
+if (client_goPro) then {
+	client_goPro = false;
+	["goPro"] call DT_fnc_updateHUDPartial;
+};

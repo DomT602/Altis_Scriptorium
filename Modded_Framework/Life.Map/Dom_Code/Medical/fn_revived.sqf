@@ -17,9 +17,11 @@ player setVariable ["tf_voiceVolume",1,true];
 player setVariable ["reviving",nil,true];
 if (player getVariable ["hunger",100] < 30) then {
 	player setVariable ["hunger",30,true];
+	["hunger"] call DT_fnc_updateHUDPartial;
 };
 if (player getVariable ["thirst",100] < 30) then {
 	player setVariable ["thirst",30,true];
+	["thirst"] call DT_fnc_updateHUDPartial;
 };
 client_blockActions = false;
 

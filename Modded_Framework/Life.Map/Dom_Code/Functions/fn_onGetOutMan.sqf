@@ -14,6 +14,8 @@ if !(_vehicle isKindOf "Car") exitWith {client_seatbelt = false};
 
 private _time = if (client_seatbelt) then {1.5} else {0.75};
 client_seatbelt = false;
+if (phone_charging) then {phone_charging = false};
+["seatbelt"] call DT_fnc_updateHUDPartial;
 
 [
 	{

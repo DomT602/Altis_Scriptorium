@@ -15,6 +15,7 @@ params [
 		private _blood = player getVariable ["blood",100];
 		_blood = (_blood + _amount) min 5000;
 		player setVariable ["blood",_blood,true];
+		["blood"] call DT_fnc_updateHUDPartial;
 		if (_count isEqualTo 0) exitWith {[_this select 1] call CBA_fnc_removePerFrameHandler};
 		_arguments set [0,(_count - 1)];
 	},

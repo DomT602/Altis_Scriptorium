@@ -16,6 +16,8 @@ if !(_oldValue isEqualTo 100) then {
 	["You feel more hydrated.","green"] call DT_fnc_notify;
 };
 
+["thirst"] call DT_fnc_updateHUDPartial;
+
 if (_item isEqualTo "D_Redgul_i") then {
 	["You feel like you can run forever.","blue"] call DT_fnc_notify;
 	player enableFatigue false;

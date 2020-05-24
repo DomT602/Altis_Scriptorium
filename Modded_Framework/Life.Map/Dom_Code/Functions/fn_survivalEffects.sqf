@@ -20,6 +20,7 @@ if (_type isEqualTo "hunger") exitWith {
 			["You are starving!","red"] call DT_fnc_notify;
 		};
 	};
+	[_type] call DT_fnc_updateHUDPartial;
 };
 
 if (_type isEqualTo "thirst") exitWith {
@@ -34,6 +35,7 @@ if (_type isEqualTo "thirst") exitWith {
 			["You are dying of dehydration!","red"] call DT_fnc_notify;
 		};
 	};
+	[_type] call DT_fnc_updateHUDPartial;
 };
 
 if (_type isEqualTo "battery") exitWith {

@@ -11,4 +11,5 @@ if !(isNull objectParent player) then {
 		client_seatbelt = false;
 	};
 };
+["seatbelt"] call DT_fnc_updateHUDPartial;
 true;

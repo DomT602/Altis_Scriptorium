@@ -78,13 +78,17 @@ player addEventHandler ["HandleDamage",{_this call DT_fnc_handleDamage}];
 player addEventHandler ["FiredMan",{_this call DT_fnc_onFired}];
 player addEventHandler ["InventoryClosed",{_this call DT_fnc_onInventoryClosed}];
 player addEventHandler ["InventoryOpened",{_this call DT_fnc_onInventoryOpened}];
+player addEventHandler ["Put",{_this call DT_fnc_onPutItem}];
 player addEventHandler ["HandleRating",{0}];
 player addEventHandler ["HandleScore",{false}];
 player addEventHandler ["GetOutMan",{_this call DT_fnc_onGetOutMan}];
+player addEventHandler ["Reloaded",{["reload",_this] call DT_fnc_updateHUDPartial}];
 [missionNamespace,"OnGameInterrupt",{_this call DT_fnc_escManager}] call BIS_fnc_addScriptedEventHandler;
 [missionNamespace,"arsenalOpened",{_this call DT_fnc_arsenalOpened}] call BIS_fnc_addScriptedEventHandler;
 addMissionEventHandler ["Map",{_this call DT_fnc_checkMap}];
 addMissionEventHandler ["Draw3D",{call DT_fnc_updateHUD}];
+["weapon",{["weapon",_this] call DT_fnc_updateHUDPartial}] call CBA_fnc_addPlayerEventHandler;
+["weaponMode",{["weaponMode",_this] call DT_fnc_updateHUDPartial}] call CBA_fnc_addPlayerEventHandler;
 
 ["cba_events_chatMessageSent", {
 	params ["_message"];

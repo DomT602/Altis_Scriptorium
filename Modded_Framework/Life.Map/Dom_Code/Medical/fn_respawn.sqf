@@ -27,6 +27,7 @@ if !(player getVariable ["evidence",[]] isEqualTo []) then {
 detach player;
 death_camera cameraEffect ["TERMINATE","BACK"];
 camDestroy death_camera;
+call DT_fnc_resetHUD;
 
 while {stance player != "STAND"} do {
 	[player,"AmovPercMstpSnonWnonDnon"] remoteExecCall ["switchMove",-2];

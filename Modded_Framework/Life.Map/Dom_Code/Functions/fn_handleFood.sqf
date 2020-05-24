@@ -16,6 +16,7 @@ if !(_oldValue isEqualTo 100) then {
 	["You feel less hungry.","green"] call DT_fnc_notify;
 };
 
+["hunger"] call DT_fnc_updateHUDPartial;
 [_value] call DT_fnc_recieveBlood;
 if (player getVariable ["bodyTemp",37] < 37) then {
 	[(_value / 100)] call DT_fnc_recieveHeat;

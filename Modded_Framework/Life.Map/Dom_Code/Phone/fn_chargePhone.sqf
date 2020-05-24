@@ -13,14 +13,20 @@ if (phone_charging) then {
 	[
 		{
 			private _battery = player getVariable ["phoneBattery",100];
+			private _HUD = uiNamespace getVariable ["DT_HUD",displayNull];
+
 			if (!phone_charging || _battery isEqualTo 100) exitWith {
+				(_HUD displayCtrl 1512) ctrlSetStructuredText parseText "";
 				[_this select 1] call CBA_fnc_removePerFrameHandler;
 				if (_battery isEqualTo 100) then {
 					phone_charging = false;
 					["Your phone is now fully charged.","green"] call DT_fnc_notify;
 				};
 			};
-			player setVariable ["phoneBattery",_battery + 1,[clientOwner,2]];
+			
+			private _newCharge = _battery + 1;
+			player setVariable ["phoneBattery",_newCharge,[clientOwner,2]];
+			(_HUD displayCtrl 1512) ctrlSetStructuredText parseText format["[%1%2] Charging phone",_newCharge,"%"];
 		},
 		15
 	] call CBA_fnc_addPerFrameHandler;

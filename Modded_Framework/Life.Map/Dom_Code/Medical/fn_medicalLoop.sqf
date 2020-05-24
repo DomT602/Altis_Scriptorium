@@ -19,6 +19,7 @@
 		if (_bleeding > 0) then {
 			_blood = (_blood - _bleeding) max 0;
 			player setVariable ["blood",_blood,true];
+			["blood"] call DT_fnc_updateHUDPartial;
 		};
 		if (_blood < 1 || (getOxygenRemaining player) < 0.05) exitWith {
 			[player] call DT_fnc_onPlayerKilled;

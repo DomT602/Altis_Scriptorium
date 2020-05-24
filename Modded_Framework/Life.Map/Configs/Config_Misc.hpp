@@ -19,7 +19,7 @@ class Misc {
 	};
 
 	class Items {
-		D_GoPro_i = "client_goPro = !client_goPro";
+		D_GoPro_i = "client_goPro = !client_goPro; ['goPro'] call DT_fnc_updateHUDPartial;";
 		D_Battery_i = "player setVariable ['phoneBattery',((player getVariable ['phoneBattery',100]) + 50) min 100,[clientOwner,2]]; ['You successfully charged your phone.','green'] call DT_fnc_notify; [{player removeItem 'D_Battery_i'}] call CBA_fnc_execNextFrame";
 		D_WaterBottle_i = "['D_WaterBottle_i',100] call DT_fnc_handleDrink; [{player removeItem 'D_WaterBottle_i'}] call CBA_fnc_execNextFrame";
 		D_Redgul_i = "['D_Redgul_i',75] call DT_fnc_handleDrink; [{player removeItem 'D_Redgul_i'}] call CBA_fnc_execNextFrame";
