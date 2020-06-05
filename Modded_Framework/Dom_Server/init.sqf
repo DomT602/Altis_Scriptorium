@@ -38,7 +38,7 @@ publicVariable "threat_level";
 gov_mayor = _mayor;
 publicVariable "gov_mayor";
 gov_taxArray = _taxArray;
-publicVariable "gov_taxArray"; //vehicleTax,houseTax,itemTax
+publicVariable "gov_taxArray"; //vehicleTax,itemTax,buildingTax
 PD_announcement = _announcement;
 publicVariable "PD_announcement";
 PD_otherBOLOs = [];

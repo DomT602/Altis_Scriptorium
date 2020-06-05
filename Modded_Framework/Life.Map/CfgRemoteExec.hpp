@@ -67,6 +67,7 @@ class CfgRemoteExec {
 		F(server_fnc_spawnAnimal,SERVER)
 		F(server_fnc_startLightbar,SERVER)
 		F(server_fnc_startSirens,SERVER)
+		F(server_fnc_updateGovData,SERVER)
 		
 		F(server_fnc_placeNet,SERVER)
 		F(server_fnc_plantSeed,SERVER)

@@ -12,6 +12,7 @@ class Civilian {
 	class startJailbreak {};
 	class switchJob {};
 	class taxiDistance {};
+	class updateGov {};
 	class ziptie {};
 	class ziptied {};
 };

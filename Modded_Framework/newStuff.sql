@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `persis_vars` (
 	`serverID` int NOT NULL AUTO_INCREMENT,
 	`threat` varchar(10) NOT NULL DEFAULT 'Green',
 	`mayor` varchar(32) NOT NULL DEFAULT '',
-	`tax` varchar(100) NOT NULL DEFAULT '[0,0,0]', /*atm,item,vehicle*/
+	`tax` varchar(30) NOT NULL DEFAULT '[0,0,0]',
 	`bank` int NOT NULL DEFAULT 0,
 	`announcement` varchar (140) NOT NULL DEFAULT '',
 	PRIMARY KEY (`serverID`)

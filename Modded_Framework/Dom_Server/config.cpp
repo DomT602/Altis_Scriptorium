@@ -86,6 +86,7 @@ class CfgFunctions {
 			class spawnAnimal {};
 			class startLightbar {};
 			class startSirens {};
+			class updateGovData {};
 			class updateTemperature {};
 		};
 		class Gathering {
