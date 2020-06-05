@@ -16,7 +16,7 @@ if (_option isEqualTo "taxes") then {
 		private _percentage = parseNumber (ctrlText _x);
 		if (_percentage < 0 || {_percentage > 100}) exitWith {["Invalid percentage entered.","red"] call DT_fnc_notify};
 		_taxArray pushBack _percentage;
-	};
+	} forEach _idcArray;
 	if (count _taxArray != 3) exitWith {};
 	[_option,_taxArray] remoteExecCall ["server_fnc_updateGovData",2];
 	["Tax updated.","green"] call DT_fnc_notify;
