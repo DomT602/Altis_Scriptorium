@@ -10,6 +10,6 @@ params [
 
 if (_option isEqualTo "taxes") then {
 	[format["updateGovTax:%1",_data],1] call MySQL_fnc_DBasync;
-	gov_taxArray = _taxArray;
+	gov_taxArray = _data;
 	publicVariable "gov_taxArray";
 };
