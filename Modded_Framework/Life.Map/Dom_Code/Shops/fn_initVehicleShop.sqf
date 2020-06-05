@@ -18,7 +18,7 @@ private _display = findDisplay 1008;
 private _control = _display displayCtrl 1500;
 (_display displayCtrl 1101) ctrlSetStructuredText parseText _shopTitle;
 
-private _taxPercentage = (gov_taxArray select 0) / 100;
+private _taxPercentage = 1 + ((gov_taxArray select 0) / 100);
 {
 	_x params ["_className","_price","_conditions"];
 	if ([_conditions] call DT_fnc_conditionChecker) then {
@@ -28,9 +28,7 @@ private _taxPercentage = (gov_taxArray select 0) / 100;
 		private _index = (lbSize _control) - 1;
 		_control lbSetPicture [_index,_picture];
 		_control lbSetData [_index,_className];
-		if (_taxPercentage != 0) then {
-			_price = _price * _taxPercentage;
-		};
+		_price = _price * _taxPercentage;
 		_control lbSetValue [_index,_price];
 	};
 } forEach (getArray(missionConfigFile >> "Shops" >> "Vehicle" >> _shop >> "vehicles"));
