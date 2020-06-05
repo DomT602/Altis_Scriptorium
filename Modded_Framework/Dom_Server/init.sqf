@@ -15,11 +15,10 @@ addMissionEventHandler ["EntityKilled", {_this call server_fnc_entityKilled}];
 ([format["selectPersisVars:%1",0],2] call MySQL_fnc_DBasync) params [
 	["_threat","Green",[""]],
 	["_mayor","Aquarium",[""]],
-	["_tax",[0,0,0],[[]]],
+	["_taxArray",[0,0,0],[[]]],
 	["_bank",0,[0]],
 	["_announcement","",[""]]
 ];
-_tax params ["_atmTax","_itemTax","_vehTax"];
 gov_bank = _bank;
 
 call DB_fnc_initBuildings;
@@ -36,8 +35,10 @@ jail_deviceSet = false;
 publicVariable "jail_deviceSet";
 threat_level = _threat;
 publicVariable "threat_level";
-mayor = _mayor;
-publicVariable "mayor";
+gov_mayor = _mayor;
+publicVariable "gov_mayor";
+gov_taxArray = _taxArray;
+publicVariable "gov_taxArray"; //vehicleTax,houseTax,itemTax
 PD_announcement = _announcement;
 publicVariable "PD_announcement";
 PD_otherBOLOs = [];

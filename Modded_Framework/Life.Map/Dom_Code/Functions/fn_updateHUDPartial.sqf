@@ -31,7 +31,7 @@ if (_type isEqualTo "thirst") exitWith {
 	private _thirst = player getVariable ["thirst",100];
 	private _thirstPic = "";
 	if (_thirst != 100) then {
-		_thirstPic = format["\Dom_UI\HUD\hunger%1.paa",floor(_hunger / 10)];
+		_thirstPic = format["\Dom_UI\HUD\thirst%1.paa",floor(_hunger / 10)];
 	};
 	(_HUD displayCtrl 1501) ctrlSetText _thirstPic;
 };

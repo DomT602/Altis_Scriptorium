@@ -23,6 +23,7 @@ private _tree = _display displayCtrl 1500;
 _tree tvAdd [[],"Items"];
 _tree tvAdd [[],"Inventory"];
 
+private _taxPercentage = (gov_taxArray select 1) / 100;
 {
 	_x params ["_className","_buyPrice","","_conditions"];
 	if (_buyPrice != -1 && {[_conditions] call DT_fnc_conditionChecker}) then {
@@ -46,6 +47,9 @@ _tree tvAdd [[],"Inventory"];
 					private _countMag = (_tree tvCount [0,_count]) - 1;
 					_tree tvSetData[[0,_count,_countMag],_class];
 					_tree tvSetPicture[[0,_count,_countMag],_picture];
+					if (_taxPercentage != 0) then {
+						_price = _price * _taxPercentage;
+					};
 					_tree tvSetValue[[0,_count,_countMag],_price];
 				};
 			} forEach (getArray(missionConfigFile >> "Shops" >> "Items" >> _shop >> "mags"));

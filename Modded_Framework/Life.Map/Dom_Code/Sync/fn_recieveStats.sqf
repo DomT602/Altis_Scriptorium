@@ -42,9 +42,12 @@ if (_gear isEqualTo []) then {
 
 _stats params ["_hunger","_thirst","_battery","_blood","_injuries"];
 player setVariable ["hunger",(_hunger max 11),true];
+["hunger"] call DT_fnc_updateHUDPartial;
 player setVariable ["thirst",(_thirst max 11),true];
+["thirst"] call DT_fnc_updateHUDPartial;
 player setVariable ["phoneBattery",_battery,[clientOwner,2]];
 player setVariable ["blood",_blood,true];
+["blood"] call DT_fnc_updateHUDPartial;
 player setVariable ["injuries",_injuries,true];
 
 player setVariable ["phoneNumber",_phoneNumber,true];
