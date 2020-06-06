@@ -36,4 +36,4 @@ if (isNull _holder) then {
 	_holder addItemCargoGlobal [_x,1];
 } forEach items player;
 
-[2] call SOCK_fnc_updatePartial;
+[3] call SOCK_fnc_updatePartial;
