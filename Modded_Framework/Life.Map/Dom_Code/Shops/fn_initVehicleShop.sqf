@@ -28,7 +28,7 @@ private _taxPercentage = 1 + ((gov_taxArray select 0) / 100);
 		private _index = (lbSize _control) - 1;
 		_control lbSetPicture [_index,_picture];
 		_control lbSetData [_index,_className];
-		_price = _price * _taxPercentage;
+		_price = round(_price * _taxPercentage);
 		_control lbSetValue [_index,_price];
 	};
 } forEach (getArray(missionConfigFile >> "Shops" >> "Vehicle" >> _shop >> "vehicles"));

@@ -16,7 +16,7 @@ if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> _class)) exitWith {
 	if !(_building getVariable ["shop_owner",""] isEqualTo "") exitWith {["This building is owned already.","orange"] call DT_fnc_notify};
 	private _config = missionConfigFile >> "Buildings" >> "Shops" >> typeOf _building;
 	private _price = getNumber(_config >> "price");
-	_price = _price * _taxPercentage;
+	_price = round(_price * _taxPercentage);
 	private _maxItems = getNumber(_config >> "maxItems");
 	private _action = [
 		format ["This shop is for sale for: $%1, it can support a max of %2 unique listings.",_price,_maxItems],
@@ -41,7 +41,7 @@ if (isClass(missionConfigFile >> "Buildings" >> "Shops" >> _class)) exitWith {
 if !(isClass (missionConfigFile >> "Buildings" >> "Houses" >> _class)) exitWith {["This building is not buyable.","red"] call DT_fnc_notify};
 private _config = missionConfigFile >> "Buildings" >> "Houses" >> typeOf _building;
 private _price = getNumber(_config >> "price");
-_price = _price * _taxPercentage;
+_price = round(_price * _taxPercentage);
 private _maxFurniture = getNumber(_config >> "maxFurniture");
 private _type = getNumber(_config >> "type");
 private _action = [

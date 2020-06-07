@@ -494,7 +494,7 @@ class Interactions {
 		};
 		class buyLicense {
 			title = "Buy license";
-			action = "[MB_Interaction_Target getVariable ['license','']] call DT_fnc_buyLicense";
+			action = "[MB_Interaction_Target getVariable ['license','']] spawn DT_fnc_buyLicense";
 			check = "((MB_Interaction_Target getVariable ['license','']) != '') && {((player distance MB_Interaction_Target) < 4) && {!((MB_Interaction_Target getVariable ['license','']) in client_licenses)}}";
 		};
 		class transferVehicle {

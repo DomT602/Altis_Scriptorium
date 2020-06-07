@@ -9,7 +9,7 @@ private _description = ctrlText 1401;
 if (count _name > 48) exitWith {["The company name is too long.","orange"] call DT_fnc_notify};
 if (count _description > 256) exitWith {["The company description is too long.","orange"] call DT_fnc_notify};
 
-if ([_name] call DT_fnc_checkText || [_description] call DT_fnc_checkText) exitWith {};
+if (!([_name] call DT_fnc_checkText) || {!([_description] call DT_fnc_checkText)}) exitWith {};
 
 if ((player getVariable ["cash",0]) < 25000) exitWith {["You need $25000 to start a new company.","orange"] call DT_fnc_notify};
 

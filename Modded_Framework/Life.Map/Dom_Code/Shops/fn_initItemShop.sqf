@@ -47,7 +47,7 @@ private _taxPercentage = 1 + ((gov_taxArray select 1) / 100);
 					private _countMag = (_tree tvCount [0,_count]) - 1;
 					_tree tvSetData[[0,_count,_countMag],_class];
 					_tree tvSetPicture[[0,_count,_countMag],_picture];
-					_price = _price * _taxPercentage;
+					_price = round(_price * _taxPercentage);
 					_tree tvSetValue[[0,_count,_countMag],_price];
 				};
 			} forEach (getArray(missionConfigFile >> "Shops" >> "Items" >> _shop >> "mags"));

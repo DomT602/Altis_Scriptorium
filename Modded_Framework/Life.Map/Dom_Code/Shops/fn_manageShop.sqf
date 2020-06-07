@@ -169,7 +169,7 @@ switch _action do {
 	case "updateName": {
 		private _oldName = MB_Interaction_Target getVariable ["shop_name",""];
 		private _newName = ctrlText (_display displayCtrl 1402);
-		if ([_newName] call DT_fnc_checkText) exitWith {};
+		if !([_newName] call DT_fnc_checkText) exitWith {};
 		if (count _newName < 5) exitWith {["Name is too short.","orange"] call DT_fnc_notify};
 		if (_oldName isEqualTo _newName) exitWith {["Shop name is unchanged."] call DT_fnc_notify};
 		["Shop name updated.","green"] call DT_fnc_notify;

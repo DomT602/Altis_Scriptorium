@@ -38,7 +38,7 @@ private _taxPercentage = 1 + ((gov_taxArray select 1) / 100);
 			private _count = (_tree tvCount [_index]) - 1;
 			_tree tvSetData [[_index,_count],_className];
 			_tree tvSetPicture [[_index,_count],_picture];
-			_buyPrice = _buyPrice * _taxPercentage;
+			_buyPrice = round(_buyPrice * _taxPercentage);
 			_tree tvSetValue [[_index,_count],_buyPrice];
 		};
 	} forEach _itemArray;
