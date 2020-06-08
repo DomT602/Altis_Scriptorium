@@ -28,6 +28,9 @@ if (_index isEqualTo 1) then {
 			{
 				if (phone_inCall) then {
 					["Call ended."] call DT_fnc_notify;
+					if (phone_callOwner != player) then {
+						["callerHungup"] remoteExecCall ["DT_fnc_phoneStateChanged",phone_callOwner];
+					};
 					call DT_fnc_endCall;
 				};
 			}
