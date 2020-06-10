@@ -24,6 +24,12 @@ if (_damage isEqualTo 1) then {
 	_holder addItemCargoGlobal ["Log",round(random 4)];
 	["woodcutting",1] remoteExecCall ["DT_fnc_addExp",remoteExecutedOwner];
 
-	uiSleep 60;
-	_tree hideObjectGlobal true;
+	[
+		{
+			params ["_tree"];
+			_tree hideObjectGlobal true;
+		},
+		_tree,
+		60
+	] call CBA_fnc_waitAndExecute;
 };

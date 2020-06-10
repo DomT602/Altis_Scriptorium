@@ -88,6 +88,6 @@ if (_weapon isEqualTo "Axe") exitWith {
 	if (isNull _tree) exitWith {};
 
 	if (alive _tree) then {
-		[netId _tree,(player getVariable ["level_woodcutting",1])] remoteExec ["server_fnc_treeHandleDamage",2];
+		[netId _tree,player getVariable ["level_woodcutting",1]] remoteExecCall ["server_fnc_treeHandleDamage",2];
 	};
 };
