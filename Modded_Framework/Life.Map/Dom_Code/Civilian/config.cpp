@@ -10,6 +10,7 @@ class Civilian {
 	class robStore {};
 	class startDelivery {};
 	class startJailbreak {};
+	class startRaid {};
 	class switchJob {};
 	class taxiDistance {};
 	class updateGov {};

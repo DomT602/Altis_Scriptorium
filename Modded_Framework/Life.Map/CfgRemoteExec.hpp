@@ -64,6 +64,7 @@ class CfgRemoteExec {
 		F(server_fnc_jailBreak,SERVER)
 		F(server_fnc_logAction,SERVER)
 		F(server_fnc_monitorSpikes,SERVER)
+		F(server_fnc_raidSomewhere,SERVER)
 		F(server_fnc_spawnAnimal,SERVER)
 		F(server_fnc_startLightbar,SERVER)
 		F(server_fnc_startSirens,SERVER)
