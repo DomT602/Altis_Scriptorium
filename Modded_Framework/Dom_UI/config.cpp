@@ -72,7 +72,7 @@ class DefaultFont
 {
 	font="PuristaLight";
 };
-class PS_RscStructuredText
+class DT_RscStructuredText
 {
 	type=13;
 	style=0;
@@ -93,7 +93,7 @@ class PS_RscStructuredText
 		shadow=1;
 	};
 };
-class RscPhoneText: PS_RscStructuredText
+class RscPhoneText: DT_RscStructuredText
 {
 	h=0.039999999;
 	w=0.40000001;
@@ -185,7 +185,7 @@ class RscButtonGeneral: RscShortcutButton
 	};
 	textureNoShortcut="";
 };
-class PS_RscProgress
+class DT_RscProgress
 {
 	type=8;
 	style=0;
@@ -199,7 +199,7 @@ class PS_RscProgress
 	colorBackground[]={0,0,0,0.75};
 	colorBar[]={0.52899998,0,0,1};
 };
-class PS_RscListBox
+class DT_RscListBox
 {
 	style=16;
 	idc=-1;
@@ -256,11 +256,11 @@ class PS_RscListBox
 		autoScrollEnabled=1;
 	};
 };
-class RscListboxInvisible: PS_RscListBox
+class RscListboxInvisible: DT_RscListBox
 {
 	colorBackground[]={0,0,0,0};
 };
-class PS_RscTree
+class DT_RscTree
 {
 	idc=-1;
 	type=12;
@@ -308,7 +308,7 @@ class PS_RscTree
 	{
 	};
 };
-class RscTreeInvisible: PS_RscTree
+class RscTreeInvisible: DT_RscTree
 {
 	colorBackground[]={0,0,0,0};
 };
@@ -316,7 +316,7 @@ class RscTreeInvisibleSearch: RscTreeInvisible
 {
 	idcSearch=645;
 };
-class PS_RscEdit
+class DT_RscEdit
 {
 	type=2;
 	style="0x00 + 0x40";
@@ -348,7 +348,7 @@ class PS_RscEdit
 	};
 	canModify=1;
 };
-class RscEditInvisible: PS_RscEdit
+class RscEditInvisible: DT_RscEdit
 {
 	text="";
 	style="0x00 + 0x0200 + 0x10";
@@ -357,7 +357,7 @@ class RscEditInvisible: PS_RscEdit
 	colorText[]={0.118,0.55299997,0.96899998,1};
 	lineSpacing=1;
 };
-class PS_ctrlDefault
+class DT_ctrlDefault
 {
 	idc=-1;
 	style=0;
@@ -387,13 +387,13 @@ class PS_ctrlDefault
 		color[]={1,1,1,1};
 	};
 };
-class PS_ctrlDefaultText: PS_ctrlDefault
+class DT_ctrlDefaultText: DT_ctrlDefault
 {
 	sizeEx="4.32 * (1 / (getResolution select 3)) * pixelGrid * 0.5";
 	font="PuristaLight";
 	shadow=1;
 };
-class PS_ctrlStatic: PS_ctrlDefaultText
+class DT_ctrlStatic: DT_ctrlDefaultText
 {
 	type=0;
 	colorBackground[]={0,0,0,0};
@@ -1215,7 +1215,7 @@ class DT_craftingMenu
 			w="0.2 * safezoneW";
 			h="0.458 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.505156 * safezoneW + safezoneX";
@@ -1433,7 +1433,7 @@ class DT_medicalMenu
 			w="0.413 * safezoneW";
 			h="0.169 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.654688 * safezoneW + safezoneX";
@@ -1448,7 +1448,7 @@ class DT_medicalMenu
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.407187 * safezoneW + safezoneX";
@@ -1464,7 +1464,7 @@ class DT_medicalMenu
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.654688 * safezoneW + safezoneX";
@@ -1571,7 +1571,7 @@ class DT_promotionMenu
 			h="0.04 * safezoneH";
 			colorBackground[]={0,0,0,0.69999999};
 		};
-		class DT_rankBox: PS_RscTree
+		class DT_rankBox: DT_RscTree
 		{
 			idc=9201;
 			x="0.438125 * safezoneW + safezoneX";
@@ -1610,7 +1610,7 @@ class DT_itemShop
 	onMouseButtonUp="_this call DT_fnc_onMouseButtonUp";
 	class controlsBackground
 	{
-		class DT_background: PS_ctrlStatic
+		class DT_background: DT_ctrlStatic
 		{
 			idc=1100;
 			style=16;
@@ -1643,7 +1643,7 @@ class DT_itemShop
 			w="0.152 * safezoneW";
 			h="0.519 * safezoneH";
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.0359375 * safezoneW + safezoneX";
@@ -1651,7 +1651,7 @@ class DT_itemShop
 			w="0.149531 * safezoneW";
 			h="0.044 * safezoneH";
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.0307812 * safezoneW + safezoneX";
@@ -1692,7 +1692,7 @@ class DT_vehShop
 	onMouseButtonUp="_this call DT_fnc_onMouseButtonUp";
 	class controlsBackground
 	{
-		class DT_background: PS_ctrlStatic
+		class DT_background: DT_ctrlStatic
 		{
 			idc=1100;
 			style=16;
@@ -1725,7 +1725,7 @@ class DT_vehShop
 			w="0.152 * safezoneW";
 			h="0.429 * safezoneH";
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.0359375 * safezoneW + safezoneX";
@@ -1733,7 +1733,7 @@ class DT_vehShop
 			w="0.149531 * safezoneW";
 			h="0.143 * safezoneH";
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.0307812 * safezoneW + safezoneX";
@@ -1916,7 +1916,7 @@ class DT_jailMenu
 			w="0.7 * safezoneW";
 			h="1.1 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.355625 * safezoneW + safezoneX";
@@ -2115,7 +2115,7 @@ class DT_giveMoney
 			w="0.0876563 * safezoneW";
 			h="0.0262 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.396875 * safezoneW + safezoneX";
@@ -2135,7 +2135,7 @@ class DT_clothingShop
 	movingEnable=0;
 	class controlsBackground
 	{
-		class DT_background: PS_ctrlStatic
+		class DT_background: DT_ctrlStatic
 		{
 			idc=1100;
 			style=16;
@@ -2168,7 +2168,7 @@ class DT_clothingShop
 			w="0.152 * safezoneW";
 			h="0.519 * safezoneH";
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.0359375 * safezoneW + safezoneX";
@@ -2176,7 +2176,7 @@ class DT_clothingShop
 			w="0.149531 * safezoneW";
 			h="0.044 * safezoneH";
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.0307812 * safezoneW + safezoneX";
@@ -2232,7 +2232,7 @@ class DT_keyMenu
 			w="0.350625 * safezoneW";
 			h="0.176 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			text="Give key to: Unknown";
@@ -2439,7 +2439,7 @@ class DT_recieveTicket
 			w="0.0625 * safezoneW";
 			h="0.017 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.406 * safezoneW + safezoneX";
@@ -2447,7 +2447,7 @@ class DT_recieveTicket
 			w="0.192 * safezoneW";
 			h="0.03 * safezoneH";
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.406 * safezoneW + safezoneX";
@@ -2455,7 +2455,7 @@ class DT_recieveTicket
 			w="0.192 * safezoneW";
 			h="0.027 * safezoneH";
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.406 * safezoneW + safezoneX";
@@ -2463,7 +2463,7 @@ class DT_recieveTicket
 			w="0.192 * safezoneW";
 			h="0.027 * safezoneH";
 		};
-		class RscStructuredText_1103: PS_RscStructuredText
+		class RscStructuredText_1103: DT_RscStructuredText
 		{
 			idc=1103;
 			x="0.406 * safezoneW + safezoneX";
@@ -2545,7 +2545,7 @@ class DT_profileSearch
 			h="0.275 * safezoneH";
 			class Controls
 			{
-				class RscStructuredText_1100: PS_RscStructuredText
+				class RscStructuredText_1100: DT_RscStructuredText
 				{
 					idc=1100;
 					text="";
@@ -2631,7 +2631,7 @@ class DT_policeDatabaseMain
 			w="0.245 * safezoneW";
 			h="0.15 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			text="";
@@ -2647,7 +2647,7 @@ class DT_policeDatabaseMain
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			text="";
@@ -2852,7 +2852,7 @@ class DT_viewWarrants
 			h="0.275 * safezoneH";
 			class Controls
 			{
-				class RscStructuredText_1100: PS_RscStructuredText
+				class RscStructuredText_1100: DT_RscStructuredText
 				{
 					idc=1205;
 					text="";
@@ -2998,7 +2998,7 @@ class DT_vehicleSearch
 			w="0.075 * safezoneW";
 			h="0.04 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			text="";
@@ -3007,7 +3007,7 @@ class DT_vehicleSearch
 			w="0.340312 * safezoneW";
 			h="0.033 * safezoneH";
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			text="";
@@ -3016,7 +3016,7 @@ class DT_vehicleSearch
 			w="0.340312 * safezoneW";
 			h="0.033 * safezoneH";
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			text="";
@@ -3025,7 +3025,7 @@ class DT_vehicleSearch
 			w="0.340312 * safezoneW";
 			h="0.033 * safezoneH";
 		};
-		class RscStructuredText_1103: PS_RscStructuredText
+		class RscStructuredText_1103: DT_RscStructuredText
 		{
 			idc=1103;
 			text="";
@@ -3392,7 +3392,7 @@ class DT_policeRankMenu
 			w="0.28875 * safezoneW";
 			h="0.262 * safezoneH";
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			text="";
@@ -3590,7 +3590,7 @@ class DT_showCompanies
 			w="0.2 * safezoneW";
 			h="0.458 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.505156 * safezoneW + safezoneX";
@@ -3676,7 +3676,7 @@ class DT_myCompany
 			w="0.45375 * safezoneW";
 			h="0.77 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.288594 * safezoneW + safezoneX";
@@ -3684,7 +3684,7 @@ class DT_myCompany
 			w="0.422812 * safezoneW";
 			h="0.03 * safezoneH";
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.298906 * safezoneW + safezoneX";
@@ -3749,7 +3749,7 @@ class DT_manageCompany
 			w="0.45375 * safezoneW";
 			h="0.77 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.288594 * safezoneW + safezoneX";
@@ -3949,7 +3949,7 @@ class DT_banking
 			w="0.587812 * safezoneW";
 			h="0.946 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=-1;
 			onLoad="(_this select 0) ctrlSetStructuredText parseText format['<t color=""#777777"">Welcome back, %1.</t>',profileName]";
@@ -3985,7 +3985,7 @@ class DT_banking
 			h="0.033 * safezoneH";
 			colorBackground[]={0,0,0,0};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			onLoad="(_this select 0) ctrlSetStructuredText parseText format['$%1<br/>',(player getVariable ['bank',0])]";
@@ -4001,7 +4001,7 @@ class DT_banking
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.340156 * safezoneW + safezoneX";
@@ -4099,7 +4099,7 @@ class DT_phoneMain
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -4115,7 +4115,7 @@ class DT_phoneMain
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.412344 * safezoneW + safezoneX";
@@ -4253,7 +4253,7 @@ class DT_phoneMain
 			w="0.04125 * safezoneW";
 			h="0.066 * safezoneH";
 		};
-		class RscStructuredText_1103: PS_RscStructuredText
+		class RscStructuredText_1103: DT_RscStructuredText
 		{
 			idc=1103;
 			text="time of call";
@@ -4320,7 +4320,7 @@ class DT_incomingCall
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -4336,7 +4336,7 @@ class DT_incomingCall
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.474219 * safezoneW + safezoneX";
@@ -4354,7 +4354,7 @@ class DT_incomingCall
 			w="0.541406 * safezoneW";
 			h="0.924 * safezoneH";
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.448438 * safezoneW + safezoneX";
@@ -4432,7 +4432,7 @@ class DT_dialpad
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -4448,7 +4448,7 @@ class DT_dialpad
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.474219 * safezoneW + safezoneX";
@@ -4466,7 +4466,7 @@ class DT_dialpad
 			w="0.541406 * safezoneW";
 			h="0.924 * safezoneH";
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.402031 * safezoneW + safezoneX";
@@ -4638,7 +4638,7 @@ class DT_messages
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -4654,7 +4654,7 @@ class DT_messages
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.474219 * safezoneW + safezoneX";
@@ -4730,7 +4730,7 @@ class DT_seeMessage
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -4746,7 +4746,7 @@ class DT_seeMessage
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.474219 * safezoneW + safezoneX";
@@ -4803,7 +4803,7 @@ class DT_seeMessage
 			w="0.04 * safezoneW";
 			h="0.024 * safezoneH";
 		};
-		class RscStructuredText_1103: PS_RscStructuredText
+		class RscStructuredText_1103: DT_RscStructuredText
 		{
 			idc=1103;
 			x="0.443281 * safezoneW + safezoneX";
@@ -4841,7 +4841,7 @@ class DT_contacts
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -4857,7 +4857,7 @@ class DT_contacts
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.474219 * safezoneW + safezoneX";
@@ -4933,7 +4933,7 @@ class DT_editContact
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -4949,7 +4949,7 @@ class DT_editContact
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.474219 * safezoneW + safezoneX";
@@ -5071,7 +5071,7 @@ class DT_phoneBanking
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -5087,7 +5087,7 @@ class DT_phoneBanking
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.474219 * safezoneW + safezoneX";
@@ -5105,7 +5105,7 @@ class DT_phoneBanking
 			w="0.541406 * safezoneW";
 			h="0.924 * safezoneH";
 		};
-		class RscStructuredText_1103: PS_RscStructuredText
+		class RscStructuredText_1103: DT_RscStructuredText
 		{
 			idc=1103;
 			onLoad="(_this select 0) ctrlSetStructuredText parseText format['$%1<br/>',(player getVariable ['bank',0])]";
@@ -5121,7 +5121,7 @@ class DT_phoneBanking
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.453594 * safezoneW + safezoneX";
@@ -5203,7 +5203,7 @@ class DT_settings
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -5219,7 +5219,7 @@ class DT_settings
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.474219 * safezoneW + safezoneX";
@@ -5273,7 +5273,7 @@ class DT_settings
 			h="0.033 * safezoneH";
 			color[]={1,1,1,0.80000001};
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			onLoad="(_this select 0) ctrlSetStructuredText parseText (player getVariable ['phoneNumber',''])";
@@ -5320,7 +5320,7 @@ class DT_newMessage
 			w="0.020625 * safezoneW";
 			h="0.014 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.547437 * safezoneW + safezoneX";
@@ -5336,7 +5336,7 @@ class DT_newMessage
 				shadow=1;
 			};
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.474219 * safezoneW + safezoneX";
@@ -5390,7 +5390,7 @@ class DT_newMessage
 			w="0.185625 * safezoneW";
 			h="0.032 * safezoneH";
 		};
-		class RscStructuredText_1103: PS_RscStructuredText
+		class RscStructuredText_1103: DT_RscStructuredText
 		{
 			idc=1103;
 			x="0.443281 * safezoneW + safezoneX";
@@ -5485,7 +5485,7 @@ class DT_manageShop
 			w="0.113437 * safezoneW";
 			h="0.022 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			x="0.438125 * safezoneW + safezoneX";
@@ -5553,7 +5553,7 @@ class DT_playerShop
 			w="0.152 * safezoneW";
 			h="0.519 * safezoneH";
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.4195 * safezoneW + safezoneX";
@@ -5561,7 +5561,7 @@ class DT_playerShop
 			w="0.149531 * safezoneW";
 			h="0.044 * safezoneH";
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.412344 * safezoneW + safezoneX";
@@ -5654,7 +5654,7 @@ class DT_criminalCode
 			h="0.275 * safezoneH";
 			class Controls
 			{
-				class RscStructuredText_1100: PS_RscStructuredText
+				class RscStructuredText_1100: DT_RscStructuredText
 				{
 					idc=1205;
 					text="";
@@ -5711,7 +5711,7 @@ class DT_transferMenu
 			w="0.350625 * safezoneW";
 			h="0.176 * safezoneH";
 		};
-		class RscStructuredText_1100: PS_RscStructuredText
+		class RscStructuredText_1100: DT_RscStructuredText
 		{
 			idc=1100;
 			onLoad="(_this select 0) ctrlSetText format['Transfer to: %1',(['Unknown',MB_Interaction_Target] call DT_fnc_findName)]";
@@ -5742,7 +5742,7 @@ class DT_modShop
 	movingEnable=0;
 	class controlsBackground
 	{
-		class DT_background: PS_ctrlStatic
+		class DT_background: DT_ctrlStatic
 		{
 			idc=1100;
 			style=16;
@@ -5775,7 +5775,7 @@ class DT_modShop
 			w="0.152 * safezoneW";
 			h="0.519 * safezoneH";
 		};
-		class RscStructuredText_1102: PS_RscStructuredText
+		class RscStructuredText_1102: DT_RscStructuredText
 		{
 			idc=1102;
 			x="0.0359375 * safezoneW + safezoneX";
@@ -5783,7 +5783,7 @@ class DT_modShop
 			w="0.149531 * safezoneW";
 			h="0.044 * safezoneH";
 		};
-		class RscStructuredText_1101: PS_RscStructuredText
+		class RscStructuredText_1101: DT_RscStructuredText
 		{
 			idc=1101;
 			x="0.0307812 * safezoneW + safezoneX";
@@ -5824,7 +5824,7 @@ class DT_spectateMenu
 	movingEnable=0;
 	class controlsBackground
 	{
-		class DT_background: PS_ctrlStatic
+		class DT_background: DT_ctrlStatic
 		{
 			idc=1100;
 			style=16;
@@ -5958,7 +5958,7 @@ class RscTitles
 		onLoad="uiNamespace setVariable [""DT_Notifs"",_this select 0]";
 		class controls
 		{
-			class Message: PS_RscStructuredText
+			class Message: DT_RscStructuredText
 			{
 				idc=1200;
 				x="-0.000156274 * safezoneW + safezoneX";
@@ -5983,7 +5983,7 @@ class RscTitles
 		onLoad="uiNamespace setVariable ['Progress_Bar',_this select 0]";
 		class controls
 		{
-			class Bar: PS_RscProgress
+			class Bar: DT_RscProgress
 			{
 				idc=1000;
 				text="";
@@ -5992,7 +5992,7 @@ class RscTitles
 				w="0.623906 * safezoneW";
 				h="0.022 * safezoneH";
 			};
-			class Title: PS_RscStructuredText
+			class Title: DT_RscStructuredText
 			{
 				idc=1001;
 				x="0.443281 * safezoneW + safezoneX";
@@ -6071,7 +6071,7 @@ class RscTitles
 				w="0.0257812 * safezoneW";
 				h="0.044 * safezoneH";
 			};
-			class name: PS_RscStructuredText
+			class name: DT_RscStructuredText
 			{
 				idc=-1;
 				onLoad="(_this select 0) ctrlSetStructuredText parseText profileName";
@@ -6096,7 +6096,7 @@ class RscTitles
 				w="0.109 * safezoneW";
 				h="0.088 * safezoneH";
 			};
-			class firemode: PS_RscStructuredText
+			class firemode: DT_RscStructuredText
 			{
 				idc=1508;
 				x="0.9175 * safezoneW + safezoneX";
@@ -6111,7 +6111,7 @@ class RscTitles
 					shadow=1;
 				};
 			};
-			class gunName: PS_RscStructuredText
+			class gunName: DT_RscStructuredText
 			{
 				idc=1509;
 				x="0.720469 * safezoneW + safezoneX";
@@ -6215,7 +6215,7 @@ class RscTitles
 				w="0.345469 * safezoneW";
 				h="0.638 * safezoneH";
 			};
-			class RscStructuredText_1100: PS_RscStructuredText
+			class RscStructuredText_1100: DT_RscStructuredText
 			{
 				idc=1100;
 				x="0.850625 * safezoneW + safezoneX";
@@ -6223,7 +6223,7 @@ class RscTitles
 				w="0.128906 * safezoneW";
 				h="0.06 * safezoneH";
 			};
-			class RscStructuredText_1101: PS_RscStructuredText
+			class RscStructuredText_1101: DT_RscStructuredText
 			{
 				idc=1101;
 				x="0.850625 * safezoneW + safezoneX";
