@@ -15,7 +15,7 @@ private _startIndex = (_configString find ".bin/") + 5;
 private _displayName = _configString select [_startIndex];
 
 {
-	if (ctrlType _x isEqualTo 16) then {
+	if (ctrlType _x in [1,16]) then { //1 is normal buttons, 16 is shortcut buttons
 		private _action = getText(configFile >> _displayName >> "controls" >> (ctrlClassName _x) >> "onButtonClick");
 		if (_action != "") then {
 			_x ctrlRemoveAllEventHandlers "mouseButtonClick";
