@@ -7,6 +7,7 @@ class CfgPatches
 		requiredVersion=1.92;
 		requiredaddons[]=
 		{
+			"A3_ui_f",
 			"D_C"
 		};
 	};
@@ -5814,7 +5815,7 @@ class DT_spectateMenu
 	idd=1046;
 	name="DT_spectateMenu";
 	onUnload="['none'] call DT_fnc_closeShop";
-	onMouseButtonDown="_this call DT_fnc_clickChecker; _this call DT_fnc_onMouseButtonDown";
+	onMouseButtonDown="_this call DT_fnc_onMouseButtonDown";
 	onMouseButtonUp="_this call DT_fnc_onMouseButtonUp";
 	movingEnable=0;
 	class controlsBackground
