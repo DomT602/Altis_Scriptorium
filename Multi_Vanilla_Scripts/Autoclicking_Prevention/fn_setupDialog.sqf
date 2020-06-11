@@ -19,7 +19,7 @@ private _displayName = _configString select [_startIndex];
 		private _action = getText(configFile >> _displayName >> "controls" >> (ctrlClassName _x) >> "onButtonClick");
 		if (_action != "") then {
 			_x ctrlRemoveAllEventHandlers "mouseButtonClick";
-			_action = format ["[%1] call life_fnc_clickerQueue",_action];
+			_action = format ["['%1'] call life_fnc_clickerQueue",_action];
 			_x ctrlAddEventHandler ["mouseButtonClick",_action];
 		};
 	};
