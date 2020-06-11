@@ -4,7 +4,6 @@ client_holster = "";
 client_goPro = false;
 client_intoxicated = false;
 client_carrying = objNull;
-client_clicks = 0;
 client_mouseButtons = [[],[]];
 client_cameraSettings = [5,0,0,[0,0,0.85]];
 client_blockActions = false;
@@ -13,6 +12,8 @@ client_trackers = [];
 client_tempTime = 0;
 client_cameras = [];
 client_earPlugs = false;
+client_clickQueue = [];
+client_clickHandler = -1;
 
 phone_inbox = [];
 phone_charging = false;

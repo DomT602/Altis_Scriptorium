@@ -587,7 +587,7 @@ class RscInteractionText: RscText
 class MB_Interaction_Menu
 {
 	idd=1000;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	movingenable=0;
 	class controlsBackground
 	{
@@ -1134,7 +1134,7 @@ class MB_Interaction_Menu
 class DeathScreen
 {
 	idd=1002;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	movingEnabled=0;
 	class Controls
 	{
@@ -1193,7 +1193,8 @@ class DeathScreen
 class DT_craftingMenu
 {
 	idd=1003;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
+	name="DT_craftingMenu";
 	movingEnable=0;
 	class controls
 	{
@@ -1257,7 +1258,7 @@ class DT_craftingMenu
 class DT_nameMenu
 {
 	idd=1004;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_nameMenu";
 	movingEnable=0;
 	class controls
@@ -1297,7 +1298,7 @@ class DT_nameMenu
 class DT_medicalMenu
 {
 	idd=1005;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_medicalMenu";
 	movingEnable=0;
 	class controls
@@ -1547,7 +1548,7 @@ class DT_medicalMenu
 class DT_promotionMenu
 {
 	idd=1006;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_promotionMenu";
 	movingEnable=0;
 	class controls
@@ -1605,8 +1606,9 @@ class DT_itemShop
 {
 	idd=1007;
 	movingEnable=0;
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	onUnLoad="['Item'] call DT_fnc_closeShop";
-	onMouseButtonDown="_this call DT_fnc_clickChecker; _this call DT_fnc_onMouseButtonDown";
+	onMouseButtonDown="_this call DT_fnc_onMouseButtonDown";
 	onMouseButtonUp="_this call DT_fnc_onMouseButtonUp";
 	class controlsBackground
 	{
@@ -1687,8 +1689,9 @@ class DT_vehShop
 	idd=1008;
 	name="DT_vehShop";
 	movingEnable=0;
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	onUnLoad="['Vehicle'] call DT_fnc_closeShop";
-	onMouseButtonDown="_this call DT_fnc_clickChecker; _this call DT_fnc_onMouseButtonDown";
+	onMouseButtonDown="_this call DT_fnc_onMouseButtonDown";
 	onMouseButtonUp="_this call DT_fnc_onMouseButtonUp";
 	class controlsBackground
 	{
@@ -1766,7 +1769,7 @@ class DT_vehShop
 class DT_arrestMenu
 {
 	idd=1009;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_arrestMenu";
 	movingEnable=0;
 	class controls
@@ -1884,7 +1887,7 @@ class DT_arrestMenu
 class DT_jailMenu
 {
 	idd=1010;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_jailMenu";
 	movingEnable=0;
 	class controls
@@ -2033,7 +2036,7 @@ class DT_jailMenu
 class DT_garage
 {
 	idd=1011;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_garage";
 	movingEnable=0;
 	class controls
@@ -2080,7 +2083,7 @@ class DT_garage
 class DT_giveMoney
 {
 	idd=1012;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_giveMoney";
 	movingEnable=0;
 	class controls
@@ -2129,8 +2132,9 @@ class DT_clothingShop
 {
 	idd=1013;
 	name="DT_clothingShop";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	onUnload="['Clothing'] call DT_fnc_closeShop";
-	onMouseButtonDown="_this call DT_fnc_clickChecker; _this call DT_fnc_onMouseButtonDown";
+	onMouseButtonDown="_this call DT_fnc_onMouseButtonDown";
 	onMouseButtonUp="_this call DT_fnc_onMouseButtonUp";
 	movingEnable=0;
 	class controlsBackground
@@ -2210,7 +2214,7 @@ class DT_clothingShop
 class DT_keyMenu
 {
 	idd=1014;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_keyMenu";
 	movingEnable=0;
 	class controls
@@ -2256,7 +2260,7 @@ class DT_keyMenu
 class DT_ticketMenu
 {
 	idd=1015;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_ticketMenu";
 	movingEnable=0;
 	class controls
@@ -2385,7 +2389,7 @@ class DT_ticketMenu
 class DT_recieveTicket
 {
 	idd=1016;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_recieveTicket";
 	movingEnable=0;
 	class controls
@@ -2476,7 +2480,7 @@ class DT_recieveTicket
 class DT_profileSearch
 {
 	idd=1017;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_profileSearch";
 	movingEnable=0;
 	class controls
@@ -2591,7 +2595,7 @@ class DT_profileSearch
 class DT_policeDatabaseMain
 {
 	idd=1018;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_policeDatabaseMain";
 	movingEnable=0;
 	class controls
@@ -2792,7 +2796,7 @@ class DT_policeDatabaseMain
 class DT_viewWarrants
 {
 	idd=1019;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_viewWarrants";
 	movingEnable=0;
 	class controls
@@ -2947,7 +2951,7 @@ class DT_viewWarrants
 class DT_vehicleSearch
 {
 	idd=1020;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_vehicleSearch";
 	movingEnable=0;
 	class controls
@@ -3048,7 +3052,7 @@ class DT_vehicleSearch
 class DT_policeManagement
 {
 	idd=1021;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_policeManagement";
 	movingEnable=0;
 	onUnload="['close'] spawn DT_fnc_manage";
@@ -3231,7 +3235,7 @@ class DT_policeManagement
 class DT_addWarrant
 {
 	idd=1022;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_addWarrant";
 	movingEnable=0;
 	class controls
@@ -3352,7 +3356,7 @@ class DT_addWarrant
 class DT_policeRankMenu
 {
 	idd=1023;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_policeRankMenu";
 	movingEnable=0;
 	class controls
@@ -3455,7 +3459,7 @@ class DT_policeRankMenu
 class DT_addBOLO
 {
 	idd=1024;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_addBOLO";
 	movingEnable=0;
 	class controls
@@ -3567,7 +3571,7 @@ class DT_addBOLO
 class DT_showCompanies
 {
 	idd=1025;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_showCompanies";
 	movingEnable=0;
 	class controls
@@ -3613,7 +3617,7 @@ class DT_showCompanies
 class DT_createCompany
 {
 	idd=1026;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_createCompany";
 	movingEnable=0;
 	class controls
@@ -3662,7 +3666,7 @@ class DT_createCompany
 class DT_myCompany
 {
 	idd=1027;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_myCompany";
 	movingEnable=0;
 	class controls
@@ -3735,7 +3739,7 @@ class DT_myCompany
 class DT_manageCompany
 {
 	idd=1028;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_manageCompany";
 	movingEnable=0;
 	class controls
@@ -3871,7 +3875,7 @@ class DT_manageCompany
 class DT_houseManagement
 {
 	idd=1029;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_houseManagement";
 	movingEnable=0;
 	class controls
@@ -3934,7 +3938,7 @@ class DT_houseManagement
 class DT_banking
 {
 	idd=1030;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_banking";
 	movingEnable=0;
 	onUnload="uiNamespace setVariable ['compFunds',nil]";
@@ -4075,10 +4079,9 @@ class DT_banking
 class DT_phoneMain
 {
 	idd=1031;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_phoneMain";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1031";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1031";
 	onUnload="phone_appOpen = -1";
 	class controls
 	{
@@ -4287,10 +4290,9 @@ class DT_phoneMain
 class DT_incomingCall
 {
 	idd=1032;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_incomingCall";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1032";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1032";
 	onUnload="phone_appOpen = -1";
 	class controls
 	{
@@ -4408,10 +4410,9 @@ class DT_incomingCall
 class DT_dialpad
 {
 	idd=1033;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_dialpad";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1033";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1033";
 	onUnload="uiNamespace setVariable ['callNumber',nil]; phone_appOpen = 1031";
 	class controls
 	{
@@ -4614,10 +4615,9 @@ class DT_dialpad
 class DT_messages
 {
 	idd=1034;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_messages";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1034";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1034";
 	onUnload="phone_appOpen = 1031";
 	class controls
 	{
@@ -4706,10 +4706,9 @@ class DT_messages
 class DT_seeMessage
 {
 	idd=1035;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_seeMessage";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1035";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1035";
 	onUnload="phone_appOpen = 1034; [{isNull (findDisplay 1034)},{call DT_fnc_initInbox}] call CBA_fnc_waitUntilAndExecute;";
 	class controls
 	{
@@ -4817,10 +4816,9 @@ class DT_seeMessage
 class DT_contacts
 {
 	idd=1036;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_contacts";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1036";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1036";
 	onUnload="phone_appOpen = 1031";
 	class controls
 	{
@@ -4909,10 +4907,9 @@ class DT_contacts
 class DT_editContact
 {
 	idd=1037;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_editContact";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1037";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1037";
 	onUnload="phone_appOpen = 1036; [{isNull (findDisplay 1036)},{call DT_fnc_initContacts}] call CBA_fnc_waitUntilAndExecute;";
 	class controls
 	{
@@ -5047,10 +5044,9 @@ class DT_editContact
 class DT_phoneBanking
 {
 	idd=1038;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_phoneBanking";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1038";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1038";
 	onUnload="phone_appOpen = 1031; uiNamespace setVariable ['compFunds',nil]";
 	class controls
 	{
@@ -5179,10 +5175,9 @@ class DT_phoneBanking
 class DT_settings
 {
 	idd=1039;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_settings";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1039";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1039";
 	onUnload="phone_appOpen = 1031; [{!isNull (findDisplay 1031)},{((findDisplay 1031) displayCtrl 1200) ctrlSetText (phone_settings select 0)}] call CBA_fnc_waitUntilAndExecute;";
 	class controls
 	{
@@ -5296,10 +5291,9 @@ class DT_settings
 class DT_newMessage
 {
 	idd=1040;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
 	name="DT_newMessage";
 	movingEnable=0;
-	onLoad="phone_appOpen = 1040";
+	onLoad="[_this select 0] call DT_fnc_setupDialog; phone_appOpen = 1040";
 	onUnload="phone_appOpen = 1034; [{isNull (findDisplay 1034)},{call DT_fnc_initInbox}] call CBA_fnc_waitUntilAndExecute;";
 	class controls
 	{
@@ -5404,7 +5398,7 @@ class DT_newMessage
 class DT_manageShop
 {
 	idd=1041;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_manageShop";
 	movingEnable=0;
 	onUnLoad="MB_Interaction_Target setVariable ['shop_inUse',false,true]";
@@ -5529,7 +5523,7 @@ class DT_manageShop
 class DT_playerShop
 {
 	idd=1042;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_playerShop";
 	movingEnable=0;
 	onUnLoad="MB_Interaction_Target setVariable ['shop_inUse',false,true]";
@@ -5594,7 +5588,7 @@ class DT_playerShop
 class DT_criminalCode
 {
 	idd=1043;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_criminalCode";
 	movingEnable=0;
 	class controls
@@ -5689,7 +5683,7 @@ class DT_criminalCode
 class DT_transferMenu
 {
 	idd=1044;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_transferMenu";
 	movingEnable=0;
 	class controls
@@ -5736,8 +5730,9 @@ class DT_modShop
 {
 	idd=1045;
 	name="DT_modShop";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	onUnload="['mod'] call DT_fnc_closeShop";
-	onMouseButtonDown="_this call DT_fnc_clickChecker; _this call DT_fnc_onMouseButtonDown";
+	onMouseButtonDown="_this call DT_fnc_onMouseButtonDown";
 	onMouseButtonUp="_this call DT_fnc_onMouseButtonUp";
 	movingEnable=0;
 	class controlsBackground
@@ -5873,7 +5868,7 @@ class DT_spectateMenu
 class DT_bombTimer
 {
 	idd=1047;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_bombTimer";
 	movingEnable=0;
 	class controls
@@ -5913,7 +5908,7 @@ class DT_bombTimer
 class DT_carNumbers
 {
 	idd=1048;
-	onMouseButtonDown="_this call DT_fnc_clickChecker";
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
 	name="DT_carNumbers";
 	movingEnable=0;
 	class controls

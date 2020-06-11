@@ -7,7 +7,7 @@ class Functions {
 	class checkPlayer {};
 	class checkText {};
 	class checkVehicle {};
-	class clickChecker {};
+	class clickerQueue {};
 	class conditionChecker {};
 	class countFaction {};
 	class createCamera {};
@@ -47,6 +47,7 @@ class Functions {
 	class setLightParams {};
 	class setName {};
 	class setupCamera {};
+	class setupDialog {};
 	class showNotifs {};
 	class survivalEffects {};
 	class survivalLoop {};
