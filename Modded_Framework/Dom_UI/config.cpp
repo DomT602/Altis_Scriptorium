@@ -512,24 +512,31 @@ class RscDisplayMain
 			{
 				class QuickPlay: RscButtonMenuMain
 				{
-					show=0;
+					idc=154;
+					text="Play DomRP";
+					tooltip="";
+					x=0;
+					y="(0 * 	1.5) * 	(pixelH * pixelGrid * 2) + 	(pixelH)";
+					w="10 * 	(pixelW * pixelGrid * 2)";
+					h="1.5 * 	(pixelH * pixelGrid * 2) - 	(pixelH)";
+					onbuttonclick="['127.0.0.1','2702'] call compile preProcessFileLineNumbers '\Dom_UI\missions\fn_redirectClientToServer.sqf'";
 				};
-				class ServerBrowser: RscButtonMenuMain
+				class ServerBrowser: QuickPlay
 				{
 					idc=105;
 					text="$STR_A3_RscDisplayMain_GroupMultiplayer_ServerBrowser_text";
 					tooltip="";
-					y="(0 * 	1.5) * 	(pixelH * pixelGrid * 2) + 	(pixelH)";
-					w="10 * 	(pixelW * pixelGrid * 2)";
+					y="(1 * 	1.5) * 	(pixelH * pixelGrid * 2) + 	(pixelH)";
 					onbuttonclick="";
 				};
-				class ApexProtocol: ServerBrowser
+				class ApexProtocol: QuickPlay
 				{
 					idc=206;
-					text="Play DomRP";
+					text="Apex Protocol";
 					tooltip="";
-					y="(1 * 	1.5) * 	(pixelH * pixelGrid * 2) + 	(pixelH)";
-					onbuttonclick="['91.121.153.95','2702'] call compile preProcessFileLineNumbers '\Dom_UI\missions\fn_redirectClientToServer.sqf'";
+					y="(2 * 	1.5) * 	(pixelH * pixelGrid * 2) + 	(pixelH)";
+					onbuttonclick="(finddisplay 0) createMPCampaignDisplay 'Apex';";
+					Onload="(_this select 0) ctrlshow isclass (configfile >> 'cfgmissions' >> 'mpmissions' >> 'apex')";
 				};
 			};
 		};
