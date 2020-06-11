@@ -15,7 +15,7 @@ private _startIndex = (_configString find ".bin/") + 5;
 private _displayName = _configString select [_startIndex];
 
 {
-	if (ctrlType _x == 16) then {
+	if (ctrlType _x isEqualTo 16) then {
 		private _action = getText(configFile >> _displayName >> "controls" >> (ctrlClassName _x) >> "onButtonClick");
 		if (_action != "") then {
 			_x ctrlRemoveAllEventHandlers "mouseButtonClick";

@@ -4,6 +4,7 @@ This script will only allow one button press per 0.1 seconds default (can be cha
 Setup:
 Download files from github
 Put SQF files into desired folder (default: core/functions) and add each file to functions.h(pp)
+Add life_clickQueue = []; to configuration.sqf
 Next; all dialogs need to have the following line added:
 onLoad="[_this select 0] call life_fnc_setupDialog;";
 
