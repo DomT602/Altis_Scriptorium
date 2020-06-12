@@ -9,11 +9,15 @@ params [
 	["_vehicle",objNull,[objNull]]
 ];
 
-if (_vehicle getVariable ["siren",false] && {_role isEqualTo "driver"} && {police_autoSirens}) then {_vehicle setVariable ["siren",false,true]};
+if (_vehicle getVariable ["siren",false] && {_role isEqualTo "driver" && {police_autoSirens}}) then {_vehicle setVariable ["siren",false,true]};
 if !(_vehicle isKindOf "Car") exitWith {client_seatbelt = false};
 
-private _time = if (client_seatbelt) then {1.5} else {0.75};
-client_seatbelt = false;
+private _time = 0.75;
+if (client_seatbelt) then {
+	_time = 1.5;
+	client_seatbelt = false;
+};
+
 if (phone_charging) then {phone_charging = false};
 ["seatbelt"] call DT_fnc_updateHUDPartial;
 

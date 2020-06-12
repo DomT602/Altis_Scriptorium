@@ -12,7 +12,7 @@ private _HUD = uiNamespace getVariable ["DT_HUD",displayNull];
 
 if (_type isEqualTo "seatbelt") exitWith {
 	private _seatbeltPic = "";
-	if (isNull objectParent player && {!client_seatbelt}) then {
+	if (!(isNull objectParent player) && {!client_seatbelt}) then {
 		_seatbeltPic = "\Dom_UI\HUD\seatbelt1.paa";
 	};
 	(_HUD displayCtrl 1503) ctrlSetText _seatbeltPic;
