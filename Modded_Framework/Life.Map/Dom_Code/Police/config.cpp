@@ -33,6 +33,7 @@ class Police {
 	class seizeItems {};
 	class setupItem {};
 	class stopEscort {};
+	class switchLegCuff {};
 	class switchPickaxe {};
 	class teargas {};
 	class updateJailTime {};

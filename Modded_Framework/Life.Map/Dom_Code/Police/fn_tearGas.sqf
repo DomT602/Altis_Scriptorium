@@ -9,8 +9,8 @@ params [
 
 [
 	{
-		params ["_projectile"];
-		_projectile distance player < 15 || isNull _projectile
+		params [["_projectile",objNull]];
+		isNull _projectile || {_projectile distance player < 15}
 	},
 	{
 		params [["_projectile",objNull]];
