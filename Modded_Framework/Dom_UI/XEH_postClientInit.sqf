@@ -47,7 +47,7 @@ if (getPlayerUID player in ["76561198071007604"]) then {
 	"LIST",
 	["Siren type","Select the type of sirens your vehicle will use."],
 	"Community Here",
-	[[0,1,2],["Whelen","Liberty","SS2000"],0]
+	[[0,1],["Whelen","Liberty"],0]
 ] call CBA_settings_fnc_init;
 
 [
@@ -55,7 +55,7 @@ if (getPlayerUID player in ["76561198071007604"]) then {
 	"LIST",
 	["Primary Stereo","Select the ear the primary frequency will use."],
 	"Community Here",
-	[[0,1,2],["Both","Left","Right"],2]
+	[[0,1,2],["Both","Left","Right"],0]
 ] call CBA_settings_fnc_init;
 
 [
@@ -63,7 +63,7 @@ if (getPlayerUID player in ["76561198071007604"]) then {
 	"LIST",
 	["Additional Stereo","Select the ear the dispatch calls will use."],
 	"Community Here",
-	[[0,1,2],["Both","Left","Right"],2]
+	[[0,1,2],["Both","Left","Right"],0]
 ] call CBA_settings_fnc_init;
 
 [

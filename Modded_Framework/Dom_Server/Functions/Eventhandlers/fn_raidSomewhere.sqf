@@ -1,7 +1,7 @@
 /*
 	File: fn_raidSomewhere.sqf
 	Author: Dom
-	Description: Recieves and monitors the bomb state (needs gate in SQM)
+	Description: Handles the 'rebel raid' - can be expanded further...
 */
 params [
 	["_position",[],[[]]],
