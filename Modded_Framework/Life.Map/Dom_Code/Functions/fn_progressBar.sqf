@@ -26,8 +26,9 @@ client_blockActions = true;
 
 		private _elapsedTime = CBA_missionTime - _startTime;
 		private _state = -1;
+		private _bar = uiNamespace getVariable ["Progress_Bar",controlNull];
 
-		if (isNull (uiNamespace getVariable ["Progress_Bar",controlNull])) then {
+		if (isNull _bar) then {
 			_state = 1;
 		} else {
 			if (player getVariable ["dead",false]) then {
@@ -66,7 +67,7 @@ client_blockActions = true;
 		};
 
 		if !(_state isEqualTo -1) then {
-			if (!isNull (uiNamespace getVariable ["Progress_Bar",controlNull])) then {
+			if !(isNull _bar) then {
 				657 cutText ["","PLAIN"];
 			};
 
@@ -79,7 +80,7 @@ client_blockActions = true;
 			};
 			client_blockActions = false;
 		} else {
-			((uiNamespace getVariable "Progress_Bar") displayCtrl 1000) progressSetPosition (_elapsedTime / _totalTime);
+			(_bar displayCtrl 1000) progressSetPosition (_elapsedTime / _totalTime);
 		};
 	},
 	0,

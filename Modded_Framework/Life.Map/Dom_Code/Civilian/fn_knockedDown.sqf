@@ -12,6 +12,9 @@ if (_weapon isEqualTo "Taser_26" || _weapon isEqualTo "hands") exitWith {
 	client_blockActions = true;
 	player allowDamage false;
 	disableUserInput true;
+	{
+		detach _x;
+	} forEach attachedObjects player;
 	private _obj = "Land_Can_V3_F" createVehicleLocal [0,0,0];
 	_obj setMass 1e10;
 	_obj attachTo [player, [0,0,0], "Spine3"];

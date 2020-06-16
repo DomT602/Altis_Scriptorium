@@ -7,6 +7,7 @@ params [
 	["_oldFire",objNull,[objNull]],
 	["_oldType","medium",[""]]
 ];
+if (count server_fires > 99) exitWith {diag_log format["Max fires reached at: %1.",CBA_missionTime]};
 
 private _origin = getPosATL _oldFire;
 private _surface = surfaceType _origin;

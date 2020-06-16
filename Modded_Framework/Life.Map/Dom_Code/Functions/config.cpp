@@ -33,6 +33,7 @@ class Functions {
 	class lookingAt {};
 	class notify {};
 	class onFired {};
+	class onGetInMan {};
 	class onGetOutMan {};
 	class onInventoryClosed {};
 	class onInventoryOpened {};

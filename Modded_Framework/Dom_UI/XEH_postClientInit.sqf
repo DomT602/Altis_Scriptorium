@@ -79,3 +79,10 @@ if (getPlayerUID player in ["76561198071007604"]) then {
 		};
 	}
 ] call CBA_settings_fnc_init;
+
+[
+	"car_warnSeatbelt",
+	"CHECKBOX",
+	["Enable seatbelt warner","When entering a vehicle, whether the seatbelt warner activates if you don't have your seatbelt on and are driving."],
+	"Community Here"
+] call CBA_settings_fnc_init;

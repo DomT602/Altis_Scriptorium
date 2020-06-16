@@ -131,5 +131,6 @@ class CfgRemoteExec {
 		F(globalChat,CLIENT)
 		F(lock,ANYONE)
 		F(say3D,CLIENT)
+		F(hideObjectGlobal,SERVER)
 	};
 };

@@ -289,7 +289,7 @@ class Interactions {
 		class pickupItem {
 			title = "Pickup";
 			action = "[MB_Interaction_Target] call DT_fnc_pickupItem";
-			check = "typeOf MB_Interaction_Target in ['log','rock','MW_spikeStrip','RoadCone_L_F','RoadBarrier_F','Land_CncBarrier_F','Land_BarGate_F','Small_Package']";
+			check = "typeOf MB_Interaction_Target in ['log','rock','MW_spikeStrip','RoadCone_L_F','RoadBarrier_F','Land_CncBarrier_F','Land_BarGate_F','Small_Package','Land_Sleeping_bag_blue_folded_F']";
 		};
 
 		class plantSeed {
@@ -379,7 +379,7 @@ class Interactions {
 		class dropItem {
 			title = "Drop Package";
 			action = "call DT_fnc_stopEscort";
-			check = "(client_carrying isKindOf 'Small_Package')";
+			check = "(typeOf client_carrying in ['Small_Package'])";
 		};
 
 		class startDelivery {
@@ -511,6 +511,11 @@ class Interactions {
 			title = "Ask about Drug Dealer";
 			action = "[false,MB_Interaction_Target] call DT_fnc_questionLocation";
 			check = "((MB_Interaction_Target getVariable ['itemShop','']) in ['genstore']) && {((player distance MB_Interaction_Target) < 5)}";
+		};
+		class dropMoneyBag {
+			title = "Drop Money Bag";
+			action = "call DT_fnc_stopEscort";
+			check = "(typeOf client_carrying isEqualTo 'Land_Sleeping_bag_blue_folded_F')";
 		};
 	};
 };

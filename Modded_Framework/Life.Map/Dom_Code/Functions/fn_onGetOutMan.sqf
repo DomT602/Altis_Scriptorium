@@ -21,6 +21,10 @@ if (client_seatbelt) then {
 if (phone_charging) then {phone_charging = false};
 ["seatbelt"] call DT_fnc_updateHUDPartial;
 
+if (typeOf client_carrying isEqualTo "Land_Sleeping_bag_blue_folded_F") then {
+	[client_carrying,false] remoteExecCall ["hideObjectGlobal",2];
+};
+
 [
 	{
 		if !(currentWeapon player isEqualTo "") then {
