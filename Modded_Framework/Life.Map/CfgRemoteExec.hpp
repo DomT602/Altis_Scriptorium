@@ -59,7 +59,8 @@ class CfgRemoteExec {
 		F(DT_fnc_recieveKey,CLIENT)
 		F(DT_fnc_spikeVehicle,CLIENT)
 
-		
+
+		F(server_fnc_bankRobbery,SERVER)
 		F(server_fnc_fixGate,SERVER)
 		F(server_fnc_jailBreak,SERVER)
 		F(server_fnc_logAction,SERVER)

@@ -85,6 +85,7 @@ player addEventHandler ["Put",{_this call DT_fnc_onPutItem}];
 player addEventHandler ["HandleRating",{0}];
 player addEventHandler ["HandleScore",{false}];
 player addEventHandler ["GetOutMan",{_this call DT_fnc_onGetOutMan}];
+player addEventHandler ["GetInMan",{_this call DT_fnc_onGetInMan}];
 player addEventHandler ["Reloaded",{["reload",_this] call DT_fnc_updateHUDPartial}];
 [missionNamespace,"OnGameInterrupt",{_this call DT_fnc_escManager}] call BIS_fnc_addScriptedEventHandler;
 [missionNamespace,"arsenalOpened",{_this call DT_fnc_arsenalOpened}] call BIS_fnc_addScriptedEventHandler;
