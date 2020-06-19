@@ -464,7 +464,7 @@ class Interactions {
 		};
 		class robStore {
 			title = "Rob store";
-			action = "[MB_Interaction_Target] spawn DT_fnc_robStore";
+			action = "[MB_Interaction_Target] call DT_fnc_robStore";
 			check = "!((MB_Interaction_Target getVariable ['robStore',[]]) isEqualTo []) && {(player distance MB_Interaction_Target) < 4}";
 		};
 		class storeGarage {

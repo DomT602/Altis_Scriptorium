@@ -25,14 +25,13 @@ if (_queryResult isEqualTo "[3]") then {
 	};
 };
 
+// extDB3 returned that result is Multi-Part Message
 if (_queryResult isEqualTo "[5]") then {
-	for "_i" from 0 to 1 step 0 do { // extDB3 returned that result is Multi-Part Message
-		_queryResult = "";
-		for "_i" from 0 to 1 step 0 do {
-			private _pipe = "extDB3" callExtension format ["5:%1", _key];
-			if (_pipe isEqualTo "") exitWith {breakOut ""};
-			_queryResult = _queryResult + _pipe;
-		};
+	_queryResult = "";
+	for "_i" from 0 to 1 step 0 do {
+		private _pipe = "extDB3" callExtension format ["5:%1", _key];
+		if (_pipe isEqualTo "") exitWith {};
+		_queryResult = _queryResult + _pipe;
 	};
 };
 _queryResult = parseSimpleArray _queryResult;

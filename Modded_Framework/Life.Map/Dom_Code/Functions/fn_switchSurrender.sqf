@@ -3,20 +3,25 @@
 	Author: Dom
 	Description: Switches surrender state
 */
-
+client_surrendered = !client_surrendered;
 if (client_surrendered) then {
-	client_surrendered = false;
-	true;
-} else {
-	client_surrendered = true;
-	[] spawn {
-		while {client_surrendered} do {
+	[
+		{
+			if !(client_surrendered) exitWith {
+				[_this select 1] call CBA_fnc_removePerFrameHandler;
+				while {animationState player == "AmovPercMstpSsurWnonDnon" || animationState player == "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon"} do {
+					[player,"AmovPercMstpSsurWnonDnon_AmovPercMstpSnonWnonDnon"] remoteExecCall ["switchMove",-2];
+				};
+			};
+
+			if (player getVariable ["dead",false] || !(isNull objectParent player) || (player getVariable ["restrained",false]) || (player getVariable ["tied",false])) exitWith {
+				client_surrendered = false;
+				[_this select 1] call CBA_fnc_removePerFrameHandler;
+			};
+			
 			player playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";
-			if (player getVariable ["dead",false] || !(isNull objectParent player) || (player getVariable ["restrained",false]) || (player getVariable ["tied",false])) exitWith {client_surrendered = false};
-			uiSleep 0.1;
-		};
-		while {animationState player == "AmovPercMstpSsurWnonDnon" || animationState player == "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon"} do {
-			[player,"AmovPercMstpSsurWnonDnon_AmovPercMstpSnonWnonDnon"] remoteExecCall ["switchMove",-2];
-		};
-	};
+		},
+		0.1
+	] call CBA_fnc_addPerFrameHandler;
 };
+true

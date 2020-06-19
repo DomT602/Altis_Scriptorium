@@ -2,4 +2,5 @@
 [] spawn {
 	waitUntil {time > 0};
 	setDate (missionStart select [0,5]);
+	setTimeMultiplier 4;
 };

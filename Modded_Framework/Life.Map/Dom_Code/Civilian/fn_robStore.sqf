@@ -8,7 +8,7 @@ params [
 ];
 if (isNull _target) exitWith {};
 
-(_target getVariable ['robStore',[]]) params [
+(_target getVariable ["robStore",[]]) params [
 	["_attempts",10,[0]],
 	["_totalTime",50,[0]],
 	["_name","",[""]]
@@ -31,21 +31,31 @@ _target setVariable ["evidence",_array,true];
 private _units = ["cop"] call DT_fnc_findPlayers;
 [format["Robbery in progress at %1.",_name],"red"] remoteExecCall ["DT_fnc_notify",_units];
 
-for "_i" from 0 to _totalTime do {
-	uiSleep 1;
-	if (player getVariable ["dead",false]) exitWith {};
-	if (player distance _target >= 10 || {!isNull objectParent player} || {currentWeapon player in ["","Binocular","Rangefinder"]}) exitWith {
-		["Robbery stopped.","red"] call DT_fnc_notify;
-	};
-	if ((_i mod _attempts) isEqualTo 0) then {
-		private _vendorCash = _target getVariable ["funds",0];
-		private _extraCash = floor(_vendorCash / _attempts);
-		private _cash = _randomCash + _extraCash;
-		["cash",_cash] call DT_fnc_handleMoney;
-		_target setVariable ["funds",(_vendorCash - _extraCash) max 0,true];
-		[format["You stole $%1.",_cash],"blue",((_totalTime / _attempts) - 3)] call DT_fnc_notify;
-	};
-	if (_i isEqualTo _totalTime) then {
-		["Robbery completed.","green"] call DT_fnc_notify;
-	};
-};
+private _i = 0;
+[
+	{
+		params ["_args","_handle"];
+		_args params ["_i","_attempts","_totalTime","_target","_randomCash"];
+
+		if (player distance _target > 10 || {!isNull objectParent player || {player getVariable ["dead",false] || {currentWeapon player in ["","Binocular","Rangefinder"]}}}) exitWith {
+			["Robbery stopped.","red"] call DT_fnc_notify;
+			[_handle] call CBA_fnc_removePerFrameHandler;
+		};
+
+		if ((_i mod _attempts) isEqualTo 0) then {
+			private _vendorCash = _target getVariable ["funds",0];
+			private _extraCash = floor(_vendorCash / _attempts);
+			private _cash = _randomCash + _extraCash;
+			["cash",_cash] call DT_fnc_handleMoney;
+			_target setVariable ["funds",(_vendorCash - _extraCash) max 0,true];
+			[format["You stole $%1.",_cash],"blue",((_totalTime / _attempts) - 3)] call DT_fnc_notify;
+		};
+		if (_i isEqualTo _totalTime) then {
+			["Robbery completed.","green"] call DT_fnc_notify;
+			[_handle] call CBA_fnc_removePerFrameHandler;
+		};
+		_args set [0,(_i + 1)];
+	},
+	1,
+	[_i,_attempts,_totalTime,_target,_randomCash]
+] call CBA_fnc_addPerFrameHandler;
