@@ -16,7 +16,6 @@ private _level = player getVariable [_levelVar,0];
 private _exp = player getVariable [_expVar,0];
 _exp = _exp + _amount;
 player setVariable [_expVar,_exp,[clientOwner,2]];
-private _level = player getVariable [_levelVar,0];
 if (_level isEqualTo 50) exitWith {}; //max level
 private _nextLevel = _level + 1;
 private _nextLevelExp = getNumber(missionConfigFile >> "Skills" >> (format["Level_%1",_nextLevel]) >> "experience");

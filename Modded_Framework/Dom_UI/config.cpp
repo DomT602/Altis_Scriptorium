@@ -519,7 +519,7 @@ class RscDisplayMain
 					y="(0 * 	1.5) * 	(pixelH * pixelGrid * 2) + 	(pixelH)";
 					w="10 * 	(pixelW * pixelGrid * 2)";
 					h="1.5 * 	(pixelH * pixelGrid * 2) - 	(pixelH)";
-					onbuttonclick="['127.0.0.1','2702'] call compile preProcessFileLineNumbers '\Dom_UI\missions\fn_redirectClientToServer.sqf'";
+					onbuttonclick="connectToServer ['127.0.0.1',2702,'password']";
 				};
 				class ServerBrowser: QuickPlay
 				{
