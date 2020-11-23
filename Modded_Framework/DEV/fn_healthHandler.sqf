@@ -40,6 +40,7 @@ private _damage = round(_damage * 550);
 _blood = (_blood - _damage) max 0;
 //systemChat format["Blood damage: %1 and new blood level: %2",_damage,_blood];
 player setVariable ["blood",_blood,true];
+["blood"] call DT_fnc_updateHUDPartial;
 if (_blood isEqualTo 0 || ((player getVariable ["injuries",[]] select 0) isEqualTo 1)) then {
 	[player] call DT_fnc_onPlayerKilled;
 };
