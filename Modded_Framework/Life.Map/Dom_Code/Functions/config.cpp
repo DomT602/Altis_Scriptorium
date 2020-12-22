@@ -22,6 +22,7 @@ class Functions {
 	class findPlayers {};
 	class getItems {};
 	class handleAlcohol {};
+	class handleChatMessage {};
 	class handleDrink {};
 	class handleFood {};
 	class handleItem {};

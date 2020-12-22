@@ -7,7 +7,7 @@
 private _HUD = uiNamespace getVariable ["DT_HUD",displayNull];
 if (isNull _HUD) exitWith {};
 
-private _masks = []; //this needs to be filled in
+private _masks = ["G_Balaclava_blk","G_Balaclava_combat","G_Balaclava_lowprofile"];
 {
 	if (!(_x getVariable ["dead",false]) && {!(lineIntersects[eyePos player,eyePos _x,player,_x])}) then {
 		private _pos = visiblePosition _x;
@@ -23,7 +23,7 @@ private _masks = []; //this needs to be filled in
 		};
 
 		private _icon = "";
-		if !(player getVariable ["TFAR",true]) then {_icon = "\Dom_UI\misc\connection.paa"};
+		if !(_x getVariable ["TFAR",true]) then {_icon = "\Dom_UI\misc\connection.paa"};
 		drawIcon3D [_icon, [0,0,0,1], _pos, 1.5, 1.5, 0, _text, 1, 0.04, "PuristaBold", "center"];
 	};
 } forEach ((nearestObjects [visiblePosition player,["D_Base_Civ_2"],6]) - [player]);

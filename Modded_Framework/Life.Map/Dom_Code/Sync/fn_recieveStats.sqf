@@ -91,18 +91,9 @@ player addEventHandler ["Reloaded",{["reload",_this] call DT_fnc_updateHUDPartia
 [missionNamespace,"arsenalOpened",{_this call DT_fnc_arsenalOpened}] call BIS_fnc_addScriptedEventHandler;
 addMissionEventHandler ["Map",{_this call DT_fnc_checkMap}];
 addMissionEventHandler ["Draw3D",{call DT_fnc_updateHUD}];
+addMissionEventHandler ["HandleChatMessage",{call DT_fnc_handleChatMessage}];
 ["weapon",{["weapon",_this] call DT_fnc_updateHUDPartial}] call CBA_fnc_addPlayerEventHandler;
 ["weaponMode",{["weaponMode",_this] call DT_fnc_updateHUDPartial}] call CBA_fnc_addPlayerEventHandler;
-
-["cba_events_chatMessageSent", {
-	params ["_message"];
-	if (_message select [0,1] != "!") exitWith {};
-	if (_message == "!upt") then {
-		private _hours = floor(CBA_missionTime / 3600);
-		private _minutes = floor((CBA_missionTime mod 3600) / 60);
-		systemChat format["Server uptime: %1 hours %2 minutes.",_hours,_minutes];
-	};
-}] call CBA_fnc_addEventHandler;
 
 for "_i" from 0 to (15 - 1) do {
 	DT_notifArray pushBack ["",-1];
