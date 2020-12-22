@@ -133,7 +133,7 @@ if (_jailDetails select 0) then {
 	player setVehiclePosition [getMarkerPos "Jail_Spawn",[],0];
 	call DT_fnc_jailTimer;
 } else {
-	if !(_position isEqualTo []) then {
+	if (player distance "Default_Spawn" > 100 && {!_position isEqualTo []}) then {
 		player setVehiclePosition [_position,[],0];
 		[] spawn DT_fnc_introCamera;
 	} else {

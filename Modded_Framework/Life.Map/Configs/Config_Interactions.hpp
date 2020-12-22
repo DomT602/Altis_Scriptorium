@@ -99,7 +99,7 @@ class Interactions {
 		class gatherEvidence {
 			title = "Gather Evidence";
 			action = "[MB_Interaction_Target] call DT_fnc_gatherEvidence";
-			check = "!(MB_Interaction_Target getVariable ['evidence',[]] isEqualTo []) && ((player distance MB_Interaction_Target) < 4)";
+			check = "!(MB_Interaction_Target getVariable ['evidence',[]] isEqualTo []) && (player distance MB_Interaction_Target < 4)";
 		};
 
 		class fixGate {
@@ -124,6 +124,12 @@ class Interactions {
 			title = "Set number";
 			action = "createDialog 'DT_carNumbers'";
 			check = "!(isNull objectParent player) && {driver (vehicle player) isEqualTo player && {((typeOf vehicle player) find 'marked') != -1}}";
+		};
+
+		class checkID {
+			title = "Check ID";
+			action = "[MB_Interaction_Target] call DT_fnc_showID";
+			check = "isPlayer MB_Interaction_Target && !(MB_Interaction_Target getVariable ['dead',false]) && (player distance MB_Interaction_Target < 4)";
 		};
 	};
 
@@ -301,7 +307,7 @@ class Interactions {
 		class harvestPlant {
 			title = "Harvest Plant";
 			action = "[MB_Interaction_Target] call DT_fnc_harvestPlant";
-			check = "(typeOf MB_Interaction_Target in ['Wheat_vehicle','Oleander2','Ficus_Bush_1']) && isNull objectParent player";
+			check = "(typeOf MB_Interaction_Target in ['Wheat_vehicle','Oleander2','Ficus_Bush_1']) && isNull objectParent player && (player distance MB_Interaction_Target < 3)";
 		};
 
 		class buyBuilding {
@@ -408,8 +414,8 @@ class Interactions {
 
 		class showID {
 			title = "Show ID";
-			action = "[profileName,player getVariable ['faction','civ']] remoteExecCall ['DT_fnc_showID',MB_Interaction_Target]";
-			check = "isPlayer MB_Interaction_Target && !(MB_Interaction_Target getVariable ['dead',false])";
+			action = "[player] remoteExecCall ['DT_fnc_showID',MB_Interaction_Target]";
+			check = "isPlayer MB_Interaction_Target && !(MB_Interaction_Target getVariable ['dead',false]) && (player distance MB_Interaction_Target < 4)";
 		};
 
 		class attachTracker {

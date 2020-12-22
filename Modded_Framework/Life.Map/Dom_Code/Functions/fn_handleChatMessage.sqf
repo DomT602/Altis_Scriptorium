@@ -11,7 +11,7 @@ params [
 	["_person",objNull,[objNull]]
 ];
 if (_channel isEqualTo 16) exitWith {}; //systemChat message
-private _return = [_person getVariable ["phoneNumber","No number"],_text];
+private _return = nil;
 
 if (player isEqualTo _person) then {
 	if (_text == "!upt") then {

@@ -6281,6 +6281,60 @@ class RscTitles
 			};
 		};
 	};
+	class DT_ID
+	{
+		idd=-1;
+		duration=1e+012;
+		name="DT_ID";
+		onLoad="uiNamespace setVariable ['DT_ID',_this select 0]";
+		class controls
+		{
+			class RscFrame_1800: RscFrame
+			{
+				idc = -1;
+				x = 0.783594 * safezoneW + safezoneX;
+				y = 0.401 * safezoneH + safezoneY;
+				w = 0.190781 * safezoneW;
+				h = 0.143 * safezoneH;
+			};
+			class RscStructuredText_1100: RscStructuredText
+			{
+				idc = 1100;
+				text = ""; //--- ToDo: Localize;
+				x = 0.78875 * safezoneW + safezoneX;
+				y = 0.412 * safezoneH + safezoneY;
+				w = 0.180469 * safezoneW;
+				h = 0.022 * safezoneH;
+			};
+			class RscStructuredText_1101: RscStructuredText
+			{
+				idc = 1101;
+				text = ""; //--- ToDo: Localize;
+				x = 0.78875 * safezoneW + safezoneX;
+				y = 0.445 * safezoneH + safezoneY;
+				w = 0.180469 * safezoneW;
+				h = 0.022 * safezoneH;
+			};
+			class RscStructuredText_1102: RscStructuredText
+			{
+				idc = 1102;
+				text = ""; //--- ToDo: Localize;
+				x = 0.78875 * safezoneW + safezoneX;
+				y = 0.478 * safezoneH + safezoneY;
+				w = 0.180469 * safezoneW;
+				h = 0.022 * safezoneH;
+			};
+			class RscStructuredText_1103: RscStructuredText
+			{
+				idc = 1103;
+				text = ""; //--- ToDo: Localize;
+				x = 0.78875 * safezoneW + safezoneX;
+				y = 0.511 * safezoneH + safezoneY;
+				w = 0.180469 * safezoneW;
+				h = 0.022 * safezoneH;
+			};
+		};
+	};
 };
 
 #include "radio_ids.hpp"
