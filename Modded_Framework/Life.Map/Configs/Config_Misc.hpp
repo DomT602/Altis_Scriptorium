@@ -53,4 +53,8 @@ class Misc {
 		{{8601.07,6517.07,0.167201},142.646},
 		{{1,1,1},100}
 	};
+
+	spawnPoints[] = {
+		{"Lakeside", "Lakeside_Spawn", ""} //Location name, marker name, conditions
+	};
 };

@@ -9,6 +9,7 @@ class Functions {
 	class checkVehicle {};
 	class clickerQueue {};
 	class conditionChecker {};
+	class confirmSpawn {};
 	class countFaction {};
 	class createCamera {};
 	class createMarker {};
@@ -29,6 +30,7 @@ class Functions {
 	class handleScroll {};
 	class holster {};
 	class initCameraMenu {};
+	class initSpawnMenu {};
 	class introCamera {};
 	class lookingAt {};
 	class notify {};
@@ -50,6 +52,7 @@ class Functions {
 	class setupCamera {};
 	class setupDialog {};
 	class showNotifs {};
+	class spawnSelectionChange {};
 	class survivalEffects {};
 	class survivalLoop {};
 	class switchDispatch {};

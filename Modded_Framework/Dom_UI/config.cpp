@@ -5952,6 +5952,43 @@ class DT_carNumbers
 		};
 	};
 };
+class DT_spawnMenu
+{
+	idd=1049;
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
+	name="DT_spawnMenu";
+	movingEnable=0;
+	class controls
+	{
+		class RscListbox_1500: RscListbox
+		{
+			idc = 1500;
+			onLBSelChanged="_this call DT_fnc_spawnSelectionChanged";
+			x = "0.0153125 * safezoneW + safezoneX";
+			y = "0.258 * safezoneH + safezoneY";
+			w = "0.190781 * safezoneW";
+			h = "0.198 * safezoneH";
+		};
+		class RscMap_1200: RscMapControl
+		{
+			idc = 1200;
+			x = "0.0153125 * safezoneW + safezoneX";
+			y = "0.456 * safezoneH + safezoneY";
+			w = "0.190781 * safezoneW";
+			h = "0.286 * safezoneH";
+		};
+		class RscButton_1600: RscButtonGeneral
+		{
+			idc=-1;
+			text="Spawn";
+			onButtonClick="call DT_fnc_confirmSpawn";
+			x="0.0153125 * safezoneW + safezoneX";
+			y="0.742 * safezoneH + safezoneY";
+			w="0.190781 * safezoneW";
+			h="0.0262 * safezoneH";
+		};
+	};
+};
 class RscTitles
 {
 	class DT_Notifications

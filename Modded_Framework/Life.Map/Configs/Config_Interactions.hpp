@@ -584,7 +584,7 @@ class Medical {
 		class morphine {
 			title = "Morphine";
 			action = "call DT_fnc_giveMorphine";
-			check = "true";
+			check = "";
 		};
 		class bloodbag {
 			title = "Bloodbag";
@@ -606,7 +606,7 @@ class Medical {
 		class morphine {
 			title = "Morphine";
 			action = "call DT_fnc_giveMorphine";
-			check = "true";
+			check = "";
 		};
 		class bloodbag {
 			title = "Bloodbag";
@@ -628,7 +628,7 @@ class Medical {
 		class morphine {
 			title = "Morphine";
 			action = "call DT_fnc_giveMorphine";
-			check = "true";
+			check = "";
 		};
 		class bloodbag {
 			title = "Bloodbag";
@@ -650,7 +650,7 @@ class Medical {
 		class morphine {
 			title = "Morphine";
 			action = "call DT_fnc_giveMorphine";
-			check = "true";
+			check = "";
 		};
 		class bloodbag {
 			title = "Bloodbag";

@@ -24,7 +24,7 @@ for "_i" from _startIDC to (_startIDC + 6) do {
 private _treatments = (missionConfigFile >> "Medical" >> _selection) call BIS_fnc_getCfgSubClasses;
 {
 	private _check = (missionConfigFile >> "Medical" >> _selection >> _x >> "check") call BIS_fnc_getCfgData;
-	if (call compile _check) then {
+	if ([_check] call DT_fnc_conditionChecker) then {
 		private _action = (missionConfigFile >> "Medical" >> _selection >> _x >> "action") call BIS_fnc_getCfgData;
 		private _title = (missionConfigFile >> "Medical" >> _selection >> _x >> "title") call BIS_fnc_getCfgData;
 		_startIDC = _startIDC + 1;

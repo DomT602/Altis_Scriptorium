@@ -108,33 +108,6 @@ for "_i" from 0 to (15 - 1) do {
 	DT_notifArray pushBack ["",-1];
 };
 
-cutText ["","PLAIN",1];
-658 cutRsc ["DT_HUD","PLAIN",-1,false];
-659 cutRsc ["DT_Notifications","PLAIN"];
-
-if (_jailDetails select 0) then {
-	player setVehiclePosition [getMarkerPos "Jail_Spawn",[],0];
-	call DT_fnc_jailTimer;
-} else {
-	if !(_position isEqualTo []) then {
-		player setVehiclePosition [_position,[],0];
-	} else {
-		if (_houses isEqualTo []) then {
-			player setVehiclePosition [getMarkerPos "Lakeside_Spawn",[],0];
-		} else {
-			private _house = selectRandom _houses;
-			private _spawnPos = _house buildingPos 0;
-			if (_spawnPos isEqualTo [0,0,0]) then {_spawnPos = getPosATL _house};
-			player setVehiclePosition [_spawnPos,[],0];
-		};
-	};
-};
-
-if (_blood isEqualTo 0) then {[player] call DT_fnc_onPlayerKilled};
-//call DT_fnc_TFARcheck;
-call DT_fnc_medicalLoop;
-call DT_fnc_survivalLoop;
-
 {
 	(switch _forEachIndex do {
 		case 0: {["woodcutting",false]};
@@ -160,4 +133,30 @@ client_paycheck = switch (player getVariable ["dojRank",0]) do {
 	case 4: {2000};
 	case 5: {2500};
 };
-[] spawn DT_fnc_introCamera;
+
+cutText ["","PLAIN",1];
+658 cutRsc ["DT_HUD","PLAIN",-1,false];
+659 cutRsc ["DT_Notifications","PLAIN"];
+
+if (_jailDetails select 0) then {
+	player setVehiclePosition [getMarkerPos "Jail_Spawn",[],0];
+	call DT_fnc_jailTimer;
+} else {
+	if !(_position isEqualTo []) then {
+		player setVehiclePosition [_position,[],0];
+		[] spawn DT_fnc_introCamera;
+	} else {
+		[_houses] call DT_fnc_initSpawnMenu;
+	};
+};
+
+[
+	{
+		isNull (findDisplay 1049)
+	},
+	{
+		//call DT_fnc_TFARcheck;
+		call DT_fnc_medicalLoop;
+		call DT_fnc_survivalLoop;
+	}
+] call CBA_fnc_waitUntilAndExecute;
