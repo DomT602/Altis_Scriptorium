@@ -9,19 +9,18 @@ if (client_surrendered) then {
 		{
 			if !(client_surrendered) exitWith {
 				[_this select 1] call CBA_fnc_removePerFrameHandler;
-				while {animationState player == "AmovPercMstpSsurWnonDnon" || animationState player == "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon"} do {
-					[player,"AmovPercMstpSsurWnonDnon_AmovPercMstpSnonWnonDnon"] remoteExecCall ["switchMove",-2];
-				};
+				player playMoveNow "AmovPercMstpSsurWnonDnon_AmovPercMstpSnonWnonDnon"
 			};
 
 			if (player getVariable ["dead",false] || !(isNull objectParent player) || (player getVariable ["restrained",false]) || (player getVariable ["tied",false])) exitWith {
 				client_surrendered = false;
 				[_this select 1] call CBA_fnc_removePerFrameHandler;
 			};
-			
-			player playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";
+			if (animationState player != "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon") then {
+				player playMove "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";
+			};
 		},
-		0.1
+		0.01
 	] call CBA_fnc_addPerFrameHandler;
 };
 true

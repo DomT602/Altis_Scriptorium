@@ -13,7 +13,7 @@ private _faction = _unit getVariable ["faction","civ"];
 private _rank = switch _faction do {
 	case "civ": {player getVariable ["dojRank",0]};
 	case "cop": {player getVariable ["copRank",0]};
-	case "cop": {player getVariable ["medicRank",0]};
+	case "medic": {player getVariable ["medicRank",0]};
 };
 
 private _text = if (_faction isEqualTo "civ" && {_rank isEqualTo 0}) then {

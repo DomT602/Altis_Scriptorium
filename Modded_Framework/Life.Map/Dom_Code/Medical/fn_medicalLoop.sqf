@@ -20,7 +20,13 @@
 			_blood = (_blood - _bleeding) max 0;
 			player setVariable ["blood",_blood,true];
 			["blood"] call DT_fnc_updateHUDPartial;
+			if (isNull objectParent player && {CBA_missionTime > client_bloodTime}) then {
+				private _bloodSplat = createSimpleObject ["a3\characters_f\data\slop_00.p3d",getPosWorld player];
+				_bloodSplat setDir random 360;
+				client_bloodTime = CBA_missionTime + 10;
+				[{deleteVehicle _this},_bloodSplat,60] call CBA_fnc_waitAndExecute;
 		};
+		
 		if (_blood < 1 || (getOxygenRemaining player) < 0.05) exitWith {
 			[player] call DT_fnc_onPlayerKilled;
 		};
