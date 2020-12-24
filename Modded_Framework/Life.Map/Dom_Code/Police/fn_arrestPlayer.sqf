@@ -27,16 +27,17 @@ _notes = (_notes splitString "&") joinString "and";
 if !([_notes] call DT_fnc_checkText) exitWith {};
 
 closeDialog 0;
-player addItem 'D_Handcuffs_i';
+player addItem "D_Handcuffs_i";
 private _time = _minutes * 60;
 
-//private _cells = [["A01",[0,0,0]],["A02",[0,0,0]]]; //cell name, location
-//(selectRandom _cells) params ["_cell"];
+private _cellInfo = call DT_fnc_assignCell;
+_cellInfo params ["_cellRef","_pos","_dir"];
 
-_unit setVariable ["jailStats",[true,_crimes,_time,""],true];
+_unit setVariable ["jailStats",[true,_crimes,_time,_cellRef],true];
 _unit forceAddUniform "U_C_WorkerCoveralls";
 
-_unit setPosATL (getMarkerPos "Jail_Spawn");
+_unit setPosATL _pos;
+_unit setDir _dir;
 _unit setVariable ["restrained",false,true];
 
 [true] remoteExecCall ["DT_fnc_jailTimer",_unit];

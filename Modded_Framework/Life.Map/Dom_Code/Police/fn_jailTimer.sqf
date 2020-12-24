@@ -19,6 +19,9 @@ if (_initial) then {
 
 		if (_time isEqualTo 0 || (player distance (getMarkerPos "Jail") > 110)) exitWith {
 			[_this select 1] call CBA_fnc_removePerFrameHandler;
+			private _cellRef = _variable select 3;
+			jail_cellsUsed deleteAt (jail_cellsUsed find _cellRef);
+			publicVariable jail_cellsUsed;
 			player setVariable ["jailStats",[false,"",0,""],true];
 			(_HUD displayCtrl 1514) ctrlSetStructuredText parseText "";
 			(_HUD displayCtrl 1513) ctrlSetStructuredText parseText "";

@@ -32,7 +32,6 @@ player setVariable ["medicRank",_medicLevel,true];
 player setVariable ["dojRank",_dojLevel,true];
 
 client_licenses = _licenses;
-player setVariable ["jailStats",_jailDetails,true];
 
 if (_gear isEqualTo []) then {
 	call DT_fnc_defaultLoadout;
@@ -94,6 +93,9 @@ addMissionEventHandler ["Draw3D",{call DT_fnc_updateHUD}];
 addMissionEventHandler ["HandleChatMessage",{call DT_fnc_handleChatMessage}];
 ["weapon",{["weapon",_this] call DT_fnc_updateHUDPartial}] call CBA_fnc_addPlayerEventHandler;
 ["weaponMode",{["weaponMode",_this] call DT_fnc_updateHUDPartial}] call CBA_fnc_addPlayerEventHandler;
+//["cameraView",{["cameraView",_this] call DT_fnc_updateHUDPartial}] call CBA_fnc_addPlayerEventHandler;
+//["featureCamera",{}] call CBA_fnc_addPlayerEventHandler;
+//["visionMode",{}] call CBA_fnc_addPlayerEventHandler;
 
 for "_i" from 0 to (15 - 1) do {
 	DT_notifArray pushBack ["",-1];
@@ -129,10 +131,15 @@ cutText ["","PLAIN",1];
 658 cutRsc ["DT_HUD","PLAIN",-1,false];
 659 cutRsc ["DT_Notifications","PLAIN"];
 
-if (_jailDetails select 0) then {
-	player setVehiclePosition [getMarkerPos "Jail_Spawn",[],0];
+_jailDetails params ["_arrested","_crimes","_time"];
+if (_arrested) then {
+	private _cellInfo = call DT_fnc_assignCell;
+	_cellInfo params ["_cellRef","_pos"];
+	player setVariable ["jailStats",[_arrested,_crimes,_time,_cellRef],true];
+	player setVehiclePosition [_pos,[],0];
 	call DT_fnc_jailTimer;
 } else {
+	player setVariable ["jailStats",_jailDetails,true];
 	if (player distance "Default_Spawn" > 100 && {!_position isEqualTo []}) then {
 		player setVehiclePosition [_position,[],0];
 		[] spawn DT_fnc_introCamera;

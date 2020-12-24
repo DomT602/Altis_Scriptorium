@@ -1,6 +1,7 @@
 class Police {
 	file = "Dom_Code\Police";
 	class arrestPlayer {};
+	class assignCell {};
 	class beLoaded {};
 	class createBOLO {};
 	class createWarrant {};

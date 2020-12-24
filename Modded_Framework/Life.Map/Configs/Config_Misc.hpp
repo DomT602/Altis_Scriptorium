@@ -55,6 +55,11 @@ class Misc {
 	};
 
 	spawnPoints[] = {
-		{"Lakeside", "Lakeside_Spawn", ""} //Location name, marker name, conditions
+		{"Lakeside","Lakeside_Spawn",""} //Location name, marker name, conditions
+	};
+
+	jail_cells[] = {
+		{"A1",{0,0,0},70}, //Cell reference, positionATL, direction
+		{"A2",{0,0,0},70}
 	};
 };

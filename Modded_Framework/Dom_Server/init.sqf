@@ -33,6 +33,8 @@ jail_bombPlanted = false;
 publicVariable "jail_bombPlanted";
 jail_deviceSet = false;
 publicVariable "jail_deviceSet";
+jail_cellsUsed = [];
+publicVariable "jail_cellsUsed";
 threat_level = _threat;
 publicVariable "threat_level";
 gov_mayor = _mayor;

@@ -25,6 +25,11 @@ if (_unit getVariable ["restrained",false] || _unit getVariable ["tied",false]) 
 };
 
 private _jailDetails = _unit getVariable ["jailStats",[false,"",0,""]];
+if (_jailDetails select 0) then {
+	private _cellRef = _jailDetails select 3;
+	jail_cellsUsed deleteAt (jail_cellsUsed find _cellRef);
+	publicVariable jail_cellsUsed;
+};
 private _side = _unit getVariable ["faction",""];
 private _cash = _unit getVariable ["cash",0];
 private _bank = _unit getVariable ["bank",0];
