@@ -5989,6 +5989,58 @@ class DT_spawnMenu
 		};
 	};
 };
+class DT_createID
+{
+	idd=1050;
+	onLoad = "[_this select 0] call DT_fnc_setupDialog";
+	name="DT_createID";
+	movingEnable=0;
+	class controls
+	{
+		class RscFrame_1800: RscFrame
+		{
+			idc = -1;
+			x = 0.371094 * safezoneW + safezoneX;
+			y = 0.401 * safezoneH + safezoneY;
+			w = 0.257813 * safezoneW;
+			h = 0.209 * safezoneH;
+		};
+		class RscEdit_1400: RscEdit
+		{
+			idc = 1400;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.412 * safezoneH + safezoneY;
+			w = 0.2475 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class RscEdit_1401: RscEdit
+		{
+			idc = 1401;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.456 * safezoneH + safezoneY;
+			w = 0.2475 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class RscEdit_1402: RscEdit
+		{
+			idc = 1402;
+			x = 0.37625 * safezoneW + safezoneX;
+			y = 0.5 * safezoneH + safezoneY;
+			w = 0.2475 * safezoneW;
+			h = 0.033 * safezoneH;
+		};
+		class RscButtonMenu_2400: RscButtonGeneral
+		{
+			idc = -1;
+			text="Create";
+			onButtonClick="[] spawn DT_fnc_createID";
+			x = 0.463906 * safezoneW + safezoneX;
+			y = 0.544 * safezoneH + safezoneY;
+			w = 0.0670312 * safezoneW;
+			h = 0.0262 * safezoneH;
+		};
+	};
+};
 class RscTitles
 {
 	class DT_Notifications

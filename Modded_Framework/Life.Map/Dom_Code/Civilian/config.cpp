@@ -1,8 +1,10 @@
 class Civilian {
 	file = "Dom_Code\Civilian";
 	class catchFish {};
+	class createID {};
 	class endDelivery {};
 	class initBombMenu {};
+	class initIDMenu {};
 	class knockedDown {};
 	class knockOut {};
 	class questionLocation {};

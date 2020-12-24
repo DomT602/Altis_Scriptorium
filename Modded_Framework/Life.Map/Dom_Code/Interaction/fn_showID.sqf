@@ -4,24 +4,33 @@
 	Description: Shows the ID of the sender
 */
 params [
-	["_unit",objNull,[objNull]]
+	["_data",objNull,[objNull,[]]]
 ];
 
-private _name = name _unit;
-private _faction = _unit getVariable ["faction","civ"];
+private _name = "";
+private _text = "";
+private _company = "";
 
-private _rank = switch _faction do {
-	case "civ": {player getVariable ["dojRank",0]};
-	case "cop": {player getVariable ["copRank",0]};
-	case "medic": {player getVariable ["medicRank",0]};
-};
+if (_data isEqualType objNull) then {
+	private _faction = _data getVariable ["faction","civ"];
 
-private _text = if (_faction isEqualTo "civ" && {_rank isEqualTo 0}) then {
-	"Resident";
+	private _rank = switch _faction do {
+		case "civ": {player getVariable ["dojRank",0]};
+		case "cop": {player getVariable ["copRank",0]};
+		case "medic": {player getVariable ["medicRank",0]};
+	};
+
+	_text = if (_faction isEqualTo "civ" && {_rank isEqualTo 0}) then {
+		"Resident";
+	} else {
+		[_faction,_rank,(_data getVariable ["department",0])] call DT_fnc_rankName;
+	};
 } else {
-	[_faction,_rank,(_unit getVariable ["department",0])] call DT_fnc_rankName;
+	(profileNamespace getVariable ["DT_fakeID",[]]) params ["_fakeName","_fakeOccupation","_fakeCompany"];
+	_name = _fakeName;
+	_text = _fakeOccupation;
+	_company = _fakeCompany;
 };
-private _company = _unit getVariable ["company",""];
 
 private _fnc_showDetails = {
 	params ["_name","_text","_company"];

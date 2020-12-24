@@ -418,6 +418,18 @@ class Interactions {
 			check = "isPlayer MB_Interaction_Target && !(MB_Interaction_Target getVariable ['dead',false]) && (player distance MB_Interaction_Target < 4)";
 		};
 
+		class showFakeID {
+			title = "Show ID";
+			action = "[(profileNamespace getVariable ['DT_fakeID',[]])] remoteExecCall ['DT_fnc_showID',MB_Interaction_Target]";
+			check = "!(profileNamespace getVariable ['DT_fakeID',[]] isEqualTo []) && isPlayer MB_Interaction_Target && !(MB_Interaction_Target getVariable ['dead',false]) && (player distance MB_Interaction_Target < 4)";
+		};
+
+		class makeFakeID {
+			title = "Create Fake ID";
+			action = "[MB_Interaction_Target] call DT_fnc_initIDMenu";
+			check = "MB_Interaction_Target isEqualTo black_market_dealer && ((player distance MB_Interaction_Target) < 4)";
+		};
+
 		class attachTracker {
 			title = "Attach tracker";
 			action = "[MB_Interaction_Target] call DT_fnc_attachGPS";
