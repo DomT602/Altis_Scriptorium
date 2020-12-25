@@ -12,6 +12,8 @@ private _text = "";
 private _company = "";
 
 if (_data isEqualType objNull) then {
+	_name = profileName;
+	_company = player getVariable ["company",""];
 	private _faction = _data getVariable ["faction","civ"];
 
 	private _rank = switch _faction do {

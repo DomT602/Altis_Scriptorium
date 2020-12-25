@@ -57,6 +57,7 @@
 		call server_fnc_updateTemperature;
 		_i = _i + 1;
 		_arguments set [0,_i];
+		diag_log format ["Server FPS:%1",diag_fps];
 	},
 	900,
 	[0]
