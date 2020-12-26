@@ -39,7 +39,7 @@ if (phone_settings select 1) then {
 	[player,["buzz",50,1]] remoteExecCall ["say3D",-2];
 };
 
-if (isNull (findDisplay 1040)) then {
+if !(isNull (findDisplay 1035)) then {
 	private _pos = uiNamespace getVariable ["height",0];
 	private _display = findDisplay 1035;
 	private _controlGroup = _display displayCtrl 2300;

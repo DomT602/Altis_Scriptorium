@@ -8,6 +8,7 @@ params [
 	["_message","",[""]]
 ];
 if (_brief isEqualTo "" || {_message isEqualTo ""}) exitWith {};
+if !(phone_showPopup) exitWith {[format["You have recieved a message from %1.",_brief]] call DT_fnc_notify};
 
 private _fnc_showDetails = {
 	params ["_brief","_message"];

@@ -86,3 +86,10 @@ if (getPlayerUID player in ["76561198071007604"]) then {
 	["Enable seatbelt warner","When entering a vehicle, whether the seatbelt warner activates if you don't have your seatbelt on and are driving."],
 	"Community Here"
 ] call CBA_settings_fnc_init;
+
+[
+	"phone_showPopup",
+	"CHECKBOX",
+	["Enable phone popup","When recieving a text message, whether the text graphically pops up on your HUD."],
+	"Community Here"
+] call CBA_settings_fnc_init;
