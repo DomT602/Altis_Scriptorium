@@ -38,8 +38,9 @@ private _fnc_showDetails = {
 	params ["_name","_text","_company"];
 	655 cutRsc ["DT_ID","PLAIN"];
 	private _display = uiNamespace getVariable ["DT_ID",displayNull];
-	(_display displayCtrl 1100) ctrlSetText _name;
-	(_display displayCtrl 1101) ctrlSetText _text;
+	(_display displayCtrl 1100) ctrlSetText format ["Name: %1",_name];
+	(_display displayCtrl 1101) ctrlSetText format ["Occupation: %1",_text];
+	if (_company != "") then {_company = format ["Company: %1",_company]};
 	(_display displayCtrl 1102) ctrlSetText _company;
 	[
 		{

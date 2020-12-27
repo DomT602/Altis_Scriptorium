@@ -17,4 +17,4 @@ private _plantName = switch active_seed do {
 player playMoveNow "DT_farming";
 [format["You planted some %1.",_plantName],"green"] call DT_fnc_notify;
 player removeItem active_seed;
-[getPosATL player,active_seed] remoteExecCall ["server_fnc_plantSeed",2];
+[getPosASL player,active_seed] remoteExecCall ["server_fnc_plantSeed",2];

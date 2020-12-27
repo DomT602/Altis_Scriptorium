@@ -6341,49 +6341,46 @@ class RscTitles
 		onLoad="uiNamespace setVariable ['DT_ID',_this select 0]";
 		class controls
 		{
-			class RscFrame_1800: RscFrame
+			class RscPicture_1200: RscPicture
 			{
 				idc = -1;
-				x = 0.783594 * safezoneW + safezoneX;
-				y = 0.401 * safezoneH + safezoneY;
-				w = 0.190781 * safezoneW;
-				h = 0.143 * safezoneH;
+				text = "\Dom_UI\misc\IDCard.paa";
+				x = 0.690781 * safezoneW + safezoneX;
+				y = 0.258 * safezoneH + safezoneY;
+				w = 0.319688 * safezoneW;
+				h = 0.539 * safezoneH;
 			};
-			class RscStructuredText_1100: RscStructuredText
+			class RscStructuredText_1100: DT_RscStructuredText
 			{
 				idc = 1100;
 				text = ""; //--- ToDo: Localize;
-				x = 0.78875 * safezoneW + safezoneX;
-				y = 0.412 * safezoneH + safezoneY;
-				w = 0.180469 * safezoneW;
-				h = 0.022 * safezoneH;
+				size="(((((safezoneW / safezoneH) min 1.2) / 1.2) / 35) * 1)";
+				x = 0.819688 * safezoneW + safezoneX;
+				y = 0.456 * safezoneH + safezoneY;
+				w = 0.144375 * safezoneW;
+				h = 0.032 * safezoneH;
+				class Attributes
+				{
+					font="PuristaLight";
+					color="#000000";
+					align="left";
+					shadow=1;
+				};
 			};
-			class RscStructuredText_1101: RscStructuredText
+			class RscStructuredText_1101: RscStructuredText_1100
 			{
 				idc = 1101;
-				text = ""; //--- ToDo: Localize;
-				x = 0.78875 * safezoneW + safezoneX;
-				y = 0.445 * safezoneH + safezoneY;
-				w = 0.180469 * safezoneW;
-				h = 0.022 * safezoneH;
+				y = 0.489 * safezoneH + safezoneY;
 			};
-			class RscStructuredText_1102: RscStructuredText
+			class RscStructuredText_1102: RscStructuredText_1100
 			{
 				idc = 1102;
-				text = ""; //--- ToDo: Localize;
-				x = 0.78875 * safezoneW + safezoneX;
-				y = 0.478 * safezoneH + safezoneY;
-				w = 0.180469 * safezoneW;
-				h = 0.022 * safezoneH;
+				y = 0.522 * safezoneH + safezoneY;
 			};
-			class RscStructuredText_1103: RscStructuredText
+			class RscStructuredText_1103: RscStructuredText_1100
 			{
 				idc = 1103;
-				text = ""; //--- ToDo: Localize;
-				x = 0.78875 * safezoneW + safezoneX;
-				y = 0.511 * safezoneH + safezoneY;
-				w = 0.180469 * safezoneW;
-				h = 0.022 * safezoneH;
+				y = 0.555 * safezoneH + safezoneY;
 			};
 		};
 	};

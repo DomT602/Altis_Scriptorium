@@ -9,16 +9,17 @@ params [
 ];
 
 (switch _plant do {
-	case "Wheat_seed_i": {["Wheat_vehicle",300,1.2]};
-	case "Opium_seed_i": {["Oleander2",15,1.4]};
-	case "Olive_seed_i": {["Ficus_Bush_1",300,2.7]};
-}) params ["_className","_time","_height"];
+	case "Wheat_seed_i": {["Wheat_model",300,1.2]};
+	case "Opium_seed_i": {["A3\plants_f\Bush\b_NeriumO2s_F.p3d",3,1.2]};
+	case "Olive_seed_i": {["A3\plants_f\Bush\b_FicusC1s_F.p3d",300,1]};
+	case "": {["A3\plants_f\Bush\b_NeriumO2s_white_F.p3d",15,1.2]};
+}) params ["_modelPath","_time","_height"];
 
 _time = _time + floor(random(50));
-private _plant = createVehicle [_className,(_position vectorAdd [0,0,(_height * -1)]),[],0,"CAN_COLLIDE"];
+private _plant = createSimpleObject [_modelPath,(_position vectorAdd [0,0,(_height * -0.5)])];
 
 private _growthTime = _time / 10;
-private _growthHeight = _height / 10;
+private _growthHeight = _height / 7;
 
 server_crops pushBack [_plant,CBA_missionTime,_growthTime,_growthHeight];
 
@@ -39,7 +40,7 @@ if (farming_handle isEqualTo -1) then {
 						private _growthPercent = _object getVariable ["growthPercent",0];
 						_growthPercent = _growthPercent + 10;
 						_object setVariable ["growthPercent",_growthPercent,true];
-						_object setPosATL ((getPosATL _object) vectorAdd [0,0,_partHeight]);
+						_object setPosASL ((getPosASL _object) vectorAdd [0,0,_partHeight]);
 						if (_growthPercent isEqualTo 100) then {
 							_toDelete pushBack _forEachIndex;
 						} else {
