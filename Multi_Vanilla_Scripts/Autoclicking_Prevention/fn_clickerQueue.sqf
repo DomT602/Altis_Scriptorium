@@ -19,7 +19,7 @@ if (life_clickQueue isEqualTo []) then {
 			call compile _x;
 		} forEach _clickQueue;
 
-		uiSleep 0.1;
+		uiSleep 0.01;
 	};
 };
 life_clickQueue pushBackUnique _action;
