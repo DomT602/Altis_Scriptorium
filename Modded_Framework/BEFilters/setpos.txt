@@ -1,2 +1,0 @@
-//regex, add stretcher
-7 "" !D_Base_Civ_2
